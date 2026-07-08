@@ -1,0 +1,51 @@
+{
+  "config": {
+    "model": "claude-sonnet-5",
+    "maxRawItems": 60,
+    "maxCandidates": 15,
+    "seenLimit": 8000,
+    "gdeltTimespan": "24h",
+    "arxivDays": 3,
+    "hnDays": 2
+  },
+  "domainMap": "Center: Building / Space / Store (mass-market retailer physical stores & real estate, next decade, esp. AI). Branches: Labor/Work & Operations (frontline TMs, work tasks); Supply Chain (storage & receiving, fulfilment, delivery format, goods transportation); Infrastructure (utilities: energy/water/compute, parking, location, layout/format); Construction (3D printing methods, materials, trade workers + equipment); Retail Industry (competitors); Tech (AI, physical AI, robotics, computer vision, automation); People & Human System (shopping/commerce, transaction, inspiration & discovery, connection & community, experience, transportation & mobility, demographic shifts, migration); Policy/Regulation/Finance (zoning, insurance, regions); Sustainability & Environment (heat, climate events, circular/regenerative).",
+  "gdeltQueries": [
+    "supermarket robot store",
+    "retail zoning conversion housing",
+    "store insurance climate closure",
+    "3D printed retail construction",
+    "supermarket microgrid energy grid",
+    "dark store delivery zoning",
+    "mall data center conversion",
+    "retail heat cooling extreme weather",
+    "humanoid robot store retail",
+    "store parking conversion reuse"
+  ],
+  "arxivQueries": [
+    "all:\"retail environment\" AND all:robot",
+    "all:\"built environment\" AND all:\"machine learning\" AND all:building",
+    "all:vehicle-to-grid AND all:parking",
+    "all:\"computer vision\" AND all:checkout"
+  ],
+  "openalexQueries": [
+    "retail store automation building design",
+    "adaptive reuse big box retail conversion",
+    "urban logistics dark store zoning"
+  ],
+  "hnQueries": [
+    "grocery robot",
+    "retail automation",
+    "big box conversion",
+    "store closure data center",
+    "humanoid retail"
+  ],
+  "rssFeeds": [
+    {"name": "Dezeen", "url": "https://www.dezeen.com/feed/", "steepHint": "Social"},
+    {"name": "Construction Dive", "url": "https://www.constructiondive.com/feeds/news/", "steepHint": "Technological"},
+    {"name": "Retail Dive", "url": "https://www.retaildive.com/feeds/news/", "steepHint": "Economic"},
+    {"name": "Grocery Dive", "url": "https://www.grocerydive.com/feeds/news/", "steepHint": "Economic"},
+    {"name": "Smart Cities Dive", "url": "https://www.smartcitiesdive.com/feeds/news/", "steepHint": "Political"},
+    {"name": "IEEE Spectrum Robotics", "url": "https://spectrum.ieee.org/feeds/topic/robotics.rss", "steepHint": "Technological"}
+  ],
+  "relevanceKeywords": ["store", "retail", "supermarket", "grocery", "mall", "shopping", "big box", "warehouse", "fulfillment", "building", "construction", "zoning", "parking", "real estate", "robot", "automation", "checkout", "delivery", "insurance", "heat", "climate", "energy", "microgrid", "data center", "housing conversion", "frontline", "labor", "commercial property"]
+}

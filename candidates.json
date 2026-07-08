@@ -1,0 +1,511 @@
+{
+ "generated": "2026-07-07T12:00:00Z",
+ "batch": "2026-07-07 (first scan, manual)",
+ "candidates": [
+  {
+   "title": "The store has no agent-facing interface",
+   "shift": "Commerce protocols (Google UCP, OpenAI/Stripe ACP) are standardizing how AI agents read catalogs and transact online — but nothing equivalent makes a physical store legible to agents: hours, live stock, wayfinding, pickup handoff. The absence is the signal.",
+   "ai_read": "Tentative: an absence signal. Machine-readable standards are racing ahead for digital retail while the building itself stays illegible to the agents increasingly directing shoppers to it. Whoever specs the 'agent interface layer' of a store first defines it. No one has named this gap.",
+   "evidence": "UCP/ACP adoption (Instacart, DoorDash, Shopify, Etsy) is widely covered; searches for a physical-store equivalent standard return nothing coherent. Adjacency: Absence — the named neighbors are the protocols; the gap is uncovered.",
+   "url": "https://www.ekamoira.com/blog/how-ai-agents-are-changing-e-commerce-in-2026-open-protocols-explained-complete-guide",
+   "source": "ekamoira.com (protocol survey)",
+   "date": "2026-06-01",
+   "srctype": "import",
+   "swipes": "Innovations",
+   "steep": "Technological",
+   "steep2": "Economic",
+   "classification": "Weak signal",
+   "themes": [
+    "agent-as-customer",
+    "machine-legible store"
+   ],
+   "keywords": [
+    "agentic commerce",
+    "UCP",
+    "ACP",
+    "store interface"
+   ]
+  },
+  {
+   "title": "Frontline retail work harvested as humanoid training data",
+   "shift": "Lawson convenience-store staff in Japan wear hand-tracking cameras so their shelf-work becomes training data for humanoid robots; the same firm harvests warehouse workers' motions at CJ Group in Korea. Wage work is quietly becoming data work.",
+   "ai_read": "Tentative: a reframing. The covered story is 'robots are coming for retail jobs'; the un-named shift is that the job's last human phase is producing the corpus that automates it — with no framework for consent, compensation, or ownership of motion data. Labor branch, directly.",
+   "evidence": "Euronews report (2026-05-14) on the Korean hotel + Lawson + CJ data collection. Thin: one outlet, no consumer press, no coined term for worker-motion-as-training-asset.",
+   "url": "https://www.euronews.com/next/2026/05/14/inside-the-korean-hotel-training-humanoid-robots-with-cameras-on-workers-hands",
+   "source": "Euronews Next",
+   "date": "2026-05-14",
+   "srctype": "import",
+   "swipes": "Writings",
+   "steep": "Technological",
+   "steep2": "Social",
+   "classification": "Weak signal",
+   "themes": [
+    "labor-as-training-corpus"
+   ],
+   "keywords": [
+    "hand tracking",
+    "embodied AI",
+    "Lawson",
+    "motion data"
+   ]
+  },
+  {
+   "title": "'Delivery-only retail' becoming its own zoning category",
+   "shift": "Long Beach is amending its zoning code to define and regulate e-commerce/delivery-only retailers as a distinct land use — the legal definition of 'store' is starting to split into customer-facing and machine-facing species.",
+   "ai_read": "Tentative: one city, in-process, barely covered. If 'store' bifurcates in land-use law, every format decision inherits a regulatory fork — including hybrid formats (micro-fulfillment in the back) that could be caught on the wrong side of the line.",
+   "evidence": "Long Beach Development Services code-amendment page; dark-store zoning friction covered only in trade/logistics blogs. One instance; no coined national narrative yet.",
+   "url": "https://longbeach.gov/lbds/planning/e-commerce-delivery-only-retail-zoning-code-amendment/",
+   "source": "City of Long Beach",
+   "date": "2026-05-01",
+   "srctype": "import",
+   "swipes": "Pitches",
+   "steep": "Political",
+   "steep2": "Economic",
+   "classification": "Weak signal",
+   "themes": [
+    "legal definition of store"
+   ],
+   "keywords": [
+    "zoning",
+    "dark store",
+    "delivery-only retail"
+   ]
+  },
+  {
+   "title": "Cities begin regulating the *appearance* of retail aliveness",
+   "shift": "NYC started enforcing a storefront-gate transparency law (see-through gates so streets don't read as dead after hours); Chicago fines vacant storefronts in occupied buildings. Municipalities are treating visible retail life as a regulated public good.",
+   "ai_read": "Tentative: a reframing. Individually these are small compliance stories; together they hint that the storefront's civic function (legibility, safety, street life) is being pried apart from its commercial function — a wedge toward 'the store owes the street something' obligations landing on formats and facades.",
+   "evidence": "CBS New York on Local Law 75 enforcement from 2026-07-01; Chicago vacant-storefront ordinance in effect since 2024. Two instances, different mechanisms; no one has connected them.",
+   "url": "https://www.cbsnews.com/newyork/news/nyc-storefront-roll-down-gate-transparency/",
+   "source": "CBS New York",
+   "date": "2026-05-14",
+   "srctype": "import",
+   "swipes": "Writings",
+   "steep": "Social",
+   "steep2": "Political",
+   "classification": "Weak signal",
+   "themes": [
+    "storefront as public good"
+   ],
+   "keywords": [
+    "storefront transparency",
+    "vacant storefront",
+    "street life"
+   ],
+   "sources": [
+    {
+     "name": "Chicago Association of REALTORS — dark store issue summary",
+     "url": "https://chicagorealtor.com/advocacy/advocacy-resources/vacant-storefront-dark-store-issue-summary/",
+     "steep": "Political",
+     "date": "2026-01-01"
+    }
+   ]
+  },
+  {
+   "title": "Big-box parking as a dispatchable grid asset — un-named aggregation site",
+   "shift": "V2G legislation is live in 8 US states and pilots aggregate homes and school buses, but nobody has named the obvious biggest aggregation site: big-box parking fields combining fleet EVs, customer chargers, and solar canopies as one dispatchable resource.",
+   "ai_read": "Tentative: an absence. Academic work exists on coordinated parking-lot V2G, and every element is separately proven — yet 'the store's parking field as a power plant' has no pilot, no name, no coverage. If it lands, parking stops being a zoning liability and becomes a revenue asset, inverting the parking-minimum debate.",
+   "evidence": "IEA V2G analysis; 8-state legislative activity; arXiv work on coordinated AV parking for V2G; absence of any retailer-branded parking-aggregation pilot in coverage.",
+   "url": "https://arxiv.org/pdf/1701.01527",
+   "source": "arXiv (coordinated parking V2G)",
+   "date": "2026-06-01",
+   "srctype": "import",
+   "swipes": "Statistics",
+   "steep": "Technological",
+   "steep2": "Economic",
+   "classification": "Weak signal",
+   "themes": [
+    "parking as asset",
+    "store as power plant"
+   ],
+   "keywords": [
+    "V2G",
+    "microgrid",
+    "solar canopy",
+    "fleet charging"
+   ],
+   "sources": [
+    {
+     "name": "Microgrid Knowledge — NYC V2G pilot",
+     "url": "https://www.microgridknowledge.com/electric-vehicles/article/33016981/nyc-vehicle-to-grid-pilot-shows-how-evs-as-mobile-microgrids-can-earn-income-for-drivers-and-fleets",
+     "steep": "Economic",
+     "date": "2026-03-01"
+    }
+   ]
+  },
+  {
+   "title": "Retail property coverage quietly shifting from replacement cost to actual cash value",
+   "shift": "Trade guidance for 2026 notes retail property policies increasingly offer only actual-cash-value payouts instead of full replacement cost in climate-exposed markets — meaning a destroyed store may never be economically rebuildable on its own insurance.",
+   "ai_read": "Tentative: second-order off the well-covered insurance crisis. The counted story is premiums and nonrenewals; the undrawn implication is a class of stores becoming depreciating, one-disaster assets — which should feed siting, format lifespan, and build-cost decisions long before any nonrenewal letter arrives.",
+   "evidence": "JMG and Skyscraper Insurance 2026 retail-coverage guidance (niche trade sources); mainstream coverage stays at the premiums/nonrenewal layer. Adjacency: Second-order — the ACV-for-retail consequence is not being written about.",
+   "url": "https://jmg.com/new-insurance-regulations-for-retail-businesses-in-2026-to-know/",
+   "source": "JMG Insurance (trade)",
+   "date": "2026-04-01",
+   "srctype": "import",
+   "swipes": "Writings",
+   "steep": "Economic",
+   "steep2": "Environmental",
+   "classification": "Weak signal",
+   "themes": [
+    "insurability as siting filter"
+   ],
+   "keywords": [
+    "actual cash value",
+    "replacement cost",
+    "climate risk",
+    "commercial property"
+   ],
+   "sources": [
+    {
+     "name": "Skyscraper Insurance — Retail Insurance 2026",
+     "url": "https://skyscraperinsurance.com/retail-insurance-2026-how-to-protect-your-store-inventory-and-revenue/",
+     "steep": "Economic",
+     "date": "2026-03-01"
+    }
+   ]
+  },
+  {
+   "title": "Robot-readiness standards exist for warehouses — and stop at the store door",
+   "shift": "A whole 'robotics-ready facility design' services market has formed for fulfillment centers (floors, aisles, digital twins), but there is no equivalent design standard for customer-facing stores — mixed human-robot public space has no spec.",
+   "ai_read": "Tentative: an absence. The named, counted thing is warehouse robot-readiness. The gap: when robots cross into the salesfloor, nobody has defined what a robot-ready *store* is (floor tolerances, machine wayfinding, human-robot aisle codes). Store prototypes being designed today will inherit whatever spec appears.",
+   "evidence": "Future Market Insights sizes robotics-ready fulfillment design at $5.7B for 2026; searches for a customer-facing-store equivalent return nothing. Adjacency: Absence — warehouse spec named, store spec missing.",
+   "url": "https://www.futuremarketinsights.com/reports/robotics-ready-fulfillment-center-design-and-integration-services-market",
+   "source": "Future Market Insights",
+   "date": "2026-06-01",
+   "srctype": "import",
+   "swipes": "Statistics",
+   "steep": "Technological",
+   "classification": "Weak signal",
+   "themes": [
+    "machine-legible store",
+    "robot-ready design"
+   ],
+   "keywords": [
+    "robotics-ready",
+    "facility design",
+    "digital twin",
+    "salesfloor robots"
+   ]
+  },
+  {
+   "title": "New big-box stores are crossing into water-utility territory",
+   "shift": "San Francisco requires all new developments ≥100k sq ft to run onsite water reuse (greywater/rainwater/blackwater); Colorado authorized statewide greywater in new construction from Jan 2026. A supercenter-scale store is now, legally, a small water utility in some jurisdictions.",
+   "ai_read": "Tentative: second-order. The rules are named but aimed at offices/housing; nobody has written about what 100k-sq-ft thresholds mean for big-box prototypes — onsite treatment rooms, ops staffing, and the store as neighborhood water infrastructure during drought or disaster.",
+   "evidence": "SF Health Code Article 12C (100k sq ft threshold); Colorado HB24-1362 effective 2026-01-01; no retail-sector coverage of the implication. Adjacency: Second-order.",
+   "url": "https://epiccleantec.com/onsite-water-reuse-regulations-by-state",
+   "source": "Epic Cleantec (state-by-state survey)",
+   "date": "2026-05-01",
+   "srctype": "import",
+   "swipes": "Pitches",
+   "steep": "Environmental",
+   "steep2": "Political",
+   "classification": "Weak signal",
+   "themes": [
+    "store as utility"
+   ],
+   "keywords": [
+    "greywater",
+    "onsite reuse",
+    "Article 12C",
+    "water"
+   ]
+  },
+  {
+   "title": "Robots riding passenger transit to restock stores",
+   "shift": "Shenzhen ran robots boarding metro trains to restock station convenience stores — passenger infrastructure doubling as a freight layer, and store siting following machine reach rather than truck docks.",
+   "ai_read": "Tentative: covered as a gee-whiz story in 2025, but the reframing is un-named: transit networks as last-meter logistics for retail changes where small formats can live (anywhere a machine can ride). Watch whether any second city copies it.",
+   "evidence": "Shenzhen pilot (41 robots, metro restocking) reported 2025; resurfacing in 2026 retail-robotics roundups. Single instance of the *transit-as-freight* pattern; the event itself had press.",
+   "url": "https://ashleydudarenok.com/robots-in-retail-stores/",
+   "source": "China retail-robotics roundup",
+   "date": "2026-04-01",
+   "srctype": "import",
+   "swipes": "Innovations",
+   "steep": "Technological",
+   "steep2": "Economic",
+   "classification": "Weak signal",
+   "themes": [
+    "machine mobility",
+    "micro-format siting"
+   ],
+   "keywords": [
+    "Shenzhen",
+    "metro robots",
+    "restocking",
+    "last meter"
+   ]
+  },
+  {
+   "title": "As-of-right housing conversion puts a residual-value floor under every store",
+   "shift": "LA's citywide Adaptive Reuse Ordinance (effective Feb 2026) makes buildings 15+ years old convertible to housing by right. A store's exit value now includes a housing option — which changes what it's worth designing for convertibility from day one.",
+   "ai_read": "Tentative: the ordinance is named and covered (demotion-bar hit) — but the retail-strategy implication is the un-covered locus: financeable design-for-conversion, 15-year design horizons, and lease-vs-own math all shift when conversion is by-right. No retail press has connected this.",
+   "evidence": "LA City Planning ARO press release (Feb 2026); BOMA coverage of citywide expansion. Adjacency: Second-order — regulation named, store-format consequence undrawn.",
+   "url": "https://planning.lacity.gov/odocument/0fa826b2-52c7-4ab7-ad29-e6edefed4493/Adaptive_Reuse_Ordinance_Feb_2026.pdf",
+   "source": "LA City Planning",
+   "date": "2026-02-01",
+   "srctype": "import",
+   "swipes": "Pitches",
+   "steep": "Political",
+   "steep2": "Economic",
+   "classification": "Weak signal",
+   "themes": [
+    "design for conversion",
+    "store residual value"
+   ],
+   "keywords": [
+    "adaptive reuse",
+    "as-of-right",
+    "zoning",
+    "housing conversion"
+   ],
+   "sources": [
+    {
+     "name": "BOMA on the Frontline",
+     "url": "https://www.bomaonthefrontline.com/2026/01/02/la-expands-adaptive-reuse-ordinance-beyond-high-density-hubs/",
+     "steep": "Economic",
+     "date": "2026-01-02"
+    }
+   ]
+  },
+  {
+   "title": "Monolithic 3D-printed stores may be un-convertible by design",
+   "shift": "As Walmart scales 3D-printed concrete expansions (12+ projects in 2026), the resulting monolithic structures cut build cost 15% — but may be the least adaptable retail shells ever built, just as conversion option-value (housing, reuse) starts pricing into store real estate.",
+   "ai_read": "Tentative: second-order tension nobody has drawn — the printing story is celebrated for speed/cost while the convertibility logic (see LA ARO) runs the opposite direction. If both hold, printed stores trade capex today for stranded shells later. This contradicts the celebrated narrative, which is why it's worth holding.",
+   "evidence": "Construction Dive / Facilities Dive on Alquist-Walmart scaling; cost/waste stats counted. The adaptability conflict appears nowhere in coverage. Adjacency: Second-order.",
+   "url": "https://www.constructiondive.com/news/walmart-3d-print-alquist-retailers/806851/",
+   "source": "Construction Dive",
+   "date": "2026-06-01",
+   "srctype": "import",
+   "swipes": "Innovations",
+   "steep": "Technological",
+   "steep2": "Economic",
+   "classification": "Weak signal",
+   "themes": [
+    "convertibility vs printed shells"
+   ],
+   "keywords": [
+    "3D concrete printing",
+    "Alquist",
+    "monolithic",
+    "adaptive reuse"
+   ]
+  },
+  {
+   "title": "Stranded automation real estate: what happens to robot-shaped buildings",
+   "shift": "Kroger's public retreat from its Ocado robotics bet leaves highly specialized automated fulfillment centers — buildings shaped around machines — with no obvious second use. A new vacancy class is forming: automation white elephants.",
+   "ai_read": "Tentative: the retreat itself is covered; the un-named piece is the real-estate residue. Robot-shaped buildings resist both retail reuse and housing conversion. If automation bets keep whipsawing, 'machine-specific vacancy' becomes a category — and an argument for automation-agnostic shells.",
+   "evidence": "HN discussion of Kroger robotics retreat (Dec 2025); no coverage found of the CFC-reuse problem as a class. Adjacency: Second-order.",
+   "url": "https://news.ycombinator.com/item?id=46199411",
+   "source": "Hacker News",
+   "date": "2025-12-01",
+   "srctype": "import",
+   "swipes": "Superhits & outliers",
+   "steep": "Economic",
+   "steep2": "Technological",
+   "classification": "Weak signal",
+   "themes": [
+    "automation whiplash",
+    "machine-specific vacancy"
+   ],
+   "keywords": [
+    "Kroger",
+    "Ocado",
+    "CFC",
+    "stranded assets"
+   ]
+  },
+  {
+   "title": "One humanoid *is* the store: the single-robot-operable format",
+   "shift": "Hong Kong's Galbot-run convenience store is designed so one humanoid is the entire workforce. The covered story is the robot; the un-covered story is the store — a format whose layout, assortment, and hours are shaped around what one machine can reach and do.",
+   "ai_read": "Tentative: heavy press on the robot (demotion-bar hit on the event) — but 'single-robot-operable' as a *format discipline* (aisle geometry, planogram simplification, 24/7 economics) has no name and no analysis. That's the piece that would change store design.",
+   "evidence": "SCMP, Interesting Engineering, ynetnews on the Hung Hom pilot (2026). Beijing deployment as second instance. Adjacency: Reframing — event named, format logic unexamined.",
+   "url": "https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3356255/hong-kong-open-first-convenience-store-operated-humanoid-robot-ai-push",
+   "source": "South China Morning Post",
+   "date": "2026-06-15",
+   "srctype": "import",
+   "swipes": "Innovations",
+   "steep": "Technological",
+   "classification": "Weak signal",
+   "themes": [
+    "machine-legible store",
+    "micro-format"
+   ],
+   "keywords": [
+    "Galbot",
+    "humanoid",
+    "convenience store",
+    "store format"
+   ],
+   "sources": [
+    {
+     "name": "Interesting Engineering",
+     "url": "https://interestingengineering.com/ai-robotics/hong-kong-humanoid-robot-convenience-store",
+     "steep": "Technological",
+     "date": "2026-06-15"
+    }
+   ]
+  },
+  {
+   "title": "Stores quietly enrolled as public cooling infrastructure — with no framework",
+   "shift": "2026 heat plans (NYC Local Law 128 annual cooling-center plans, Phoenix 24/7 respite, LA County cooling mandates for housing) still lean on public buildings — while in practice people default to malls and supermarkets in heat waves. Retail is becoming de-facto civic cooling infrastructure with no designation, standard, or compensation.",
+   "ai_read": "Tentative: an absence. The named things are public cooling-center programs; the gap is any framework for the private stores that actually absorb the load — liability, hours obligations, energy cost, design (seating? water?). First jurisdiction to formalize 'retail cooling partner' status changes store civic role.",
+   "evidence": "NYC LL128 cooling-center plan (May 2026); Phoenix 2026 heat plan; LA County 82°F rental mandate. No source found addressing retail's informal role. Adjacency: Absence.",
+   "url": "https://www.nyc.gov/assets/em/downloads/pdf/local_law_reports/ll85_ll128_cooling_center_report_2026.pdf",
+   "source": "NYC Emergency Management",
+   "date": "2026-05-01",
+   "srctype": "import",
+   "swipes": "Pitches",
+   "steep": "Environmental",
+   "steep2": "Social",
+   "classification": "Weak signal",
+   "themes": [
+    "store as civic infrastructure",
+    "heat"
+   ],
+   "keywords": [
+    "cooling center",
+    "extreme heat",
+    "resilience hub"
+   ]
+  },
+  {
+   "title": "In-store compute as a leasable utility",
+   "shift": "Edge-AI workloads hit an inflection in stores in 2026, and dead retail is being converted to data centers — the thinner idea in between: operating stores selling surplus rack space/compute as a colocation product while still trading as stores.",
+   "ai_read": "Tentative: adjacent narratives are forming fast ('store as infrastructure' is already being written), so this may demote quickly. The specific un-instantiated piece is the store as compute *landlord* — mixed retail+colocation operating model. Flagged: coverage medium, keep only if the specific model stays un-named.",
+   "evidence": "Shopify/Scale Computing on edge inflection; datacenterrealestate.com on retail conversions; malls.com piece already naming 'store as infrastructure' (narrative forming — demotion risk noted).",
+   "url": "https://www.malls.com/store-as-infrastructure-retail-media-edge-ai-space-scarcity/",
+   "source": "Malls.com",
+   "date": "2026-05-01",
+   "srctype": "import",
+   "swipes": "Writings",
+   "steep": "Technological",
+   "steep2": "Economic",
+   "classification": "Weak signal",
+   "themes": [
+    "store as utility",
+    "compute"
+   ],
+   "keywords": [
+    "edge computing",
+    "colocation",
+    "retail media",
+    "data center"
+   ],
+   "sources": [
+    {
+     "name": "Data Center Real Estate — retail conversions",
+     "url": "https://www.datacenterrealestate.com/news/how-malls-and-big-box-stores-are-becoming-data-center-real-estate",
+     "steep": "Economic",
+     "date": "2026-04-01"
+    }
+   ]
+  },
+  {
+   "title": "DEMOTED → Context: climate insurance retreat from commercial property",
+   "shift": "Insurers raising premiums, cutting coverage, and exiting climate-exposed markets — now with $112.7B insured US losses (2024) and full academic/policy coverage.",
+   "ai_read": "Demote: counted (loss statistics), mainstream + academic coverage (Yale LJ, Brookings, Deloitte), analyst-named. Trend layer — hold as Context; the weak-signal locus is the ACV shift candidate, filed separately.",
+   "evidence": "Yale Law Journal essay; Brookings; Deloitte; CAP.",
+   "url": "https://yalelawjournal.org/essay/the-uninsurable-future-the-climate-threat-to-property-insurance-and-how-to-stop-it",
+   "source": "Yale Law Journal",
+   "date": "2026-03-01",
+   "srctype": "import",
+   "swipes": "Writings",
+   "steep": "Economic",
+   "steep2": "Environmental",
+   "classification": "Trend",
+   "themes": [
+    "insurability"
+   ],
+   "keywords": [
+    "climate risk",
+    "nonrenewal",
+    "premiums"
+   ]
+  },
+  {
+   "title": "DEMOTED → Context: agentic commerce reshaping retail traffic",
+   "shift": "AI-sourced retail traffic up 393% YoY with better conversion; protocols standardizing; store visits turning mission-based.",
+   "ai_read": "Demote: coined name ('agentic commerce'), quantified (Adobe Analytics), wall-to-wall vendor and analyst coverage. Trend layer — Context. The weak-signal locus is the physical store's missing agent interface, filed separately.",
+   "evidence": "Adobe Q1 2026 data via CRE analysis; commercetools/MetaRouter stat roundups.",
+   "url": "https://www.theaiconsultingnetwork.com/blog/adobe-q1-2026-ai-retail-traffic-393-percent-cre-investors",
+   "source": "AI Consulting Network (Adobe data)",
+   "date": "2026-04-01",
+   "srctype": "import",
+   "swipes": "Statistics",
+   "steep": "Technological",
+   "steep2": "Economic",
+   "classification": "Trend",
+   "themes": [
+    "agent-as-customer"
+   ],
+   "keywords": [
+    "agentic commerce",
+    "AI traffic",
+    "conversion"
+   ]
+  },
+  {
+   "title": "DEMOTED → Context: 3D-printed retail construction scaling",
+   "shift": "Alquist printing 12+ Walmart and other retail buildings in 2026; costs and waste counted; mainstream tech and construction press.",
+   "ai_read": "Demote: mainstream press, quantified results, commercial scaling — early-indicator/trend layer, not a weak signal. The weak-signal locus (printed shells vs convertibility) is filed separately.",
+   "evidence": "Tom's Hardware, Construction Dive, PRNewswire, Equipment World.",
+   "url": "https://www.tomshardware.com/3d-printing/your-walmart-might-be-3d-printed-firm-building-more-than-a-dozen-3d-printed-walmart-expansions-alquist-sells-superstore-on-3d-concrete-printing-robots",
+   "source": "Tom's Hardware",
+   "date": "2026-06-01",
+   "srctype": "import",
+   "swipes": "Innovations",
+   "steep": "Technological",
+   "classification": "Trend",
+   "themes": [
+    "construction methods"
+   ],
+   "keywords": [
+    "3D printing",
+    "Alquist",
+    "Walmart"
+   ]
+  },
+  {
+   "title": "DEMOTED → Context: biometric checkout retreat (Amazon One phase-out)",
+   "shift": "Amazon pulling palm-pay from 500+ locations by June 2026 after shopper indifference and privacy backlash; Whole Foods dropping it.",
+   "ai_read": "Demote: mainstream coverage, named event, legislative attention already attached. Hold in Context as a *counter-trend marker* — frictionless-checkout enthusiasm has a ceiling, which matters for transaction-zone design assumptions.",
+   "evidence": "American Banker; RetailWire; national coverage of the phase-out.",
+   "url": "https://www.americanbanker.com/payments/news/the-future-of-palm-biometrics-after-amazons-pullback",
+   "source": "American Banker",
+   "date": "2026-02-15",
+   "srctype": "import",
+   "swipes": "Entrants & exits",
+   "steep": "Social",
+   "steep2": "Technological",
+   "classification": "Trend",
+   "themes": [
+    "checkout",
+    "privacy"
+   ],
+   "keywords": [
+    "Amazon One",
+    "palm payment",
+    "biometrics"
+   ]
+  },
+  {
+   "title": "DEMOTED → Context: 2026 store-closure wave",
+   "shift": "Coresight projects 7,900 US closures vs 5,500 openings in 2026; footprint rationalization continuing.",
+   "ai_read": "Demote: counted, tracked, analyst-owned. Pure trend layer — Context for ambient awareness on the Retail Industry branch.",
+   "evidence": "Coresight via Abasto and trade roundups.",
+   "url": "https://abasto.com/en/news/u-s-grocery-store-closures-set-to-reshape-2026/",
+   "source": "Abasto / Coresight",
+   "date": "2026-01-15",
+   "srctype": "import",
+   "swipes": "Statistics",
+   "steep": "Economic",
+   "classification": "Trend",
+   "themes": [
+    "footprint rationalization"
+   ],
+   "keywords": [
+    "store closures",
+    "Coresight"
+   ]
+  }
+ ]
+}

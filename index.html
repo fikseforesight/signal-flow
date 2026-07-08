@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signal Flow</title>
+<style>
+  :root{
+    --bg:#f6f7f9; --panel:#ffffff; --ink:#1d2430; --muted:#6b7480; --line:#e4e8ed;
+    --accent:#3b6fd4; --accent-soft:#eaf0fb;
+    --pos:#1f9d6b; --neg:#d2553f; --zero:#8a93a0;
+    --pending:#b8860b; --context:#8a93a0; --core:#2f7d54;
+    --shadow:0 1px 3px rgba(20,30,50,.08),0 6px 24px rgba(20,30,50,.06);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  h1,h2,h3{margin:0}
+  a{color:var(--accent)}
+  button{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:8px;padding:8px 12px}
+  button:hover{border-color:#cfd6de}
+  button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  button.primary:hover{background:#3463bf}
+  button.ghost{background:transparent;border-color:transparent;color:var(--muted)}
+  button.small{padding:4px 10px;font-size:13px}
+  input,select,textarea{font:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 10px;width:100%}
+  textarea{resize:vertical;min-height:64px}
+  label{display:block;font-size:12px;font-weight:600;color:var(--muted);margin:0 0 4px}
+  .wrap{max-width:1120px;margin:0 auto;padding:20px}
+  header.app{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+  header.app .brand h1{font-size:22px;letter-spacing:-.2px}
+  header.app .brand p{margin:2px 0 0;color:var(--muted);font-size:13px}
+  .stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 14px;box-shadow:var(--shadow)}
+  .stat b{font-size:20px;display:block;line-height:1.1}
+  .stat span{font-size:12px;color:var(--muted)}
+  .stat.week b{color:var(--accent)}
+  /* quick add */
+  .quickadd{display:flex;gap:8px;flex-wrap:wrap;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px;box-shadow:var(--shadow);margin-bottom:14px}
+  .quickadd input{flex:1;min-width:200px}
+  /* tabs */
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+  .tabs button{border-radius:999px;padding:6px 14px;font-size:13.5px}
+  .tabs button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  .tabs button .n{opacity:.75;font-weight:400;margin-left:4px}
+  .toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px;box-shadow:var(--shadow);margin-bottom:14px}
+  .toolbar .grow{flex:1;min-width:160px}
+  .toolbar select{width:auto}
+  .list{display:flex;flex-direction:column;gap:10px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);cursor:pointer;transition:border-color .12s}
+  .card:hover{border-color:#cdd6e2}
+  .card .top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+  .card h3{font-size:16px;letter-spacing:-.1px}
+  .card .shift{color:var(--muted);font-size:14px;margin:4px 0 8px}
+  .airead{background:#fbf6ea;border:1px solid #efe3c2;border-radius:10px;padding:8px 12px;font-size:13.5px;margin:6px 0 8px}
+  .airead b{color:#9a6f00;font-size:11.5px;text-transform:uppercase;letter-spacing:.4px;display:block;margin-bottom:2px}
+  .badges{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+  .badge{font-size:11.5px;font-weight:600;border-radius:999px;padding:3px 9px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+  .badge.grey{background:#eef1f4;color:var(--muted)}
+  .badge.status-Pending{background:#fbf1d8;color:#9a6f00}
+  .badge.status-Context{background:#eef1f4;color:#6b7480}
+  .badge.status-Core{background:#e2f3e9;color:#226a45}
+  .badge.driver{background:#f3e8fd;color:#7b3fc4}
+  .badge.recur{background:#e2eefb;color:#2a5aa8}
+  .impact{font-weight:700;border-radius:8px;padding:3px 9px;font-size:13px;white-space:nowrap}
+  .impact.pos{background:#e2f3e9;color:var(--pos)} .impact.neg{background:#fbe7e2;color:var(--neg)} .impact.zero{background:#eef1f4;color:var(--zero)}
+  .empty{text-align:center;color:var(--muted);padding:48px 20px;background:var(--panel);border:1px dashed var(--line);border-radius:12px}
+  .toast{position:fixed;bottom:20px;right:20px;background:var(--ink);color:#fff;padding:12px 18px;border-radius:10px;box-shadow:0 8px 30px rgba(10,20,40,.35);font-size:14px;z-index:99;opacity:0;transition:opacity .3s;pointer-events:none}
+  .toast.show{opacity:1}
+  /* modal */
+  .scrim{position:fixed;inset:0;background:rgba(15,22,35,.45);display:none;align-items:flex-start;justify-content:center;padding:24px;overflow:auto;z-index:50}
+  .scrim.open{display:flex}
+  .modal{background:var(--panel);border-radius:16px;box-shadow:0 20px 60px rgba(10,20,40,.3);width:100%;max-width:760px;padding:0;overflow:hidden}
+  .modal header{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line)}
+  .modal .body{padding:18px 20px;max-height:72vh;overflow:auto}
+  .modal footer{display:flex;justify-content:space-between;gap:8px;padding:14px 20px;border-top:1px solid var(--line);background:#fbfcfd}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .grid .full{grid-column:1 / -1}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+  fieldset{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0}
+  fieldset legend{font-size:12px;font-weight:700;color:var(--muted);padding:0 6px}
+  .tests label{display:flex;gap:8px;align-items:flex-start;font-weight:400;color:var(--ink);font-size:13.5px;margin:6px 0;cursor:pointer}
+  .tests input{width:auto;margin-top:3px}
+  .hint{font-size:12px;color:var(--muted);margin-top:4px}
+  .row-sep{height:1px;background:var(--line);margin:16px 0}
+  .srcrow{display:grid;grid-template-columns:1.2fr 2fr .9fr .9fr auto;gap:6px;margin:6px 0;align-items:center}
+  .srcrow button{padding:6px 9px}
+  .report pre{white-space:pre-wrap;background:#fbfcfd;border:1px solid var(--line);border-radius:10px;padding:14px;font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;max-height:50vh;overflow:auto}
+  .importopt{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px}
+  .importopt h3{font-size:15px;margin-bottom:4px}
+  .importopt p{margin:0 0 10px;font-size:13.5px;color:var(--muted)}
+  @media(max-width:680px){.grid,.grid3{grid-template-columns:1fr}.srcrow{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="app">
+    <div class="brand">
+      <h1>Signal Flow</h1>
+      <p>AI-augmented weak-signal scanning — you hold the judgment. Library saved in this browser. <span id="feedStatus"></span></p>
+    </div>
+    <div class="badges">
+      <button class="ghost" onclick="exportJSON()">⬇ Backup (JSON)</button>
+      <button class="ghost" onclick="openImport()">⬆ Import</button>
+      <button class="ghost" onclick="exportCSV()">CSV</button>
+      <button onclick="openReport()">📄 Weekly report</button>
+      <button class="primary" onclick="openForm()">+ Add signal</button>
+    </div>
+  </header>
+
+  <div class="quickadd">
+    <input id="qa-input" placeholder="Quick add — paste a URL (or a note) and press Enter…" onkeydown="if(event.key==='Enter')quickAdd()">
+    <button class="primary" onclick="quickAdd()">→ Queue</button>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="tabs" id="tabs"></div>
+
+  <div class="toolbar">
+    <input class="grow" id="search" placeholder="Search title, what's changing, tags, AI read…" oninput="render()">
+    <select id="f-class" onchange="render()"><option value="">All types</option><option>Trend</option><option>Megatrend</option><option>Weak signal</option><option>Wild card</option><option>Hype</option></select>
+    <select id="f-steep" onchange="render()"><option value="">All STEEP+D</option><option>Social</option><option>Technological</option><option>Economic</option><option>Environmental</option><option>Political</option><option>Demographic</option></select>
+    <select id="f-maturity" onchange="render()"><option value="">All maturity</option><option>Signal</option><option>Early indicator</option><option>Trigger</option></select>
+    <select id="f-sort" onchange="render()"><option value="new">Newest</option><option value="impact">|Impact|</option><option value="title">Title</option></select>
+  </div>
+
+  <div class="list" id="list"></div>
+</div>
+
+<input type="file" id="importFileReplace" accept="application/json" style="display:none" onchange="importReplace(event)">
+<input type="file" id="importFileMerge" accept="application/json" style="display:none" onchange="importMerge(event)">
+<input type="file" id="importFileRaindrop" accept=".csv,text/csv" style="display:none" onchange="importRaindrop(event)">
+
+<!-- Editor modal -->
+<div class="scrim" id="scrim">
+  <div class="modal">
+    <header>
+      <h2 id="formTitle">Add signal</h2>
+      <button class="ghost" onclick="closeForm()">✕</button>
+    </header>
+    <div class="body">
+      <div class="grid">
+        <div class="full"><label>Title *</label><input id="i-title" placeholder="Short name for the signal"></div>
+        <div class="full"><label>What's changing (the shift, 1–2 sentences)</label><textarea id="i-shift" placeholder="Describe the underlying shift, not just the event"></textarea></div>
+        <div class="full" id="aiReadWrap" style="display:none">
+          <label>AI read — tentative suggestion, not a verdict</label>
+          <textarea id="i-airead" placeholder=""></textarea>
+        </div>
+        <div class="full" id="evidenceWrap" style="display:none">
+          <label>Evidence (from the scan)</label>
+          <textarea id="i-evidence"></textarea>
+        </div>
+        <div><label>Source name</label><input id="i-source" placeholder="e.g., Dezeen, arXiv, a newsletter"></div>
+        <div><label>Author</label><input id="i-author"></div>
+        <div class="full"><label>Link / URL</label><input id="i-url" placeholder="https://"></div>
+        <div><label>Date of item</label><input id="i-date" type="date"></div>
+        <div><label>Source type</label><select id="i-srctype"><option>manual</option><option>link</option><option>gdelt</option><option>rss</option><option>import</option></select></div>
+        <div><label>SWIPES type (where it came from)</label><select id="i-swipes"><option value="">—</option><option>Statistics</option><option>Writings</option><option>Innovations</option><option>Pitches</option><option>Entrants &amp; exits</option><option>Superhits &amp; outliers</option></select></div>
+        <div><label>Horizon</label><select id="i-horizon"><option value="">—</option><option value="H1">H1 (near)</option><option value="H2">H2 (mid)</option><option value="H3">H3 (long)</option></select></div>
+      </div>
+
+      <div class="row-sep"></div>
+
+      <fieldset>
+        <legend>Other places this shift has shown up (powers cross-domain recurrence)</legend>
+        <div id="srcList"></div>
+        <button class="small" onclick="addSrcRow()">+ Add another source</button>
+        <p class="hint">Recurrence is flagged automatically when sources span 2+ STEEP+D domains or 2+ unconnected outlets. Recurrence <b>raises</b> salience (test 4) — it is never de-duplicated away.</p>
+      </fieldset>
+
+      <div class="row-sep"></div>
+
+      <fieldset class="tests">
+        <legend>The 5 weak-signal tests (check the ones it passes)</legend>
+        <label><input type="checkbox" id="t1"> 1. Would this <b>surprise</b> most people who know the topic?</label>
+        <label><input type="checkbox" id="t2"> 2. Is it <b>weird</b> — does it break the usual pattern?</label>
+        <label><input type="checkbox" id="t3"> 3. Is it <b>real and happening now</b> (not a forecast, not already everywhere)?</label>
+        <label><input type="checkbox" id="t4"> 4. Is it showing up in <b>more than one unrelated place</b>?</label>
+        <label><input type="checkbox" id="t5"> 5. Does it hint at a <b>bigger shift underneath</b> (values, power, systems)?</label>
+      </fieldset>
+
+      <div class="row-sep"></div>
+
+      <div class="grid3">
+        <div><label>Classification</label><select id="i-class"><option value="">—</option><option>Trend</option><option>Megatrend</option><option>Weak signal</option><option>Wild card</option><option>Hype</option></select></div>
+        <div><label>Impact (−3 … +3, signed)</label><select id="i-impact"><option value="">—</option><option>-3</option><option>-2</option><option>-1</option><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
+        <div><label>Maturity</label><select id="i-maturity"><option>Signal</option><option>Early indicator</option><option>Trigger</option></select></div>
+        <div><label>STEEP+D origin (primary)</label><select id="i-steep"><option value="">—</option><option>Social</option><option>Technological</option><option>Economic</option><option>Environmental</option><option>Political</option><option>Demographic</option></select></div>
+        <div><label>STEEP+D (secondary)</label><select id="i-steep2"><option value="">—</option><option>Social</option><option>Technological</option><option>Economic</option><option>Environmental</option><option>Political</option><option>Demographic</option></select></div>
+        <div><label>Status</label><select id="i-status"><option>Pending</option><option>Core</option><option>Context</option></select></div>
+        <div><label>Likelihood (0–5)</label><select id="i-likelihood"><option value="">—</option><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+        <div><label>Credibility (0–5, context only)</label><select id="i-cred"><option value="">—</option><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+        <div><label>Provenance</label><select id="i-prov"><option>human-confirmed</option><option>ai-suggested</option></select></div>
+      </div>
+
+      <div class="row-sep"></div>
+      <div class="grid">
+        <div class="full"><label>Decision-at-stake (one decision this could change)</label><textarea id="i-decision" placeholder="If you can't name a decision this could change, it may belong in Context, not the core library."></textarea></div>
+        <div><label>Theme / cluster tags (comma-separated)</label><input id="i-themes" placeholder="e.g., premiumization, ghost stores"></div>
+        <div><label>Keywords (comma-separated)</label><input id="i-keywords"></div>
+        <div><label>Lens — retail category (optional)</label><input id="i-lensretail" placeholder="e.g., beauty, household"></div>
+        <div><label>Lens — shopper segment / VERGE (optional)</label><input id="i-lensseg" placeholder="e.g., value, caretaker / Consume"></div>
+      </div>
+      <p class="hint" id="driverHint"></p>
+      <p class="hint" id="confirmHint"></p>
+    </div>
+    <footer>
+      <button class="ghost" id="deleteBtn" onclick="deleteCurrent()" style="color:var(--neg)">Delete</button>
+      <div style="display:flex;gap:8px;margin-left:auto">
+        <button onclick="closeForm()">Cancel</button>
+        <button id="confirmCoreBtn" onclick="confirmToCore()" style="display:none;border-color:var(--core);color:var(--core)">✓ Confirm → Core</button>
+        <button class="primary" onclick="saveSignal()">Save signal</button>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<!-- Import modal -->
+<div class="scrim" id="importScrim">
+  <div class="modal">
+    <header>
+      <h2>Import</h2>
+      <button class="ghost" onclick="closeImport()">✕</button>
+    </header>
+    <div class="body">
+      <div class="importopt">
+        <h3>Merge AI scan candidates (JSON)</h3>
+        <p>Append candidates from an AI scan session to your <b>pending queue</b>, marked <i>ai-suggested</i>. Items whose URL you already have are <b>not dropped</b> — the new source is appended to the existing record and its recurrence flag raised. Format: see <code>Scan-Candidate-Format.md</code> in the project folder.</p>
+        <button onclick="document.getElementById('importFileMerge').click()">Choose JSON…</button>
+      </div>
+      <div class="importopt">
+        <h3>Import Raindrop bookmarks (CSV)</h3>
+        <p>Bring in your Raindrop library export. Each bookmark becomes a <b>pending</b> record (title, excerpt → what's-changing draft, tags → keywords, folder → theme). Exact URL duplicates are skipped.</p>
+        <button onclick="document.getElementById('importFileRaindrop').click()">Choose CSV…</button>
+      </div>
+      <div class="importopt">
+        <h3>Restore from backup (JSON)</h3>
+        <p><b>Replaces</b> everything with a Signal Flow backup file. Back up first if unsure.</p>
+        <button onclick="document.getElementById('importFileReplace').click()">Choose backup…</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Report modal -->
+<div class="scrim" id="reportScrim">
+  <div class="modal">
+    <header>
+      <h2>Weekly report</h2>
+      <button class="ghost" onclick="closeReport()">✕</button>
+    </header>
+    <div class="body report">
+      <div class="grid" style="margin-bottom:12px">
+        <div><label>Include</label><select id="r-scope"><option value="7">Confirmed in last 7 days</option><option value="14">Last 14 days</option><option value="all-core">All core signals</option></select></div>
+        <div><label>&nbsp;</label><button onclick="buildReport()">Generate</button></div>
+      </div>
+      <pre id="reportOut">Choose a window and click Generate.</pre>
+    </div>
+    <footer>
+      <div style="margin-left:auto;display:flex;gap:8px">
+        <button onclick="copyReport()">Copy</button>
+        <button class="primary" onclick="downloadReport()">Download .md</button>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<script>
+const KEY='signalFlowData_v1';
+let signals=load();
+let editingId=null;
+let currentTab=localStorage.getItem('signalFlowTab')||'queue';
+
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||[]}catch(e){return[]}}
+function save(){localStorage.setItem(KEY,JSON.stringify(signals))}
+function uid(){return (crypto.randomUUID?crypto.randomUUID():'id'+Date.now()+Math.random().toString(16).slice(2))}
+function esc(s){return (s==null?'':String(s)).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function isDriver(s){return (s.classification==='Weak signal'||s.classification==='Wild card') && s.impact!=='' && s.impact!=null && Math.abs(+s.impact)>=2}
+function daysAgo(iso){if(!iso)return Infinity;return (Date.now()-new Date(iso).getTime())/86400000}
+function hostOf(u){try{return new URL(u).hostname.replace(/^www\./,'')}catch(e){return ''}}
+function normUrl(u){
+  if(!u)return '';
+  try{const x=new URL(u.trim());
+    let p=x.pathname.replace(/\/+$/,'');
+    return (x.hostname.replace(/^www\./,'')+p).toLowerCase();
+  }catch(e){return u.trim().toLowerCase()}
+}
+function hasRecurrence(s){
+  const srcs=(s.sources||[]);
+  if(!srcs.length)return false;
+  const steeps=new Set(), hosts=new Set();
+  if(s.steep)steeps.add(s.steep);
+  if(s.url)hosts.add(hostOf(s.url)); else if(s.source)hosts.add(s.source.toLowerCase());
+  srcs.forEach(x=>{
+    if(x.steep)steeps.add(x.steep);
+    const h=x.url?hostOf(x.url):(x.name||'').toLowerCase();
+    if(h)hosts.add(h);
+  });
+  return steeps.size>=2||hosts.size>=2;
+}
+
+/* ---------- seed example (first run only) ---------- */
+if(!localStorage.getItem(KEY)){
+  signals=[{
+    id:uid(), title:'Retailers converting dead anchor stores into micro-fulfillment + housing',
+    shift:'The big-box "anchor" is being re-cast from a sales floor into a logistics + mixed-use asset — the store as infrastructure, not destination.',
+    source:'(sample — delete me)', author:'', url:'', date:'',
+    srctype:'manual', swipes:'Innovations', horizon:'H2',
+    tests:[true,true,true,false,true], classification:'Weak signal', impact:'2', maturity:'Early indicator',
+    steep:'Economic', steep2:'Environmental', status:'Core', likelihood:'3', cred:'3', prov:'human-confirmed',
+    decision:'Whether to design next-gen store formats as convertible/mixed-use from day one.',
+    themes:'store-as-infrastructure, mixed-use', keywords:'micro-fulfillment, anchor stores, adaptive reuse',
+    lensretail:'cross-category', lensseg:'', sources:[], aiRead:'', evidence:'',
+    createdAt:new Date().toISOString(), confirmedAt:new Date().toISOString()
+  }];
+  save();
+}
+
+/* ---------- tabs ---------- */
+const TABS=[
+  {id:'queue',   label:'Review queue', f:s=>s.status==='Pending'},
+  {id:'core',    label:'Core library', f:s=>s.status==='Core'},
+  {id:'watch',   label:'Watchlist',    f:s=>s.status==='Core'&&(s.maturity==='Early indicator'||s.maturity==='Trigger')},
+  {id:'drivers', label:'Driver pool',  f:s=>isDriver(s)&&s.status==='Core'},
+  {id:'recur',   label:'Recurrence',   f:s=>hasRecurrence(s)},
+  {id:'context', label:'Context',      f:s=>s.status==='Context'},
+  {id:'all',     label:'All',          f:s=>true},
+];
+function setTab(id){currentTab=id;localStorage.setItem('signalFlowTab',id);render()}
+function renderTabs(){
+  document.getElementById('tabs').innerHTML=TABS.map(t=>{
+    const n=signals.filter(t.f).length;
+    return `<button class="${t.id===currentTab?'on':''}" onclick="setTab('${t.id}')">${t.label}<span class="n">${n}</span></button>`;
+  }).join('');
+}
+
+/* ---------- render ---------- */
+function render(){
+  const q=(document.getElementById('search').value||'').toLowerCase();
+  const fC=document.getElementById('f-class').value,
+        fE=document.getElementById('f-steep').value, fM=document.getElementById('f-maturity').value,
+        sort=document.getElementById('f-sort').value;
+  const tab=TABS.find(t=>t.id===currentTab)||TABS[0];
+  let rows=signals.filter(tab.f).filter(s=>{
+    if(fC&&s.classification!==fC)return false;
+    if(fE&&s.steep!==fE)return false; if(fM&&s.maturity!==fM)return false;
+    if(q){const hay=[s.title,s.shift,s.themes,s.keywords,s.source,s.aiRead,s.evidence].join(' ').toLowerCase();if(!hay.includes(q))return false;}
+    return true;
+  });
+  if(sort==='impact')rows.sort((a,b)=>Math.abs(+b.impact||0)-Math.abs(+a.impact||0));
+  else if(sort==='title')rows.sort((a,b)=>(a.title||'').localeCompare(b.title||''));
+  else rows.sort((a,b)=>new Date(b.createdAt||0)-new Date(a.createdAt||0));
+
+  const list=document.getElementById('list');
+  const emptyMsg=currentTab==='queue'
+    ? 'Queue is clear. Add a signal, quick-add a URL, or import scan candidates.'
+    : 'Nothing here yet.';
+  list.innerHTML = rows.length? rows.map(card).join('') : `<div class="empty">${emptyMsg}</div>`;
+  renderTabs(); renderStats();
+}
+function impactTag(v){if(v===''||v==null)return '';const n=+v;const cls=n>0?'pos':n<0?'neg':'zero';return `<span class="impact ${cls}">${n>0?'+':''}${n}</span>`}
+function card(s){
+  const tests=(s.tests||[]).filter(Boolean).length;
+  const nsrc=(s.sources||[]).length;
+  const showAI=s.status==='Pending'&&(s.aiRead||s.evidence);
+  return `<div class="card" onclick="openForm('${s.id}')">
+    <div class="top">
+      <div>
+        <h3>${esc(s.title)||'(untitled)'}</h3>
+        <div class="shift">${esc(s.shift)||''}</div>
+      </div>
+      ${impactTag(s.impact)}
+    </div>
+    ${showAI?`<div class="airead"><b>AI read — tentative</b>${esc(s.aiRead)||''}${s.evidence?`<div class="hint">Evidence: ${esc(s.evidence)}</div>`:''}</div>`:''}
+    <div class="badges">
+      <span class="badge status-${esc(s.status)}">${esc(s.status)}</span>
+      ${s.prov==='ai-suggested'?`<span class="badge grey">ai-suggested</span>`:''}
+      ${s.classification?`<span class="badge">${esc(s.classification)}</span>`:''}
+      ${s.steep?`<span class="badge grey">${esc(s.steep)}</span>`:''}
+      ${s.maturity?`<span class="badge grey">${esc(s.maturity)}</span>`:''}
+      ${tests?`<span class="badge grey">${tests}/5 tests</span>`:''}
+      ${isDriver(s)?`<span class="badge driver">★ driver</span>`:''}
+      ${hasRecurrence(s)?`<span class="badge recur">↻ recurrence ×${nsrc+1}</span>`:(nsrc?`<span class="badge grey">${nsrc+1} sources</span>`:'')}
+      ${s.url?`<a class="badge grey" href="${esc(s.url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">source ↗</a>`:''}
+    </div>
+  </div>`;
+}
+function renderStats(){
+  const core=signals.filter(s=>s.status==='Core');
+  const week=core.filter(s=>daysAgo(s.confirmedAt)<=7).length;
+  const pending=signals.filter(s=>s.status==='Pending').length;
+  const drivers=signals.filter(s=>isDriver(s)&&s.status==='Core').length;
+  const recur=signals.filter(hasRecurrence).length;
+  document.getElementById('stats').innerHTML=`
+    <div class="stat week"><b>${week} / 5–10</b><span>confirmed this week</span></div>
+    <div class="stat"><b>${pending}</b><span>pending review</span></div>
+    <div class="stat"><b>${core.length}</b><span>core library</span></div>
+    <div class="stat"><b>${drivers}</b><span>driver pool (±2/±3)</span></div>
+    <div class="stat"><b>${recur}</b><span>recurring</span></div>
+    <div class="stat"><b>${signals.length}</b><span>total captured</span></div>`;
+}
+
+/* ---------- quick add ---------- */
+function quickAdd(){
+  const el=document.getElementById('qa-input');
+  const v=el.value.trim(); if(!v)return;
+  const isUrl=/^https?:\/\//i.test(v);
+  const s={id:uid(),createdAt:new Date().toISOString(),status:'Pending',maturity:'Signal',
+    prov:'human-confirmed',srctype:isUrl?'link':'manual',tests:[false,false,false,false,false],
+    sources:[],aiRead:'',evidence:'',date:new Date().toISOString().slice(0,10),
+    title:isUrl?('(to title) '+hostOf(v)):v, shift:'', url:isUrl?v:'', source:isUrl?hostOf(v):'',
+    author:'',swipes:'',horizon:'',classification:'',impact:'',steep:'',steep2:'',likelihood:'',cred:'',
+    decision:'',themes:'',keywords:'',lensretail:'',lensseg:''};
+  signals.push(s);save();el.value='';
+  setTab('queue');openForm(s.id);
+}
+
+/* ---------- form ---------- */
+const F={title:'i-title',shift:'i-shift',aiRead:'i-airead',evidence:'i-evidence',source:'i-source',author:'i-author',url:'i-url',date:'i-date',
+  srctype:'i-srctype',swipes:'i-swipes',horizon:'i-horizon',classification:'i-class',impact:'i-impact',
+  maturity:'i-maturity',steep:'i-steep',steep2:'i-steep2',status:'i-status',likelihood:'i-likelihood',
+  cred:'i-cred',prov:'i-prov',decision:'i-decision',themes:'i-themes',keywords:'i-keywords',
+  lensretail:'i-lensretail',lensseg:'i-lensseg'};
+let formSources=[];
+function openForm(id){
+  editingId=id||null;
+  const s=id?signals.find(x=>x.id===id):{};
+  document.getElementById('formTitle').textContent=id?'Edit signal':'Add signal';
+  document.getElementById('deleteBtn').style.display=id?'inline-block':'none';
+  for(const k in F){const el=document.getElementById(F[k]);el.value=(s&&s[k]!=null)?s[k]:''}
+  if(!id){document.getElementById('i-status').value='Pending';document.getElementById('i-maturity').value='Signal';document.getElementById('i-srctype').value='manual';document.getElementById('i-prov').value='human-confirmed';}
+  for(let i=1;i<=5;i++)document.getElementById('t'+i).checked=!!(s&&s.tests&&s.tests[i-1]);
+  // AI read / evidence only shown when present (they come from scans)
+  document.getElementById('aiReadWrap').style.display=(s&&s.aiRead)?'block':'none';
+  document.getElementById('evidenceWrap').style.display=(s&&s.evidence)?'block':'none';
+  // confirm button for pending items
+  document.getElementById('confirmCoreBtn').style.display=(s&&s.status==='Pending')?'inline-block':'none';
+  document.getElementById('confirmHint').textContent=(s&&s.status==='Pending')?'“Confirm → Core” marks this human-confirmed, moves it to the core library, and stamps the confirmation date.':'';
+  formSources=(s&&s.sources)?JSON.parse(JSON.stringify(s.sources)):[];
+  renderSrcRows();
+  updateDriverHint();
+  ['i-class','i-impact'].forEach(id2=>document.getElementById(id2).onchange=updateDriverHint);
+  document.getElementById('scrim').classList.add('open');
+}
+function closeForm(){document.getElementById('scrim').classList.remove('open');editingId=null}
+const STEEPS=['','Social','Technological','Economic','Environmental','Political','Demographic'];
+function renderSrcRows(){
+  document.getElementById('srcList').innerHTML=formSources.map((x,i)=>`
+    <div class="srcrow">
+      <input placeholder="Source name" value="${esc(x.name)}" onchange="formSources[${i}].name=this.value">
+      <input placeholder="URL" value="${esc(x.url)}" onchange="formSources[${i}].url=this.value">
+      <select onchange="formSources[${i}].steep=this.value">${STEEPS.map(o=>`<option value="${o}" ${o===(x.steep||'')?'selected':''}>${o||'STEEP+D —'}</option>`).join('')}</select>
+      <input type="date" value="${esc(x.date)}" onchange="formSources[${i}].date=this.value">
+      <button class="small" onclick="formSources.splice(${i},1);renderSrcRows()">✕</button>
+    </div>`).join('');
+}
+function addSrcRow(){formSources.push({name:'',url:'',steep:'',date:''});renderSrcRows()}
+function updateDriverHint(){
+  const c=document.getElementById('i-class').value,imp=document.getElementById('i-impact').value;
+  const drv=(c==='Weak signal'||c==='Wild card')&&imp!==''&&Math.abs(+imp)>=2;
+  document.getElementById('driverHint').innerHTML=drv?'★ This will be flagged as a <b>scenario driver</b> (weak signal / wild card at ±2 or ±3).':'';
+}
+function collectForm(s){
+  const get=k=>{const el=document.getElementById(F[k]);return el.value.trim?el.value.trim():el.value};
+  for(const k in F)s[k]=get(k);
+  const tests=[];for(let i=1;i<=5;i++)tests.push(document.getElementById('t'+i).checked);
+  s.tests=tests;
+  s.sources=formSources.filter(x=>x.name||x.url);
+  return s;
+}
+function saveSignal(){
+  const titleEl=document.getElementById('i-title');
+  if(!titleEl.value.trim()){alert('Give it a title at least.');return}
+  let s=editingId?signals.find(x=>x.id===editingId):{id:uid(),createdAt:new Date().toISOString()};
+  collectForm(s);
+  if(s.status==='Core'){ s.prov='human-confirmed'; if(!s.confirmedAt) s.confirmedAt=new Date().toISOString(); } else { s.confirmedAt=null; }
+  s.updatedAt=new Date().toISOString();
+  if(!editingId)signals.push(s);
+  save();closeForm();render();
+}
+function confirmToCore(){
+  const titleEl=document.getElementById('i-title');
+  if(!titleEl.value.trim()){alert('Give it a title at least.');return}
+  const dec=document.getElementById('i-decision').value.trim();
+  if(!dec&&!confirm('No decision-at-stake named. The vision says core records need one — confirm anyway?'))return;
+  document.getElementById('i-status').value='Core';
+  document.getElementById('i-prov').value='human-confirmed';
+  saveSignal();
+}
+function deleteCurrent(){if(editingId&&confirm('Delete this signal?')){signals=signals.filter(x=>x.id!==editingId);save();closeForm();render();}}
+
+/* ---------- report ---------- */
+function openReport(){document.getElementById('reportScrim').classList.add('open')}
+function closeReport(){document.getElementById('reportScrim').classList.remove('open')}
+function buildReport(){
+  const scope=document.getElementById('r-scope').value;
+  let rows=signals.filter(s=>s.status==='Core');
+  if(scope!=='all-core'){const d=+scope;rows=rows.filter(s=>daysAgo(s.confirmedAt)<=d)}
+  rows.sort((a,b)=>Math.abs(+b.impact||0)-Math.abs(+a.impact||0));
+  const today=new Date().toISOString().slice(0,10);
+  let md=`# Signal Flow — weekly report (${today})\n`;
+  md+=`Signals: ${rows.length} · Pending in queue: ${signals.filter(s=>s.status==='Pending').length}\n\n`;
+  if(!rows.length)md+='_No confirmed signals in this window yet._\n';
+  rows.forEach((s,i)=>{
+    const imp=(s.impact!==''&&s.impact!=null)?`${+s.impact>0?'+':''}${s.impact}`:'—';
+    md+=`## ${i+1}. ${s.title||'(untitled)'}\n`;
+    md+=`- **What's changing:** ${s.shift||'—'}\n`;
+    md+=`- **Type / Impact / Maturity:** ${s.classification||'—'} / ${imp} / ${s.maturity||'—'}\n`;
+    md+=`- **STEEP+D:** ${s.steep||'—'}${s.steep2?(' + '+s.steep2):''}${s.horizon?(' · '+s.horizon):''}${isDriver(s)?' · ★ driver':''}${hasRecurrence(s)?' · ↻ recurring':''}\n`;
+    md+=`- **Decision-at-stake:** ${s.decision||'—'}\n`;
+    const tests=(s.tests||[]).map((v,idx)=>v?idx+1:null).filter(Boolean).join(', ');
+    md+=`- **Tests met:** ${tests||'—'}\n`;
+    if(s.source||s.url)md+=`- **Source:** ${s.source||''}${s.url?(' — '+s.url):''}\n`;
+    (s.sources||[]).forEach(x=>{md+=`- **Also seen:** ${x.name||''}${x.url?(' — '+x.url):''}${x.steep?(' ('+x.steep+')'):''}\n`});
+    md+='\n';
+  });
+  document.getElementById('reportOut').textContent=md;
+}
+function copyReport(){const t=document.getElementById('reportOut').textContent;navigator.clipboard.writeText(t).then(()=>alert('Report copied to clipboard.'))}
+function downloadReport(){download('signal-flow-report-'+new Date().toISOString().slice(0,10)+'.md',document.getElementById('reportOut').textContent)}
+
+/* ---------- export ---------- */
+function download(name,text,type){const b=new Blob([text],{type:type||'text/plain'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;a.click();URL.revokeObjectURL(a.href)}
+function exportJSON(){download('signal-flow-backup-'+new Date().toISOString().slice(0,10)+'.json',JSON.stringify(signals,null,2),'application/json')}
+function exportCSV(){
+  const cols=['title','shift','classification','impact','steep','steep2','maturity','status','prov','horizon','likelihood','cred','swipes','decision','themes','keywords','source','url','date','aiRead','confirmedAt'];
+  const head=cols.join(',');
+  const body=signals.map(s=>cols.map(c=>{let v=s[c]==null?'':String(s[c]);if(/[",\n]/.test(v))v='"'+v.replace(/"/g,'""')+'"';return v}).join(',')).join('\n');
+  download('signal-flow-'+new Date().toISOString().slice(0,10)+'.csv',head+'\n'+body,'text/csv');
+}
+
+/* ---------- import ---------- */
+function openImport(){document.getElementById('importScrim').classList.add('open')}
+function closeImport(){document.getElementById('importScrim').classList.remove('open')}
+function readFile(e,cb){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{cb(r.result);e.target.value=''};r.readAsText(f)}
+
+function importReplace(e){
+  readFile(e,txt=>{
+    try{const data=JSON.parse(txt);if(!Array.isArray(data))throw 0;
+      if(confirm('Import '+data.length+' signals? This REPLACES your current data (back up first if unsure).')){signals=data;save();render();closeImport();}
+    }catch(err){alert('That file could not be read as Signal Flow JSON.')}
+  });
+}
+
+/* Merge AI scan candidates — append to queue; URL matches append a source + raise recurrence, never dropped */
+function mergeCandidates(data){
+  let added=0,merged=0,skipped=0;
+  const byUrl={};signals.forEach(s=>{const n=normUrl(s.url);if(n)byUrl[n]=s});
+  data.forEach(c=>{
+      const title=c.title||c.name||'';
+      const url=c.url||c.link||'';
+      const n=normUrl(url);
+      if(!title&&!url){skipped++;return}
+      const existing=n?byUrl[n]:null;
+      if(existing){
+        existing.sources=existing.sources||[];
+        const alreadyListed=existing.sources.some(x=>normUrl(x.url)===n);
+        if(!alreadyListed){
+          existing.sources.push({name:c.source||c.source_name||hostOf(url),url:url,steep:c.steep||c.steep_primary||'',date:c.date||''});
+          existing.updatedAt=new Date().toISOString();
+        }
+        merged++;return;
+      }
+      const s={id:uid(),createdAt:new Date().toISOString(),
+        title:title, shift:c.shift||c.whats_changing||c.what_changing||'',
+        aiRead:c.ai_read||c.aiRead||c.read||'', evidence:c.evidence||'',
+        source:c.source||c.source_name||hostOf(url), author:c.author||'',
+        url:url, date:c.date||'', srctype:c.srctype||c.source_kind||'import',
+        swipes:c.swipes||c.swipes_type||'', horizon:c.horizon||'',
+        classification:c.classification||'', impact:(c.impact==null?'':String(c.impact)),
+        maturity:c.maturity||'Signal', steep:c.steep||c.steep_primary||'', steep2:c.steep2||c.steep_secondary||'',
+        status:'Pending', likelihood:(c.likelihood==null?'':String(c.likelihood)), cred:(c.credibility==null?'':String(c.credibility)),
+        prov:'ai-suggested', decision:c.decision||c.decision_at_stake||'',
+        themes:Array.isArray(c.themes)?c.themes.join(', '):(c.themes||''),
+        keywords:Array.isArray(c.keywords)?c.keywords.join(', '):(c.keywords||''),
+        lensretail:'',lensseg:'',tests:[false,false,false,false,false],
+        sources:Array.isArray(c.sources)?c.sources.map(x=>({name:x.name||'',url:x.url||'',steep:x.steep||'',date:x.date||''})):[]
+      };
+      signals.push(s);if(n)byUrl[n]=s;added++;
+  });
+  return {added,merged,skipped};
+}
+function importMerge(e){
+  readFile(e,txt=>{
+    let data;
+    try{data=JSON.parse(txt);if(!Array.isArray(data))data=data.candidates||data.signals||null;if(!Array.isArray(data))throw 0}
+    catch(err){alert('Could not read that file as a JSON array of candidates.');return}
+    const r=mergeCandidates(data);
+    save();setTab('queue');closeImport();
+    alert(`Scan import: ${r.added} new candidates added to the queue, ${r.merged} matched existing records (source appended, recurrence raised)${r.skipped?`, ${r.skipped} unreadable items skipped`:''}.`);
+  });
+}
+
+/* Raindrop CSV import */
+function parseCSV(text){
+  const rows=[];let row=[],field='',inQ=false;
+  for(let i=0;i<text.length;i++){
+    const c=text[i];
+    if(inQ){
+      if(c==='"'){if(text[i+1]==='"'){field+='"';i++}else inQ=false}
+      else field+=c;
+    }else{
+      if(c==='"')inQ=true;
+      else if(c===','){row.push(field);field=''}
+      else if(c==='\n'||c==='\r'){
+        if(c==='\r'&&text[i+1]==='\n')i++;
+        row.push(field);field='';
+        if(row.length>1||row[0]!=='')rows.push(row);
+        row=[];
+      }
+      else field+=c;
+    }
+  }
+  if(field!==''||row.length){row.push(field);if(row.length>1||row[0]!=='')rows.push(row)}
+  return rows;
+}
+function importRaindrop(e){
+  readFile(e,txt=>{
+    const rows=parseCSV(txt);
+    if(rows.length<2){alert('That CSV appears to be empty.');return}
+    const head=rows[0].map(h=>h.trim().toLowerCase());
+    const col=n=>head.indexOf(n);
+    const iTitle=col('title'),iUrl=col('url'),iNote=col('note'),iExcerpt=col('excerpt'),iTags=col('tags'),iFolder=col('folder'),iCreated=col('created');
+    if(iTitle<0||iUrl<0){alert('Could not find "title" and "url" columns — is this a Raindrop CSV export?');return}
+    const byUrl={};signals.forEach(s=>{const n=normUrl(s.url);if(n)byUrl[n]=true});
+    let added=0,dupes=0;
+    rows.slice(1).forEach(r=>{
+      const url=(r[iUrl]||'').trim();const n=normUrl(url);
+      if(n&&byUrl[n]){dupes++;return}
+      const title=(r[iTitle]||'').trim();if(!title&&!url)return;
+      const note=[iExcerpt>=0?r[iExcerpt]:'',iNote>=0?r[iNote]:''].filter(Boolean).join(' — ').trim();
+      const s={id:uid(),createdAt:new Date().toISOString(),
+        title:title||url, shift:note, aiRead:'', evidence:'',
+        source:hostOf(url), author:'', url:url,
+        date:(iCreated>=0&&r[iCreated])?String(r[iCreated]).slice(0,10):'',
+        srctype:'import', swipes:'', horizon:'',
+        classification:'', impact:'', maturity:'Signal', steep:'', steep2:'',
+        status:'Pending', likelihood:'', cred:'', prov:'human-confirmed',
+        decision:'', themes:(iFolder>=0?(r[iFolder]||''):'').trim(),
+        keywords:(iTags>=0?(r[iTags]||''):'').trim(),
+        lensretail:'',lensseg:'',tests:[false,false,false,false,false],sources:[]
+      };
+      signals.push(s);if(n)byUrl[n]=true;added++;
+    });
+    save();setTab('queue');closeImport();
+    alert(`Raindrop import: ${added} bookmarks added to the queue${dupes?`, ${dupes} exact-URL duplicates skipped`:''}.`);
+  });
+}
+
+render();
+
+/* ---------- daily scan feed (GitHub Actions writes candidates.json) ---------- */
+const PKEY='signalFlowProcessed_v1';
+function loadProcessed(){try{return new Set(JSON.parse(localStorage.getItem(PKEY))||[])}catch(e){return new Set()}}
+function saveProcessed(set){localStorage.setItem(PKEY,JSON.stringify([...set].slice(-5000)))}
+function toast(msg){
+  let t=document.getElementById('toast');
+  if(!t){t=document.createElement('div');t.id='toast';t.className='toast';document.body.appendChild(t)}
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),6000);
+}
+function candKey(c){return normUrl(c.url||c.link||'')||('t:'+(c.title||''))}
+async function autoLoadFeed(){
+  let payload;
+  try{
+    const res=await fetch('candidates.json',{cache:'no-store'});
+    if(!res.ok)return;
+    payload=await res.json();
+  }catch(e){return} /* offline or opened as a local file — feed silently unavailable */
+  const arr=Array.isArray(payload)?payload:(payload.candidates||[]);
+  const batch=payload.batch||payload.generated||'';
+  const fs=document.getElementById('feedStatus');
+  if(fs&&batch)fs.textContent='· scan feed: '+batch;
+  const processed=loadProcessed();
+  const fresh=arr.filter(c=>{const k=candKey(c);return k&&k!=='t:'&&!processed.has(k)});
+  if(!fresh.length)return;
+  const r=mergeCandidates(fresh);
+  fresh.forEach(c=>processed.add(candKey(c)));
+  saveProcessed(processed);save();render();
+  toast(`Daily scan: ${r.added} new candidate${r.added===1?'':'s'} in your queue${r.merged?`, ${r.merged} recurrence${r.merged===1?'':'s'} appended`:''}.`);
+}
+autoLoadFeed();
+</script>
+</body>
+</html>
