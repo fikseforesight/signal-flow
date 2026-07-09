@@ -1,366 +1,177 @@
 {
- "generated": "2026-07-09T19:36:29.657Z",
+ "generated": "2026-07-09T21:09:53.467Z",
  "batch": "2026-07-09",
  "candidates": [
   {
-   "title": "Vigilante Commerce Policing",
-   "shift": "Online fraud-fighting has evolved from hobby to monetized profession, with citizen 'digilantes' enforcing marketplace trust outside formal institutions.",
-   "ai_read": "Tentative: if trust-policing becomes a paid subculture, stores/marketplaces may see crowdsourced enforcement layers around AI checkout fraud and counterfeit detection, bypassing formal security systems entirely.",
-   "evidence": "Scambaiting has 'transitioned from niche hobby into structured practice' via platform monetization, per study of YouTube digilantism.",
-   "url": "https://openalex.org/W7133156206",
-   "source": "ePrints Soton",
-   "date": "2026-08-01",
-   "srctype": "import",
-   "swipes": "Writings",
-   "steep": "Social",
-   "steep2": "Technological",
-   "classification": "Weak signal",
-   "themes": [
-    "trust",
-    "fraud",
-    "community enforcement"
-   ],
-   "keywords": [
-    "scambaiting",
-    "digilantism",
-    "fraud",
-    "loss prevention"
-   ]
-  },
-  {
-   "title": "Perceived vs Actual Retail Access",
-   "shift": "Research decouples consumers' *perceived* distance to food retail from real geographic distance, reshaping how 'food deserts' are defined and measured.",
-   "ai_read": "Tentative: if perceived accessibility drives store viability more than GIS distance, future siting/delivery models may need psychological-geography mapping, especially relevant as autonomous delivery reshapes rural access globally.",
-   "evidence": "Study 'maps how consumers perceive' distance to food deserts in rural/urban Hungary, separate from actual measured access.",
-   "url": "https://doi.org/10.1007/s41055-026-00225-0",
-   "source": "Food Ethics",
-   "date": "2026-07-03",
-   "srctype": "import",
-   "swipes": "Writings",
-   "steep": "Social",
-   "steep2": "Economic",
-   "classification": "Weak signal",
-   "themes": [
-    "food access",
-    "perception",
-    "rural retail"
-   ],
-   "keywords": [
-    "food desert",
-    "Hungary",
-    "distance perception"
-   ]
-  },
-  {
-   "title": "AI-Mediated Public Communication, Global South",
-   "shift": "African organizations are adopting AI for public relations and stakeholder engagement outside Western PR norms, generating distinct ethical frameworks.",
-   "ai_read": "Tentative: AI-driven engagement spreading to peripheral markets by necessity, not luxury, could let store-community relations in these regions leapfrog Western models entirely.",
-   "evidence": "Study documents AI 'reshaping PR practice' in Tanzania, noting professional/ethical challenges distinct from Europe/North America research base.",
-   "url": "https://doi.org/10.48175/ijarsct-37627",
-   "source": "IJARSCT",
-   "date": "2026-07-08",
-   "srctype": "import",
+   "title": "Sci-fi as literal infrastructure roadmap",
+   "shift": "Founders in robotics, defense, and space are explicitly using science-fiction texts (Culture novels, cyberpunk aesthetics) as design specs for real hardware, collapsing the gap between speculative fiction and built systems.",
+   "ai_read": "Tentative: if physical-AI and robotics firms are literally engineering to fictional blueprints, retail's future store robots/layouts may be shaped by decades-old narrative tropes rather than operational need — an absent design-critique category.",
+   "evidence": "Reddit thread on tech founders (Palmer Luckey, Musk) treating sci-fi as product roadmap for real companies/technologies.",
+   "url": "https://www.reddit.com/r/Futurology/comments/1upgyf2/is_anyone_systematically_mapping_scifi_concepts/",
+   "source": "r/Futurology",
+   "date": "2026-07-07",
+   "srctype": "rss",
    "swipes": "Writings",
    "steep": "Technological",
    "steep2": "Social",
    "classification": "Weak signal",
    "themes": [
-    "AI adoption",
-    "peripheral geography",
-    "community engagement"
-   ],
-   "keywords": [
-    "Tanzania",
-    "AI PR",
-    "Global South"
-   ]
-  },
-  {
-   "title": "Concrete That Repairs Itself",
-   "shift": "Construction materials research is converging self-healing chemistry with machine learning to predict and optimize autonomous crack repair in structures.",
-   "ai_read": "Tentative: self-repairing structural material could eliminate a category of store maintenance/inspection labor and reshape insurance models built on assumed material decay over decades.",
-   "evidence": "Review covers 'autogenous healing, chemical healing' mechanisms plus ML approaches for self-healing concrete durability.",
-   "url": "https://doi.org/10.1186/s40069-026-00932-2",
-   "source": "Int'l Journal of Concrete Structures and Materials",
-   "date": "2026-07-08",
-   "srctype": "import",
-   "swipes": "Innovations",
-   "steep": "Technological",
-   "steep2": "Environmental",
-   "classification": "Weak signal",
-   "themes": [
-    "construction materials",
-    "maintenance",
-    "durability"
-   ],
-   "keywords": [
-    "self-healing concrete",
-    "machine learning",
-    "durability"
-   ]
-  },
-  {
-   "title": "Porous Framework Materials Enter Buildings",
-   "shift": "Metal-organic frameworks are moving from lab curiosities toward practical, scalable wastewater treatment and targeted-delivery applications.",
-   "ai_read": "Tentative: MOF-based filtration embedded in building water/HVAC systems could let stores self-treat greywater on-site, loosening dependence on municipal water infrastructure in water-stressed regions.",
-   "evidence": "Review notes MOFs' 'exceptional surface area... tunable pore architecture' enabling wastewater treatment and targeted delivery applications.",
-   "url": "https://doi.org/10.1007/s44508-026-00010-1",
-   "source": "Discover Industrial Chemistry and Materials",
-   "date": "2026-07-07",
-   "srctype": "import",
-   "swipes": "Innovations",
-   "steep": "Technological",
-   "steep2": "Environmental",
-   "classification": "Weak signal",
-   "themes": [
-    "water infrastructure",
-    "materials science",
-    "circularity"
-   ],
-   "keywords": [
-    "MOF",
-    "wastewater",
-    "water treatment"
-   ]
-  },
-  {
-   "title": "Governance Vacuum Beyond Jurisdiction",
-   "shift": "The high seas remain a near-lawless commons where resource contests unfold absent enforceable doctrine — a live case of institutional absence.",
-   "ai_read": "Tentative: as data centers, energy platforms, and floating infrastructure move offshore to escape zoning/tax regimes, retail supply chains and real estate could shift toward similarly ungoverned jurisdictions.",
-   "evidence": "Book review frames the high seas as site of 'battle for the unclaimed ocean,' underscoring an absence of enforceable governance.",
-   "url": "https://doi.org/10.59711/jims.12.110038",
-   "source": "Journal of Island and Marine Studies",
-   "date": "2026-07-07",
-   "srctype": "import",
-   "swipes": "Writings",
-   "steep": "Political",
-   "steep2": "Economic",
-   "classification": "Wild card",
-   "themes": [
-    "governance absence",
-    "offshore infrastructure",
-    "jurisdiction"
-   ],
-   "keywords": [
-    "high seas",
-    "ocean governance",
-    "unclaimed territory"
-   ]
-  },
-  {
-   "title": "Tourism vs Ecology Coupling Diagnostics",
-   "shift": "Chinese researchers are building city-scale frameworks to formally diagnose conflict/coordination between tourism development and ecological quality for spatial planning.",
-   "ai_read": "Tentative: formal tourism-ecology 'coupling' metrics could become a zoning input determining where experiential/destination retail can expand, tying store siting to ecological scores rather than foot traffic.",
-   "evidence": "Study builds a 'city-scale framework' diagnosing coupling/coordination between tourism development and ecological quality in China for spatial planning.",
-   "url": "https://doi.org/10.1057/s41599-026-08192-x",
-   "source": "Humanities and Social Sciences Communications",
-   "date": "2026-07-07",
-   "srctype": "import",
-   "swipes": "Writings",
-   "steep": "Environmental",
-   "steep2": "Political",
-   "classification": "Weak signal",
-   "themes": [
-    "zoning",
-    "tourism",
-    "ecological limits"
-   ],
-   "keywords": [
-    "tourism-ecology",
-    "spatial planning",
-    "China"
-   ]
-  },
-  {
-   "title": "Planning Layers for Shoreline Retreat",
-   "shift": "Coastal Chinese cities are developing model-driven adaptation planning that sometimes already avoids the most flood-exposed shoreline zones without explicit doctrine.",
-   "ai_read": "Tentative: an emergent, undeclared pattern of 'adaptive avoidance' in coastal development could formalize into retail-siting doctrine — stores clustering away from exposed coastlines before regulation catches up.",
-   "evidence": "Dalian case shows 'business as usual may already avoid the most exposed locations while remaining concentrated near shoreline.'",
-   "url": "https://doi.org/10.3390/land15071218",
-   "source": "Land",
-   "date": "2026-07-07",
-   "srctype": "import",
-   "swipes": "Writings",
-   "steep": "Environmental",
-   "steep2": "Political",
-   "classification": "Weak signal",
-   "themes": [
-    "coastal adaptation",
-    "site selection",
-    "climate risk"
-   ],
-   "keywords": [
-    "Dalian",
-    "coastal planning",
-    "flood exposure"
-   ]
-  },
-  {
-   "title": "Compute Infrastructure as Civic Anchor",
-   "shift": "Cities in Asia, Africa, and Latin America are pushing for data centers to explicitly return value to host communities via a not-yet-codified reciprocity doctrine.",
-   "ai_read": "Tentative: if a 'community benefit' doctrine for data centers takes hold in peripheral geographies, retailers hosting edge-compute on-site could face similar demands — reframing stores as civic-obligated infrastructure.",
-   "evidence": "Rest of World reports cities in Asia, Africa, Latin America pushing AI infrastructure to 'benefit local communities and lead to sustainable economic growth.'",
-   "url": "https://restofworld.org/2026/data-centers-cities-communities-benefits/",
-   "source": "Rest of World",
-   "date": "2026-07-08",
-   "srctype": "rss",
-   "swipes": "Writings",
-   "steep": "Political",
-   "steep2": "Economic",
-   "classification": "Weak signal",
-   "themes": [
-    "data centers",
-    "community benefit",
-    "infrastructure equity"
-   ],
-   "keywords": [
-    "data centers",
-    "Global South",
-    "civic infrastructure"
-   ]
-  },
-  {
-   "title": "Shade as Infrastructure, Not Amenity",
-   "shift": "An architect's earthen shade pavilion reframes passive cooling as primary climate infrastructure rather than a supplement to mechanical air conditioning.",
-   "ai_read": "Tentative: as heat extremes rise, an as-yet-absent 'shade doctrine' could become mandated for facades/parking/queuing zones, replacing AC-dependent retail envelope design in hot, resource-stressed regions.",
-   "evidence": "Project 'showcases the potential of urban shade' using cord and earthen blocks explicitly to 'reframe' reliance on air conditioning.",
-   "url": "https://www.dezeen.com/2026/07/09/liz-galvez-shade-pavilion-los-angeles-earthen-comforts/",
-   "source": "Dezeen",
-   "date": "2026-07-09",
-   "srctype": "rss",
-   "swipes": "Innovations",
-   "steep": "Environmental",
-   "steep2": "Technological",
-   "classification": "Weak signal",
-   "themes": [
-    "passive cooling",
-    "climate adaptation",
-    "building envelope"
-   ],
-   "keywords": [
-    "shade",
-    "air conditioning",
-    "earthen construction"
-   ]
-  },
-  {
-   "title": "Remote-Piloted Humanoids Cross Into High-Stakes Work",
-   "shift": "Teleoperated humanoid robots performed actual surgeries in a preclinical trial, moving physical-AI teleoperation from labs into liability-bearing professional tasks.",
-   "ai_read": "Tentative: if humanoids can be remotely piloted for surgery, remote-operated humanoid labor in stores (stocking, security, cleaning) becomes plausible sooner — reframing 'store staff' as globally distributed teleoperators.",
-   "evidence": "Nature reports two teleoperated humanoid robots 'used to complete two surgeries during a preclinical trial.'",
-   "url": "https://www.reddit.com/r/Futurology/comments/1urrq1l/for_the_first_time_two_teleoperated_humanoid/",
-   "source": "r/Futurology (Nature)",
-   "date": "2026-07-09",
-   "srctype": "rss",
-   "swipes": "Innovations",
-   "steep": "Technological",
-   "steep2": "Economic",
-   "classification": "Wild card",
-   "themes": [
-    "teleoperation",
+    "design imagination",
     "robotics",
-    "labor substitution"
-   ],
-   "keywords": [
-    "humanoid robots",
-    "teleoperation",
     "physical AI"
-   ]
-  },
-  {
-   "title": "Drone Defense Enters Civilian Property Debate",
-   "shift": "Military-grade anti-drone countermeasures are being publicly scrutinized for cost/effectiveness as drone traffic increases, foreshadowing civilian-property drone defense needs.",
-   "ai_read": "Tentative: as delivery/surveillance drone density rises, retail real estate (parking, rooftops, loading docks) may need drone countermeasure infrastructure — a category absent from today's store security doctrine.",
-   "evidence": "Discussion questions whether 'Leonidas' anti-drone system has 'very limited range' and can't intercept fast drones cost-effectively.",
-   "url": "https://www.reddit.com/r/Futurology/comments/1urai3e/do_you_think_the_new_antidrone_countermeasure/",
-   "source": "r/Futurology",
-   "date": "2026-07-09",
-   "srctype": "rss",
-   "swipes": "Innovations",
-   "steep": "Technological",
-   "steep2": "Political",
-   "classification": "Wild card",
-   "themes": [
-    "drone defense",
-    "physical security",
-    "airspace"
    ],
    "keywords": [
-    "anti-drone",
-    "Leonidas",
-    "property security"
+    "sci-fi",
+    "robotics",
+    "design roadmap",
+    "founders"
    ]
   },
   {
-   "title": "Pharmacological Appetite Regulation at Population Scale",
-   "shift": "An EU-approved daily food additive claims to regulate appetite and prevent weight gain at small doses, signaling potential population-level metabolic shift within a decade.",
-   "ai_read": "Tentative: if population body composition shifts markedly (as GLP-1 drugs already suggest), store layouts, aisle widths, and food-category footprint built around current demographic norms may need multi-decade retrofitting.",
-   "evidence": "EU approved additive where '10gm a day can regulate appetite and prevent weight gain,' per developers.",
-   "url": "https://www.reddit.com/r/Futurology/comments/1uqoobf/the_eu_has_approved_a_weightloss_food_additive/",
+   "title": "Planetary-survival timescales re-enter public imagination",
+   "shift": "New astrophysical modeling suggests Earth could survive the Sun's eventual death, extending the imaginable horizon of 'permanent' habitation far beyond human civilizational timescales.",
+   "ai_read": "Tentative and absurdly distant, but it resurfaces a category almost never asked of real estate: what does 'permanent structure' or 'land value' mean across geological/stellar time versus 30-year mortgages?",
+   "evidence": "Reddit science thread reporting new models on Earth's fate after the Sun's death.",
+   "url": "https://www.reddit.com/r/Futurology/comments/1up75lu/earth_may_survive_the_suns_death_new_models/",
    "source": "r/Futurology",
-   "date": "2026-07-08",
-   "srctype": "rss",
-   "swipes": "Innovations",
-   "steep": "Demographic",
-   "steep2": "Social",
-   "classification": "Weak signal",
-   "themes": [
-    "public health",
-    "demographic shift",
-    "store design"
-   ],
-   "keywords": [
-    "appetite regulation",
-    "obesity",
-    "food additive"
-   ]
-  },
-  {
-   "title": "Hidden Cost Backlash of AI Labor Substitution",
-   "shift": "Executives who assumed generative AI could replace workers 'for free' are confronting unexpectedly high operating costs, undercutting near-term automation-labor economics.",
-   "ai_read": "Tentative: if AI substitution costs stay volatile/high, retailers may delay store automation rollouts or shift toward hybrid human-AI staffing models that current labor/real-estate planning doesn't anticipate.",
-   "evidence": "Report describes executives 'confused and horrified' by AI bills after expecting free worker replacement.",
-   "url": "https://www.reddit.com/r/Futurology/comments/1urwlds/execs_confused_and_horrified_by_the_huge_ai_bills/",
-   "source": "r/Futurology",
-   "date": "2026-07-09",
+   "date": "2026-07-06",
    "srctype": "rss",
    "swipes": "Writings",
-   "steep": "Economic",
+   "steep": "Environmental",
    "steep2": "Technological",
-   "classification": "Trend",
+   "classification": "Wild card",
    "themes": [
-    "AI economics",
-    "labor automation",
-    "operations"
+    "deep time",
+    "planetary permanence",
+    "long horizon real estate"
    ],
    "keywords": [
-    "AI costs",
-    "labor substitution",
-    "automation"
+    "Sun",
+    "Earth",
+    "long-term",
+    "civilizational"
    ]
   },
   {
-   "title": "Domestic Robot-as-a-Service, No AGI Required",
-   "shift": "A startup argues current LLM-level AI, not AGI, is sufficient for a viable home robotic maid product, targeting near-term launch.",
-   "ai_read": "Tentative: if 'good enough' AI enables domestic robot labor without AGI, similarly scoped narrow-AI robots for store stocking/cleaning/facing could arrive faster than robotics roadmaps assume.",
-   "evidence": "Discussion claims 'current LLM AIs could be all the AI needed to make capable Jetsons-style robot maids,' no AGI required.",
-   "url": "https://www.reddit.com/r/Futurology/comments/1uro3fy/can_california_startup_weave_robotics_create_the/",
-   "source": "r/Futurology",
+   "title": "Humanoid hands as retail labor substrate",
+   "shift": "1X's NEO humanoid robot has unveiled upgraded manipulator hands, inching dexterous robotics closer to tasks like shelving, sorting, and customer-facing service work.",
+   "ai_read": "Tentative: hand dexterity is the last bottleneck before humanoids can do most in-store physical labor — implying store layouts, aisle widths, and fixture design may eventually be optimized for robot bodies, not human ones.",
+   "evidence": "Reddit r/singularity post showcasing 1X NEO's new robotic hand hardware.",
+   "url": "https://www.reddit.com/r/singularity/comments/1us0av5/1x_unveils_neos_new_robotics_hands/",
+   "source": "r/singularity",
    "date": "2026-07-09",
    "srctype": "rss",
-   "swipes": "Pitches",
+   "swipes": "Innovations",
    "steep": "Technological",
    "steep2": "Economic",
    "classification": "Hype",
    "themes": [
-    "home robotics",
-    "narrow AI",
-    "automation timelines"
+    "humanoid robotics",
+    "physical AI",
+    "labor substitution"
    ],
    "keywords": [
-    "robot maid",
-    "LLM robotics",
-    "Weave Robotics"
+    "1X",
+    "NEO",
+    "robot hands",
+    "manipulation"
+   ]
+  },
+  {
+   "title": "Model-origin geography as new supply-chain risk axis",
+   "shift": "Tracking of weekly AI token usage by model-author country reveals a shifting geopolitical map of who controls the compute/intelligence layer, echoing older debates on chip fabrication geography.",
+   "ai_read": "Tentative: if store operations (pricing, inventory, security AI) increasingly run on foreign-authored models, retailers may face a new sovereignty/compliance category — 'AI provenance zoning' — not yet named in policy.",
+   "evidence": "Reddit chart tracking weekly tokens by model author country, Sept 2025–June 2026.",
+   "url": "https://www.reddit.com/r/singularity/comments/1us02el/weekly_tokens_by_model_author_country_sept_2025/",
+   "source": "r/singularity",
+   "date": "2026-07-09",
+   "srctype": "rss",
+   "swipes": "Statistics",
+   "steep": "Technological",
+   "steep2": "Political",
+   "classification": "Weak signal",
+   "themes": [
+    "AI geopolitics",
+    "compute sovereignty",
+    "supply chain"
+   ],
+   "keywords": [
+    "model provenance",
+    "AI geography",
+    "compute"
+   ],
+   "themes2": []
+  },
+  {
+   "title": "Chinese AI models undercutting Western retail tech stacks",
+   "shift": "Chinese AI model providers are gaining traction with U.S. companies as costs from OpenAI/Anthropic rise, signaling a bifurcating global AI supply chain.",
+   "ai_read": "Tentative: retail back-office and in-store AI (vision, forecasting, chatbots) may quietly migrate to cheaper non-Western models, raising unaddressed questions about data governance and store-level compliance across jurisdictions.",
+   "evidence": "Reddit-linked report that Chinese AI models are gaining ground with U.S. companies as incumbent costs surge.",
+   "url": "https://www.reddit.com/r/singularity/comments/1urxmis/chinese_ai_models_are_gaining_ground_with_us/",
+   "source": "r/singularity",
+   "date": "2026-07-09",
+   "srctype": "rss",
+   "swipes": "Entrants & exits",
+   "steep": "Economic",
+   "steep2": "Political",
+   "classification": "Weak signal",
+   "themes": [
+    "AI supply chain",
+    "geopolitics",
+    "cost pressure"
+   ],
+   "keywords": [
+    "Chinese AI",
+    "cost",
+    "enterprise adoption"
+   ]
+  },
+  {
+   "title": "Interpretability tools expose AI 'inner reasoning' before deployment norms exist",
+   "shift": "Anthropic has built tooling that reveals a hidden conceptual workspace inside Claude's reasoning process, offering unprecedented visibility into how models 'think' before acting.",
+   "ai_read": "Tentative: as AI takes over pricing, security, and layout decisions in stores, there is currently no doctrine for auditing or insuring against an opaque 'thought process' — this tool suggests such audit categories are becoming technically possible but not yet mandated.",
+   "evidence": "MIT Technology Review reporting Anthropic's new technique revealing a hidden conceptual space within Claude's model internals.",
+   "url": "https://www.technologyreview.com/2026/07/09/1140293/anthropic-found-a-hidden-space-where-claude-puzzles-over-concepts/",
+   "source": "MIT Technology Review",
+   "date": "2026-07-09",
+   "srctype": "rss",
+   "swipes": "Innovations",
+   "steep": "Technological",
+   "steep2": "Political",
+   "classification": "Weak signal",
+   "themes": [
+    "AI interpretability",
+    "governance absence",
+    "liability"
+   ],
+   "keywords": [
+    "Anthropic",
+    "interpretability",
+    "AI reasoning",
+    "audit"
+   ]
+  },
+  {
+   "title": "AGI declarations proliferating without institutional definition",
+   "shift": "Community claims of 'AGI is here' are multiplying based on informal benchmark milestones, absent any regulatory or legal definition of what AGI status would trigger.",
+   "ai_read": "Tentative: the absence of a legal/operational threshold for 'AGI' means retail, insurance, and zoning bodies have no trigger point for reassessing automation liability or labor rules — a policy void hiding in plain sight.",
+   "evidence": "Reddit r/singularity post declaring 'AGI is here' based on recent benchmark results, reflecting informal community consensus-building.",
+   "url": "https://www.reddit.com/r/singularity/comments/1urxunv/agi_is_here/",
+   "source": "r/singularity",
+   "date": "2026-07-09",
+   "srctype": "rss",
+   "swipes": "Writings",
+   "steep": "Technological",
+   "steep2": "Political",
+   "classification": "Hype",
+   "themes": [
+    "AGI definition absence",
+    "regulatory gap"
+   ],
+   "keywords": [
+    "AGI",
+    "benchmarks",
+    "policy void"
    ]
   }
  ]
