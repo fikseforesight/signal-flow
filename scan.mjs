@@ -28,9 +28,9 @@ function normUrl(u) {
   }
 }
 
-async function get(url, asJson = true, headers = {}) {
+async function get(url, asJson = true, headers = {}, timeoutMs = 20000) {
   try {
-    const res = await fetch(url, { headers: { "user-agent": "signal-flow-scan/1.0 (personal foresight tool)", ...headers }, signal: AbortSignal.timeout(25000) });
+    const res = await fetch(url, { headers: { "user-agent": "signal-flow-scan/1.0 (personal foresight tool)", ...headers }, signal: AbortSignal.timeout(timeoutMs) });
     if (!res.ok) { console.error(`  ! ${res.status} ${url.slice(0, 90)}`); return null; }
     return asJson ? await res.json() : await res.text();
   } catch (e) {
@@ -43,17 +43,16 @@ async function get(url, asJson = true, headers = {}) {
 
 async function gdelt() {
   const out = [];
+  // Single newest-first (datedesc) pass — surfaces rising-but-small, peripheral-
+  // geography, first-coverage items (the weak end). GDELT is flaky from datacenter
+  // IPs, so cap the wait at 12s per call and fail fast rather than hang the job.
   for (const q of SRC.gdeltQueries) {
-    // pull TWICE per query: hybrid-relevance (mainstream edge) + newest-first
-    // (rising-but-small, peripheral-geography first-coverage) — the weak end
-    for (const sort of ["hybridrel", "datedesc"]) {
-      const u = `https://api.gdeltproject.org/api/v2/doc/doc?query=${encodeURIComponent(q)}&mode=artlist&maxrecords=8&format=json&timespan=${CFG.gdeltTimespan}&sort=${sort}`;
-      const j = await get(u);
-      for (const a of j?.articles || []) {
-        out.push({ title: a.title, url: a.url, snippet: `${a.sourcecountry || ""} ${a.language || ""}`.trim(), source: a.domain, date: (a.seendate || "").slice(0, 8).replace(/(\d{4})(\d{2})(\d{2})/, "$1-$2-$3"), feeder: "gdelt" });
-      }
-      await sleep(6000); // GDELT throttles hard
+    const u = `https://api.gdeltproject.org/api/v2/doc/doc?query=${encodeURIComponent(q)}&mode=artlist&maxrecords=10&format=json&timespan=${CFG.gdeltTimespan}&sort=datedesc`;
+    const j = await get(u, true, {}, 12000);
+    for (const a of j?.articles || []) {
+      out.push({ title: a.title, url: a.url, snippet: `${a.sourcecountry || ""} ${a.language || ""}`.trim(), source: a.domain, date: (a.seendate || "").slice(0, 8).replace(/(\d{4})(\d{2})(\d{2})/, "$1-$2-$3"), feeder: "gdelt" });
     }
+    await sleep(4000); // GDELT throttles hard
   }
   return out;
 }
