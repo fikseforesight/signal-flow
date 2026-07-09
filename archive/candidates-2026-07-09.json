@@ -1,61 +1,230 @@
 {
- "generated": "2026-07-09T18:19:15.595Z",
+ "generated": "2026-07-09T19:36:29.657Z",
  "batch": "2026-07-09",
  "candidates": [
   {
-   "title": "Retailer resists going private, again",
-   "shift": "A specialty retailer's board has now twice rejected a take-private offer, exposing friction over who controls specialty-retail real estate and ownership structure.",
-   "ai_read": "Tentative: repeated rejection of buyout bids may hint at brewing activist-investor interest in retail real estate portfolios, a pattern worth watching across mass retail too.",
-   "evidence": "Destination XL board rejected Zodiac Partners' go-private offer for the second time.",
-   "url": "https://www.retaildive.com/news/destination-xl-board-rejects-zodiac-partners-go-private-offer-again/824822/",
-   "source": "Retail Dive",
-   "date": "2026-07-09",
-   "srctype": "rss",
-   "swipes": "Entrants & exits",
-   "steep": "Economic",
-   "steep2": "Political",
+   "title": "Vigilante Commerce Policing",
+   "shift": "Online fraud-fighting has evolved from hobby to monetized profession, with citizen 'digilantes' enforcing marketplace trust outside formal institutions.",
+   "ai_read": "Tentative: if trust-policing becomes a paid subculture, stores/marketplaces may see crowdsourced enforcement layers around AI checkout fraud and counterfeit detection, bypassing formal security systems entirely.",
+   "evidence": "Scambaiting has 'transitioned from niche hobby into structured practice' via platform monetization, per study of YouTube digilantism.",
+   "url": "https://openalex.org/W7133156206",
+   "source": "ePrints Soton",
+   "date": "2026-08-01",
+   "srctype": "import",
+   "swipes": "Writings",
+   "steep": "Social",
+   "steep2": "Technological",
    "classification": "Weak signal",
    "themes": [
-    "retail real estate",
-    "ownership structure",
-    "activist investors"
+    "trust",
+    "fraud",
+    "community enforcement"
    ],
    "keywords": [
-    "go-private",
-    "board rejection",
-    "retail real estate"
+    "scambaiting",
+    "digilantism",
+    "fraud",
+    "loss prevention"
    ]
   },
   {
-   "title": "Office buildings stress-tested by return mandate",
-   "shift": "California's return-to-office mandate for 100,000+ state employees is exposing whether existing buildings can handle mass reoccupation, surfacing latent infrastructure readiness gaps.",
-   "ai_read": "Tentative: this office 'stress test' could foreshadow analogous capacity/readiness failures for retail or warehouse buildings responding suddenly to policy or demand shocks.",
-   "evidence": "Piece notes more than 100,000 state employees subject to RTO mandate, testing building readiness.",
-   "url": "https://www.smartcitiesdive.com/news/california-rto-mandate-spotlight-office-readiness/824820/",
-   "source": "Smart Cities Dive",
-   "date": "2026-07-09",
-   "srctype": "rss",
-   "swipes": "Statistics",
-   "steep": "Political",
+   "title": "Perceived vs Actual Retail Access",
+   "shift": "Research decouples consumers' *perceived* distance to food retail from real geographic distance, reshaping how 'food deserts' are defined and measured.",
+   "ai_read": "Tentative: if perceived accessibility drives store viability more than GIS distance, future siting/delivery models may need psychological-geography mapping, especially relevant as autonomous delivery reshapes rural access globally.",
+   "evidence": "Study 'maps how consumers perceive' distance to food deserts in rural/urban Hungary, separate from actual measured access.",
+   "url": "https://doi.org/10.1007/s41055-026-00225-0",
+   "source": "Food Ethics",
+   "date": "2026-07-03",
+   "srctype": "import",
+   "swipes": "Writings",
+   "steep": "Social",
+   "steep2": "Economic",
+   "classification": "Weak signal",
+   "themes": [
+    "food access",
+    "perception",
+    "rural retail"
+   ],
+   "keywords": [
+    "food desert",
+    "Hungary",
+    "distance perception"
+   ]
+  },
+  {
+   "title": "AI-Mediated Public Communication, Global South",
+   "shift": "African organizations are adopting AI for public relations and stakeholder engagement outside Western PR norms, generating distinct ethical frameworks.",
+   "ai_read": "Tentative: AI-driven engagement spreading to peripheral markets by necessity, not luxury, could let store-community relations in these regions leapfrog Western models entirely.",
+   "evidence": "Study documents AI 'reshaping PR practice' in Tanzania, noting professional/ethical challenges distinct from Europe/North America research base.",
+   "url": "https://doi.org/10.48175/ijarsct-37627",
+   "source": "IJARSCT",
+   "date": "2026-07-08",
+   "srctype": "import",
+   "swipes": "Writings",
+   "steep": "Technological",
    "steep2": "Social",
    "classification": "Weak signal",
    "themes": [
-    "return-to-office",
-    "building capacity",
-    "infrastructure strain"
+    "AI adoption",
+    "peripheral geography",
+    "community engagement"
    ],
    "keywords": [
-    "RTO mandate",
-    "office buildings",
-    "capacity"
+    "Tanzania",
+    "AI PR",
+    "Global South"
    ]
   },
   {
-   "title": "Wildfire-responsive housing design from academia",
-   "shift": "Architecture students are prototyping housing specifically adapted to wildfire risk in fire-prone peripheral geography (Pacific Palisades), hinting at emerging construction norms.",
-   "ai_read": "Tentative: academic prototypes like this often presage future building-code or insurance-driven construction requirements that could extend to retail structures in fire zones.",
-   "evidence": "USC School Shows features a housing proposal tackling wildfire risk in the Pacific Palisades.",
-   "url": "https://www.dezeen.com/2026/07/09/housing-wildfires-among-projects-from-university-of-southern-california-schoolshows/",
+   "title": "Concrete That Repairs Itself",
+   "shift": "Construction materials research is converging self-healing chemistry with machine learning to predict and optimize autonomous crack repair in structures.",
+   "ai_read": "Tentative: self-repairing structural material could eliminate a category of store maintenance/inspection labor and reshape insurance models built on assumed material decay over decades.",
+   "evidence": "Review covers 'autogenous healing, chemical healing' mechanisms plus ML approaches for self-healing concrete durability.",
+   "url": "https://doi.org/10.1186/s40069-026-00932-2",
+   "source": "Int'l Journal of Concrete Structures and Materials",
+   "date": "2026-07-08",
+   "srctype": "import",
+   "swipes": "Innovations",
+   "steep": "Technological",
+   "steep2": "Environmental",
+   "classification": "Weak signal",
+   "themes": [
+    "construction materials",
+    "maintenance",
+    "durability"
+   ],
+   "keywords": [
+    "self-healing concrete",
+    "machine learning",
+    "durability"
+   ]
+  },
+  {
+   "title": "Porous Framework Materials Enter Buildings",
+   "shift": "Metal-organic frameworks are moving from lab curiosities toward practical, scalable wastewater treatment and targeted-delivery applications.",
+   "ai_read": "Tentative: MOF-based filtration embedded in building water/HVAC systems could let stores self-treat greywater on-site, loosening dependence on municipal water infrastructure in water-stressed regions.",
+   "evidence": "Review notes MOFs' 'exceptional surface area... tunable pore architecture' enabling wastewater treatment and targeted delivery applications.",
+   "url": "https://doi.org/10.1007/s44508-026-00010-1",
+   "source": "Discover Industrial Chemistry and Materials",
+   "date": "2026-07-07",
+   "srctype": "import",
+   "swipes": "Innovations",
+   "steep": "Technological",
+   "steep2": "Environmental",
+   "classification": "Weak signal",
+   "themes": [
+    "water infrastructure",
+    "materials science",
+    "circularity"
+   ],
+   "keywords": [
+    "MOF",
+    "wastewater",
+    "water treatment"
+   ]
+  },
+  {
+   "title": "Governance Vacuum Beyond Jurisdiction",
+   "shift": "The high seas remain a near-lawless commons where resource contests unfold absent enforceable doctrine — a live case of institutional absence.",
+   "ai_read": "Tentative: as data centers, energy platforms, and floating infrastructure move offshore to escape zoning/tax regimes, retail supply chains and real estate could shift toward similarly ungoverned jurisdictions.",
+   "evidence": "Book review frames the high seas as site of 'battle for the unclaimed ocean,' underscoring an absence of enforceable governance.",
+   "url": "https://doi.org/10.59711/jims.12.110038",
+   "source": "Journal of Island and Marine Studies",
+   "date": "2026-07-07",
+   "srctype": "import",
+   "swipes": "Writings",
+   "steep": "Political",
+   "steep2": "Economic",
+   "classification": "Wild card",
+   "themes": [
+    "governance absence",
+    "offshore infrastructure",
+    "jurisdiction"
+   ],
+   "keywords": [
+    "high seas",
+    "ocean governance",
+    "unclaimed territory"
+   ]
+  },
+  {
+   "title": "Tourism vs Ecology Coupling Diagnostics",
+   "shift": "Chinese researchers are building city-scale frameworks to formally diagnose conflict/coordination between tourism development and ecological quality for spatial planning.",
+   "ai_read": "Tentative: formal tourism-ecology 'coupling' metrics could become a zoning input determining where experiential/destination retail can expand, tying store siting to ecological scores rather than foot traffic.",
+   "evidence": "Study builds a 'city-scale framework' diagnosing coupling/coordination between tourism development and ecological quality in China for spatial planning.",
+   "url": "https://doi.org/10.1057/s41599-026-08192-x",
+   "source": "Humanities and Social Sciences Communications",
+   "date": "2026-07-07",
+   "srctype": "import",
+   "swipes": "Writings",
+   "steep": "Environmental",
+   "steep2": "Political",
+   "classification": "Weak signal",
+   "themes": [
+    "zoning",
+    "tourism",
+    "ecological limits"
+   ],
+   "keywords": [
+    "tourism-ecology",
+    "spatial planning",
+    "China"
+   ]
+  },
+  {
+   "title": "Planning Layers for Shoreline Retreat",
+   "shift": "Coastal Chinese cities are developing model-driven adaptation planning that sometimes already avoids the most flood-exposed shoreline zones without explicit doctrine.",
+   "ai_read": "Tentative: an emergent, undeclared pattern of 'adaptive avoidance' in coastal development could formalize into retail-siting doctrine — stores clustering away from exposed coastlines before regulation catches up.",
+   "evidence": "Dalian case shows 'business as usual may already avoid the most exposed locations while remaining concentrated near shoreline.'",
+   "url": "https://doi.org/10.3390/land15071218",
+   "source": "Land",
+   "date": "2026-07-07",
+   "srctype": "import",
+   "swipes": "Writings",
+   "steep": "Environmental",
+   "steep2": "Political",
+   "classification": "Weak signal",
+   "themes": [
+    "coastal adaptation",
+    "site selection",
+    "climate risk"
+   ],
+   "keywords": [
+    "Dalian",
+    "coastal planning",
+    "flood exposure"
+   ]
+  },
+  {
+   "title": "Compute Infrastructure as Civic Anchor",
+   "shift": "Cities in Asia, Africa, and Latin America are pushing for data centers to explicitly return value to host communities via a not-yet-codified reciprocity doctrine.",
+   "ai_read": "Tentative: if a 'community benefit' doctrine for data centers takes hold in peripheral geographies, retailers hosting edge-compute on-site could face similar demands — reframing stores as civic-obligated infrastructure.",
+   "evidence": "Rest of World reports cities in Asia, Africa, Latin America pushing AI infrastructure to 'benefit local communities and lead to sustainable economic growth.'",
+   "url": "https://restofworld.org/2026/data-centers-cities-communities-benefits/",
+   "source": "Rest of World",
+   "date": "2026-07-08",
+   "srctype": "rss",
+   "swipes": "Writings",
+   "steep": "Political",
+   "steep2": "Economic",
+   "classification": "Weak signal",
+   "themes": [
+    "data centers",
+    "community benefit",
+    "infrastructure equity"
+   ],
+   "keywords": [
+    "data centers",
+    "Global South",
+    "civic infrastructure"
+   ]
+  },
+  {
+   "title": "Shade as Infrastructure, Not Amenity",
+   "shift": "An architect's earthen shade pavilion reframes passive cooling as primary climate infrastructure rather than a supplement to mechanical air conditioning.",
+   "ai_read": "Tentative: as heat extremes rise, an as-yet-absent 'shade doctrine' could become mandated for facades/parking/queuing zones, replacing AC-dependent retail envelope design in hot, resource-stressed regions.",
+   "evidence": "Project 'showcases the potential of urban shade' using cord and earthen blocks explicitly to 'reframe' reliance on air conditioning.",
+   "url": "https://www.dezeen.com/2026/07/09/liz-galvez-shade-pavilion-los-angeles-earthen-comforts/",
    "source": "Dezeen",
    "date": "2026-07-09",
    "srctype": "rss",
@@ -64,110 +233,134 @@
    "steep2": "Technological",
    "classification": "Weak signal",
    "themes": [
-    "climate-adaptive construction",
-    "wildfire risk",
-    "materials"
+    "passive cooling",
+    "climate adaptation",
+    "building envelope"
    ],
    "keywords": [
-    "wildfire",
-    "construction",
-    "climate resilience"
+    "shade",
+    "air conditioning",
+    "earthen construction"
    ]
   },
   {
-   "title": "Secondhand resurgence reshaping textile recycling",
-   "shift": "Growing thrifting behavior combined with new recycling systems is reshaping circular pathways for textiles, pushing recycling challenges toward resolution.",
-   "ai_read": "Tentative: could point toward store formats or back-of-house logistics increasingly built around resale/recycling flows rather than pure linear retail.",
-   "evidence": "Article cites resurgence of secondhand shopping alongside new systems addressing textile recycling challenges.",
-   "url": "https://www.retaildive.com/news/thrifting-consumer-habits-shift-textile-recycling-challenges/824809/",
-   "source": "Retail Dive",
-   "date": "2026-07-09",
-   "srctype": "rss",
-   "swipes": "Statistics",
-   "steep": "Environmental",
-   "steep2": "Social",
-   "classification": "Trend",
-   "themes": [
-    "circular economy",
-    "secondhand retail",
-    "textile recycling"
-   ],
-   "keywords": [
-    "thrifting",
-    "recycling",
-    "circular economy"
-   ]
-  },
-  {
-   "title": "Rapid delivery normalizes as core fulfillment channel",
-   "shift": "Ultra-fast grocery delivery has moved from novelty to mainstream, establishing a loyal recurring user base according to new research.",
-   "ai_read": "Tentative: mainstreaming of rapid delivery may quietly erode big-box footprint dependency, shifting real estate toward micro-fulfillment and away from parking-heavy formats.",
-   "evidence": "Coresight Research finds rapid delivery has established a 'loyal user base' as a mainstream option.",
-   "url": "https://www.grocerydive.com/news/rapid-delivery-usage-grows-coresight-research/824773/",
-   "source": "Grocery Dive",
-   "date": "2026-07-09",
-   "srctype": "rss",
-   "swipes": "Statistics",
-   "steep": "Economic",
-   "steep2": "Technological",
-   "classification": "Trend",
-   "themes": [
-    "fulfillment format",
-    "delivery",
-    "supply chain"
-   ],
-   "keywords": [
-    "rapid delivery",
-    "micro-fulfillment",
-    "grocery"
-   ]
-  },
-  {
-   "title": "Back-to-school spend consolidates into mass merchants",
-   "shift": "Financially anxious consumers are concentrating back-to-school spending into mass-merchant and department-store channels rather than specialty retail.",
-   "ai_read": "Tentative: consumer retrenchment reinforcing big-box centrality even as automation/AI reshape stores; worth tracking spend polarization patterns over time.",
-   "evidence": "Piece notes consumers worried about personal finances are shifting spend toward mass merchants and department stores.",
-   "url": "https://www.retaildive.com/news/back-to-school-shoppers-mass-merchants-department-stores-spending-down/824817/",
-   "source": "Retail Dive",
-   "date": "2026-07-09",
-   "srctype": "rss",
-   "swipes": "Statistics",
-   "steep": "Economic",
-   "steep2": "Social",
-   "classification": "Trend",
-   "themes": [
-    "consumer behavior",
-    "mass retail",
-    "spending patterns"
-   ],
-   "keywords": [
-    "back-to-school",
-    "mass merchants",
-    "consumer spending"
-   ]
-  },
-  {
-   "title": "Grocers prioritize back-end AI over storefront tech",
-   "shift": "Grocery retailers appear to be directing AI investment toward operations and supply-chain systems rather than customer-facing storefront experience.",
-   "ai_read": "Tentative: suggests near-term AI impact in stores may be largely invisible to shoppers, concentrated in labor/ops and supply chain rather than the sales floor.",
-   "evidence": "Retail Dive reports retailers leaning into back-end operational AI investment.",
-   "url": "https://www.retaildive.com/news/grocers-ai-back-end-operations/824806/",
-   "source": "Retail Dive",
+   "title": "Remote-Piloted Humanoids Cross Into High-Stakes Work",
+   "shift": "Teleoperated humanoid robots performed actual surgeries in a preclinical trial, moving physical-AI teleoperation from labs into liability-bearing professional tasks.",
+   "ai_read": "Tentative: if humanoids can be remotely piloted for surgery, remote-operated humanoid labor in stores (stocking, security, cleaning) becomes plausible sooner — reframing 'store staff' as globally distributed teleoperators.",
+   "evidence": "Nature reports two teleoperated humanoid robots 'used to complete two surgeries during a preclinical trial.'",
+   "url": "https://www.reddit.com/r/Futurology/comments/1urrq1l/for_the_first_time_two_teleoperated_humanoid/",
+   "source": "r/Futurology (Nature)",
    "date": "2026-07-09",
    "srctype": "rss",
    "swipes": "Innovations",
    "steep": "Technological",
    "steep2": "Economic",
-   "classification": "Hype",
+   "classification": "Wild card",
    "themes": [
-    "AI investment",
-    "back-end operations",
-    "grocery tech"
+    "teleoperation",
+    "robotics",
+    "labor substitution"
    ],
    "keywords": [
-    "grocery AI",
-    "back-end operations",
+    "humanoid robots",
+    "teleoperation",
+    "physical AI"
+   ]
+  },
+  {
+   "title": "Drone Defense Enters Civilian Property Debate",
+   "shift": "Military-grade anti-drone countermeasures are being publicly scrutinized for cost/effectiveness as drone traffic increases, foreshadowing civilian-property drone defense needs.",
+   "ai_read": "Tentative: as delivery/surveillance drone density rises, retail real estate (parking, rooftops, loading docks) may need drone countermeasure infrastructure — a category absent from today's store security doctrine.",
+   "evidence": "Discussion questions whether 'Leonidas' anti-drone system has 'very limited range' and can't intercept fast drones cost-effectively.",
+   "url": "https://www.reddit.com/r/Futurology/comments/1urai3e/do_you_think_the_new_antidrone_countermeasure/",
+   "source": "r/Futurology",
+   "date": "2026-07-09",
+   "srctype": "rss",
+   "swipes": "Innovations",
+   "steep": "Technological",
+   "steep2": "Political",
+   "classification": "Wild card",
+   "themes": [
+    "drone defense",
+    "physical security",
+    "airspace"
+   ],
+   "keywords": [
+    "anti-drone",
+    "Leonidas",
+    "property security"
+   ]
+  },
+  {
+   "title": "Pharmacological Appetite Regulation at Population Scale",
+   "shift": "An EU-approved daily food additive claims to regulate appetite and prevent weight gain at small doses, signaling potential population-level metabolic shift within a decade.",
+   "ai_read": "Tentative: if population body composition shifts markedly (as GLP-1 drugs already suggest), store layouts, aisle widths, and food-category footprint built around current demographic norms may need multi-decade retrofitting.",
+   "evidence": "EU approved additive where '10gm a day can regulate appetite and prevent weight gain,' per developers.",
+   "url": "https://www.reddit.com/r/Futurology/comments/1uqoobf/the_eu_has_approved_a_weightloss_food_additive/",
+   "source": "r/Futurology",
+   "date": "2026-07-08",
+   "srctype": "rss",
+   "swipes": "Innovations",
+   "steep": "Demographic",
+   "steep2": "Social",
+   "classification": "Weak signal",
+   "themes": [
+    "public health",
+    "demographic shift",
+    "store design"
+   ],
+   "keywords": [
+    "appetite regulation",
+    "obesity",
+    "food additive"
+   ]
+  },
+  {
+   "title": "Hidden Cost Backlash of AI Labor Substitution",
+   "shift": "Executives who assumed generative AI could replace workers 'for free' are confronting unexpectedly high operating costs, undercutting near-term automation-labor economics.",
+   "ai_read": "Tentative: if AI substitution costs stay volatile/high, retailers may delay store automation rollouts or shift toward hybrid human-AI staffing models that current labor/real-estate planning doesn't anticipate.",
+   "evidence": "Report describes executives 'confused and horrified' by AI bills after expecting free worker replacement.",
+   "url": "https://www.reddit.com/r/Futurology/comments/1urwlds/execs_confused_and_horrified_by_the_huge_ai_bills/",
+   "source": "r/Futurology",
+   "date": "2026-07-09",
+   "srctype": "rss",
+   "swipes": "Writings",
+   "steep": "Economic",
+   "steep2": "Technological",
+   "classification": "Trend",
+   "themes": [
+    "AI economics",
+    "labor automation",
+    "operations"
+   ],
+   "keywords": [
+    "AI costs",
+    "labor substitution",
     "automation"
+   ]
+  },
+  {
+   "title": "Domestic Robot-as-a-Service, No AGI Required",
+   "shift": "A startup argues current LLM-level AI, not AGI, is sufficient for a viable home robotic maid product, targeting near-term launch.",
+   "ai_read": "Tentative: if 'good enough' AI enables domestic robot labor without AGI, similarly scoped narrow-AI robots for store stocking/cleaning/facing could arrive faster than robotics roadmaps assume.",
+   "evidence": "Discussion claims 'current LLM AIs could be all the AI needed to make capable Jetsons-style robot maids,' no AGI required.",
+   "url": "https://www.reddit.com/r/Futurology/comments/1uro3fy/can_california_startup_weave_robotics_create_the/",
+   "source": "r/Futurology",
+   "date": "2026-07-09",
+   "srctype": "rss",
+   "swipes": "Pitches",
+   "steep": "Technological",
+   "steep2": "Economic",
+   "classification": "Hype",
+   "themes": [
+    "home robotics",
+    "narrow AI",
+    "automation timelines"
+   ],
+   "keywords": [
+    "robot maid",
+    "LLM robotics",
+    "Weave Robotics"
    ]
   }
  ]
