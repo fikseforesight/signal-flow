@@ -140,7 +140,7 @@ NON-NEGOTIABLE RULES:
 - Items that are clearly established trends or hype: still include the best of them, classification "Trend" or "Hype" (they will be filed to Context by the human).
 - Do NOT assign an impact rating; that is human-held.
 
-From the raw items, select up to ${CFG.maxCandidates} candidates relevant to the domain map (weakest/strangest first). Return ONLY a JSON array, no prose, each element:
+From the raw items, select up to ${CFG.maxCandidates} candidates relevant to the domain map (weakest/strangest first). Keep "ai_read" and "evidence" under 45 words each. Return ONLY a JSON array, no prose, each element:
 {"title": "short signal name (the shift, not the event)",
  "shift": "1-2 sentences on the underlying shift",
  "ai_read": "tentative read: why it might matter and why it is strange, labeled tentative",
@@ -159,14 +159,24 @@ From the raw items, select up to ${CFG.maxCandidates} candidates relevant to the
   const res = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
     headers: { "content-type": "application/json", "x-api-key": API_KEY, "anthropic-version": "2023-06-01" },
-    body: JSON.stringify({ model: CFG.model, max_tokens: 8000, system: sys, messages: [{ role: "user", content: user }] }),
+    body: JSON.stringify({ model: CFG.model, max_tokens: 20000, system: sys, messages: [{ role: "user", content: user }] }),
   });
   if (!res.ok) throw new Error(`Anthropic API ${res.status}: ${(await res.text()).slice(0, 300)}`);
   const j = await res.json();
   const text = (j.content || []).map((b) => b.text || "").join("");
-  const m = text.match(/\[[\s\S]*\]/);
+  const m = text.match(/\[[\s\S]*/);
   if (!m) throw new Error("No JSON array in model response");
-  return JSON.parse(m[0]);
+  // salvage parse: if the response was truncated mid-object, trim back to the
+  // last complete object boundary and close the array — never lose a whole batch
+  const raw = m[0];
+  let end = raw.length;
+  while (end > 2) {
+    const slice = raw.slice(0, end).replace(/[\s,\]]+$/, "");
+    try { return JSON.parse(slice + "]"); } catch {}
+    end = raw.lastIndexOf("}", end - 2) + 1;
+    if (end <= 0) break;
+  }
+  throw new Error("Could not parse model response as JSON");
 }
 
 // ---------- main ----------
