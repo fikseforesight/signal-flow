@@ -1,51 +1,68 @@
 {
   "config": {
     "model": "claude-sonnet-5",
-    "maxRawItems": 60,
+    "maxRawItems": 110,
     "maxCandidates": 15,
     "seenLimit": 8000,
-    "gdeltTimespan": "24h",
-    "arxivDays": 3,
-    "hnDays": 2
+    "gdeltTimespan": "36h",
+    "arxivDays": 5,
+    "hnDays": 3,
+    "redditDays": 4
   },
-  "domainMap": "Center: Building / Space / Store (mass-market retailer physical stores & real estate, next decade, esp. AI). Branches: Labor/Work & Operations (frontline TMs, work tasks); Supply Chain (storage & receiving, fulfilment, delivery format, goods transportation); Infrastructure (utilities: energy/water/compute, parking, location, layout/format); Construction (3D printing methods, materials, trade workers + equipment); Retail Industry (competitors); Tech (AI, physical AI, robotics, computer vision, automation); People & Human System (shopping/commerce, transaction, inspiration & discovery, connection & community, experience, transportation & mobility, demographic shifts, migration); Policy/Regulation/Finance (zoning, insurance, regions); Sustainability & Environment (heat, climate events, circular/regenerative).",
+  "domainMap": "Center: Building / Space / Store (mass-market retailer physical stores & real estate, next decade, esp. AI). Branches: Labor/Work & Operations; Supply Chain; Infrastructure (energy/water/compute, parking, location, layout); Construction (methods, materials, trades); Retail Industry; Tech (AI, physical AI, robotics, computer vision, automation); People & Human System (commerce, transaction, discovery, community, experience, mobility, demographic shifts, migration); Policy/Regulation/Finance (zoning, insurance, regions); Sustainability & Environment (heat, climate events, circular).  ===HUNT BRIEF (READ CAREFULLY)=== The daily feeds skew toward near-term (H1/H2) trade news; your job is to fight that. STRONGLY prefer H3 (10-30 year), civilizational, GLOBAL, and WEAK material. Set horizon to H3 whenever plausible. Reward: (1) non-Western and peripheral-geography signals (Asia, Africa, Gulf, Latin America, small jurisdictions); (2) second-order and third-order implications nobody has drawn for the built environment; (3) reframings and ABSENCES (a category/rule/doctrine that does NOT yet exist); (4) items from science, subculture, or fringe sources, not business press; (5) developments that would sound absurd or unsettling to a retail executive today. Demote on sight: quarterly earnings, store-count/closure tallies, named-analyst trend decks, product launches, anything already coined and widely covered — include at most 1-2 such as classification 'Trend'. A candidate that merely restates a trade headline is a FAILURE. Push every candidate to its strangest, most distant, most global reading that still ties — however loosely — to the future of physical stores and real estate. Add a 'horizon' field ('H1'|'H2'|'H3') to every candidate.",
   "gdeltQueries": [
-    "supermarket robot store",
-    "retail zoning conversion housing",
-    "store insurance climate closure",
-    "3D printed retail construction",
-    "supermarket microgrid energy grid",
-    "dark store delivery zoning",
-    "mall data center conversion",
-    "retail heat cooling extreme weather",
-    "humanoid robot store retail",
-    "store parking conversion reuse"
+    "teleoperated robot worker offshore",
+    "managed retreat town relocation climate",
+    "depopulation abandoned town rural Asia",
+    "AI agent autonomous purchase wallet",
+    "living building material mycelium bacteria",
+    "rooftop solar mandate building code",
+    "extreme heat night economy business hours",
+    "dark factory lights out automation",
+    "vacant mall adaptive reuse conversion",
+    "analog offline movement screen-free"
   ],
   "arxivQueries": [
-    "all:\"retail environment\" AND all:robot",
-    "all:\"built environment\" AND all:\"machine learning\" AND all:building",
-    "all:vehicle-to-grid AND all:parking",
-    "all:\"computer vision\" AND all:checkout"
+    "all:teleoperation AND all:labor",
+    "all:\"engineered living materials\" AND all:architecture",
+    "all:\"agentic\" AND all:commerce",
+    "all:\"managed retreat\" OR all:\"climate migration\"",
+    "all:\"embodied\" AND all:robot AND all:retail"
   ],
   "openalexQueries": [
-    "retail store automation building design",
-    "adaptive reuse big box retail conversion",
-    "urban logistics dark store zoning"
+    "shrinking cities depopulation retail geography",
+    "engineered living building materials self-healing",
+    "teleoperation embodiment labor geography",
+    "autonomous economic agents machine customers",
+    "climate managed retreat commercial property"
   ],
   "hnQueries": [
-    "grocery robot",
-    "retail automation",
-    "big box conversion",
-    "store closure data center",
-    "humanoid retail"
+    "teleoperation robot",
+    "living materials mycelium",
+    "AI agent payments wallet",
+    "self-hosted local AI",
+    "depopulation shrinking",
+    "dark factory automation"
+  ],
+  "subreddits": [
+    "Futurology",
+    "collapse",
+    "urbanplanning",
+    "Buttcoin",
+    "solarpunk",
+    "OSINT",
+    "RetailHell",
+    "commercialrealestate",
+    "climate",
+    "singularity"
   ],
   "rssFeeds": [
+    {"name": "Rest of World", "url": "https://restofworld.org/feed/latest/", "steepHint": "Social"},
+    {"name": "MIT Technology Review", "url": "https://www.technologyreview.com/feed/", "steepHint": "Technological"},
+    {"name": "Low-Tech Magazine", "url": "https://solar.lowtechmagazine.com/posts/index.xml", "steepHint": "Environmental"},
     {"name": "Dezeen", "url": "https://www.dezeen.com/feed/", "steepHint": "Social"},
-    {"name": "Construction Dive", "url": "https://www.constructiondive.com/feeds/news/", "steepHint": "Technological"},
-    {"name": "Retail Dive", "url": "https://www.retaildive.com/feeds/news/", "steepHint": "Economic"},
-    {"name": "Grocery Dive", "url": "https://www.grocerydive.com/feeds/news/", "steepHint": "Economic"},
     {"name": "Smart Cities Dive", "url": "https://www.smartcitiesdive.com/feeds/news/", "steepHint": "Political"},
     {"name": "IEEE Spectrum Robotics", "url": "https://spectrum.ieee.org/feeds/topic/robotics.rss", "steepHint": "Technological"}
   ],
-  "relevanceKeywords": ["store", "retail", "supermarket", "grocery", "mall", "shopping", "big box", "warehouse", "fulfillment", "building", "construction", "zoning", "parking", "real estate", "robot", "automation", "checkout", "delivery", "insurance", "heat", "climate", "energy", "microgrid", "data center", "housing conversion", "frontline", "labor", "commercial property"]
+  "relevanceKeywords": ["store", "retail", "shop", "supermarket", "grocery", "mall", "commerce", "building", "city", "urban", "construction", "material", "zoning", "housing", "real estate", "robot", "teleoperat", "automation", "agent", "labor", "worker", "climate", "heat", "retreat", "depopulation", "migration", "solar", "energy", "compute", "data center", "space", "warehouse", "fulfillment", "demograph", "aging", "offline", "analog", "autonomous", "mycelium", "living material"]
 }

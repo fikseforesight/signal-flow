@@ -44,12 +44,40 @@ async function get(url, asJson = true, headers = {}) {
 async function gdelt() {
   const out = [];
   for (const q of SRC.gdeltQueries) {
-    const u = `https://api.gdeltproject.org/api/v2/doc/doc?query=${encodeURIComponent(q)}&mode=artlist&maxrecords=8&format=json&timespan=${CFG.gdeltTimespan}&sort=hybridrel`;
-    const j = await get(u);
-    for (const a of j?.articles || []) {
-      out.push({ title: a.title, url: a.url, snippet: `${a.sourcecountry || ""} ${a.language || ""}`.trim(), source: a.domain, date: (a.seendate || "").slice(0, 8).replace(/(\d{4})(\d{2})(\d{2})/, "$1-$2-$3"), feeder: "gdelt" });
+    // pull TWICE per query: hybrid-relevance (mainstream edge) + newest-first
+    // (rising-but-small, peripheral-geography first-coverage) — the weak end
+    for (const sort of ["hybridrel", "datedesc"]) {
+      const u = `https://api.gdeltproject.org/api/v2/doc/doc?query=${encodeURIComponent(q)}&mode=artlist&maxrecords=8&format=json&timespan=${CFG.gdeltTimespan}&sort=${sort}`;
+      const j = await get(u);
+      for (const a of j?.articles || []) {
+        out.push({ title: a.title, url: a.url, snippet: `${a.sourcecountry || ""} ${a.language || ""}`.trim(), source: a.domain, date: (a.seendate || "").slice(0, 8).replace(/(\d{4})(\d{2})(\d{2})/, "$1-$2-$3"), feeder: "gdelt" });
+      }
+      await sleep(6000); // GDELT throttles hard
     }
-    await sleep(6000); // GDELT throttles hard
+  }
+  return out;
+}
+
+// niche/fringe communities — where weak signals surface before any outlet names them.
+// Uses Reddit's Atom feed (the JSON API 403s datacenter IPs; the .rss feed does not).
+async function reddit() {
+  const out = [];
+  for (const sub of SRC.subreddits || []) {
+    const xml = await get(`https://www.reddit.com/r/${sub}/new/.rss`, false, { "user-agent": "signal-flow-scan/1.0 (personal foresight tool by u/signalflow)" });
+    if (!xml) continue;
+    for (const e of xml.split("<entry>").slice(1, 11)) {
+      const pick = (tag) => {
+        const m = e.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)</${tag}>`, "i"));
+        return m ? m[1].replace(/<!\[CDATA\[|\]\]>/g, "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim() : "";
+      };
+      const link = (e.match(/<link[^>]*href="([^"]+)"/i) || [])[1] || "";
+      const date = pick("updated").slice(0, 10);
+      if (date && (Date.now() - new Date(date).getTime()) / 864e5 > (CFG.redditDays || 4)) continue;
+      const title = pick("title");
+      if (!title || !link) continue;
+      out.push({ title, url: link, snippet: pick("content").slice(0, 300), source: `r/${sub}`, date, feeder: "reddit" });
+    }
+    await sleep(2500);
   }
   return out;
 }
@@ -186,7 +214,7 @@ const seen = new Set(existsSync(seenPath) ? JSON.parse(readFileSync(seenPath, "u
 
 console.log("Pulling feeders…");
 const results = [];
-for (const [name, fn] of [["gdelt", gdelt], ["arxiv", arxiv], ["openalex", openalex], ["hn", hackernews], ["rss", rss]]) {
+for (const [name, fn] of [["gdelt", gdelt], ["arxiv", arxiv], ["openalex", openalex], ["hn", hackernews], ["reddit", reddit], ["rss", rss]]) {
   try {
     const r = await fn();
     console.log(`  ${name}: ${r.length} items`);
