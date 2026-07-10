@@ -173,6 +173,7 @@ From the raw items, select up to ${CFG.maxCandidates} candidates relevant to the
  "ai_read": "tentative read: why it might matter and why it is strange, labeled tentative",
  "evidence": "what supports it, from the item",
  "url": "...", "source": "...", "date": "YYYY-MM-DD",
+ "horizon": "H1|H2|H3 — REQUIRED; when the change likely matters most. Bias to H3 (10-30yr) for weak/civilizational signals",
  "srctype": "gdelt|rss|import",
  "swipes": "Statistics|Writings|Innovations|Pitches|Entrants & exits|Superhits & outliers",
  "steep": "Social|Technological|Economic|Environmental|Political|Demographic",
