@@ -1,0 +1,263 @@
+{
+ "generated": "2026-07-10T20:26:36.279Z",
+ "batch": "2026-07-10 (substack)",
+ "candidates": [
+  {
+   "title": "Prediction markets migrating to the bodega counter",
+   "shift": "Speculation on everything — celebrity futures, weekly event tranches — is being imagined (and half-arriving) as an impulse-buy rack next to the lottery tickets and gum, a physical retail fixture rather than an app.",
+   "ai_read": "Tentative, H3, wild: a design-fiction from Near Future Laboratory ('Weekly Futures' rack at a Brooklyn deli) sitting a half-step ahead of Polymarket/Kalshi going mainstream. If prediction/speculation becomes a packaged convenience-store good, the store's transaction zone and product mix absorb financialized gambling as everyday retail — a strange new SKU category and regulatory exposure.",
+   "evidence": "Near Future Laboratory, 'Prediction Products Overtake Lottery Tickets Among Younger Consumers' (design fiction): acrylic 'Weekly Futures' rack of prediction-pickers and tranche tokens at a Vinegar Hill deli, plus a printed 'World's Weekly Future' tabloid. Rides real Polymarket/Kalshi momentum.",
+   "url": "https://nearfuturelaboratory.substack.com/feed",
+   "source": "Near Future Laboratory (Substack)",
+   "date": "2026-06-24",
+   "srctype": "import",
+   "swipes": "Writings",
+   "steep": "Economic",
+   "steep2": "Social",
+   "classification": "Wild card",
+   "horizon": "H3",
+   "themes": [
+    "financialized retail",
+    "prediction markets",
+    "transaction zone"
+   ],
+   "keywords": [
+    "prediction markets",
+    "Polymarket",
+    "Kalshi",
+    "bodega",
+    "design fiction"
+   ]
+  },
+  {
+   "title": "'Brazilianization' as the template for AI-maintained decline",
+   "shift": "The reframing that AI agents don't rebuild the hollowed middle class — they *maintain* its absence, keeping the modern shell (elections, careers-in-name, aging infrastructure) running while the substance decomposes. AI as the maintenance layer of a permanently thinned middle.",
+   "ai_read": "Tentative, H3: Chor Pharn (a govt foresight writer) names 'the artificial middle' — automation as connective tissue holding a Brazilianized society together rather than restoring it. If true, retail/real-estate strategy in developed markets should plan for a barbell that never re-fills, with AI smoothing decline rather than growth. A structural reframing no retail planner has drawn.",
+   "evidence": "The Cutting Floor, 'The artificial middle' (2026-07-10) and 'The Machine Interregnum' (2026-07-09): Brazilianization = hollowing not collapse; 'every afterlife needs maintenance, AI may provide it'; the agent restores the *appearance* of the middle, not the middle.",
+   "url": "https://thecuttingfloor.substack.com/feed",
+   "source": "The Cutting Floor (Chor Pharn, Substack)",
+   "date": "2026-07-10",
+   "srctype": "import",
+   "swipes": "Writings",
+   "steep": "Economic",
+   "steep2": "Political",
+   "classification": "Weak signal",
+   "horizon": "H3",
+   "themes": [
+    "Brazilianization",
+    "AI-maintained decline",
+    "barbell that never refills"
+   ],
+   "keywords": [
+    "artificial middle",
+    "Brazilianization",
+    "precarity",
+    "machine interregnum"
+   ]
+  },
+  {
+   "title": "Companies 'decomposing' rather than scaling or exiting",
+   "shift": "A founder-level move surfacing in European design/futures circles: deliberately *decomposing* a company — winding it down as an ecological act of releasing resources — as a legitimate strategic endpoint instead of growth, sale, or failure.",
+   "ai_read": "Tentative, H3: from Sporesight (a foresight/mycelium-thinking newsletter) — 'we don't need more chairs, I'm going to decompose my company.' If 'decomposition' becomes a named, respectable business lifecycle stage, it reframes commercial real estate and retail expansion assumptions: some of the best operators may plan to shrink-to-soil by design. Anti-growth as strategy, barely named.",
+   "evidence": "Sporesight, 'Decompose to Recompose' (2026-07-01): a furniture designer at Copenhagen's 3 Days of Design declaring she'll 'decompose' her company; the newsletter's 'rot repository' framing of regenerative business endings.",
+   "url": "https://sporesight.substack.com/feed",
+   "source": "Sporesight (Substack)",
+   "date": "2026-07-01",
+   "srctype": "import",
+   "swipes": "Pitches",
+   "steep": "Economic",
+   "steep2": "Environmental",
+   "classification": "Weak signal",
+   "horizon": "H3",
+   "themes": [
+    "degrowth",
+    "company decomposition",
+    "regenerative endings"
+   ],
+   "keywords": [
+    "decompose",
+    "degrowth",
+    "regenerative business",
+    "rot repository"
+   ]
+  },
+  {
+   "title": "'Surveillance chic' — the camera you wear because it's fashionable",
+   "shift": "AI camera-glasses are being launched not as creepy surveillance tech but as celebrity-and-fashion objects (Warby Parker, Gentle Monster, Snap SPECS shot by Steven Meisel), normalizing always-on recording of public/retail space as an aesthetic choice.",
+   "ai_read": "Tentative, H3: Mutant Futures frames it as 'surveillance chic.' If ambient recording becomes a desirable fashion signal rather than a privacy threat, every store becomes a stage that's continuously, voluntarily filmed by customers — reshaping loss-prevention, consent, staff behavior, and store-as-content. The reframing (surveillance as chic) is the weak signal, not the glasses.",
+   "evidence": "Mutant Futures, 'Future Testing: Surveillance Chic' (2026-06-30): Google/Samsung 'intelligent eyewear' at I/O with Gentle Monster + Warby Parker; Snap SPECS shot by Steven Meisel; links to an are.na 'surveillance chic' channel.",
+   "url": "https://mutantfutures.substack.com/feed",
+   "source": "Mutant Futures (Substack)",
+   "date": "2026-06-30",
+   "srctype": "import",
+   "swipes": "Innovations",
+   "steep": "Social",
+   "steep2": "Technological",
+   "classification": "Weak signal",
+   "horizon": "H3",
+   "themes": [
+    "surveillance chic",
+    "wearable cameras",
+    "store as filmed stage"
+   ],
+   "keywords": [
+    "smart glasses",
+    "surveillance",
+    "fashion tech",
+    "Warby Parker",
+    "Snap SPECS"
+   ]
+  },
+  {
+   "title": "Consumer game data quietly training military drone AI",
+   "shift": "Behavioral/geospatial data harvested from consumer apps (Pokémon Go) is surfacing as training material for military drone systems — a hyperlink buried inside a weak-signals newsletter, not a headline.",
+   "ai_read": "Tentative, H3, wild: found as an inner link in Estelle Metayer's 'Weak Signals' issue. The signal is the pipeline itself — playful consumer engagement data → autonomous weapons — which implicates every retailer's loyalty/app/foot-traffic data as potential dual-use military feedstock. A second-order reframing of 'customer data' most retailers have never considered.",
+   "evidence": "Linked inside 'Weak signals and other trends' #180 (2026-07-06): Guardian report that Pokémon Go data trained AI that could assist military drones; same issue links a Ukraine MoD 'trophy weapons lab' (trophylab.mod.gov.ua).",
+   "url": "https://www.theguardian.com/technology/2026/jun/12/pokemon-go-data-trained-ai-that-could-assist-military-drones-in-war-zones",
+   "source": "The Guardian (via Weak Signals & Other Trends Substack)",
+   "date": "2026-06-12",
+   "srctype": "import",
+   "swipes": "Superhits & outliers",
+   "steep": "Political",
+   "steep2": "Technological",
+   "classification": "Weak signal",
+   "horizon": "H3",
+   "themes": [
+    "dual-use consumer data",
+    "loyalty data as feedstock"
+   ],
+   "keywords": [
+    "Pokemon Go",
+    "drone AI",
+    "dual-use",
+    "consumer data",
+    "military"
+   ]
+  },
+  {
+   "title": "AI flattening all web/store design into one generic aesthetic",
+   "shift": "AI coding/design tools (Claude Design and peers) are converging every site — and by extension every digital-physical brand surface — toward one homogenized 'AI aesthetic,' eroding visual differentiation as a competitive moat.",
+   "ai_read": "Tentative, H2/H3: Kyle Chayka's 'Filterworld' thesis extended to AI design. If everything AI-built looks the same, the scarce, valuable thing flips to the deliberately un-optimized, human, physical, and weird — which is a direct argument for stores as anti-generic differentiation. The store as the last non-flattened brand surface.",
+   "evidence": "Kyle Chayka Industries, 'The generic style of AI web design' (2026-06-29): New Yorker column on the homogenized 'A.I.-design aesthetic' produced by Claude Design and other AI coding tools; continuation of his 'technology flattening culture' work.",
+   "url": "https://kylechayka.substack.com/feed",
+   "source": "Kyle Chayka Industries (Substack)",
+   "date": "2026-06-29",
+   "srctype": "import",
+   "swipes": "Writings",
+   "steep": "Social",
+   "steep2": "Technological",
+   "classification": "Weak signal",
+   "horizon": "H3",
+   "themes": [
+    "cultural flattening",
+    "anti-generic store",
+    "differentiation moat"
+   ],
+   "keywords": [
+    "AI aesthetic",
+    "Filterworld",
+    "homogenization",
+    "design"
+   ]
+  },
+  {
+   "title": "Dumbphone-as-a-service, sponsor-subsidized",
+   "shift": "The analog/dumbphone move is professionalizing into a sponsored product ecosystem — Light Phone underwriting influencers' 'dumbphone summers' — turning voluntary disconnection into a marketed, purchasable lifestyle with brand backing.",
+   "ai_read": "Tentative, H3: Techno Sapiens (a psychologist's newsletter) 'dumbphone summer, thanks to our sponsors at Light.' The weak signal is disconnection becoming a *sponsored consumer category* with its own retail/marketing motion — implying shelf space, gifting, and store experiences built around being offline. Ties to the broader analog-premium signal from the daily scan.",
+   "evidence": "Techno Sapiens, 'Should you switch to a dumbphone?' (2026-07-06): sponsored by Light Phone; frames a 'dumbphone summer'; links to Light's shop and a digital-detox planning guide.",
+   "url": "https://technosapiens.substack.com/feed",
+   "source": "Techno Sapiens (Substack)",
+   "date": "2026-07-06",
+   "srctype": "import",
+   "swipes": "Pitches",
+   "steep": "Social",
+   "steep2": "Economic",
+   "classification": "Weak signal",
+   "horizon": "H3",
+   "themes": [
+    "analog premium",
+    "disconnection-as-product"
+   ],
+   "keywords": [
+    "dumbphone",
+    "Light Phone",
+    "digital detox",
+    "analog"
+   ]
+  },
+  {
+   "title": "'Never-skilling' — a generation that never acquires the skill AI replaced",
+   "shift": "Beyond de-skilling: a cohort entering work that never develops certain baseline capabilities at all because AI did them from day one, producing a structural competence gap rather than atrophy.",
+   "ai_read": "Tentative, H3: surfaced as a concept in Exponential View. 'Never-skilling' (vs re-/de-skilling) implies frontline retail and trade labor pools where foundational skills simply never form — reshaping training, store staffing models, and what 'experienced' even means. A named concept still forming, worth watching for adoption.",
+   "evidence": "Exponential View #591 (2026-07-05): coins/relays 'never skilling' among emerging AI-labor concepts; alongside Ramp/Revelio data that heavy-AI-adopter firms grew headcount ~10% (counter to replacement narrative).",
+   "url": "https://www.exponentialview.co/feed",
+   "source": "Exponential View (Substack)",
+   "date": "2026-07-05",
+   "srctype": "import",
+   "swipes": "Writings",
+   "steep": "Economic",
+   "steep2": "Social",
+   "classification": "Weak signal",
+   "horizon": "H3",
+   "themes": [
+    "never-skilling",
+    "labor competence gap"
+   ],
+   "keywords": [
+    "never skilling",
+    "de-skilling",
+    "AI labor",
+    "workforce"
+   ]
+  },
+  {
+   "title": "Time itself reframed as non-linear in design practice",
+   "shift": "Design/foresight practitioners are explicitly rejecting linear 'progress/growth/optimization' time in favor of looping, plural, decolonized time models — and building events and methods around it.",
+   "ai_read": "Tentative, H3: DesignShifts' 'From Lines to Loops' treats linear time as a constructed instrument of particular interests. If non-linear time frameworks move from theory into how spaces, retail calendars, and product cycles are designed, it quietly undermines the seasonal/quarterly logic retail is built on. Very upstream, very weak — a philosophical reframe with latent operational bite.",
+   "evidence": "DesignShifts, 'Event recap: From Lines to Loops' (2026-07-06): event with 'What Grows Between Us: Tending to Time'; argues the 'dominant clock' was built to serve particular interests, not neutral.",
+   "url": "https://designshifts.substack.com/feed",
+   "source": "DesignShifts (Substack)",
+   "date": "2026-07-06",
+   "srctype": "import",
+   "swipes": "Writings",
+   "steep": "Social",
+   "classification": "Weak signal",
+   "horizon": "H3",
+   "themes": [
+    "non-linear time",
+    "post-seasonal retail logic"
+   ],
+   "keywords": [
+    "time",
+    "linear time",
+    "decolonizing time",
+    "temporality"
+   ]
+  },
+  {
+   "title": "Meaning-collapse as the deepest layer of the polycrisis",
+   "shift": "A reframing of the current polycrisis as fundamentally a *collapse of meaning* — the loss of society's capacity to make sense of itself — sitting beneath the visible economic, ecological, and institutional failures.",
+   "ai_read": "Tentative, H3: Indy Johar (Dark Matter Labs) argues the deepest wound is metaphysical, not material. If a meaning-crisis is the real substrate, then consumption, brand, and the social role of physical space (community, ritual, belonging) become sites where that void is either filled or exploited — reframing the store as potential meaning-infrastructure. Upstream and diffuse, but decision-relevant for what stores are *for*.",
+   "evidence": "Indy Johar, 'The Meaning Crisis' (2026-07-05): 'beneath these visible failures sits a deeper wound: a society losing the capacity to make meaning'; paired with 'What If the Future Cannot and Shouldn't Be Controlled?'",
+   "url": "https://indyjohar.substack.com/feed",
+   "source": "Indy Johar (Dark Matter Labs, Substack)",
+   "date": "2026-07-05",
+   "srctype": "import",
+   "swipes": "Writings",
+   "steep": "Social",
+   "steep2": "Political",
+   "classification": "Weak signal",
+   "horizon": "H3",
+   "themes": [
+    "meaning crisis",
+    "store as meaning-infrastructure"
+   ],
+   "keywords": [
+    "meaning crisis",
+    "polycrisis",
+    "metaphysics",
+    "community"
+   ]
+  }
+ ]
+}

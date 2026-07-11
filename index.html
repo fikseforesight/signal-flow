@@ -660,24 +660,36 @@ function toast(msg){
   setTimeout(()=>t.classList.remove('show'),6000);
 }
 function candKey(c){return normUrl(c.url||c.link||'')||('t:'+(c.title||''))}
-async function autoLoadFeed(){
+/* Load one scan-feed file (daily or weekly-substack) and merge its fresh candidates. */
+async function loadFeedFile(file,label){
   let payload;
   try{
-    const res=await fetch('candidates.json',{cache:'no-store'});
-    if(!res.ok)return;
+    const res=await fetch(file,{cache:'no-store'});
+    if(!res.ok)return null;
     payload=await res.json();
-  }catch(e){return} /* offline or opened as a local file — feed silently unavailable */
+  }catch(e){return null} /* offline / opened as local file / file not present yet */
   const arr=Array.isArray(payload)?payload:(payload.candidates||[]);
   const batch=payload.batch||payload.generated||'';
-  const fs=document.getElementById('feedStatus');
-  if(fs&&batch)fs.textContent='· scan feed: '+batch;
   const processed=loadProcessed();
   const fresh=arr.filter(c=>{const k=candKey(c);return k&&k!=='t:'&&!processed.has(k)});
-  if(!fresh.length)return;
+  if(!fresh.length)return {added:0,merged:0,batch};
   const r=mergeCandidates(fresh);
   fresh.forEach(c=>processed.add(candKey(c)));
-  saveProcessed(processed);save();render();
-  toast(`Daily scan: ${r.added} new candidate${r.added===1?'':'s'} in your queue${r.merged?`, ${r.merged} recurrence${r.merged===1?'':'s'} appended`:''}.`);
+  saveProcessed(processed);save();
+  return {added:r.added,merged:r.merged,batch,label};
+}
+async function autoLoadFeed(){
+  /* daily headline scan + weekly substack scan; both are optional and independent */
+  const daily=await loadFeedFile('candidates.json','Daily scan');
+  const substack=await loadFeedFile('substack-candidates.json','Substack scan');
+  const fs=document.getElementById('feedStatus');
+  const b=(daily&&daily.batch)||'';
+  if(fs&&b)fs.textContent='· scan feed: '+b;
+  render();
+  const msgs=[];
+  if(daily&&daily.added)msgs.push(`Daily scan: ${daily.added} new`);
+  if(substack&&substack.added)msgs.push(`Substack scan: ${substack.added} new`);
+  if(msgs.length)toast(msgs.join(' · ')+' in your queue.');
 }
 autoLoadFeed();
 </script>
