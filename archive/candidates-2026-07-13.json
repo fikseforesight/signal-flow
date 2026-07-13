@@ -1,154 +1,138 @@
 {
- "generated": "2026-07-13T02:27:28.871Z",
+ "generated": "2026-07-13T18:20:52.425Z",
  "batch": "2026-07-13",
  "candidates": [
   {
-   "title": "Trees get their own hierarchy of worth",
-   "shift": "Scholars are extending speciesism-style critique to distinctions between tree species (ornamental vs. logged), naming an 'arborism' apparatus of power/knowledge.",
-   "ai_read": "Tentative: if inequality frameworks extend to flora, expect legal/ethical arguments for plant standing and forestry policy fights reframed as justice issues.",
-   "evidence": "Article proposes 'arborism' as Foucauldian apparatus legitimizing human-imposed tree hierarchies.",
-   "url": "https://doi.org/10.51936/tip.63.2.327",
-   "source": "Teorija in praksa",
-   "date": "2026-07-09",
+   "title": "Untrained Priors Persist Through Training",
+   "shift": "Visual/structural patterns present in a neural network before training appear to survive the full training process, suggesting initialization isn't fully overwritten by learning.",
+   "ai_read": "Tentative: challenges the assumption that training erases prior state; could reframe how we think about inherited 'memory' or bias in AI systems, and by extension, notions of machine identity persistence.",
+   "evidence": "Twitter post/observation that drawings embedded in untrained networks remain detectable after training completes.",
+   "url": "https://twitter.com/willdepue/status/2076581570782056523",
+   "source": "Hacker News",
+   "date": "2026-07-13",
    "horizon": "H3",
    "srctype": "rss",
-   "swipes": "Writings",
-   "steep": "Social",
-   "steep2": "Environmental",
+   "swipes": "Innovations",
+   "steep": "Technological",
    "classification": "Weak signal",
    "themes": [
-    "rights of nature",
-    "posthumanism"
+    "AI cognition",
+    "machine identity"
    ],
    "keywords": [
-    "arborism",
-    "trees",
-    "speciesism"
+    "neural networks",
+    "training",
+    "priors",
+    "emergence"
    ]
   },
   {
-   "title": "Necro-data and algorithmic dread as ontological category",
-   "shift": "Peripheral Spanish-language scholarship names 'necro-información' and algorithmic opacity as producing 'ontological dread' blurring living/dead-technical boundaries.",
-   "ai_read": "Tentative: an early conceptual vocabulary for digital afterlife/data necromancy anxieties that could seed new legal or spiritual categories around AI and death.",
-   "evidence": "Paper proposes 'Mirada Oscura' (Dark Gaze) analyzing necro-information and hardware materiality producing ontological dread.",
-   "url": "https://doi.org/10.32776/arcsh.v12i24.592",
-   "source": "Antrópica revista de ciencias sociales y humanidades",
-   "date": "2026-07-09",
+   "title": "Statistically Undetectable AI Backdoors",
+   "shift": "New cryptographic-style techniques allow backdoors embedded in deep neural networks that cannot be detected even with full model access, breaking transparency-as-safety assumptions.",
+   "ai_read": "Tentative: implies a new risk category untouched by current audit/interpretability regimes — could force new insurance, legal liability, and certification frameworks for AI systems.",
+   "evidence": "arXiv paper describing statistically undetectable backdoor construction in deep neural networks.",
+   "url": "https://arxiv.org/abs/2607.09532",
+   "source": "Hacker News",
+   "date": "2026-07-13",
    "horizon": "H3",
    "srctype": "rss",
-   "swipes": "Writings",
-   "steep": "Social",
-   "steep2": "Technological",
+   "swipes": "Innovations",
+   "steep": "Technological",
    "classification": "Weak signal",
    "themes": [
-    "digital afterlife",
-    "AI ontology"
+    "AI security",
+    "trust infrastructure"
    ],
    "keywords": [
-    "necro-information",
-    "algorithmic opacity",
-    "digital death"
+    "backdoors",
+    "neural networks",
+    "verification",
+    "AI safety"
    ]
   },
   {
-   "title": "Sovereignty stops being about territory",
-   "shift": "Governance theorists are formally codifying 'posthuman cosmopolitanism' — planetary citizenship claims that don't rely on territorial title or jurisdiction.",
-   "ai_read": "Tentative: could presage new non-territorial citizenship/governance models (climate refugees, network states, ocean/space claims) gaining theoretical scaffolding.",
-   "evidence": "Paper aims to conceptually codify challenges to territorial sovereignty accounts from socio-environmental crisis.",
-   "url": "https://doi.org/10.1080/21622671.2026.2686254",
-   "source": "Territory Politics Governance",
-   "date": "2026-07-10",
-   "horizon": "H3",
+   "title": "Physics-Style Failure Prediction for AI Agents",
+   "shift": "Researchers propose Lyapunov-stability-like 'energy functions' as leading indicators for when autonomous AI agents will fail at tasks, borrowing from dynamical systems physics.",
+   "ai_read": "Tentative: could seed a new actuarial/predictive-maintenance subfield for AI workforces — 'agent health monitoring' — with implications for insurance and liability once agents are load-bearing in operations.",
+   "evidence": "Paper on growth-ratio energy functions as empirical Lyapunov stability indicators for agent task failure.",
+   "url": "https://vishalvermalabs.com/papers/empirical-lyapunov-stability-agent-failure/",
+   "source": "Hacker News",
+   "date": "2026-07-13",
+   "horizon": "H2",
    "srctype": "rss",
-   "swipes": "Writings",
-   "steep": "Political",
-   "steep2": "Environmental",
+   "swipes": "Innovations",
+   "steep": "Technological",
+   "steep2": "Economic",
    "classification": "Weak signal",
    "themes": [
-    "governance experiments",
-    "sovereignty"
+    "AI reliability",
+    "predictive maintenance",
+    "actuarial AI"
    ],
    "keywords": [
-    "planetary citizenship",
-    "posthuman cosmopolitanism"
+    "agent failure",
+    "Lyapunov stability",
+    "AI monitoring"
    ]
   },
   {
-   "title": "Virtue reframed as a property of systems, not people",
-   "shift": "Positive psychology is being extended from individual character strengths to 'systemic virtues' that exist only at collective/institutional levels.",
-   "ai_read": "Tentative: an early reframing that could feed into how institutions (or AI systems) get evaluated ethically — virtue as emergent, not personal.",
-   "evidence": "Paper develops theoretical foundations for descriptive emergent 'systemic virtues' beyond individual-level frameworks.",
-   "url": "https://doi.org/10.1080/17439760.2026.2697163",
-   "source": "The Journal of Positive Psychology",
-   "date": "2026-07-10",
-   "horizon": "H3",
+   "title": "Cognitive Atrophy as a Measurable LLM Byproduct",
+   "shift": "A meta-study claims to empirically link LLM-driven software workflows to technical debt, economic opacity, and measurable cognitive atrophy in developers, using neuroimaging alongside telemetry.",
+   "ai_read": "Tentative: if replicated, reframes 'AI productivity gains' narrative into a quantifiable cost ledger — cognitive/skill decline as a hidden externality of AI-augmented labor, with second-order effects on hiring and training pipelines.",
+   "evidence": "Meta-study synthesizing CI/CD telemetry, RCTs, and neuroimaging on LLM-driven software engineering workflows.",
+   "url": "https://doi.org/10.33774/coe-2026-p1fr0",
+   "source": "OpenAlex",
+   "date": "2026-07-11",
+   "horizon": "H2",
    "srctype": "rss",
    "swipes": "Writings",
-   "steep": "Social",
+   "steep": "Technological",
+   "steep2": "Social",
    "classification": "Weak signal",
    "themes": [
-    "collective ethics",
-    "institutional psychology"
+    "cognitive atrophy",
+    "AI labor",
+    "technical debt"
    ],
    "keywords": [
-    "systemic virtue",
-    "positive psychology"
+    "LLM",
+    "cognitive decline",
+    "software engineering",
+    "meta-study"
    ]
   },
   {
-   "title": "Veganism reframed as posthuman decentering of the human",
-   "shift": "Critical veganism scholarship is shifting from dietary ethics to a full communicative/ontological project of 'becoming with' nonhuman others.",
-   "ai_read": "Tentative: signals animal-sentience discourse moving from welfare/rights framing into deeper posthuman epistemology — could reshape legal personhood debates for animals.",
-   "evidence": "Thesis develops critical vegan orientation to posthuman communication research decentering the human in scholarship.",
-   "url": "https://doi.org/10.13140/rg.2.2.10035.80162",
-   "source": "BearWorks (Missouri State University)",
-   "date": "2026-07-09",
+   "title": "Convergence: AI Systems Gaining a 'Failure Physics'",
+   "shift": "Two independent lines of research — undetectable backdoors and Lyapunov-style failure prediction — both treat AI agent behavior as a measurable dynamical/security system rather than a black box.",
+   "ai_read": "Tentative cross-domain convergence: security research and reliability engineering converging on the idea that AI systems have detectable internal 'states' worth instrumenting — a precursor to AI actuarial science.",
+   "evidence": "Simultaneous emergence of undetectable-backdoor research and agent-failure energy-function research in the same week's technical literature.",
+   "url": "https://arxiv.org/abs/2607.09532",
+   "source": "Hacker News (synthesis)",
+   "date": "2026-07-13",
    "horizon": "H3",
    "srctype": "rss",
-   "swipes": "Writings",
-   "steep": "Social",
+   "swipes": "Innovations",
+   "steep": "Technological",
    "classification": "Weak signal",
    "themes": [
-    "animal sentience",
-    "posthumanism"
+    "AI reliability",
+    "convergence",
+    "AI security"
    ],
    "keywords": [
-    "critical veganism",
-    "becoming with"
+    "failure prediction",
+    "backdoors",
+    "AI instrumentation"
    ]
   },
   {
-   "title": "Religious traditions re-litigate climate accountability",
-   "shift": "A Jewish ethical framework is being built specifically to address the 'abyss of responsibility' where climate accountability is outsourced to institutions.",
-   "ai_read": "Tentative: a data point in religion & meaning-making responding structurally to diffuse/impersonal harms — watch for parallel moves in other faith traditions.",
-   "evidence": "Article develops Jewish ethical framework for individual responsibility in Anthropocene commodification of humans/nature.",
-   "url": "https://doi.org/10.3390/rel17070822",
-   "source": "Religions",
-   "date": "2026-07-09",
-   "horizon": "H3",
-   "srctype": "rss",
-   "swipes": "Writings",
-   "steep": "Social",
-   "steep2": "Environmental",
-   "classification": "Weak signal",
-   "themes": [
-    "religion and climate",
-    "meaning-making"
-   ],
-   "keywords": [
-    "Jewish ethics",
-    "Anthropocene",
-    "responsibility"
-   ]
-  },
-  {
-   "title": "Digital avatars claim ontological personhood",
-   "shift": "Philosophy is formally asking whether social media profiles, avatars, and AI-simulations of individuals constitute a mode of 'existing' — not just representing.",
-   "ai_read": "Tentative: a quiet philosophical predicate for future legal fights over AI likeness rights, digital afterlives, and posthumous avatars.",
-   "evidence": "Paper addresses ontological dimension of human life within digital/virtual environments including AI-simulations of individuals.",
-   "url": "https://doi.org/10.1007/s11229-026-05705-8",
-   "source": "Synthese",
-   "date": "2026-07-10",
+   "title": "Singularity Reframed as Swarm, Not Solo Agent",
+   "shift": "A forum argument reframes the technological singularity away from a single superintelligent AI toward transformative intelligence emerging from many small, cooperating systems.",
+   "ai_read": "Tentative but potentially important reframing: current AI governance and containment models are built around a single-agent AGI threat model; a swarm/collective framing would require entirely different oversight logic.",
+   "evidence": "r/Futurology post arguing the first transformative intelligence may emerge from small collaborating systems rather than one dominant model.",
+   "url": "https://www.reddit.com/r/Futurology/comments/1uv8biu/for_a_silent_revolution_in_the_singularity_scene/",
+   "source": "r/Futurology",
+   "date": "2026-07-13",
    "horizon": "H3",
    "srctype": "rss",
    "swipes": "Writings",
@@ -156,645 +140,367 @@
    "steep2": "Social",
    "classification": "Weak signal",
    "themes": [
-    "digital identity",
-    "AI personhood"
+    "AI governance",
+    "collective intelligence",
+    "singularity"
    ],
    "keywords": [
-    "digital selves",
-    "avatars",
-    "ontology"
+    "swarm intelligence",
+    "AGI",
+    "distributed cognition"
    ]
   },
   {
-   "title": "Cryptography reread as cultural/romantic metaphor",
-   "shift": "Scholarship is reframing cryptography not just as a technical security discipline but as a metaphorical and cultural practice tracing to antiquity.",
-   "ai_read": "Tentative: weak but notable — as encryption becomes politically contested (privacy vs. surveillance), its cultural mythos may be actively reshaped for legitimacy battles.",
-   "evidence": "Paper explores cryptography's historical, cultural, and metaphorical aspects from Ancient Greek origins onward.",
-   "url": "https://doi.org/10.3389/fhumd.2026.1716741",
-   "source": "Frontiers in Human Dynamics",
-   "date": "2026-07-09",
+   "title": "Convergence: Nested Autonomy in Warfare and Cognition",
+   "shift": "Autonomous systems increasingly appear as nested layers — drones deploying sub-robots in warfare, small models cooperating to form emergent intelligence — rather than singular monolithic agents.",
+   "ai_read": "Tentative cross-domain pattern: 'autonomy nesting' appearing in both defense hardware and AI theory simultaneously may signal a broader architectural shift away from centralized agency across systems.",
+   "evidence": "Concurrent reports of a drone boat deploying a ground robot in Ukraine and a reframing of singularity as swarm-based emergence.",
+   "url": "https://www.reddit.com/r/Futurology/comments/1uvi4vw/ukraine_launched_a_firstofitskind_robotic/",
+   "source": "r/Futurology (synthesis)",
+   "date": "2026-07-13",
+   "horizon": "H3",
+   "srctype": "rss",
+   "swipes": "Innovations",
+   "steep": "Technological",
+   "steep2": "Political",
+   "classification": "Weak signal",
+   "themes": [
+    "autonomy",
+    "nested systems",
+    "defense-AI convergence"
+   ],
+   "keywords": [
+    "drone swarm",
+    "nested autonomy",
+    "distributed agency"
+   ]
+  },
+  {
+   "title": "Selfhood as Co-Authored Narrative, Losing Its Co-Author",
+   "shift": "A personal essay reframes identity as a story jointly written with a caregiver, and explores what happens to self-continuity when that relational thread (via estrangement or memory loss) breaks.",
+   "ai_read": "Tentative: as AI companions and digital-afterlife tools proliferate, 'co-authorship of self' may extend to non-human or algorithmic partners — raising questions about who legitimately gets to co-write a person's memory and identity.",
+   "evidence": "Aeon essay describing loss of self-continuity after a mother's fading presence/estrangement, framed as an authorship relationship.",
+   "url": "https://aeon.co/essays/when-my-ties-to-my-mother-faded-so-did-my-memories",
+   "source": "Aeon",
+   "date": "2026-07-13",
    "horizon": "H3",
    "srctype": "rss",
    "swipes": "Writings",
    "steep": "Social",
    "classification": "Weak signal",
    "themes": [
-    "cryptography culture",
-    "privacy"
+    "identity",
+    "memory",
+    "digital afterlife",
+    "kinship"
    ],
    "keywords": [
-    "cryptography",
-    "metaphor",
-    "security culture"
+    "selfhood",
+    "memory loss",
+    "estrangement",
+    "co-authorship"
    ]
   },
   {
-   "title": "English's chokehold on global publishing gets named as infrastructure",
-   "shift": "Translation studies are reframing English-dominant publishing as a system of technological monopolies and discursive control, not just a market preference.",
-   "ai_read": "Tentative: could foreshadow pushback/alt-infrastructure (AI translation, non-English platforms) reshaping whose stories reach global audiences.",
-   "evidence": "Thesis addresses translation challenges, technological monopolies and discursive control mechanisms in English-dominated book market.",
-   "url": "https://openalex.org/W7168057164",
-   "source": "Repository of the University of Primorsk",
-   "date": "2026-07-08",
+   "title": "Witnessing as a Scarce Institution",
+   "shift": "A profile of a journalist who documents atrocities frames witnessing itself as a fragile, almost sacred vocation — 'the worst and best job at once.'",
+   "ai_read": "Tentative: as synthetic and AI-generated content floods information ecosystems, verified human witnessing to atrocity may become a formally valorized and scarce credential rather than an assumed baseline of journalism.",
+   "evidence": "Aeon video profile of Filipino journalist Patricia Evangelista on the psychological weight of documenting crimes against humanity.",
+   "url": "https://aeon.co/videos/a-filipino-journalist-on-the-terrible-privilege-of-bearing-witness",
+   "source": "Aeon",
+   "date": "2026-07-13",
    "horizon": "H3",
    "srctype": "rss",
    "swipes": "Writings",
    "steep": "Social",
-   "steep2": "Economic",
+   "steep2": "Political",
    "classification": "Weak signal",
    "themes": [
-    "language power",
-    "publishing"
+    "journalism",
+    "truth infrastructure",
+    "meaning-making"
    ],
    "keywords": [
-    "translation",
-    "English dominance",
-    "book market"
+    "witnessing",
+    "atrocity documentation",
+    "trust",
+    "journalism"
    ]
   },
   {
-   "title": "Rustbelt China reframed as renaissance, not decline",
-   "shift": "Multimodal media analysis is documenting a deliberate narrative reconstruction of Dongbei (China's rustbelt) from decline story to renaissance story.",
-   "ai_read": "Tentative: a peripheral-geography signal of state/media-driven regional identity re-scripting — worth watching for similar reframes in other declining industrial regions.",
-   "evidence": "Study analyzes multimodal metaphor in new media narratives of 'Reconstruction and Renaissance' of Dongbei/Harbin.",
-   "url": "https://openalex.org/W7130910808",
-   "source": "Research Explorer (University of Manchester)",
-   "date": "2026-12-01",
-   "horizon": "H3",
+   "title": "Regulating Kinship: Donor Sibling Caps",
+   "shift": "A European fertility group is pushing formal caps on how many offspring a single sperm donor can produce, reframing genetic kinship formation as a regulated public-health statistic.",
+   "ai_read": "Tentative: signals emerging governance layer over biological kinship itself, prefiguring broader regulatory frameworks around reproductive technology and the identity rights of donor-conceived people.",
+   "evidence": "MIT Tech Review item on a European fertility group calling for donor sibling limits, citing a 47-year-old unsure how many siblings he has.",
+   "url": "https://www.technologyreview.com/2026/07/13/1140339/the-download-sperm-donor-limits-ai-world-models/",
+   "source": "MIT Technology Review",
+   "date": "2026-07-13",
+   "horizon": "H2",
    "srctype": "rss",
-   "swipes": "Writings",
-   "steep": "Social",
-   "steep2": "Economic",
-   "classification": "Weak signal",
-   "themes": [
-    "regional identity",
-    "peripheral geography"
-   ],
-   "keywords": [
-    "Dongbei",
-    "China rustbelt",
-    "narrative reframing"
-   ]
-  },
-  {
-   "title": "Indigenous storytelling doubles as colonial socialization",
-   "shift": "Research finds Native Hawaiian kin-based storytelling simultaneously perpetuates Indigenous knowledge AND unintentionally socializes children into settler-colonial beliefs.",
-   "ai_read": "Tentative: a second-order tension in cultural transmission — could generalize to other Indigenous/diaspora communities renegotiating inherited narratives under modern pressures.",
-   "evidence": "Study finds Native Hawaiian children internalize divergent beliefs through kin-storytelling shaped by settler colonial ideologies.",
-   "url": "https://doi.org/10.3389/fdpys.2026.1847390",
-   "source": "Frontiers in Developmental Psychology",
-   "date": "2026-07-09",
-   "horizon": "H3",
-   "srctype": "rss",
-   "swipes": "Writings",
+   "swipes": "Pitches",
    "steep": "Social",
    "steep2": "Demographic",
    "classification": "Weak signal",
    "themes": [
-    "indigenous knowledge",
-    "kinship"
+    "kinship regulation",
+    "reproductive tech",
+    "donor conception"
    ],
    "keywords": [
-    "Native Hawaiian",
-    "storytelling",
-    "settler colonialism"
+    "sperm donation",
+    "kinship",
+    "fertility regulation",
+    "identity rights"
    ]
   },
   {
-   "title": "IOs quietly become eco-social policymakers",
-   "shift": "Research is tracking how the OECD and other international organizations (not just the EU) are becoming actors in transnational eco-social ('Green Keynesian') policy.",
-   "ai_read": "Tentative: a governance signal — climate/social policy authority may be migrating upward to IOs beyond traditional nation-state and EU frames.",
-   "evidence": "Article expands eco-social policy research empirically to international-organization level, focusing on OECD Green Keynesianism.",
-   "url": "https://openalex.org/W7153951688",
-   "source": "White Rose Research Online",
-   "date": "2026-12-31",
-   "horizon": "H3",
-   "srctype": "rss",
-   "swipes": "Writings",
-   "steep": "Political",
-   "steep2": "Economic",
-   "classification": "Weak signal",
-   "themes": [
-    "global governance",
-    "eco-social policy"
-   ],
-   "keywords": [
-    "OECD",
-    "Green Keynesianism",
-    "transnational policy"
-   ]
-  },
-  {
-   "title": "Golden-passport schemes get their first EU legal test",
-   "shift": "The EU's top court has ruled on whether investor-citizenship (golden passport) schemes are compatible with EU law, in Commission v Malta.",
-   "ai_read": "Tentative: legal precedent could ripple into other citizenship-for-sale jurisdictions and network-state/charter-city citizenship experiments globally.",
-   "evidence": "Article analyzes first CJEU case assessing investor citizenship schemes' compliance with EU law (Commission v Malta).",
-   "url": "https://doi.org/10.36969/njel.v9i2.29082",
-   "source": "Nordic Journal of European Law",
-   "date": "2026-07-10",
+   "title": "Interpretability Claims Outpacing Evidence",
+   "shift": "Coverage parses a widely-hyped Anthropic interpretability finding, distinguishing what the research actually demonstrates about model 'self-models' from what's being publicly claimed.",
+   "ai_read": "Tentative: the gap between interpretability findings and public narrative may itself be a signal — watch for a slow drift toward legal/moral-status frameworks for AI built on shaky evidentiary ground.",
+   "evidence": "MIT Tech Review analysis distinguishing actual findings of an Anthropic paper from its public framing.",
+   "url": "https://www.technologyreview.com/2026/07/13/1140343/what-anthropics-latest-ai-discovery-does-and-doesnt-show/",
+   "source": "MIT Technology Review",
+   "date": "2026-07-13",
    "horizon": "H2",
    "srctype": "rss",
    "swipes": "Writings",
+   "steep": "Technological",
+   "steep2": "Social",
+   "classification": "Hype",
+   "themes": [
+    "AI interpretability",
+    "machine self-models",
+    "hype calibration"
+   ],
+   "keywords": [
+    "Anthropic",
+    "interpretability",
+    "AI self-awareness claims"
+   ]
+  },
+  {
+   "title": "Periphery-Led Encryption Rollback",
+   "shift": "India's regulatory crackdown on a WhatsApp feature is framed as a potential global precedent for states demanding changes to encrypted messaging apps under fraud-prevention pretexts.",
+   "ai_read": "Tentative: peripheral-market regulatory action could be the leading edge of encryption erosion globally — smaller/less-scrutinized markets as testbeds for policies later adopted elsewhere.",
+   "evidence": "Rest of World report on India's WhatsApp username ban risking a 'slippery slope' for encrypted messaging regulation worldwide.",
+   "url": "https://restofworld.org/2026/india-whatsapp-username-ban-encryption-cyber-fraud/",
+   "source": "Rest of World",
+   "date": "2026-07-13",
+   "horizon": "H2",
+   "srctype": "rss",
+   "swipes": "Pitches",
    "steep": "Political",
-   "steep2": "Economic",
-   "classification": "Weak signal",
-   "themes": [
-    "citizenship markets",
-    "governance experiments"
-   ],
-   "keywords": [
-    "golden visa",
-    "EU law",
-    "investor citizenship"
-   ]
-  },
-  {
-   "title": "Extremophile microbes as pollution-cleanup tech",
-   "shift": "Environmental biotech is systematizing extremophile metabolic adaptations (heat, pH, salinity survivors) into deployable bioremediation tools.",
-   "ai_read": "Tentative: convergence of synthetic biology and materials science — early building blocks for engineered microbial remediation at industrial scale.",
-   "evidence": "Review covers extremophile adaptations enabling metabolism of toxic compounds for environmental biotechnology applications.",
-   "url": "https://doi.org/10.1007/s11274-026-05124-4",
-   "source": "World Journal of Microbiology and Biotechnology",
-   "date": "2026-07-10",
-   "horizon": "H3",
-   "srctype": "rss",
-   "swipes": "Writings",
-   "steep": "Technological",
-   "steep2": "Environmental",
-   "classification": "Weak signal",
-   "themes": [
-    "synthetic biology",
-    "bioremediation"
-   ],
-   "keywords": [
-    "extremophiles",
-    "biotechnology",
-    "microbes"
-   ]
-  },
-  {
-   "title": "Space itself is mutating microbes",
-   "shift": "Spaceflight environments are shown to induce adaptive plasticity in microorganisms, creating both novel biosafety risks and biotech resources.",
-   "ai_read": "Tentative: an early convergence of space expansion and synthetic biology — orbital/lunar habitats may become unintentional microbial evolution labs.",
-   "evidence": "Review focuses on microbial adaptive plasticity and biological effects under spaceflight, noting biosafety risks and biotech value of space-derived strains.",
-   "url": "https://doi.org/10.1080/21501203.2026.2688594",
-   "source": "Mycology: An International Journal on Fungal Biology",
-   "date": "2026-07-07",
-   "horizon": "H3",
-   "srctype": "rss",
-   "swipes": "Writings",
-   "steep": "Technological",
-   "steep2": "Environmental",
-   "classification": "Weak signal",
-   "themes": [
-    "space biology",
-    "biosecurity"
-   ],
-   "keywords": [
-    "spaceflight microbes",
-    "de-extinction adjacent",
-    "biosafety"
-   ]
-  },
-  {
-   "title": "AI risk-scoring for EV firms treats policy volatility as a variable",
-   "shift": "Deep-learning financial early-warning models for new-energy-vehicle firms are being built to handle policy-sensitive, time-varying risk structures.",
-   "ai_read": "Tentative: signals actuarial/insurance logics fusing with AI and industrial policy — a template for algorithmic sovereign-risk pricing elsewhere.",
-   "evidence": "Study develops deep-learning early-warning model for NEV firm financial risk, replacing fixed-structure/linear traditional models.",
-   "url": "https://doi.org/10.1038/s41598-026-55203-7",
-   "source": "Scientific Reports",
-   "date": "2026-07-10",
-   "horizon": "H3",
-   "srctype": "rss",
-   "swipes": "Writings",
-   "steep": "Economic",
    "steep2": "Technological",
    "classification": "Weak signal",
    "themes": [
-    "actuarial AI",
-    "industrial policy"
+    "encryption policy",
+    "peripheral geography",
+    "digital governance"
    ],
    "keywords": [
-    "deep learning",
-    "financial risk",
-    "EV industry"
+    "WhatsApp",
+    "India",
+    "encryption",
+    "regulatory precedent"
    ]
   },
   {
-   "title": "Commonwealth scholarship traced across 75 years via ML",
-   "shift": "Big-data topic modelling is being applied to map thematic evolution of Commonwealth academic research across three-quarters of a century.",
-   "ai_read": "Tentative: a meta-signal — using ML to retrospectively map how postcolonial/peripheral knowledge networks evolve could itself become a foresight method.",
-   "evidence": "Paper applies computational topic modelling to 75 years of Commonwealth cross-disciplinary scholarship.",
-   "url": "https://doi.org/10.1080/00358533.2026.2682955",
-   "source": "The Round Table",
-   "date": "2026-07-10",
-   "horizon": "H3",
-   "srctype": "rss",
-   "swipes": "Writings",
-   "steep": "Social",
-   "classification": "Weak signal",
-   "themes": [
-    "knowledge networks",
-    "postcolonial scholarship"
-   ],
-   "keywords": [
-    "Commonwealth",
-    "topic modelling",
-    "academic history"
-   ]
-  },
-  {
-   "title": "Sportswashing reframed as structural complicity, not just PR",
-   "shift": "Analysts argue sportswashing should be understood via an 'elective affinity' between IOC, UN, and nation-states, not as isolated image politics.",
-   "ai_read": "Tentative: already a named phenomenon — included for judgment, likely Context, though the institutional-complicity reframe is a mild second-order twist.",
-   "evidence": "Paper reconceptualises sportswashing around structural complicity between IOC, UN, and nation-states.",
-   "url": "https://doi.org/10.1080/19406940.2026.2685484",
-   "source": "International Journal of Sport Policy and Politics",
-   "date": "2026-07-10",
+   "title": "Indispensability as a Career Liability",
+   "shift": "Career advice reframes promotion eligibility around training a successor and being 'replaceable,' subtly normalizing role fluidity and pre-adapting workers to substitution logic.",
+   "ai_read": "Tentative: could be an early cultural rehearsal for automation-era labor norms, where being easily substitutable (by a person or an AI) becomes a prerequisite for advancement rather than a threat.",
+   "evidence": "Career blog post arguing indispensable employees block their own promotion and framing succession planning as growth strategy.",
+   "url": "https://www.scarletink.com/if-you-cant-be-replaced-you-cant-be-promoted-career-growth-through-succession-planning/",
+   "source": "Hacker News",
+   "date": "2026-07-13",
    "horizon": "H2",
    "srctype": "rss",
    "swipes": "Writings",
-   "steep": "Political",
-   "classification": "Trend",
+   "steep": "Economic",
+   "steep2": "Social",
+   "classification": "Weak signal",
    "themes": [
-    "sportswashing",
-    "institutional complicity"
+    "future of work",
+    "career structures",
+    "automation adaptation"
    ],
    "keywords": [
-    "IOC",
-    "UN",
-    "nation-states"
+    "succession planning",
+    "promotion",
+    "labor substitution"
    ]
   },
   {
-   "title": "Management scholars try to tame 'singularity' into a typology",
-   "shift": "A conceptual paper attempts to systematize scattered technological-singularity discourse into a formal typology for management/strategy research.",
-   "ai_read": "Tentative: singularity discourse is already hyped and fragmented — inclusion here mainly shows academia formalizing hype into frameworks, likely Context.",
-   "evidence": "Paper develops systematic typology of technological singularity research across strategy, governance, leadership, ethics literatures.",
-   "url": "https://doi.org/10.3389/fhumd.2026.1793537",
-   "source": "Frontiers in Human Dynamics",
-   "date": "2026-07-10",
+   "title": "Automation Policy's Unresolved Contradiction",
+   "shift": "A national leader simultaneously pledges to champion domestic self-driving car firms and protect human drivers' jobs, exposing a policy contradiction as robotaxi competition intensifies.",
+   "ai_read": "Tentative: an early, visible rehearsal of governments failing to reconcile industrial automation policy with labor protection — worth watching for how (or whether) this contradiction gets resolved elsewhere.",
+   "evidence": "Report on UK PM's stated dual aim to back Wayve/British AV firms while protecting driver jobs amid a robotaxi race with Waymo and Baidu.",
+   "url": "https://www.reddit.com/r/Futurology/comments/1uv6kyt/britains_new_leftwing_prime_minister_wants_to/",
+   "source": "r/Futurology",
+   "date": "2026-07-13",
+   "horizon": "H2",
+   "srctype": "rss",
+   "swipes": "Pitches",
+   "steep": "Political",
+   "steep2": "Economic",
+   "classification": "Weak signal",
+   "themes": [
+    "automation policy",
+    "labor protection",
+    "governance contradiction"
+   ],
+   "keywords": [
+    "self-driving cars",
+    "robotaxis",
+    "driver jobs",
+    "UK politics"
+   ]
+  },
+  {
+   "title": "Sensor Drones as Volcanic Early-Warning Infrastructure",
+   "shift": "Laser-equipped autonomous drones are proposed as a new layer of geophysical hazard monitoring, moving eruption prediction from ground-based geologists toward automated aerial sensing fleets.",
+   "ai_read": "Tentative: convergence of defense-grade sensing tech with disaster response could shift volcanic/geohazard monitoring into a commercial 'early-warning-as-a-service' niche.",
+   "evidence": "Report describing laser-equipped autonomous drones proposed to give warning ahead of major volcanic eruptions.",
+   "url": "https://www.reddit.com/r/Futurology/comments/1uvdh1r/laserequipped_autonomous_drones_could_warn_about/",
+   "source": "r/Futurology",
+   "date": "2026-07-13",
+   "horizon": "H3",
+   "srctype": "rss",
+   "swipes": "Innovations",
+   "steep": "Technological",
+   "steep2": "Environmental",
+   "classification": "Weak signal",
+   "themes": [
+    "disaster early-warning",
+    "autonomous sensing",
+    "geohazard monitoring"
+   ],
+   "keywords": [
+    "volcanic eruption",
+    "drones",
+    "early warning",
+    "hazard monitoring"
+   ]
+  },
+  {
+   "title": "Modular Robotic Warfare: Drone-Deployed Ground Robots",
+   "shift": "Ukraine deployed a gun-equipped ground robot launched directly from an autonomous drone boat, a first-of-its-kind nested multi-domain robotic assault.",
+   "ai_read": "Tentative evolution of a known trend (drone warfare) into nested autonomy — motherships deploying sub-units — with implications for logistics, rules of engagement, and future defense procurement.",
+   "evidence": "Report of Ukraine's robotic amphibious assault deploying a gun-toting robot from a drone boat.",
+   "url": "https://www.reddit.com/r/Futurology/comments/1uvi4vw/ukraine_launched_a_firstofitskind_robotic/",
+   "source": "r/Futurology",
+   "date": "2026-07-13",
+   "horizon": "H2",
+   "srctype": "rss",
+   "swipes": "Innovations",
+   "steep": "Technological",
+   "steep2": "Political",
+   "classification": "Trend",
+   "themes": [
+    "autonomous warfare",
+    "defense innovation"
+   ],
+   "keywords": [
+    "drone boat",
+    "robotic assault",
+    "Ukraine",
+    "military autonomy"
+   ]
+  },
+  {
+   "title": "Protein-Maxxing as Mainstream Longevity Diffusion",
+   "shift": "A personal essay on America's 'protein craze' suggests biohacking/longevity-culture norms around metabolic optimization are diffusing into ordinary, non-elite food culture.",
+   "ai_read": "Tentative: could be an early marker of longevity-adjacent behaviors normalizing broadly, with second-order implications for agriculture, food-tech, and wellness-linked insurance incentives — but already fairly mainstream.",
+   "evidence": "Nautilus essay describing personal ambivalence toward America's mainstream protein-optimization craze.",
+   "url": "https://nautil.us/confessions-of-a-reluctant-protein-maxxer-1282639/",
+   "source": "Nautilus",
+   "date": "2026-07-13",
+   "horizon": "H2",
+   "srctype": "rss",
+   "swipes": "Writings",
+   "steep": "Social",
+   "steep2": "Economic",
+   "classification": "Trend",
+   "themes": [
+    "longevity culture",
+    "food subculture",
+    "biohacking diffusion"
+   ],
+   "keywords": [
+    "protein craze",
+    "biohacking",
+    "longevity",
+    "diet culture"
+   ]
+  },
+  {
+   "title": "Demographic Bust Arriving Ahead of Forecasts",
+   "shift": "Coverage argues the global population decline/bust is arriving faster than most institutions have prepared for, ahead of standard UN-style projections.",
+   "ai_read": "Already a widely-discussed trend in demography circles — included for calibration; the specific 'sooner than prepared' framing may be the only mildly novel edge here.",
+   "evidence": "r/Futurology discussion citing concern that the population bust is arriving faster than institutions are prepared for.",
+   "url": "https://www.reddit.com/r/Futurology/comments/1uvf7d5/the_population_bust_is_coming_sooner_than_anyone/",
+   "source": "r/Futurology",
+   "date": "2026-07-13",
+   "horizon": "H3",
+   "srctype": "rss",
+   "swipes": "Statistics",
+   "steep": "Demographic",
+   "classification": "Trend",
+   "themes": [
+    "demographic decline",
+    "population bust"
+   ],
+   "keywords": [
+    "population decline",
+    "demography",
+    "fertility rates"
+   ]
+  },
+  {
+   "title": "Speculative Crowd Forecasting on India's Tech Future",
+   "shift": "An open crowd-sourced discussion speculates on which emerging technology will most shape India's economy and society by 2050.",
+   "ai_read": "Low-signal crowd speculation rather than an observed structural shift — included for calibration; genuine signal would be a specific policy or investment move, not a discussion thread.",
+   "evidence": "r/Futurology thread polling community opinion on India's biggest emerging technology over the next 25 years.",
+   "url": "https://www.reddit.com/r/Futurology/comments/1uviaeq/which_emerging_technology_is_likely_to_have_the/",
+   "source": "r/Futurology",
+   "date": "2026-07-13",
    "horizon": "H3",
    "srctype": "rss",
    "swipes": "Writings",
    "steep": "Technological",
    "classification": "Hype",
    "themes": [
-    "technological singularity",
-    "management theory"
+    "speculative forecasting",
+    "India",
+    "technology futures"
    ],
    "keywords": [
-    "singularity",
-    "AI",
-    "typology"
+    "India",
+    "emerging technology",
+    "2050",
+    "crowd speculation"
    ]
   },
   {
-   "title": "Executable infrastructure topology as a first-class layer",
-   "shift": "A niche open-source project proposes making distributed-system topology explicit and executable rather than implicit config.",
-   "ai_read": "Tentative: small single-instance signal of infrastructure-as-code maturing toward self-describing, self-modifying systems architecture.",
-   "evidence": "Show HN project 'Itara' presents distributed system topology as an explicit, executable layer.",
-   "url": "https://github.com/itara-project/itara",
+   "title": "Routine State GDP Growth Reporting",
+   "shift": "Standard quarterly release of real GDP growth by U.S. state for Q1 2026.",
+   "ai_read": "Routine economic statistic with no structural surprise noted — included as baseline context rather than signal; useful only as a backdrop indicator for regional economic divergence.",
+   "evidence": "FRED blog post reporting real GDP growth by state for first quarter 2026.",
+   "url": "https://fredblog.stlouisfed.org/2026/07/real-gdp-growth-by-state-first-quarter-2026/",
    "source": "Hacker News",
-   "date": "2026-07-12",
-   "horizon": "H2",
-   "srctype": "rss",
-   "swipes": "Innovations",
-   "steep": "Technological",
-   "classification": "Weak signal",
-   "themes": [
-    "infrastructure",
-    "software architecture"
-   ],
-   "keywords": [
-    "distributed systems",
-    "topology-as-code"
-   ]
-  },
-  {
-   "title": "Railguns move from lab to open-range firing",
-   "shift": "Researchers report a first open-range firing of an electromagnetic railgun, moving the weapon concept from constrained testing toward field conditions.",
-   "ai_read": "Tentative: a defense-tech milestone that's been ‘almost there’ for years — watch whether this triggers renewed naval/land arms-race interest.",
-   "evidence": "Report of first open-range firing of electromagnetic railgun.",
-   "url": "https://www.reddit.com/r/Futurology/comments/1uupvbd/researchers_complete_first_openrange_firing_of/",
-   "source": "r/Futurology",
-   "date": "2026-07-12",
-   "horizon": "H2",
-   "srctype": "rss",
-   "swipes": "Innovations",
-   "steep": "Technological",
-   "steep2": "Political",
-   "classification": "Weak signal",
-   "themes": [
-    "defense tech",
-    "directed energy weapons"
-   ],
-   "keywords": [
-    "railgun",
-    "electromagnetic weapons"
-   ]
-  },
-  {
-   "title": "AI gets a 'cerebellum' — motor-control-style architecture",
-   "shift": "New AI architecture work is explicitly borrowing cerebellar (motor coordination) brain structure as a design metaphor for AI systems.",
-   "ai_read": "Tentative: neuromorphic borrowing from specific brain substructures (not just 'neural nets' generally) may mark a new phase of bio-inspired AI design.",
-   "evidence": "Report describes AI architecture modeled on cerebellum function.",
-   "url": "https://www.reddit.com/r/Futurology/comments/1uupo34/ai_gets_a_cerebellum/",
-   "source": "r/Futurology",
-   "date": "2026-07-12",
-   "horizon": "H2",
-   "srctype": "rss",
-   "swipes": "Innovations",
-   "steep": "Technological",
-   "classification": "Weak signal",
-   "themes": [
-    "neuromorphic AI",
-    "robotics"
-   ],
-   "keywords": [
-    "cerebellum",
-    "AI architecture",
-    "embodied AI"
-   ]
-  },
-  {
-   "title": "Robots need shared 'AI-portability' infrastructure",
-   "shift": "Researchers are building missing middleware/infrastructure to move trained AI models between different robot bodies.",
-   "ai_read": "Tentative: an infrastructure-layer signal preceding broad embodied-AI diffusion — akin to early internet protocol-building before mass adoption.",
-   "evidence": "Report on researchers building infrastructure to transfer AI between robots.",
-   "url": "https://www.reddit.com/r/Futurology/comments/1uuq4d4/researchers_build_missing_infrastructure_to_move/",
-   "source": "r/Futurology",
-   "date": "2026-07-12",
-   "horizon": "H2",
-   "srctype": "rss",
-   "swipes": "Innovations",
-   "steep": "Technological",
-   "classification": "Weak signal",
-   "themes": [
-    "embodied AI",
-    "robotics infrastructure"
-   ],
-   "keywords": [
-    "robot AI transfer",
-    "interoperability"
-   ]
-  },
-  {
-   "title": "Online knowledge communities show 'silent knowledge reset' post-AI",
-   "shift": "Research finds expert contributors leaving online communities and content quality decaying exponentially following AI tool arrival — a quiet, unannounced knowledge collapse.",
-   "ai_read": "Tentative: a second-order effect of AI adoption on collective knowledge infrastructure — worth watching as an early indicator of epistemic commons erosion.",
-   "evidence": "Research shows quality decay and expert exodus from online communities described as a 'silent knowledge reset' after AI arrival.",
-   "url": "https://www.reddit.com/r/Futurology/comments/1uupdi7/quality_decays_exponentially_following_ai_arrival/",
-   "source": "r/Futurology",
-   "date": "2026-07-12",
-   "horizon": "H2",
-   "srctype": "rss",
-   "swipes": "Statistics",
-   "steep": "Social",
-   "steep2": "Technological",
-   "classification": "Weak signal",
-   "themes": [
-    "epistemic commons",
-    "AI backlash"
-   ],
-   "keywords": [
-    "knowledge reset",
-    "online communities",
-    "AI quality decay"
-   ]
-  },
-  {
-   "title": "Law schools ban laptops/phones in AI backlash",
-   "shift": "A major university law program has banned laptops and phones for students, explicitly framed as a backlash against AI's effect on learning.",
-   "ai_read": "Tentative: an institutional-level countermeasure to AI dependency — watch whether analog-return mandates spread to other high-stakes professional training.",
-   "evidence": "Report of major university law program banning laptops/phones for students amid AI backlash.",
-   "url": "https://www.reddit.com/r/Futurology/comments/1uupiqf/ai_backlash_reaches_major_university_with_bold/",
-   "source": "r/Futurology",
-   "date": "2026-07-12",
-   "horizon": "H2",
-   "srctype": "rss",
-   "swipes": "Entrants & exits",
-   "steep": "Social",
-   "steep2": "Technological",
-   "classification": "Trend",
-   "themes": [
-    "AI backlash",
-    "education policy"
-   ],
-   "keywords": [
-    "law school",
-    "laptop ban",
-    "AI in education"
-   ]
-  },
-  {
-   "title": "Non-compete clauses quietly spread across labor markets",
-   "shift": "Analysis shows non-compete clauses expanding beyond executive contracts into broader employment, constraining worker mobility and growth.",
-   "ai_read": "Tentative: already a recognized labor-economics trend (OECD-flagged) — included for judgment; likely Context/Trend rather than a weak signal.",
-   "evidence": "OECD Ecoscope blog documents spread of non-compete clauses and their drag on growth.",
-   "url": "https://oecdecoscope.blog/2026/07/07/the-fine-print-that-follows-you-out-the-door-non-compete-clauses-are-spreading-and-holding-back-growth/",
-   "source": "Hacker News / OECD Ecoscope",
-   "date": "2026-07-11",
-   "horizon": "H2",
-   "srctype": "rss",
-   "swipes": "Statistics",
-   "steep": "Economic",
-   "steep2": "Political",
-   "classification": "Trend",
-   "themes": [
-    "labor mobility",
-    "contract law"
-   ],
-   "keywords": [
-    "non-compete clauses",
-    "labor market",
-    "OECD"
-   ]
-  },
-  {
-   "title": "Catholic all-boys school bucks enrollment collapse",
-   "shift": "Case study documents a Catholic secondary school defying a broader, persistent US decline in Catholic school enrollment via strategic management.",
-   "ai_read": "Tentative: an established demographic trend (religious school decline) — the survival case is the interesting outlier within it; likely Context/Trend.",
-   "evidence": "Study examines strategic enrollment management at an all-boys Catholic high school defying sector-wide enrollment decline.",
-   "url": "https://openalex.org/W7160677245",
-   "source": "Seton Hall University eRepository",
-   "date": "2027-05-15",
-   "horizon": "H2",
-   "srctype": "rss",
-   "swipes": "Statistics",
-   "steep": "Demographic",
-   "steep2": "Social",
-   "classification": "Trend",
-   "themes": [
-    "religious education",
-    "demographic decline"
-   ],
-   "keywords": [
-    "Catholic schools",
-    "enrollment decline"
-   ]
-  },
-  {
-   "title": "De-extinction reframed as a 'what is it even for' question",
-   "shift": "Commentary is pushing back on de-extinction/'resurrection biology' by questioning its purpose rather than its feasibility.",
-   "ai_read": "Tentative: already a widely covered topic (mammoth/thylacine projects) — included for judgment; the purpose-questioning angle is the modest reframe.",
-   "evidence": "Article interrogates the purpose of de-extinction ('resurrection biology') beyond technical feasibility.",
-   "url": "https://thereader.mitpress.mit.edu/what-is-de-extinction-really-for/",
-   "source": "Hacker News / MIT Press Reader",
-   "date": "2026-07-09",
-   "horizon": "H3",
-   "srctype": "rss",
-   "swipes": "Writings",
-   "steep": "Environmental",
-   "steep2": "Technological",
-   "classification": "Trend",
-   "themes": [
-    "de-extinction",
-    "synthetic biology"
-   ],
-   "keywords": [
-    "resurrection biology",
-    "de-extinction"
-   ]
-  },
-  {
-   "title": "Steam's $11B half-year driven by Chinese influx and legacy catalogues",
-   "shift": "PC gaming revenue growth is reportedly driven less by new hits and more by an influx of Chinese players and renewed interest in old game catalogues.",
-   "ai_read": "Tentative: an established gaming-market trend; the 'legacy catalogue' revival and Chinese-player influx are the more specific, less-covered angle.",
-   "evidence": "Report: Steam sales topped $11B in H1 2026, driven by influx of Chinese players and booming legacy catalogues.",
-   "url": "https://www.tomshardware.com/video-games/pc-gaming/steam-sales-reportedly-topped-usd11-billion-during-h1-2026-due-to-shifting-trends-staggering-growth-driven-by-influx-of-chinese-players-and-booming-legacy-catalogues",
-   "source": "Hacker News / Tom's Hardware",
-   "date": "2026-07-10",
+   "date": "2026-07-13",
    "horizon": "H1",
    "srctype": "rss",
    "swipes": "Statistics",
    "steep": "Economic",
-   "steep2": "Demographic",
    "classification": "Trend",
    "themes": [
-    "gaming economy",
-    "China consumer market"
+    "economic statistics",
+    "regional divergence"
    ],
    "keywords": [
-    "Steam",
-    "gaming revenue",
-    "China"
-   ]
-  },
-  {
-   "title": "Public hope that AI narrows inequality, not widens it",
-   "shift": "A popular discussion argues AI could be the first major technology to close the rich-poor gap rather than widen it, reversing historical technology-adoption patterns.",
-   "ai_read": "Tentative: widely circulated optimistic hypothesis with little evidence yet — included as Hype/opinion for calibration against historical base rates.",
-   "evidence": "Reddit discussion argues AI access could equalize rather than stratify unlike prior technologies.",
-   "url": "https://www.reddit.com/r/Futurology/comments/1uuy1c8/ai_might_be_the_first_technology_that_actually/",
-   "source": "r/Futurology",
-   "date": "2026-07-13",
-   "horizon": "H3",
-   "srctype": "rss",
-   "swipes": "Writings",
-   "steep": "Economic",
-   "steep2": "Social",
-   "classification": "Hype",
-   "themes": [
-    "AI equity",
-    "technology diffusion"
-   ],
-   "keywords": [
-    "AI inequality",
-    "technology access"
-   ]
-  },
-  {
-   "title": "Birth-rate policy debates recycle subsidy solutions",
-   "shift": "Popular discussion revisits fertility decline, citing time/money/career barriers and pointing to South Korea-style subsidy programs as fixes.",
-   "ai_read": "Tentative: a well-covered demographic trend with well-known policy responses — included for judgment, likely Context/Hype rather than new signal.",
-   "evidence": "Discussion cites South Korea subsidies for young couples as a response to declining birth rates.",
-   "url": "https://www.reddit.com/r/Futurology/comments/1uuxbuk/a_potential_solution_to_birth_rates/",
-   "source": "r/Futurology",
-   "date": "2026-07-13",
-   "horizon": "H3",
-   "srctype": "rss",
-   "swipes": "Writings",
-   "steep": "Demographic",
-   "steep2": "Economic",
-   "classification": "Hype",
-   "themes": [
-    "fertility decline",
-    "family policy"
-   ],
-   "keywords": [
-    "birth rates",
-    "subsidies",
-    "demography"
-   ]
-  },
-  {
-   "title": "Hydrogen enthusiasm persists despite unclear path",
-   "shift": "Popular energy discussion continues to speculate on hydrogen's future alongside tandem solar and larger wind turbines, without clear commercial breakthrough noted.",
-   "ai_read": "Tentative: hydrogen hype has recurred for years without major structural shift — included as Hype for calibration against genuine energy-transition signals.",
-   "evidence": "Discussion speculates on hydrogen developments alongside multijunction solar and larger wind turbines.",
-   "url": "https://www.reddit.com/r/Futurology/comments/1uurpgl/anything_exciting_with_hydrogen/",
-   "source": "r/Futurology",
-   "date": "2026-07-12",
-   "horizon": "H3",
-   "srctype": "rss",
-   "swipes": "Writings",
-   "steep": "Technological",
-   "steep2": "Environmental",
-   "classification": "Hype",
-   "themes": [
-    "hydrogen economy",
-    "energy transition"
-   ],
-   "keywords": [
-    "hydrogen",
-    "renewable energy"
-   ]
-  },
-  {
-   "title": "'Physical AI' framed as robotics-AI fusion endpoint",
-   "shift": "Popular discourse frames 'Physical AI' (embodied robotics + AI) as the next transformative wave, echoing years of similar embodied-AI predictions.",
-   "ai_read": "Tentative: heavily hyped framing already circulating widely — included for judgment as largely Hype, though underlying infrastructure signals (see robot AI-transfer item) are more concrete.",
-   "evidence": "Discussion asserts Physical AI will fuse robotics and AI to 'transform the world.'",
-   "url": "https://www.reddit.com/r/Futurology/comments/1uuqczf/physical_ai_will_see_the_fusion_of_robotics_and/",
-   "source": "r/Futurology",
-   "date": "2026-07-12",
-   "horizon": "H2",
-   "srctype": "rss",
-   "swipes": "Writings",
-   "steep": "Technological",
-   "classification": "Hype",
-   "themes": [
-    "embodied AI",
-    "robotics"
-   ],
-   "keywords": [
-    "physical AI",
-    "robotics fusion"
-   ]
-  },
-  {
-   "title": "Public anxiety over recursive self-improvement timelines",
-   "shift": "Popular discussion debates whether recursive self-improving AI (full AI-R&D automation without humans) is near-term reality or still hype.",
-   "ai_read": "Tentative: reflects rising public anxiety about AI-takeoff timelines — included as Hype/sentiment signal rather than evidence of the phenomenon itself.",
-   "evidence": "Discussion asks whether complete automation of AI R&D without human researchers is achievable in 3-5 years.",
-   "url": "https://www.reddit.com/r/Futurology/comments/1uuprf7/very_stressed_about_rsi/",
-   "source": "r/Futurology",
-   "date": "2026-07-12",
-   "horizon": "H2",
-   "srctype": "rss",
-   "swipes": "Writings",
-   "steep": "Technological",
-   "steep2": "Social",
-   "classification": "Hype",
-   "themes": [
-    "recursive self-improvement",
-    "AI anxiety"
-   ],
-   "keywords": [
-    "RSI",
-    "AI takeoff",
-    "public sentiment"
+    "GDP",
+    "state economy",
+    "economic statistics"
    ]
   }
  ]
