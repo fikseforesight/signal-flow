@@ -1,68 +1,81 @@
 {
   "config": {
     "model": "claude-sonnet-5",
-    "maxRawItems": 110,
-    "maxCandidates": 15,
+    "maxRawItems": 150,
+    "maxCandidates": 35,
     "seenLimit": 8000,
     "gdeltTimespan": "36h",
-    "arxivDays": 5,
-    "hnDays": 3,
-    "redditDays": 4
+    "arxivDays": 6,
+    "hnDays": 4,
+    "redditDays": 5,
+    "rssGate": false
   },
-  "domainMap": "Center: Building / Space / Store (mass-market retailer physical stores & real estate, next decade, esp. AI). Branches: Labor/Work & Operations; Supply Chain; Infrastructure (energy/water/compute, parking, location, layout); Construction (methods, materials, trades); Retail Industry; Tech (AI, physical AI, robotics, computer vision, automation); People & Human System (commerce, transaction, discovery, community, experience, mobility, demographic shifts, migration); Policy/Regulation/Finance (zoning, insurance, regions); Sustainability & Environment (heat, climate events, circular).  ===HUNT BRIEF (READ CAREFULLY)=== The daily feeds skew toward near-term (H1/H2) trade news; your job is to fight that. STRONGLY prefer H3 (10-30 year), civilizational, GLOBAL, and WEAK material. Set horizon to H3 whenever plausible. Reward: (1) non-Western and peripheral-geography signals (Asia, Africa, Gulf, Latin America, small jurisdictions); (2) second-order and third-order implications nobody has drawn for the built environment; (3) reframings and ABSENCES (a category/rule/doctrine that does NOT yet exist); (4) items from science, subculture, or fringe sources, not business press; (5) developments that would sound absurd or unsettling to a retail executive today. Demote on sight: quarterly earnings, store-count/closure tallies, named-analyst trend decks, product launches, anything already coined and widely covered — include at most 1-2 such as classification 'Trend'. A candidate that merely restates a trade headline is a FAILURE. Push every candidate to its strangest, most distant, most global reading that still ties — however loosely — to the future of physical stores and real estate. Add a 'horizon' field ('H1'|'H2'|'H3') to every candidate.",
+  "domainMap": "Kristen is a strategic-foresight professional scanning HOLISTICALLY for the weakest, strangest, earliest signs of STRUCTURAL CHANGE anywhere. ===DO NOT ANCHOR TO RETAIL OR BUILT ENVIRONMENT=== this scan is fully DOMAIN-AGNOSTIC. Hunt across ALL domains, and DELIBERATELY reach into tangential, tertiary, and unrelated ones: synthetic biology & microbes, materials science, deep sea & space, law & legal personhood, governance experiments (network states, charter cities, rights-of-nature), demography & kinship, death care & the digital afterlife, religion & meaning-making, cognition & attention, animals & sentience, energy, defense, insurance/actuarial, non-Western and peripheral geographies, subcultures. ===WHAT TO REWARD (weakest first)=== absences (a thing that does NOT yet exist), reframings (a new reading of a named thing), second-order and third-order implications nobody has drawn, cross-domain CONVERGENCES (the same shift appearing in unrelated fields at once), single instances, non-English/peripheral coverage, and anything that would sound absurd or unsettling to a normal professional. Bias horizon to H3 (10-30yr). ===VOLUME & THE RULE-OUTS=== Kristen wants to SEE the rule-outs, not just the survivors — she calibrates her own judgment. So cast a WIDE net and return MANY candidates (up to the max). Include borderline items AND even already-trending/hyped ones — but LABEL them honestly: set classification to 'Trend' or 'Hype' and in ai_read say briefly why (e.g. 'already named and widely covered — included for your judgment, probably Context'). NEVER silently drop something; when in doubt, INCLUDE it and label it. Demote (label Trend/Hype) rather than delete. Do NOT assign an impact rating — that is human-held.",
   "gdeltQueries": [
-    "teleoperated robot worker offshore",
-    "managed retreat town relocation climate",
-    "depopulation abandoned town rural Asia",
-    "AI agent autonomous purchase wallet",
-    "living building material mycelium bacteria",
-    "rooftop solar mandate building code",
-    "extreme heat night economy business hours",
-    "dark factory lights out automation",
-    "vacant mall adaptive reuse conversion",
-    "analog offline movement screen-free"
+    "legal personhood river animal artificial intelligence",
+    "moratorium ban technology before exists",
+    "network state charter city sovereignty experiment",
+    "human composting death care burial",
+    "mirror life synthetic biology biosecurity",
+    "rights of nature ecosystem lawsuit",
+    "de-extinction species revival rewilding",
+    "deep sea mining seabed moratorium",
+    "digital afterlife griefbot deceased AI",
+    "engineered microbe biomining waste",
+    "teleoperation robot offshore labor",
+    "managed retreat relocation climate town"
   ],
   "arxivQueries": [
-    "all:teleoperation AND all:labor",
-    "all:\"engineered living materials\" AND all:architecture",
-    "all:\"agentic\" AND all:commerce",
-    "all:\"managed retreat\" OR all:\"climate migration\"",
-    "all:\"embodied\" AND all:robot AND all:retail"
+    "all:personhood AND all:governance",
+    "all:\"mirror life\" OR all:\"mirror bacteria\"",
+    "all:\"anticipatory governance\" AND all:technology",
+    "all:\"rights of nature\" OR all:\"more-than-human\"",
+    "all:\"synthetic biology\" AND all:governance",
+    "all:degrowth OR all:\"managed decline\""
   ],
   "openalexQueries": [
-    "shrinking cities depopulation retail geography",
-    "engineered living building materials self-healing",
-    "teleoperation embodiment labor geography",
-    "autonomous economic agents machine customers",
-    "climate managed retreat commercial property"
+    "nonhuman legal personhood rights",
+    "anticipatory governance emerging technology",
+    "digital afterlife death technology",
+    "biomining engineered microorganisms",
+    "network state charter city sovereignty",
+    "cross-domain weak signals foresight"
   ],
   "hnQueries": [
-    "teleoperation robot",
-    "living materials mycelium",
-    "AI agent payments wallet",
-    "self-hosted local AI",
-    "depopulation shrinking",
-    "dark factory automation"
+    "legal personhood",
+    "mirror life",
+    "network state",
+    "synthetic biology",
+    "de-extinction",
+    "griefbot deceased",
+    "biomining",
+    "degrowth"
   ],
   "subreddits": [
     "Futurology",
     "collapse",
-    "urbanplanning",
-    "Buttcoin",
+    "slatestarcodex",
+    "DepthHub",
+    "TrueReddit",
+    "Foodforthought",
+    "Anthropology",
+    "longevity",
+    "Degrowth",
     "solarpunk",
+    "DarkFuturology",
     "OSINT",
-    "RetailHell",
-    "commercialrealestate",
-    "climate",
-    "singularity"
+    "singularity",
+    "philosophy"
   ],
   "rssFeeds": [
     {"name": "Rest of World", "url": "https://restofworld.org/feed/latest/", "steepHint": "Social"},
     {"name": "MIT Technology Review", "url": "https://www.technologyreview.com/feed/", "steepHint": "Technological"},
+    {"name": "Noema Magazine", "url": "https://www.noemamag.com/feed/", "steepHint": "Social"},
+    {"name": "Aeon", "url": "https://aeon.co/feed.rss", "steepHint": "Social"},
+    {"name": "Nautilus", "url": "https://nautil.us/feed/", "steepHint": "Technological"},
+    {"name": "Palladium", "url": "https://www.palladiummag.com/feed/", "steepHint": "Political"},
     {"name": "Low-Tech Magazine", "url": "https://solar.lowtechmagazine.com/posts/index.xml", "steepHint": "Environmental"},
-    {"name": "Dezeen", "url": "https://www.dezeen.com/feed/", "steepHint": "Social"},
-    {"name": "Smart Cities Dive", "url": "https://www.smartcitiesdive.com/feeds/news/", "steepHint": "Political"},
     {"name": "IEEE Spectrum Robotics", "url": "https://spectrum.ieee.org/feeds/topic/robotics.rss", "steepHint": "Technological"}
   ],
-  "relevanceKeywords": ["store", "retail", "shop", "supermarket", "grocery", "mall", "commerce", "building", "city", "urban", "construction", "material", "zoning", "housing", "real estate", "robot", "teleoperat", "automation", "agent", "labor", "worker", "climate", "heat", "retreat", "depopulation", "migration", "solar", "energy", "compute", "data center", "space", "warehouse", "fulfillment", "demograph", "aging", "offline", "analog", "autonomous", "mycelium", "living material"]
+  "relevanceKeywords": ["change", "shift", "new", "first", "emerging", "future", "law", "rights", "person", "governance", "technology", "science", "climate", "death", "life", "AI", "robot", "material", "energy", "city", "space", "ocean", "animal", "human", "economic", "social"]
 }

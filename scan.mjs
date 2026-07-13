@@ -143,9 +143,11 @@ async function rss() {
       const date = new Date(pick("pubDate") || pick("dc:date") || Date.now());
       if ((Date.now() - date.getTime()) / 864e5 > 2) continue; // last 48h only
       const title = pick("title"), snippet = pick("description").slice(0, 300);
-      // cheap relevance gate so general design/tech feeds don't flood the LLM pass
-      const hay = (title + " " + snippet).toLowerCase();
-      if (!SRC.relevanceKeywords.some((k) => hay.includes(k))) continue;
+      // relevance gate (skipped when config.rssGate === false, since feeds are hand-picked idea sources)
+      if (CFG.rssGate !== false) {
+        const hay = (title + " " + snippet).toLowerCase();
+        if (!SRC.relevanceKeywords.some((k) => hay.includes(k))) continue;
+      }
       out.push({ title, url: link, snippet, source: f.name, date: date.toISOString().slice(0, 10), feeder: "rss" });
     }
     await sleep(500);
@@ -167,7 +169,7 @@ NON-NEGOTIABLE RULES:
 - Items that are clearly established trends or hype: still include the best of them, classification "Trend" or "Hype" (they will be filed to Context by the human).
 - Do NOT assign an impact rating; that is human-held.
 
-From the raw items, select up to ${CFG.maxCandidates} candidates relevant to the domain map (weakest/strangest first). Keep "ai_read" and "evidence" under 45 words each. Return ONLY a JSON array, no prose, each element:
+From the raw items, return AS MANY candidates as are at all worth Kristen's eye — up to ${CFG.maxCandidates}, ordered weakest/strangest first. She wants VOLUME and wants to see the rule-outs, so also include borderline and already-trending items, but label those honestly with classification "Trend" or "Hype" and a one-line reason in ai_read. Never silently drop a plausibly-interesting item; include and label it. Keep "ai_read" and "evidence" under 45 words each. Return ONLY a JSON array, no prose, each element:
 {"title": "short signal name (the shift, not the event)",
  "shift": "1-2 sentences on the underlying shift",
  "ai_read": "tentative read: why it might matter and why it is strange, labeled tentative",
