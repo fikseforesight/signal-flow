@@ -679,16 +679,18 @@ async function loadFeedFile(file,label){
   return {added:r.added,merged:r.merged,batch,label};
 }
 async function autoLoadFeed(){
-  /* daily headline scan + weekly substack scan; both are optional and independent */
+  /* three independent, optional feeds: daily headline scan, weekly substack scan, wild deep scan */
   const daily=await loadFeedFile('candidates.json','Daily scan');
   const substack=await loadFeedFile('substack-candidates.json','Substack scan');
+  const wild=await loadFeedFile('wild-candidates.json','Wild scan');
   const fs=document.getElementById('feedStatus');
   const b=(daily&&daily.batch)||'';
   if(fs&&b)fs.textContent='· scan feed: '+b;
   render();
   const msgs=[];
-  if(daily&&daily.added)msgs.push(`Daily scan: ${daily.added} new`);
-  if(substack&&substack.added)msgs.push(`Substack scan: ${substack.added} new`);
+  if(daily&&daily.added)msgs.push(`Daily: ${daily.added} new`);
+  if(substack&&substack.added)msgs.push(`Substack: ${substack.added} new`);
+  if(wild&&wild.added)msgs.push(`Wild: ${wild.added} new`);
   if(msgs.length)toast(msgs.join(' · ')+' in your queue.');
 }
 autoLoadFeed();

@@ -1,0 +1,273 @@
+{
+ "generated": "2026-07-13T02:29:29.098Z",
+ "batch": "2026-07-10 (wild)",
+ "candidates": [
+  {
+   "title": "Laws are now banning things that don't exist yet",
+   "shift": "A quiet mode-shift in governance: prohibiting a technology or industry BEFORE it exists, rather than regulating harms after they appear. Mirror life is under a moratorium though no one is building it; octopus farming is being banned in places that have zero octopus farms.",
+   "ai_read": "Tentative, H3, wild — the strongest signal here. Two unrelated domains (synthetic biology, animal agriculture) independently crossing into pre-emptive prohibition of the non-existent. Nobody has named 'anticipatory bans' as one phenomenon. If precautionary law starts arriving before capabilities do, the whole timing of innovation, investment, and permission inverts — you'd need permission for things not yet invented. A governance reframing hiding in plain sight.",
+   "evidence": "Mirror life: 96+ scientists across 20 countries endorsed a moratorium (Science, 2024-25); UN Scientific Advisory Board (2026) calls for 'red lines' before mirror life is 'feasible'; would-be creators renounced it. Octopus farming: Washington (2024), New York (2026) and a federal OCTOPUS Act ban an industry that, per Sentient Media, 'doesn't exist in the U.S.'",
+   "url": "https://www.science.org/content/article/leading-scientists-urge-ban-developing-mirror-image-bacteria",
+   "source": "Science / Sentient Media (cross-domain)",
+   "date": "2026-07-03",
+   "srctype": "import",
+   "swipes": "Writings",
+   "steep": "Political",
+   "steep2": "Technological",
+   "classification": "Weak signal",
+   "horizon": "H3",
+   "themes": [
+    "anticipatory prohibition",
+    "governing the non-existent"
+   ],
+   "keywords": [
+    "mirror life",
+    "octopus farming ban",
+    "precautionary law",
+    "moratorium"
+   ],
+   "sources": [
+    {
+     "name": "Sentient Media — octopus farming doesn't exist in US",
+     "url": "https://sentientmedia.org/octopus-farming-in-the-u-s-doesnt-exist/",
+     "steep": "Political",
+     "date": "2026-06-01"
+    }
+   ]
+  },
+  {
+   "title": "'Person' is fracturing across rivers, animals, and machines at once",
+   "shift": "The legal category of 'person' is being contested simultaneously and independently for ecosystems (Colorado, Marañón rivers), animals (elephants, whales), and AI agents — three unrelated fronts pulling the same concept apart in the same window.",
+   "ai_read": "Tentative, H3: each fight is covered on its own; the un-named signal is the CONVERGENCE — 'person' ceasing to mean 'human' across biology, ecology, and code simultaneously. If personhood pluralizes, everything built on the human/person equivalence (liability, contracts, rights, ownership) loosens at once. A second-order reframing no single domain sees because each is fighting its own case.",
+   "evidence": "Rivers: Colorado River personhood suit + tribal resolutions (2026). Animals: Hawai'i court to rule on elephant rights fall 2026; Happy the elephant case. AI: 2026 arXiv 'precautionary governance of autonomous AI: legal personhood as functional instrument'; Yale LJ on AI personhood. All active mid-2026, none cross-referenced.",
+   "url": "https://arxiv.org/pdf/2605.12505",
+   "source": "arXiv / National Geographic / Prism (cross-domain)",
+   "date": "2026-06-19",
+   "srctype": "import",
+   "swipes": "Writings",
+   "steep": "Political",
+   "steep2": "Social",
+   "classification": "Weak signal",
+   "horizon": "H3",
+   "themes": [
+    "personhood pluralizing",
+    "non-human legal persons"
+   ],
+   "keywords": [
+    "rights of nature",
+    "animal personhood",
+    "AI personhood",
+    "legal person"
+   ],
+   "sources": [
+    {
+     "name": "Hawai'i court on animal rights",
+     "url": "https://www.kwxx.com/2026/06/19/hawai%CA%BBi-court-to-decide-if-animals-should-have-human-rights/",
+     "steep": "Political",
+     "date": "2026-06-19"
+    },
+    {
+     "name": "Prism — Colorado River personhood",
+     "url": "https://prismreports.org/2026/03/24/colorado-river-personhood-rights-of-nature/",
+     "steep": "Environmental",
+     "date": "2026-03-24"
+    }
+   ]
+  },
+  {
+   "title": "Network states: hundreds of millions raised, thousands of 'citizens,' nothing built",
+   "shift": "The 'network state' movement is accumulating capital and claimed membership while instantiating almost no physical territory — a nation-form that is all balance sheet and citizenry, no ground.",
+   "ai_read": "Tentative, H3, wild card — an ABSENCE signal. Praxis raised $525M and claims 150k+ 'citizens' but as of mid-2026 has built nothing; zero network-state projects have completed the sequence. The weak signal is the gap itself: a sovereignty movement that exists entirely as capital and identity with no land. If that gap persists or resolves suddenly, it says something strange about what 'a place' even requires now.",
+   "evidence": "Sovereignty Atlas / NoMag (2026): Praxis founded 2019, raised $525M (2024), 150k+ online citizens, 'built nothing' as of mid-2026; 'zero projects have completed the sequence.' Próspera exists physically but is in an $11B legal battle after Honduras repealed its ZEDE law.",
+   "url": "https://www.nomag.world/p/prospera-the-startup-nation-that",
+   "source": "NoMag / Sovereignty Atlas",
+   "date": "2026-06-01",
+   "srctype": "import",
+   "swipes": "Pitches",
+   "steep": "Political",
+   "steep2": "Economic",
+   "classification": "Wild card",
+   "horizon": "H3",
+   "themes": [
+    "network states",
+    "sovereignty without territory",
+    "capital without ground"
+   ],
+   "keywords": [
+    "network state",
+    "Praxis",
+    "Prospera",
+    "charter city"
+   ]
+  },
+  {
+   "title": "The mine becomes a bioreactor: microbes as the extraction workforce",
+   "shift": "Engineered and natural microbes are being deployed to eat metal out of ore and electronic waste — relocating extraction from pit-and-truck geology into vats of bacteria, inverting the labor, energy, and geography of mining.",
+   "ai_read": "Tentative, H3: biomining is real but the un-drawn reframing is that the 'miner' becomes a living organism and the 'mine' becomes a fermenter — which detaches extraction from location (you can biomine e-waste anywhere) and from heavy labor/energy. If metal recovery migrates to bioreactors, the map of who has resources and where value is extracted quietly redraws. Watch for the first purpose-built urban 'bio-refinery.'",
+   "evidence": "Fraunhofer IGB demoing bacterial e-waste metal recovery in a fixed-bed reactor at IFAT 2026; Sudbury biomining hub; engineered Pseudomonas putida / E. coli 'NiCo Buster' for cobalt/nickel capture; commercial copper bioleaching already mature.",
+   "url": "https://www.igb.fraunhofer.de/en/press-media/press-releases/2026/biological-recycling-of-electronic-waste.html",
+   "source": "Fraunhofer IGB",
+   "date": "2026-06-01",
+   "srctype": "import",
+   "swipes": "Innovations",
+   "steep": "Technological",
+   "steep2": "Economic",
+   "classification": "Weak signal",
+   "horizon": "H3",
+   "themes": [
+    "living extraction",
+    "mine as bioreactor",
+    "placeless resources"
+   ],
+   "keywords": [
+    "biomining",
+    "bioleaching",
+    "e-waste",
+    "engineered microbes"
+   ]
+  },
+  {
+   "title": "When bodies become garden soil, what happens to the cemetery?",
+   "shift": "Human composting (natural organic reduction) has crossed from fringe to 14 US states, turning the dead into a cubic yard of soil in 30-60 days — and no one is drawing the second-order consequence for the ~$20B cemetery/funeral real-estate and the ritual of the gravesite.",
+   "ai_read": "Tentative, H3: the composting trend itself is now tracked (demotable), but the UN-COVERED locus is what soil-return does to permanent burial space — if a meaningful share of the dead become soil returned to families or forests, the cemetery as a land-use, a place of return, and an asset class slowly loses its function. Death's geography changes. A second-order absence nobody in the death-care or real-estate world has connected.",
+   "evidence": "14 US states legal as of July 2026 (WA, OR, CO, VT, CA, NY, NV, AZ, MD, DE, MN, ME, GA, NJ); NJ added Sept 2025; Utah, Rhode Island pending 2026. ~$5-7k per NOR; ~1 metric ton CO2 saved vs burial.",
+   "url": "https://earthfuneral.com/resources/tracker-where-human-composting-legal",
+   "source": "Earth Funeral tracker",
+   "date": "2026-07-01",
+   "srctype": "import",
+   "swipes": "Statistics",
+   "steep": "Social",
+   "steep2": "Environmental",
+   "classification": "Weak signal",
+   "horizon": "H3",
+   "themes": [
+    "death geography",
+    "cemetery obsolescence",
+    "soil return"
+   ],
+   "keywords": [
+    "human composting",
+    "natural organic reduction",
+    "cemetery",
+    "death care"
+   ]
+  },
+  {
+   "title": "The dead becoming persistent, interactive economic actors",
+   "shift": "Griefbots / deadbots — AI avatars of specific deceased people, trained on their 'digital remains' — are normalizing with no legal framework, turning the dead from static memory into an ongoing, monetizable, interactive presence.",
+   "ai_read": "Tentative, H3: coverage is forming (so partly demotable), but the thin locus is the dead as a PERSISTENT ACTOR — a likeness that keeps talking, consenting-or-not, generating engagement and data after death, with unresolved ownership. If the deceased become durable interactive entities, estates, likeness rights, memory, and even 'posthumous labor' become live categories. The reframing (dead-as-actor, not dead-as-record) is the signal.",
+   "evidence": "Deadbots covered in The Atlantic (Feb 2026), The Conversation, academic (Springer); 2024 survey: only 3% support griefbots without prior consent; as of 2026 no consistent legal framework — governed only by sparse general AI/posthumous-data law.",
+   "url": "https://theconversation.com/should-ai-be-allowed-to-resurrect-the-dead-272643",
+   "source": "The Conversation",
+   "date": "2026-01-01",
+   "srctype": "import",
+   "swipes": "Writings",
+   "steep": "Social",
+   "steep2": "Technological",
+   "classification": "Weak signal",
+   "horizon": "H3",
+   "themes": [
+    "dead as persistent actor",
+    "digital afterlife industry"
+   ],
+   "keywords": [
+    "griefbot",
+    "deadbot",
+    "digital resurrection",
+    "posthumous likeness"
+   ]
+  },
+  {
+   "title": "A planet made of sand, starving for usable sand",
+   "shift": "The world consumes ~50B tons of sand a year — three times nature's replenishment — yet deserts can't help: wind-rounded desert grains won't bind in concrete. A civilization drowning in sand faces a construction-sand scarcity, with 'sand mafias' emerging around it.",
+   "ai_read": "Tentative, H3: the shortage is now covered (UN warnings — partly demotable). The stranger, thinner edge is the PARADOX and its forcing function — that abundance and scarcity of the 'same' material coexist, pushing toward engineered substitutes (geopolymers, mycelium, recycled aggregate, printed structures). If the cheapest, most invisible material becomes strategically scarce and criminalized, the material basis of building itself becomes contested. Cross-links to living-materials signals.",
+   "evidence": "UN (2026): ~50B tons/yr, 3x replenishment; desert sand too smooth to bind; India/Morocco/Indonesia illegal 'sand mafias'; Singapore blocked from sand imports; 45% demand rise projected by 2060.",
+   "url": "https://www.envirolink.org/2026/06/01/world-mining-50-billion-tons-of-sand-annually-as-un-warns-of-critical-shortage/",
+   "source": "UN via EnviroLink",
+   "date": "2026-06-01",
+   "srctype": "import",
+   "swipes": "Statistics",
+   "steep": "Environmental",
+   "steep2": "Economic",
+   "classification": "Weak signal",
+   "horizon": "H3",
+   "themes": [
+    "strategic banality",
+    "material substitution",
+    "abundance-scarcity paradox"
+   ],
+   "keywords": [
+    "sand shortage",
+    "sand mafia",
+    "concrete",
+    "geopolymer"
+   ]
+  },
+  {
+   "title": "Engineered microbes as a deliberately-renounced capability",
+   "shift": "Mirror life is a rare case of scientists pre-emptively renouncing a capability they could pursue — a self-imposed 'we agree not to build this' among the very researchers positioned to build it.",
+   "ai_read": "Tentative, H3, wild card: distinct from the 'anticipatory bans' pattern — this is the RENUNCIATION angle. Voluntary, coordinated non-development of a feasible-in-principle technology is extraordinarily rare (gene-drive and human germline are the only cousins). If 'agreed non-development' becomes a repeatable move, it's a new tool in the innovation-governance kit — capabilities left un-built by consensus. Watch whether a second field does it.",
+   "evidence": "Several researchers who had been pursuing mirror life renounced it and joined the 2024 warning paper as coauthors; as of Jan 2026 no one known to be pursuing it (Science; MIT Tech Review, Apr 2026).",
+   "url": "https://www.technologyreview.com/2026/04/15/1135197/synthetic-mirror-life-microbes-kill-us-all/",
+   "source": "MIT Technology Review",
+   "date": "2026-04-15",
+   "srctype": "import",
+   "swipes": "Writings",
+   "steep": "Technological",
+   "steep2": "Political",
+   "classification": "Weak signal",
+   "horizon": "H3",
+   "themes": [
+    "agreed non-development",
+    "renounced capability"
+   ],
+   "keywords": [
+    "mirror life",
+    "renunciation",
+    "innovation governance",
+    "moratorium"
+   ]
+  },
+  {
+   "title": "DEMOTED → Context: rights of nature as a named global movement",
+   "shift": "Ecosystems granted legal rights across many jurisdictions and tribes; courts placing rivers on the same footing as corporations.",
+   "ai_read": "Demote: coined name ('rights of nature'), multiple named statutes, mainstream + academic coverage, a Goldman Prize. Trend layer — file to Context. The weak-signal locus is the cross-domain PERSONHOOD convergence, filed separately above.",
+   "evidence": "Resilience.org, Scientific American, BSR all cover 'rights of nature' as an established movement across many nations/tribes.",
+   "url": "https://www.resilience.org/stories/2026-04-13/how-countries-are-granting-legal-rights-to-nature/",
+   "source": "Resilience.org",
+   "date": "2026-04-13",
+   "srctype": "import",
+   "swipes": "Writings",
+   "steep": "Political",
+   "classification": "Trend",
+   "horizon": "H2",
+   "themes": [
+    "rights of nature"
+   ],
+   "keywords": [
+    "rights of nature",
+    "legal personhood"
+   ]
+  },
+  {
+   "title": "DEMOTED → Context: global sand shortage (headline layer)",
+   "shift": "UN warning that sand extraction (~50B t/yr) far outpaces replenishment, threatening construction and coasts.",
+   "ai_read": "Demote: UN-named, quantified, widely covered as a 'crisis.' Trend/early-indicator layer — Context. The thin locus (abundance-scarcity paradox forcing material substitution + criminalization) is filed as a weak signal above.",
+   "evidence": "EnviroLink/UN, Profolus, Intelligent Living all cover the sand crisis as an established resource story.",
+   "url": "https://www.intelligentliving.co/sand-shortage-threat-riverbed/",
+   "source": "Intelligent Living",
+   "date": "2026-05-19",
+   "srctype": "import",
+   "swipes": "Statistics",
+   "steep": "Environmental",
+   "classification": "Trend",
+   "horizon": "H2",
+   "themes": [
+    "resource scarcity"
+   ],
+   "keywords": [
+    "sand shortage"
+   ]
+  }
+ ]
+}
