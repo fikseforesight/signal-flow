@@ -1,0 +1,33 @@
+name: Sync to Notion
+
+# Pushes triaged weak-signal candidates into the Notion library.
+# - schedule: runs after the daily scan finishes (the daily scan's bot commit does NOT
+#   trigger push-events, so the schedule covers the daily file).
+# - push: fires when YOU upload substack-candidates.json / wild-candidates.json.
+# - manual: run any time from the Actions tab.
+# Idempotent (dedup by Signal ID), so overlapping triggers never duplicate.
+
+on:
+  schedule:
+    - cron: "40 11 * * *"   # ~6:40am CT, ~23 min after the daily scan
+  push:
+    branches: [main]
+    paths:
+      - "candidates.json"
+      - "substack-candidates.json"
+      - "wild-candidates.json"
+  workflow_dispatch: {}
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Push candidates to Notion
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+        run: node push-to-notion.mjs

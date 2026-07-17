@@ -1,0 +1,22 @@
+name: Set up Notion database
+
+# Run this ONCE, manually (Actions tab -> "Set up Notion database" -> Run workflow).
+# It creates the Signal Flow library database in Notion and prints its id in the logs.
+# Requires secrets: NOTION_TOKEN, NOTION_PARENT_PAGE_ID.
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Create Notion database
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_PARENT_PAGE_ID: ${{ secrets.NOTION_PARENT_PAGE_ID }}
+        run: node setup-notion.mjs
