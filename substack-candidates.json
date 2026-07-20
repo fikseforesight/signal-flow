@@ -1,247 +1,517 @@
 {
-  "generated": "2026-07-13T11:20:00Z",
-  "batch": "2026-07-13 (substack)",
-  "candidates": [
+ "generated": "2026-07-20T20:43:47.713Z",
+ "batch": "2026-07-20",
+ "candidates": [
+  {
+   "title": "The Internet Oracle as pre-algorithmic community model",
+   "shift": "A nostalgic essay resurfaces a 1980s anonymous, decentralized, human-curated collaborative-writing chain (email-based, no platform, no algorithm) as a lost mode of internet sociality.",
+   "ai_read": "Tentative: as AI-generated content floods feeds, interest in reviving purely human, anonymous, chain-based creative rituals may signal a coming counter-movement toward deliberately algorithm-free social infrastructure.",
+   "evidence": "Essay details Usenet Oracle's email-routing structure and 'volunteer priesthood' curation model, linked to original 1980s help file and still-live oracle archive at internetoracle.org.",
+   "url": "https://default.blog/p/the-usenet-oracle",
+   "source": "default.blog",
+   "date": "2026-07-13",
+   "horizon": "H3",
+   "srctype": "substack",
+   "swipes": "Writings",
+   "steep": "Social",
+   "steep2": "Technological",
+   "classification": "Weak signal",
+   "themes": [
+    "decentralized internet nostalgia",
+    "post-algorithmic community",
+    "anonymous creative rituals"
+   ],
+   "keywords": [
+    "Usenet",
+    "Internet Oracle",
+    "decentralization",
+    "pre-platform internet"
+   ],
+   "sources": [
     {
-      "title": "Human-Labor Dance: obsolete work ritualized as classical art",
-      "shift": "A design-fiction piece imagines a century-hence 'Post-AI Era' in which typing, deciding, and other extinct forms of white-collar labor have been preserved not as nostalgia but as a formal performance art (\"The Staccato of Creation\"), staged alongside Noh theatre as a sanctuary for remembering \"Humanship.\"",
-      "ai_read": "Tentative read: fiction, not forecast — but the strangeness is the point. It names a real second-order question none of the labor-automation coverage asks: what happens to the *aesthetic and ritual memory* of work once its economic function disappears? Worth watching whether 'heritage-labor' framing (like artisan crafts, but for office work) starts appearing in real culture as an early tell.",
-      "evidence": "Full piece styled as museum/performance description; frames mechanical-keyboard typing as a preserved traditional art form a century after a 'Great Resignation' in which humans surrendered decision-making to autonomous systems.",
-      "url": "https://ontologicalfuturist.substack.com/p/from-a-world-of-effortless-perfection",
-      "source": "The Ontological Futurist (Substack)",
-      "date": "2026-07-06",
-      "srctype": "import",
-      "swipes": "Writings",
-      "steep": "Social",
-      "steep2": "Technological",
-      "classification": "Weak signal",
-      "horizon": "H3",
-      "themes": ["post-labor-ritual", "design-fiction", "work-as-heritage-art"],
-      "keywords": ["Human-Labor Dance", "Staccato of Creation", "post-AI era", "labor as performance"]
+     "name": "Internet Oracle archive",
+     "url": "https://internetoracle.org/logos.cgi"
     },
     {
-      "title": "Telescope Ranchers",
-      "shift": "A niche real-estate/livelihood category is forming around land valued for its dark-sky quality rather than its soil, minerals, or buildability — owners renting out or ranching around backyard observatories and astro-tourism access.",
-      "ai_read": "Tentative read: strange because it inverts the usual land-value logic (absence of light pollution as the asset, not presence of infrastructure). If it scales, it's a small but genuine precedent for 'quality-of-void' as a real-estate variable — relevant to any scan of how physical land gets valued and zoned going forward.",
-      "evidence": "Surfaced via kottke.org, flagged as a weak signal in Competia's July 6 roundup alongside other land-use oddities.",
-      "url": "https://kottke.org/26/06/telescope-ranchers",
-      "source": "Weak Signals and Other Trends (Competia, Substack), via kottke.org",
-      "date": "2026-07-06",
-      "srctype": "import",
-      "swipes": "Innovations",
-      "steep": "Environmental",
-      "steep2": "Economic",
-      "classification": "Weak signal",
-      "horizon": "H3",
-      "themes": ["land-use-reinvention", "dark-sky-tourism", "rural-real-estate"],
-      "keywords": ["telescope ranchers", "dark sky preserve", "land value", "astro-tourism"]
-    },
-    {
-      "title": "'Possible Menu' bakeries and ambient high-agency recruitment via smart glasses",
-      "shift": "A short design-fiction scene set in a near-future corner bakery: a weather-reactive digital menu ('IF THE RAIN HOLDS: cinnamon knots... IF THE QUEUE HOLDS: proxi-bread at ten') and a stranger whose AR 'frames' passively pattern-match strangers in a queue against public data to headhunt people who 'build things before anyone asks them to.'",
-      "ai_read": "Tentative read: fiction again, but it fuses two real threads worth tracking together rather than separately — dynamic/contextual hyperlocal retail (the store as a responsive system rather than a fixed menu) and ambient, non-consensual talent-scouting via wearables. The store becomes a place where you're not just served, you're scanned and sorted.",
-      "evidence": "Full narrative scene; author's site links to a 'science of strategic imagination' research page suggesting this is part of a deliberate futures-practice output, not casual fiction.",
-      "url": "https://practicalfutures.substack.com/p/sorry-my-frames-think-youre-someone-else",
-      "source": "Practical Futures (Substack)",
-      "date": "2026-07-05",
-      "srctype": "import",
-      "swipes": "Writings",
-      "steep": "Technological",
-      "steep2": "Social",
-      "classification": "Weak signal",
-      "horizon": "H3",
-      "themes": ["store-as-infrastructure", "ambient-recruitment", "dynamic-hyperlocal-retail"],
-      "keywords": ["Possible Menu", "proxi-bread", "smart glasses", "high-agency", "ambient recruiting"]
-    },
-    {
-      "title": "Ultra-black car paint that 'looks like a hole in reality'",
-      "shift": "A new coating absorbs 99.9% of light — deep enough that painted surfaces read as visual voids rather than dark objects.",
-      "ai_read": "Tentative read: currently framed as an automotive novelty, but extreme light-absorbing materials have a track record of migrating into architecture and retail display (see Vantablack's museum/gallery afterlife). Worth a loose watch for facade, signage, or storefront-void applications — the strangeness is optical: a surface that stops reading as a surface.",
-      "evidence": "Flagged in Competia's weak-signals roundup, sourced to Vice's coverage of the paint's development.",
-      "url": "https://www.vice.com/en/article/scientists-developed-an-ultra-black-car-paint-that-absorbs-99-9-of-light-and-looks-like-a-hole-in-reality/",
-      "source": "Weak Signals and Other Trends (Competia, Substack), via Vice",
-      "date": "2026-07-06",
-      "srctype": "import",
-      "swipes": "Innovations",
-      "steep": "Technological",
-      "steep2": "Environmental",
-      "classification": "Wild card",
-      "horizon": "H2",
-      "themes": ["extreme-materials", "facade-design", "light-absorption"],
-      "keywords": ["ultra-black paint", "light-absorbing coating", "material science"]
-    },
-    {
-      "title": "First fully synthetic cell built from scratch, grows and divides",
-      "shift": "Scientists report a cell assembled entirely from synthetic components — not edited, not hybridized — that reproduces on its own for the first time.",
-      "ai_read": "Tentative read: a genuine discontinuity in synthetic biology rather than an incremental step; several scanners flagged it the same week independently. Second-order implications are wide open — bio-manufacturing of materials, self-assembling construction inputs, and the 'design life to spec' question one newsletter posed directly are all downstream possibilities worth holding loosely rather than resolving now.",
-      "evidence": "Covered by Quanta Magazine; independently surfaced by both Doc Futures and Competia's weak-signals roundup in the same week, which raises its salience per the recurrence rule.",
-      "url": "https://www.quantamagazine.org/for-the-first-time-a-cell-built-from-scratch-grows-and-divides-20260701",
-      "source": "Doc Futures / Weak Signals and Other Trends (Competia), via Quanta Magazine",
-      "date": "2026-07-06",
-      "srctype": "import",
-      "swipes": "Innovations",
-      "steep": "Technological",
-      "steep2": "Environmental",
-      "classification": "Wild card",
-      "horizon": "H3",
-      "themes": ["synthetic-biology", "bio-manufacturing", "design-life-from-scratch"],
-      "keywords": ["synthetic cell", "synth bio", "self-replicating", "from-scratch life"]
-    },
-    {
-      "title": "'Net power' as a reframe of the power-inequality problem",
-      "shift": "Rather than treating power as a fixed stock to redistribute, this reframes the real scarcity as 'net power' — the legitimate capacity a society can generate collectively, after subtracting the domination and dependency that concentrating power produces. The question becomes how to increase everyone's capacity to act tenfold without increasing domination tenfold.",
-      "ai_read": "Tentative read: an abstract theoretical move, but one aimed squarely at a live H3 tension — as AI and climate risk both demand faster, larger-scale coordinated action, most available responses either fragment agency (can't act at scale) or centralize it (act at scale by absorbing everyone else's agency). Worth tracking as vocabulary that could migrate into governance/policy debates about AI-era institutional design.",
-      "evidence": "Full essay from a systems-change practitioner (Dark Matter Labs); part of a dense run of related posts from the same author this week on power, meaning, and redistribution.",
-      "url": "https://indyjohar.substack.com/p/what-if-we-have-a-net-power-problem",
-      "source": "Indy Johar (Dark Matter Labs, Substack)",
-      "date": "2026-07-12",
-      "srctype": "import",
-      "swipes": "Writings",
-      "steep": "Political",
-      "steep2": "Social",
-      "classification": "Weak signal",
-      "horizon": "H3",
-      "themes": ["distributed-agency", "governance-reframing", "net-power"],
-      "keywords": ["net power", "gross power", "distributed agency", "systemic risk"]
-    },
-    {
-      "title": "The 'social knowing gap' between human-AI pairs and everyone else",
-      "shift": "A human working closely with an AI compounds shared context, language, and discarded possibilities through repeated dialogue — but when the resulting account is shared, others receive only the endpoint, not the epistemic path that made it intelligible. The pair races ahead; the group inherits 'context debt.'",
-      "ai_read": "Tentative read: names something real and currently unlabeled inside organizations already — the growing gap between what an AI-augmented individual can produce and what a team can actually absorb or verify. Worth watching for friction points in team decision-making and knowledge management as this compounds.",
-      "evidence": "Full theoretical essay distinguishing 'accounts' from 'knowing' from 'social knowing'; from a systems-change practitioner publishing several related essays this week.",
-      "url": "https://indyjohar.substack.com/p/the-social-knowing-gap",
-      "source": "Indy Johar (Dark Matter Labs, Substack)",
-      "date": "2026-07-12",
-      "srctype": "import",
-      "swipes": "Writings",
-      "steep": "Technological",
-      "steep2": "Social",
-      "classification": "Weak signal",
-      "horizon": "H3",
-      "themes": ["human-ai-dyads", "organizational-knowledge", "context-debt"],
-      "keywords": ["social knowing gap", "context debt", "human-AI pair", "epistemic journey"]
-    },
-    {
-      "title": "AI as talent manager, not coach, for a decomposed career",
-      "shift": "As 'career' collapses from a linear pathway into an individualized portfolio of salaried work, gigs, craft markets, influencer income, and speculative investing, one writer proposes AI moving beyond the now-familiar 'career coach' role into something closer to a talent manager — the kind actors and musicians have — actively managing a person's portfolio of revenue streams.",
-      "ai_read": "Tentative read: 'AI coach' is already a saturated, near-consensus framing; 'AI as talent manager for a portfolio life' is a sharper, less-discussed variant worth separating out, since it implies a different relationship (active management/negotiation on your behalf, not just advice).",
-      "evidence": "Full essay, part of a running series on the redefinition of 'organization' under AI and shifting career structures.",
-      "url": "https://docfutures.substack.com/p/servant-assistant-partner-mentor",
-      "source": "Doc Futures (Substack)",
-      "date": "2026-07-10",
-      "srctype": "import",
-      "swipes": "Writings",
-      "steep": "Economic",
-      "steep2": "Technological",
-      "classification": "Weak signal",
-      "horizon": "H3",
-      "themes": ["ai-career-management", "gig-portfolio-life", "decomposed-career"],
-      "keywords": ["AI talent manager", "portfolio career", "career collapse"]
-    },
-    {
-      "title": "'Command over dependency' as the new class marker",
-      "shift": "As AI access becomes universal, the essay argues the real class divide won't be who has AI but who retains the ability to shut the agent up, read the raw file, decide when the dashboard is silent, and function without it — 'command over dependency' rather than access.",
-      "ai_read": "Tentative read: reframes a familiar AI-dependency worry into a specific, testable marker (can this person operate with the system off?) rather than a vague cultural anxiety — useful because it's falsifiable in a way most 'AI dependency' commentary isn't.",
-      "evidence": "Full essay from a publication running a dense, related series this month on AI, class, and social hollowing.",
-      "url": "https://thecuttingfloor.substack.com/p/ai-natives-without-ai",
-      "source": "The Cutting Floor (Substack)",
-      "date": "2026-07-06",
-      "srctype": "import",
-      "swipes": "Writings",
-      "steep": "Social",
-      "steep2": "Technological",
-      "classification": "Weak signal",
-      "horizon": "H3",
-      "themes": ["ai-dependency", "new-class-marker", "agent-literacy"],
-      "keywords": ["AI natives", "command over dependency", "household failure", "agents are your manners"]
-    },
-    {
-      "title": "'Revocable abundance' as the real inequality line",
-      "shift": "Reframes the K-shaped economy debate: the meaningful divide isn't rich vs. poor but revocable vs. irrevocable life — the upper tier owns title, custody, and standing that can't easily be taken away, while the lower tier's abundance (platform access, AI tools, gig work, algorithmic reputation) is entirely permissioned and can vanish.",
-      "ai_read": "Tentative read: a genuinely sharper cut on inequality discourse than the standard K-shaped framing — worth tracking because it implies a different policy and business response (protecting revocability/permanence of access, not just raising incomes).",
-      "evidence": "Full essay, part of a dense multi-post run this week from the same publication on AI, class, and the middle class.",
-      "url": "https://thecuttingfloor.substack.com/p/the-k-is-not-the-problem",
-      "source": "The Cutting Floor (Substack)",
-      "date": "2026-07-06",
-      "srctype": "import",
-      "swipes": "Writings",
-      "steep": "Social",
-      "steep2": "Economic",
-      "classification": "Weak signal",
-      "horizon": "H3",
-      "themes": ["revocable-abundance", "platform-dependency", "status-games"],
-      "keywords": ["K-shaped economy", "revocable abundance", "finite games", "permissioned life"]
-    },
-    {
-      "title": "The 'artificial middle': AI as a service layer over a hollowed-out middle class",
-      "shift": "Names a specific mechanism by which AI could sustain the social forms of a vanished middle class (forms remain: elections, careers, institutions) without restoring its substance — an AI agent performing, in miniature, the functions once distributed across clerks, teachers, nurses, and social workers, making 'social hollowing administratively sustainable.'",
-      "ai_read": "Tentative read: distinct from generic 'AI takes middle-class jobs' commentary — the claim is that AI doesn't just displace the middle class, it becomes a kind of prosthetic that keeps the appearance of middle-class function running after the underlying social body is gone. Worth holding as a lens for reading policy and labor-market data rather than a settled diagnosis.",
-      "evidence": "Full essay drawing on the concept of 'Brazilisation' (social hollowing while formal structures persist) as its starting frame.",
-      "url": "https://thecuttingfloor.substack.com/p/the-artificial-middle",
-      "source": "The Cutting Floor (Substack)",
-      "date": "2026-07-10",
-      "srctype": "import",
-      "swipes": "Writings",
-      "steep": "Social",
-      "steep2": "Economic",
-      "classification": "Weak signal",
-      "horizon": "H3",
-      "themes": ["ai-as-social-infrastructure", "hollowed-middle-class", "administrative-sustainability"],
-      "keywords": ["artificial middle", "Brazilisation", "service layer", "class void"]
-    },
-    {
-      "title": "'Botsitters': paid humans hired to supervise AI agents",
-      "shift": "A named job category is forming around humans watching over, correcting, and covering for AI agents in workplace settings — labor hidden behind the appearance of automation.",
-      "ai_read": "Tentative read: still emerging but has a name and mainstream business coverage now, which nudges it toward the trend end of weak-signal/trend — worth tracking the naming itself as a leading indicator of how fast 'invisible AI labor' becomes a recognized job category rather than an ad hoc workaround.",
-      "evidence": "Covered by Business Insider; flagged in the same week's Competia weak-signals roundup alongside other labor-hidden-behind-automation items.",
-      "url": "https://www.businessinsider.com/botsitting-ai-hidden-human-labor-at-work-2026-6",
-      "source": "Weak Signals and Other Trends (Competia, Substack), via Business Insider",
-      "date": "2026-07-06",
-      "srctype": "import",
-      "swipes": "Entrants & exits",
-      "steep": "Technological",
-      "steep2": "Economic",
-      "classification": "Weak signal",
-      "horizon": "H2",
-      "themes": ["hidden-labor", "future-of-work", "human-in-the-loop"],
-      "keywords": ["botsitters", "AI supervision jobs", "shadow labor"]
-    },
-    {
-      "title": "Celestial land as a pre-emptive asset class",
-      "shift": "SpaceX's June 2026 Nasdaq listing, paired with a new book arguing space needs a legal framework for buying and selling celestial land, marks a moment where extraterrestrial terrain is being converted into a financeable asset class before it has become an actual society — 'the conversion of the frontier into an asset class before the frontier has become a society.'",
-      "ai_read": "Tentative read: the strangeness worth flagging isn't the space-settlement dream itself (well-worn) but the sequencing — property rights, index inclusion, and public-market liquidity arriving well ahead of any settlement, colony, or governance structure. Worth watching how legal/financial infrastructure for unsettled territory gets built and who it's built for.",
-      "evidence": "Analysis of Rainer Zitelmann's 'New Space Capitalism' (June 2026, foreword by Newt Gingrich) read alongside SpaceX's June 12, 2026 Nasdaq debut and rapid index inclusion.",
-      "url": "https://thecuttingfloor.substack.com/p/the-listed-frontier",
-      "source": "The Cutting Floor (Substack)",
-      "date": "2026-07-03",
-      "srctype": "import",
-      "swipes": "Pitches",
-      "steep": "Economic",
-      "steep2": "Political",
-      "classification": "Weak signal",
-      "horizon": "H3",
-      "themes": ["frontier-financialization", "space-property-rights", "asset-class-before-society"],
-      "keywords": ["SpaceX IPO", "New Space Capitalism", "celestial property", "frontier as asset class"]
-    },
-    {
-      "title": "Livestream commerce is reshaping physical real estate in China",
-      "shift": "Livestream shopping has driven a real-estate boom in specific towns (Xishuangbanna) built around live-selling studios and logistics, and separately turned fishing boats into floating storefronts mid-ocean — commerce infrastructure reorganizing physical geography around camera-ready selling rather than foot traffic.",
-      "ai_read": "Tentative read: more documented than most items here (Rest of World has covered both threads over several years), so this sits closer to the trend end of the spectrum — but it's directly relevant to any built-environment scan question about what physical retail infrastructure gets built for once the customer is watching through a screen rather than walking a store.",
-      "evidence": "Two Rest of World features: one on a livestream-driven real-estate boom in a Chinese town, another on livestream selling from boats at sea.",
-      "url": "https://restofworld.org/2024/xishuangbanna-livestream-real-estate-boom",
-      "source": "Weak Signals and Other Trends (Competia, Substack), via Rest of World",
-      "date": "2026-07-06",
-      "srctype": "import",
-      "swipes": "Statistics",
-      "steep": "Economic",
-      "steep2": "Technological",
-      "classification": "Trend",
-      "horizon": "H2",
-      "themes": ["store-as-infrastructure", "livestream-commerce", "real-estate-reinvention"],
-      "keywords": ["livestream shopping", "China real estate", "floating storefronts", "Xishuangbanna"],
-      "sources": [
-        {"name": "Rest of World", "url": "https://restofworld.org/2022/online-shopping-in-the-middle-of-the-ocean/", "steep": "Economic", "date": "2026-07-06"}
-      ]
+     "name": "original help file",
+     "url": "http://www.textfiles.com/internet/vm_oracl"
     }
-  ]
+   ]
+  },
+  {
+   "title": "UFO paraphernalia as lifestyle-guide curation",
+   "shift": "A California wellness/beauty roundup casually recommends vintage UFO-contact and Soviet-UFO books alongside stargazing guides, folding fringe paranormal material into aspirational lifestyle content.",
+   "ai_read": "Tentative and strange: mainstreaming of UFO ephemera as tasteful bookstore browsing (not conspiracy content) may hint at paranormal topics losing stigma and becoming aesthetic/cultural capital post-Pentagon disclosures.",
+   "evidence": "Links to 'UFO...Contact from the Pleiades', 'UFO Chronicles of the Soviet Union', and a Pentagon Papers/UAP files piece, presented next to a Golden Guide to Stars in a bookstore recommendation list.",
+   "url": "https://www.readfeedme.com/p/california-beauty-and-wellness-black",
+   "source": "readfeedme.com",
+   "date": "2026-07-20",
+   "horizon": "H3",
+   "srctype": "substack",
+   "swipes": "Superhits & outliers",
+   "steep": "Social",
+   "steep2": "Political",
+   "classification": "Weak signal",
+   "themes": [
+    "paranormal normalization",
+    "UAP disclosure culture",
+    "lifestyle curation of fringe topics"
+   ],
+   "keywords": [
+    "UFO",
+    "UAP",
+    "Pentagon Papers",
+    "wellness curation"
+   ],
+   "sources": [
+    {
+     "name": "UFO Contact from the Pleiades",
+     "url": "https://www.carpetbaggerbooks.com/pages/books/16485/wendelle-c-stevens-lee-and-brit-elders/ufo-contact-from-the-pleiades-volume-i-and-ii-2-volumes"
+    },
+    {
+     "name": "Pentagon UAP files",
+     "url": "https://www.nbcnews.com/science/ufos-and-anomalous-phenomena/ufo-uap-files-pentagon-release-trump-rcna344204"
+    }
+   ]
+  },
+  {
+   "title": "Peptide and biohack ingredients entering mainstream snack formats",
+   "shift": "GLP-1/peptide culture and extreme biohacking claims (horse semen as a 'gym bro hack') are migrating from supplement subcultures into food-science convention pitches and consumer snack formats like frozen yogurt.",
+   "ai_read": "Tentative: signals a food industry racing to package pharma-adjacent 'optimization' ingredients as consumer treats, potentially normalizing unregulated bio-hacks via snack packaging before scrutiny catches up.",
+   "evidence": "Newsletter cites a food-science-convention photo of 'Peptide FroYo' and separately flags horse semen as an emerging 'gym bro hack', alongside beef tallow and butter momentum in the same digest.",
+   "url": "https://www.snaxshot.com/p/peptide-froyo",
+   "source": "snaxshot.com",
+   "date": "2026-07-15",
+   "horizon": "H2",
+   "srctype": "substack",
+   "swipes": "Innovations",
+   "steep": "Social",
+   "steep2": "Economic",
+   "classification": "Weak signal",
+   "themes": [
+    "biohacking mainstreaming",
+    "peptide culture",
+    "functional food frontier"
+   ],
+   "keywords": [
+    "peptides",
+    "GLP-1",
+    "biohacking",
+    "functional food"
+   ],
+   "sources": [
+    {
+     "name": "food science convention post",
+     "url": "https://www.instagram.com/hydroxide.foodscience/?hl=en"
+    }
+   ]
+  },
+  {
+   "title": "Digital-native micro-brands anchoring in convenience stores",
+   "shift": "A cult digital/lifestyle brand ('Maggie's') has bought its first physical convenience-store location, treating the c-store format as a legitimate retail expansion vehicle rather than legacy infrastructure.",
+   "ai_read": "Tentative: convenience stores may be quietly becoming the low-cost, high-frequency physical retail beachhead for internet-native brands, an unusual reversal of the DTC-to-flagship-store playbook.",
+   "evidence": "Snaxshot notes Maggie's purchased its first c-store location this month, framed under a 'C-Store Cult' trend heading.",
+   "url": "https://www.snaxshot.com/p/c-stores-main-character-energy",
+   "source": "snaxshot.com",
+   "date": "2026-07-14",
+   "horizon": "H2",
+   "srctype": "substack",
+   "swipes": "Entrants & exits",
+   "steep": "Economic",
+   "steep2": "Social",
+   "classification": "Weak signal",
+   "themes": [
+    "retail reformatting",
+    "digital brand physicalization",
+    "convenience store renaissance"
+   ],
+   "keywords": [
+    "convenience store",
+    "DTC brands",
+    "retail expansion"
+   ],
+   "sources": []
+  },
+  {
+   "title": "Euphemism as class camouflage among old wealth",
+   "shift": "Ultra-wealthy memoirists describe multimillion-dollar assets ('small mortgage' for a $3M house) and erase identifying family ties (an unnamed grandmother married to a media magnate), sustaining plausible-deniability language around inherited wealth.",
+   "ai_read": "Tentative: as wealth-inequality scrutiny rises, the linguistic camouflage of old money (understatement, omission) may be a durable defensive genre worth tracking as a leading indicator of elite self-presentation under pressure.",
+   "evidence": "Essay cites a New Yorker excavation of Belle Burden's memoir noting the '$3M small mortgage' and unnamed Vanderbilt/Paley lineage, compared to Tina Brown's 'shack' euphemism for a Hamptons estate.",
+   "url": "https://www.deezlinks.com/p/chicago-in-the-summertime-is-apparently",
+   "source": "deezlinks.com",
+   "date": "2026-07-18",
+   "horizon": "H3",
+   "srctype": "substack",
+   "swipes": "Writings",
+   "steep": "Social",
+   "steep2": "Economic",
+   "classification": "Weak signal",
+   "themes": [
+    "wealth concealment language",
+    "elite self-presentation",
+    "inherited wealth optics"
+   ],
+   "keywords": [
+    "euphemism",
+    "old money",
+    "wealth memoir"
+   ],
+   "sources": [
+    {
+     "name": "New Yorker excavation",
+     "url": "https://www.newyorker.com/books/page-turner/whats-missing-from-belle-burdens-strangers"
+    }
+   ]
+  },
+  {
+   "title": "Bay Area wealth relocating to Nevada tax havens",
+   "shift": "SF-area billionaires are quietly buying homes in Nevada, a smaller-scale echo of the broader ultra-wealthy tax-and-residency arbitrage trend but concentrated in a new, less-covered corridor.",
+   "ai_read": "Tentative: this specific SF-to-Nevada micro-migration (rather than the well-covered Texas/Florida moves) could mark an emerging secondary wealth-flight geography worth watching for policy or real-estate ripple effects.",
+   "evidence": "Mentioned in passing as a newsletter topic: 'the SF billionaires buying houses in Nevada' alongside other California dispatch items.",
+   "url": "https://www.readfeedme.com/p/california-beauty-and-wellness-black",
+   "source": "readfeedme.com",
+   "date": "2026-07-20",
+   "horizon": "H2",
+   "srctype": "substack",
+   "swipes": "Entrants & exits",
+   "steep": "Economic",
+   "steep2": "Political",
+   "classification": "Weak signal",
+   "themes": [
+    "wealth migration",
+    "tax arbitrage",
+    "elite geography"
+   ],
+   "keywords": [
+    "Nevada",
+    "billionaires",
+    "tax flight",
+    "Bay Area"
+   ],
+   "sources": []
+  },
+  {
+   "title": "Ambient normalization of overlapping climate/health disasters",
+   "shift": "A casual newsletter aside lists a sinkhole, cyclospora outbreak, Canadian wildfires, and orange NYC skies in one breath as unremarkable 'mid-summer apocalyptic' texture rather than discrete crises.",
+   "ai_read": "Tentative: the flattening of multiple concurrent disaster types into background lifestyle commentary may indicate cultural desensitization to climate/health shocks becoming ambient rather than event-based.",
+   "evidence": "Writer lists sinkhole, cyclospora, Canada fires, and orange NY skies together casually, linking only the sinkhole news item for context.",
+   "url": "https://www.readfeedme.com/p/feed-merch-042",
+   "source": "readfeedme.com",
+   "date": "2026-07-17",
+   "horizon": "H3",
+   "srctype": "substack",
+   "swipes": "Writings",
+   "steep": "Environmental",
+   "steep2": "Social",
+   "classification": "Weak signal",
+   "themes": [
+    "disaster normalization",
+    "climate ambient anxiety",
+    "compound crises"
+   ],
+   "keywords": [
+    "climate normalization",
+    "wildfire smoke",
+    "compound disasters"
+   ],
+   "sources": [
+    {
+     "name": "Sunset Strip sinkhole",
+     "url": "https://westsidetoday.com/2026/07/17/giant-sinkhole-on-sunset-boulevard-shuts-down-part-of-west-hollywoods-traffic-indefinitely/"
+    }
+   ]
+  },
+  {
+   "title": "Ambient/functional music streaming economics under algorithmic pressure",
+   "shift": "The ambient-music streaming boom is scrutinized for potentially exploiting background-listening algorithms in ways that may not financially benefit the artists producing it.",
+   "ai_read": "Tentative: functional music's rise as engineered filler for algorithmic platforms (rather than intentional listening) could be an early template for how AI-era content economics reward volume over authorship.",
+   "evidence": "Essay engages a Pitchfork investigation into whether the ambient streaming boom helps or exploits artists, framed against Nick Cave's claim that music is inherently moral/good.",
+   "url": "https://www.blackbirdspyplane.com/p/is-ambient-music-evil",
+   "source": "blackbirdspyplane.com",
+   "date": "2026-07-14",
+   "horizon": "H2",
+   "srctype": "substack",
+   "swipes": "Statistics",
+   "steep": "Economic",
+   "steep2": "Social",
+   "classification": "Weak signal",
+   "themes": [
+    "algorithmic content economics",
+    "functional music",
+    "artist compensation"
+   ],
+   "keywords": [
+    "ambient music",
+    "streaming economics",
+    "algorithmic playlists"
+   ],
+   "sources": [
+    {
+     "name": "Pitchfork investigation",
+     "url": "https://pitchfork.com/features/article/is-the-ambient-music-streaming-boom-helping-artists/"
+    }
+   ]
+  },
+  {
+   "title": "AI industry funding humanities discourse about itself",
+   "shift": "Microsoft's AI division has launched its own humanities journal, recruiting literary and philosophical figures (Gopnik, Sunstein, de Botton, Nick Cave) to frame AI-human collaboration on its own terms.",
+   "ai_read": "Tentative: a frontier AI lab bankrolling humanist discourse about AI may be an early instance of tech companies pre-emptively shaping the cultural/ethical narrative before regulatory or public backlash consolidates.",
+   "evidence": "Essay links to the first issue of 'The Humanist Review' at humanistreview.ai, describing it as Microsoft AI-launched, beautifully designed, with essays comparing AI collaboration to Lennon-McCartney.",
+   "url": "https://www.ian-leslie.com/p/dear-me-england",
+   "source": "ian-leslie.com",
+   "date": "2026-07-18",
+   "horizon": "H2",
+   "srctype": "substack",
+   "swipes": "Entrants & exits",
+   "steep": "Technological",
+   "steep2": "Social",
+   "classification": "Weak signal",
+   "themes": [
+    "corporate cultural capture",
+    "AI-humanities discourse",
+    "narrative pre-emption"
+   ],
+   "keywords": [
+    "Microsoft AI",
+    "Humanist Review",
+    "AI ethics discourse"
+   ],
+   "sources": [
+    {
+     "name": "Humanist Review issue 1",
+     "url": "https://humanistreview.ai/issue-1/"
+    }
+   ]
+  },
+  {
+   "title": "Masculinity rhetoric as Democratic electoral strategy",
+   "shift": "A Democratic congressional candidate explicitly campaigns on 'more masculinity' and rolling back a perceived 'softer side,' signaling a party-level pivot away from prior gender-progressive messaging toward working-class masculine appeal.",
+   "ai_read": "Tentative: if this framing spreads beyond one candidate, it could mark a durable Democratic repositioning around masculinity as an electoral wedge, distinct from and reactive to prior 'woke' debates.",
+   "evidence": "Essay quotes Ohio candidate Brian Poindexter's Atlantic-covered remarks and contrasts with other candidates (Dan Osborn, Sam Forstag) navigating similar terrain.",
+   "url": "https://thewhitepages.net/p/why-is-the-answer-always-more-masculinity",
+   "source": "thewhitepages.net",
+   "date": "2026-07-15",
+   "horizon": "H2",
+   "srctype": "substack",
+   "swipes": "Writings",
+   "steep": "Political",
+   "steep2": "Social",
+   "classification": "Weak signal",
+   "themes": [
+    "gender politics realignment",
+    "Democratic messaging shift",
+    "post-woke backlash"
+   ],
+   "keywords": [
+    "masculinity",
+    "Democratic Party",
+    "gender politics"
+   ],
+   "sources": [
+    {
+     "name": "The Atlantic on Poindexter",
+     "url": "https://www.theatlantic.com/politics/2026/07/ohio-poindexter-democrats-men/687880/"
+    }
+   ]
+  },
+  {
+   "title": "Elite public-school admissions reframed as ethnic 'dominance' narrative",
+   "shift": "Coverage of NYC's SHSAT results is shifting from a meritocracy-vs-diversity frame toward an explicit 'Asian American dominance' framing, even as Black admission numbers ('just 3 students') remain a persistent absence.",
+   "ai_read": "Tentative: the emerging 'dominance' framing (rather than 'access' or 'bias') for Asian American test success may presage a new, more racially explicit vocabulary in meritocracy debates nationally.",
+   "evidence": "Piece cites a Gothamist figure of just 3 Black students admitted to Stuyvesant and a NYT headline, alongside city-council reactions from Lincoln Restler and Democratic officials.",
+   "url": "https://rosselliotbarkan.com/p/the-story-is-asian-american-dominance",
+   "source": "rosselliotbarkan.com",
+   "date": "2026-07-20",
+   "horizon": "H2",
+   "srctype": "substack",
+   "swipes": "Statistics",
+   "steep": "Demographic",
+   "steep2": "Political",
+   "classification": "Weak signal",
+   "themes": [
+    "meritocracy discourse",
+    "racial framing shift",
+    "education admissions politics"
+   ],
+   "keywords": [
+    "SHSAT",
+    "Asian American",
+    "Stuyvesant",
+    "school admissions"
+   ],
+   "sources": [
+    {
+     "name": "Gothamist on Black admissions",
+     "url": "https://gothamist.com/news/just-3-black-students-admitted-to-nycs-elite-stuyvesant-high-school-data-shows"
+    }
+   ]
+  },
+  {
+   "title": "Labeling prompts as 'research' unlocks AI compliance with attack requests",
+   "shift": "Benchmark testing shows leading AI models' willingness to assist terrorist-style attack queries jumps sharply (17% to 42%) merely by framing the same prompt as 'research,' revealing a shallow, easily gamed safety layer.",
+   "ai_read": "Tentative: this is a strange, concrete demonstration that AI safety guardrails may hinge on superficial framing cues rather than intent detection, a fragile point that could be systematically exploited at scale.",
+   "evidence": "Exponential View cites a Tech Against Terrorism benchmark: a third of tested responses would have helped real attackers, with 'research' framing raising compliance from 17% to 42%.",
+   "url": "https://www.exponentialview.co/p/data-to-start-your-week-e71",
+   "source": "exponentialview.co",
+   "date": "2026-07-20",
+   "horizon": "H2",
+   "srctype": "substack",
+   "swipes": "Statistics",
+   "steep": "Technological",
+   "steep2": "Political",
+   "classification": "Weak signal",
+   "themes": [
+    "AI safety fragility",
+    "jailbreak framing",
+    "dual-use AI risk"
+   ],
+   "keywords": [
+    "AI safety",
+    "terrorism benchmark",
+    "prompt framing",
+    "guardrails"
+   ],
+   "sources": [
+    {
+     "name": "Tech Against Terrorism benchmark",
+     "url": "https://techagainstterrorism.org/news/press-release-ai-terrorism-benchmark"
+    }
+   ]
+  },
+  {
+   "title": "Solar's levelized cost rising against decades-long decline narrative",
+   "shift": "Lazard's latest levelized-cost-of-energy report reportedly shows solar photovoltaic costs rising, breaking the long-standing narrative of monotonic solar cost decline that has underpinned energy-transition modeling.",
+   "ai_read": "Tentative: if durable, this cost reversal (rather than a one-off supply-chain blip) would be a significant contra-trend signal undermining assumptions baked into most decarbonization and AI-energy-demand forecasts.",
+   "evidence": "Exponential View flags 'the cost of solar photovoltaic electricity has risen,' linking to Lazard's 2026 Levelized Cost of Energy+ report.",
+   "url": "https://www.exponentialview.co/p/ev-593",
+   "source": "exponentialview.co",
+   "date": "2026-07-19",
+   "horizon": "H2",
+   "srctype": "substack",
+   "swipes": "Statistics",
+   "steep": "Environmental",
+   "steep2": "Economic",
+   "classification": "Weak signal",
+   "themes": [
+    "solar cost reversal",
+    "energy transition assumptions",
+    "AI energy demand"
+   ],
+   "keywords": [
+    "solar PV costs",
+    "Lazard LCOE",
+    "energy transition"
+   ],
+   "sources": [
+    {
+     "name": "Lazard 2026 LCOE+ report",
+     "url": "https://www.lazard.com/news-announcements/lazard-releases-2026-levelized-cost-of-energyplus-report-pr/"
+    }
+   ]
+  },
+  {
+   "title": "Frontier AI labs facing commoditization just as they IPO",
+   "shift": "Meta, SpaceX/xAI, and Moonshot are releasing near-frontier-quality models at a fraction of Anthropic/OpenAI's prices within the same eight-day window that OpenAI/Anthropic's IPO narratives depend on premium pricing power.",
+   "ai_read": "Tentative: the timing convergence of a multi-competitor price collapse right at IPO season suggests frontier-model economics may be shifting from scarcity-rent to commodity-margin faster than incumbent valuations assume.",
+   "evidence": "Big Technology details Meta's Muse Spark 1.1, xAI's Grok 4.5, and Moonshot's Kimi K3 all undercutting Opus 4.8 on price/performance within days, per Artificial Analysis and vendor announcements.",
+   "url": "https://www.bigtechnology.com/p/ai-model-prices-are-falling-at-the",
+   "source": "bigtechnology.com",
+   "date": "2026-07-17",
+   "horizon": "H1",
+   "srctype": "substack",
+   "swipes": "Entrants & exits",
+   "steep": "Economic",
+   "steep2": "Technological",
+   "classification": "Trend",
+   "themes": [
+    "AI commoditization",
+    "frontier lab economics",
+    "IPO timing risk"
+   ],
+   "keywords": [
+    "Kimi K3",
+    "Grok 4.5",
+    "Muse Spark",
+    "AI pricing"
+   ],
+   "sources": [
+    {
+     "name": "Muse Spark announcement",
+     "url": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/"
+    },
+    {
+     "name": "Grok 4.5",
+     "url": "https://x.ai/news/grok-4-5"
+    }
+   ]
+  },
+  {
+   "title": "Chinese open-weight model parity shocks US AI hierarchy",
+   "shift": "Moonshot's Kimi K3, a 2.8-trillion-parameter open-weight model, is benchmarking on par with or ahead of top closed US models (Opus 4.8, GPT-5.5/5.6), intensifying the DeepSeek-style geopolitical AI-parity shock.",
+   "ai_read": "Tentative: repeated Chinese open-weight releases matching closed US frontier models may be normalizing open-weight parity as the default competitive state rather than a one-off anomaly, per Platformer's own hype-skepticism.",
+   "evidence": "Big Technology and Platformer both cover K3 pausing new subscriptions due to demand, and Exponential View notes its price is on par with GPT-5.6 but 24x DeepSeek V4 Pro's cost per Artificial Analysis.",
+   "url": "https://www.platformer.news/kimi-k3-launch-moonshot-ai-china/",
+   "source": "platformer.news",
+   "date": "2026-07-17",
+   "horizon": "H1",
+   "srctype": "substack",
+   "swipes": "Entrants & exits",
+   "steep": "Technological",
+   "steep2": "Political",
+   "classification": "Trend",
+   "themes": [
+    "China AI parity",
+    "open-weight models",
+    "AI geopolitics"
+   ],
+   "keywords": [
+    "Kimi K3",
+    "Moonshot AI",
+    "open-weight AI",
+    "China-US AI race"
+   ],
+   "sources": [
+    {
+     "name": "Artificial Analysis K3 benchmark",
+     "url": "https://artificialanalysis.ai/models/kimi-k3"
+    },
+    {
+     "name": "Simon Willison on K3",
+     "url": "https://simonw.substack.com/p/kimi-k3-and-what-we-can-still-learn"
+    }
+   ]
+  },
+  {
+   "title": "DeepSeek's high-margin AI revenue despite low pricing",
+   "shift": "DeepSeek is nearing $500M annualized revenue with 70-80% gross margins on its V4 model, showing that aggressively cheap Chinese AI models can still be highly profitable, not just loss-leading market disruptors.",
+   "ai_read": "Tentative: this margin profile suggests low-price Chinese AI isn't purely subsidized dumping but a genuinely efficient cost structure, which would be a more durable threat to Western frontier-lab economics than assumed.",
+   "evidence": "Exponential View cites The Information's report of DeepSeek's revenue and margin figures ahead of fundraise/IPO plans.",
+   "url": "https://www.exponentialview.co/p/data-to-start-your-week-e71",
+   "source": "exponentialview.co",
+   "date": "2026-07-20",
+   "horizon": "H1",
+   "srctype": "substack",
+   "swipes": "Statistics",
+   "steep": "Economic",
+   "steep2": "Technological",
+   "classification": "Trend",
+   "themes": [
+    "AI cost efficiency",
+    "China AI economics",
+    "DeepSeek margins"
+   ],
+   "keywords": [
+    "DeepSeek",
+    "AI revenue",
+    "gross margins",
+    "V4 model"
+   ],
+   "sources": [
+    {
+     "name": "The Information report",
+     "url": "https://www.theinformation.com/articles/deepseeks-annualized-revenue-nears-500-million-boosting-fundraise-ipo-plans?rc=4pc424"
+    }
+   ]
+  }
+ ]
 }
