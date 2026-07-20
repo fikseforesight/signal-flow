@@ -4,7 +4,7 @@
 // never duplicate. Existing pages are left untouched (your human edits are safe).
 // Secrets: NOTION_TOKEN, NOTION_DATABASE_ID. Native Node 20+, no dependencies.
 
-import { readFileSync, existsSync } from "node:fs";
+import { readFileSync, existsSync, readdirSync } from "node:fs";
 import { createHash } from "node:crypto";
 
 const TOKEN = process.env.NOTION_TOKEN;
@@ -23,6 +23,8 @@ const FILES = [
   ["substack-candidates.json", "substack"],
   ["wild-candidates.json", "wild"],
 ];
+
+if (existsSync("archive")) { for (const f of readdirSync("archive")) { if (/^candidates-\d{4}-\d{2}-\d{2}\.json$/.test(f)) FILES.push([`archive/${f}`, "daily"]); else if (/^wild-\d{4}-\d{2}-\d{2}\.json$/.test(f)) FILES.push([`archive/${f}`, "wild"]); else if (/^substack-\d{4}-\d{2}-\d{2}\.json$/.test(f)) FILES.push([`archive/${f}`, "substack"]); } }
 
 const STEEP_VALID = new Set(["Social", "Technological", "Economic", "Environmental", "Political", "Demographic", "Values"]);
 const CLASS_VALID = new Set(["Weak signal", "Wild card", "Trend", "Megatrend", "Hype"]);
