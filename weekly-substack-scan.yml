@@ -1,0 +1,34 @@
+name: Weekly Substack scan
+
+# Rotates through substack-feeds.txt (~70/week, full sweep every ~6 weeks),
+# reads real article content + embedded hyperlinks, writes substack-candidates.json.
+# Fully automated — no manual upload needed. Uses the same ANTHROPIC_API_KEY secret
+# as the daily scan.
+
+on:
+  schedule:
+    - cron: "47 11 * * 1"   # ~6:47am CT Monday (~30 min after the daily scan)
+  workflow_dispatch: {}
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run Substack scan
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node substack-scan.mjs
+
+      - name: Commit fresh substack candidates
+        run: |
+          git config user.name "signal-flow-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && echo "No changes to commit" || git commit -m "Substack scan $(date -u +%F)"
+          git push

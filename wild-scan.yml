@@ -1,0 +1,41 @@
+name: Wild scan
+
+# Twice-weekly domain-agnostic sweep using the same feeder engine as the daily
+# scan (scan.mjs) but pointed at sources-wild.json — a wider, wilder query set
+# deliberately covering terrain the daily scan doesn't. Writes wild-candidates.json.
+# Fully automated — no manual upload needed. Honest limit: this reads fixed
+# feeds/APIs, not the open web, so it can't fully replace a live web-search hunt —
+# see the domainMap note in sources-wild.json.
+
+on:
+  schedule:
+    - cron: "15 12 * * 2,5"   # ~7:15am CT Tuesday & Friday
+  workflow_dispatch: {}
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    env:
+      SOURCES_FILE: sources-wild.json
+      OUTPUT_FILE: wild-candidates.json
+      SEEN_FILE: seen-wild.json
+      ARCHIVE_PREFIX: wild
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run wild scan
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scan.mjs
+
+      - name: Commit fresh wild candidates
+        run: |
+          git config user.name "signal-flow-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && echo "No changes to commit" || git commit -m "Wild scan $(date -u +%F)"
+          git push

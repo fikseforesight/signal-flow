@@ -10,7 +10,14 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
-const SRC = JSON.parse(readFileSync(join(ROOT, "sources.json"), "utf8"));
+// Parameterized so this same engine can also run the wild scan (different
+// query config, different output file) without duplicating any feeder logic.
+// Daily scan sets none of these, so its behavior is unchanged.
+const SOURCES_FILE = process.env.SOURCES_FILE || "sources.json";
+const OUTPUT_FILE = process.env.OUTPUT_FILE || "candidates.json";
+const SEEN_FILE = process.env.SEEN_FILE || "seen.json";
+const ARCHIVE_PREFIX = process.env.ARCHIVE_PREFIX || "candidates";
+const SRC = JSON.parse(readFileSync(join(ROOT, SOURCES_FILE), "utf8"));
 const CFG = SRC.config;
 const DATA = ROOT;
 const API_KEY = process.env.ANTHROPIC_API_KEY;
@@ -211,7 +218,7 @@ From the raw items, return AS MANY candidates as are at all worth Kristen's eye 
 
 // ---------- main ----------
 
-const seenPath = join(DATA, "seen.json");
+const seenPath = join(DATA, SEEN_FILE);
 const seen = new Set(existsSync(seenPath) ? JSON.parse(readFileSync(seenPath, "utf8")) : []);
 
 console.log("Pulling feeders…");
@@ -257,7 +264,7 @@ for (const c of candidates) if (c.url) seen.add(normUrl(c.url));
 
 mkdirSync(join(DATA, "archive"), { recursive: true });
 const payload = { generated: new Date().toISOString(), batch: today, candidates };
-writeFileSync(join(DATA, "candidates.json"), JSON.stringify(payload, null, 1));
-writeFileSync(join(DATA, "archive", `candidates-${today}.json`), JSON.stringify(payload, null, 1));
+writeFileSync(join(DATA, OUTPUT_FILE), JSON.stringify(payload, null, 1));
+writeFileSync(join(DATA, "archive", `${ARCHIVE_PREFIX}-${today}.json`), JSON.stringify(payload, null, 1));
 writeFileSync(seenPath, JSON.stringify([...seen].slice(-CFG.seenLimit), null, 0));
-console.log(`Wrote ${candidates.length} candidates for ${today}.`);
+console.log(`Wrote ${candidates.length} candidates for ${today} → ${OUTPUT_FILE}.`);
