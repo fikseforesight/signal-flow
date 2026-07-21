@@ -30,6 +30,10 @@ const STEEP_VALID = new Set(["Social", "Technological", "Economic", "Environment
 const CLASS_VALID = new Set(["Weak signal", "Wild card", "Trend", "Megatrend", "Hype"]);
 const SWIPES_VALID = new Set(["Statistics", "Writings", "Innovations", "Pitches", "Entrants & exits", "Superhits & outliers"]);
 const HORIZON_VALID = new Set(["H1", "H2", "H3"]);
+const MATURITY_VALID = new Set(["Signal", "Early indicator", "Trigger"]);
+const DIGIT_VALID = new Set(["0", "1", "2", "3", "4", "5"]);
+// Source Type is a free-growing select (Notion auto-creates new option names on first use),
+// so no fixed set here — any non-empty string the pipeline attaches is passed through as-is.
 
 function normUrl(u) {
   if (!u) return "";
@@ -85,6 +89,15 @@ function buildProps(c, feed) {
   if (themes.length) p["Themes"] = { multi_select: themes };
   if (keywords.length) p["Keywords"] = { multi_select: keywords };
   if (c.date && /^\d{4}-\d{2}-\d{2}/.test(c.date)) p["Date Found"] = { date: { start: c.date.slice(0, 10) } };
+  if (c.author) p["Author"] = { rich_text: rt(c.author) };
+  if (c.srctype) p["Source Type"] = { select: { name: String(c.srctype).slice(0, 90) } };
+  if (MATURITY_VALID.has(c.maturity)) p["Maturity"] = { select: { name: c.maturity } };
+  const likelihood = c.likelihood == null ? "" : String(c.likelihood).trim();
+  if (DIGIT_VALID.has(likelihood)) p["Likelihood"] = { select: { name: likelihood } };
+  const credibility = c.credibility == null ? "" : String(c.credibility).trim();
+  if (DIGIT_VALID.has(credibility)) p["Credibility"] = { select: { name: credibility } };
+  if (c.lens_retail) p["Lens — Retail Category"] = { rich_text: rt(c.lens_retail) };
+  if (c.lens_shopper) p["Lens — Shopper Segment / VERGE"] = { rich_text: rt(c.lens_shopper) };
   // Signal Strength / Tests Met / Decision-at-stake are HUMAN-held — left blank on ingest.
   return p;
 }
