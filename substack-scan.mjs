@@ -88,8 +88,9 @@ function parseFeedItems(xml, feedUrl) {
     const link = stripHtml(pick("link")) || (it.match(/<link[^>]*href="([^"]+)"/i) || [])[1] || "";
     const pubDate = pick("pubDate") || pick("dc:date") || pick("published");
     const contentHtml = pick("content:encoded") || pick("description") || pick("summary");
+    const author = stripHtml(pick("dc:creator") || pick("author")).slice(0, 120);
     if (!title || !link) continue;
-    items.push({ title, link, pubDate, contentHtml, channelUrl: feedUrl });
+    items.push({ title, link, pubDate, contentHtml, channelUrl: feedUrl, author });
   }
   return items;
 }
@@ -176,6 +177,11 @@ Return AS MANY candidates as are at all worth Kristen's eye, ordered weakest/str
  "steep": "Social|Technological|Economic|Environmental|Political|Demographic",
  "steep2": "optional second, same enum or omit",
  "classification": "Weak signal|Wild card|Trend|Hype",
+ "maturity": "Signal|Early indicator|Trigger — default Signal unless there is a concrete early indicator or a named trigger event",
+ "likelihood": "0-5, tentative estimate of how likely this shift continues/materializes; 0=speculative, 5=already clearly underway",
+ "credibility": "0-5, tentative source-credibility estimate for context only; 0=single unverified post, 5=peer-reviewed or official data",
+ "lens_retail": "optional: retail/merchandising category ONLY if this clearly fits a retail lens (e.g. 'beauty', 'household'); omit the field entirely otherwise",
+ "lens_shopper": "optional: VERGE lens (Define/Relate/Connect/Create/Consume/Destroy) and/or shopper segment ONLY if it clearly fits (e.g. 'value shopper / Consume'); omit the field entirely otherwise",
  "themes": ["..."], "keywords": ["..."],
  "sources": [{"name": "label", "url": "..."}] }`;
 
@@ -227,6 +233,7 @@ for (const feedUrl of batch) {
       snippetShort: plain.slice(0, 220),
       snippetLong: plain.slice(0, 900),
       links: extractLinks(it.contentHtml, it.link),
+      author: it.author,
     });
     kept++;
   }
@@ -257,6 +264,13 @@ if (rawItems.length && API_KEY) {
   }));
 }
 
+// Author is never AI-guessed — attach it post-hoc from the real dc:creator/author tag
+// on the feed item, by matching the candidate back to its raw article.
+const authorByUrl = new Map(rawItems.filter((i) => i.author).map((i) => [normUrl(i.url), i.author]));
+for (const c of candidates) {
+  const a = authorByUrl.get(normUrl(c.url));
+  if (a && !c.author) c.author = a;
+}
 for (const it of rawItems) seen.add(normUrl(it.url));
 
 const payload = { generated: new Date().toISOString(), batch: today, candidates };
