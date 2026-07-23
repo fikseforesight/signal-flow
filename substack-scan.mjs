@@ -182,6 +182,10 @@ Return AS MANY candidates as are at all worth Kristen's eye, ordered weakest/str
  "credibility": "0-5, tentative source-credibility estimate for context only; 0=single unverified post, 5=peer-reviewed or official data",
  "lens_retail": "optional: retail/merchandising category ONLY if this clearly fits a retail lens (e.g. 'beauty', 'household'); omit the field entirely otherwise",
  "lens_shopper": "optional: VERGE lens (Define/Relate/Connect/Create/Consume/Destroy) and/or shopper segment ONLY if it clearly fits (e.g. 'value shopper / Consume'); omit the field entirely otherwise",
+     "novelty": "High|Medium|Low — how unprecedented or unfamiliar this shift is, distinct from likelihood/credibility",
+         "impact_scale": "Local|Regional|Global — how far the impact would spread if this signal materializes",
+             "disruptive_potential": "Minor|Major|Catastrophic — magnitude of disruption if it plays out",
+                 "initial_analysis": "2-3 sentences, tentative: what kind of change this is an example of (from what to what), what's driving it, and what the world would look like if it became common",
  "themes": ["..."], "keywords": ["..."],
  "sources": [{"name": "label", "url": "..."}] }`;
 
