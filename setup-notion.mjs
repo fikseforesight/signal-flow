@@ -45,7 +45,8 @@ const properties = {
   "Scan Feed": { select: { options: [opt("daily", "blue"), opt("substack", "green"), opt("wild", "purple")] } },
   "Themes": { multi_select: {} },
   "Keywords": { multi_select: {} },
-  "Date Found": { date: {} },
+  "Date Published": { date: {} },
+  "Date Added": { created_time: {} },
   "Status": { select: { options: [
     opt("Pending", "yellow"), opt("Core", "green"), opt("Context", "gray"), opt("Demoted", "red"),
   ] } },
@@ -62,6 +63,10 @@ const properties = {
   "Credibility": { select: { options: [opt("0"), opt("1"), opt("2"), opt("3"), opt("4"), opt("5")] } },
   "Lens — Retail Category": { rich_text: {} },
   "Lens — Shopper Segment / VERGE": { rich_text: {} },
+  "Novelty": { select: { options: [opt("High", "red"), opt("Medium", "yellow"), opt("Low", "gray")] } },
+  "Impact Scale": { select: { options: [opt("Local", "gray"), opt("Regional", "yellow"), opt("Global", "red")] } },
+  "Disruptive Potential": { select: { options: [opt("Minor", "gray"), opt("Major", "orange"), opt("Catastrophic", "red")] } },
+  "Initial Analysis": { rich_text: {} },
 };
 
 const res = await fetch("https://api.notion.com/v1/databases", {
