@@ -100,7 +100,9 @@ async function arxiv() {
       const ageDays = (Date.now() - new Date(date).getTime()) / 864e5;
       if (ageDays > CFG.arxivDays) continue;
       const id = pick("id");
-      out.push({ title: pick("title"), url: id, snippet: pick("summary").slice(0, 300), source: "arXiv", date, feeder: "arxiv" });
+      const authorNames = [...entry.matchAll(/<author>\s*<name>([\s\S]*?)<\/name>/g)].map((m) => m[1].trim());
+      const author = authorNames.slice(0, 3).join(", ") + (authorNames.length > 3 ? " et al." : "");
+            out.push({ title: pick("title"), url: id, snippet: pick("summary").slice(0, 300), source: "arXiv", date, feeder: "arxiv", author });
     }
     await sleep(3000);
   }
@@ -113,8 +115,10 @@ async function openalex() {
   for (const q of SRC.openalexQueries) {
     const u = `https://api.openalex.org/works?search=${encodeURIComponent(q)}&filter=from_publication_date:${from}&per-page=5&sort=publication_date:desc`;
     const j = await get(u);
+      const authorNames = (w.authorships || []).map((a) => a.author?.display_name).filter(Boolean);
+      const author = authorNames.slice(0, 3).join(", ") + (authorNames.length > 3 ? " et al." : "");
     for (const w of j?.results || []) {
-      out.push({ title: w.display_name, url: w.doi || w.id, snippet: (w.abstract_inverted_index ? Object.keys(w.abstract_inverted_index).slice(0, 40).join(" ") : ""), source: w.primary_location?.source?.display_name || "OpenAlex", date: w.publication_date, feeder: "openalex" });
+            out.push({ title: w.display_name, url: w.doi || w.id, snippet: (w.abstract_inverted_index ? Object.keys(w.abstract_inverted_index).slice(0, 40).join(" ") : ""), source: w.primary_location?.source?.display_name || "OpenAlex", date: w.publication_date, feeder: "openalex", author });
     }
     await sleep(1000);
   }
@@ -150,12 +154,13 @@ async function rss() {
       const date = new Date(pick("pubDate") || pick("dc:date") || Date.now());
       if ((Date.now() - date.getTime()) / 864e5 > 2) continue; // last 48h only
       const title = pick("title"), snippet = pick("description").slice(0, 300);
+      const author = (pick("dc:creator") || pick("author")).slice(0, 120);
       // relevance gate (skipped when config.rssGate === false, since feeds are hand-picked idea sources)
       if (CFG.rssGate !== false) {
         const hay = (title + " " + snippet).toLowerCase();
         if (!SRC.relevanceKeywords.some((k) => hay.includes(k))) continue;
       }
-      out.push({ title, url: link, snippet, source: f.name, date: date.toISOString().slice(0, 10), feeder: "rss" });
+            out.push({ title, url: link, snippet, source: f.name, date: date.toISOString().slice(0, 10), feeder: "rss", author });
     }
     await sleep(500);
   }
@@ -183,11 +188,15 @@ From the raw items, return AS MANY candidates as are at all worth Kristen's eye 
  "evidence": "what supports it, from the item",
  "url": "...", "source": "...", "date": "YYYY-MM-DD",
  "horizon": "H1|H2|H3 — REQUIRED; when the change likely matters most. Bias to H3 (10-30yr) for weak/civilizational signals",
- "srctype": "gdelt|rss|import",
  "swipes": "Statistics|Writings|Innovations|Pitches|Entrants & exits|Superhits & outliers",
  "steep": "Social|Technological|Economic|Environmental|Political|Demographic",
  "steep2": "optional second, same enum or omit",
  "classification": "Weak signal|Wild card|Trend|Hype",
+ "maturity": "Signal|Early indicator|Trigger — default Signal unless there is a concrete early indicator or a named trigger event",
+ "likelihood": "0-5, tentative estimate of how likely this shift continues/materializes; 0=speculative, 5=already clearly underway",
+ "credibility": "0-5, tentative source-credibility estimate for context only; 0=single unverified post, 5=peer-reviewed or official data",
+ "lens_retail": "optional: retail/merchandising category ONLY if this clearly fits a retail lens (e.g. 'beauty', 'household'); omit the field entirely otherwise",
+ "lens_shopper": "optional: VERGE lens (Define/Relate/Connect/Create/Consume/Destroy) and/or shopper segment ONLY if it clearly fits (e.g. 'value shopper / Consume'); omit the field entirely otherwise",
  "themes": ["..."], "keywords": ["..."]}`;
 
   const user = "Raw scan items (title | source | date | url | snippet):\n\n" +
@@ -256,6 +265,17 @@ if (capped.length && API_KEY) {
     title: i.title, shift: "", ai_read: "(no AI pass — raw feed item)", evidence: i.snippet,
     url: i.url, source: i.source, date: i.date, srctype: "import", classification: "", themes: [], keywords: [],
   }));
+}
+// Author and Source Type are never AI-guessed — attach them post-hoc from real pipeline
+// metadata (arXiv/OpenAlex author lists, RSS dc:creator/author tags, and the feeder that
+// actually found the item) by matching the candidate back to its raw item.
+const authorByUrl = new Map(capped.filter((i) => i.author).map((i) => [normUrl(i.url), i.author]));
+const feederByUrl = new Map(capped.map((i) => [normUrl(i.url), i.feeder]));
+for (const c of candidates) {
+  const a = authorByUrl.get(normUrl(c.url));
+  if (a && !c.author) c.author = a;
+  const f = feederByUrl.get(normUrl(c.url));
+  if (f) c.srctype = f;
 }
 
 // mark everything pulled this run as seen (candidates AND non-selected, so tomorrow is fresh)
