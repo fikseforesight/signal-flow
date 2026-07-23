@@ -134,7 +134,8 @@ function buildBody(c) {
 }
 
 async function run() {
-  let added = 0, skipped = 0, failed = 0, seenFiles = 0;
+    let added = 0, skipped = 0, failed = 0, seenFiles = 0, tooOld = 0;
+    const cutoff = Date.now() - 365 * 864e5; // rolling 1-year window — never sync anything older than this
   for (const [file, feed] of FILES) {
     if (!existsSync(file)) continue;
     seenFiles++;
@@ -145,6 +146,10 @@ async function run() {
     console.log(`${file} (${feed}): ${cands.length} candidates`);
     for (const c of cands) {
       if (!c || (!c.title && !c.url)) continue;
+      if (c.date) {
+        const t = new Date(String(c.date).slice(0, 10)).getTime();
+        if (!isNaN(t) && t < cutoff) { tooOld++; continue; }        // rolling window: skip anything older than 1 year
+      }
       const sid = signalId(c);
       try {
         if (await exists(sid)) { skipped++; continue; }             // idempotent: never duplicate
@@ -155,7 +160,7 @@ async function run() {
     }
   }
   if (!seenFiles) console.log("No candidate files found.");
-  console.log(`\nNotion sync: ${added} new, ${skipped} already present${failed ? `, ${failed} failed` : ""}.`);
+    console.log(`\nNotion sync: ${added} new, ${skipped} already present, ${tooOld} older than the 1-year rolling window${failed ? `, ${failed} failed` : ""}.`);
 }
 
 run().catch((e) => { console.error(e); process.exit(1); });
