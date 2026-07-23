@@ -53,7 +53,10 @@ const properties = {
   "Decision-at-stake": { rich_text: {} },
   "Provenance": { select: { options: [opt("AI-suggested", "gray"), opt("Human-confirmed", "green")] } },
   "Author": { rich_text: {} },
-  "Source Type": { select: { options: [opt("manual"), opt("link"), opt("gdelt"), opt("rss"), opt("import")] } },
+      "Source Type": { select: { options: [
+      opt("manual"), opt("link"), opt("import"),
+      opt("gdelt"), opt("arxiv"), opt("openalex"), opt("hn"), opt("reddit"), opt("rss"), opt("substack"),
+    ] } },
   "Maturity": { select: { options: [opt("Signal"), opt("Early indicator"), opt("Trigger")] } },
   "Likelihood": { select: { options: [opt("0"), opt("1"), opt("2"), opt("3"), opt("4"), opt("5")] } },
   "Credibility": { select: { options: [opt("0"), opt("1"), opt("2"), opt("3"), opt("4"), opt("5")] } },
