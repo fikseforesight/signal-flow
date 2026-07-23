@@ -1,0 +1,25 @@
+name: Backfill signal analysis
+
+# Attempts Horizon, Novelty, Impact Scale, Disruptive Potential, and Initial Analysis for
+# every EXISTING signal in Notion that's missing them, using the IFTF interpretation
+# framework + weak-signal methodology. Only ever fills currently-blank fields — never
+# overwrites your review work or prior AI reads. Safe to re-run any time (Actions tab ->
+# "Backfill signal analysis" -> Run workflow) as a self-healing pass for anything that
+# slips through, e.g. after adding a new column.
+
+on:
+  workflow_dispatch: {}
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Backfill analysis fields
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node backfill-analysis.mjs
