@@ -32,6 +32,9 @@ const SWIPES_VALID = new Set(["Statistics", "Writings", "Innovations", "Pitches"
 const HORIZON_VALID = new Set(["H1", "H2", "H3"]);
 const MATURITY_VALID = new Set(["Signal", "Early indicator", "Trigger"]);
 const DIGIT_VALID = new Set(["0", "1", "2", "3", "4", "5"]);
+const NOVELTY_VALID = new Set(["High", "Medium", "Low"]);
+const IMPACT_VALID = new Set(["Local", "Regional", "Global"]);
+const DISRUPTIVE_VALID = new Set(["Minor", "Major", "Catastrophic"]);
 // Source Type is a free-growing select (Notion auto-creates new option names on first use),
 // so no fixed set here — any non-empty string the pipeline attaches is passed through as-is.
 
@@ -88,7 +91,7 @@ function buildProps(c, feed) {
   if (origins.length) p["STEEP-V Origin"] = { multi_select: origins };
   if (themes.length) p["Themes"] = { multi_select: themes };
   if (keywords.length) p["Keywords"] = { multi_select: keywords };
-  if (c.date && /^\d{4}-\d{2}-\d{2}/.test(c.date)) p["Date Found"] = { date: { start: c.date.slice(0, 10) } };
+  if (c.date && /^\d{4}-\d{2}-\d{2}/.test(c.date)) p["Date Published"] = { date: { start: c.date.slice(0, 10) } };
   if (c.author) p["Author"] = { rich_text: rt(c.author) };
   if (c.srctype) p["Source Type"] = { select: { name: String(c.srctype).slice(0, 90) } };
   if (MATURITY_VALID.has(c.maturity)) p["Maturity"] = { select: { name: c.maturity } };
@@ -98,6 +101,10 @@ function buildProps(c, feed) {
   if (DIGIT_VALID.has(credibility)) p["Credibility"] = { select: { name: credibility } };
   if (c.lens_retail) p["Lens — Retail Category"] = { rich_text: rt(c.lens_retail) };
   if (c.lens_shopper) p["Lens — Shopper Segment / VERGE"] = { rich_text: rt(c.lens_shopper) };
+  if (NOVELTY_VALID.has(c.novelty)) p["Novelty"] = { select: { name: c.novelty } };
+  if (IMPACT_VALID.has(c.impact_scale)) p["Impact Scale"] = { select: { name: c.impact_scale } };
+  if (DISRUPTIVE_VALID.has(c.disruptive_potential)) p["Disruptive Potential"] = { select: { name: c.disruptive_potential } };
+  if (c.initial_analysis) p["Initial Analysis"] = { rich_text: rt(c.initial_analysis) };
   // Signal Strength / Tests Met / Decision-at-stake are HUMAN-held — left blank on ingest.
   return p;
 }
