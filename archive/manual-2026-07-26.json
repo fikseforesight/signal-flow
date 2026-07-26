@@ -1,0 +1,519 @@
+{
+ "generated": "2026-07-26T00:00:00.000Z",
+ "batch": "2026-07-26",
+ "session": "built-environment domain-map deep scan (manual, Cowork)",
+ "candidates": [
+  {
+   "title": "Frontline task capture as unowned training corpus",
+   "shift": "Store and warehouse workers are being fitted with AI wearables that capture their embodied task performance — where they walk, what slows them, how they do the job. That capture is quietly the training corpus for the systems that will later direct or replace them, and no category exists for who owns it or whether it is compensable.",
+   "ai_read": "Tentative: the absence here is a property question, not a privacy one. Existing debate treats worker monitoring as surveillance harm; nobody has named embodied task data as an asset generated inside a specific building by a specific workforce. If that framing lands, a store's labor contract and its data contract stop being separable, and the building becomes the collection instrument. Strange because it makes the store a data-extraction site whose yield is booked nowhere.",
+   "evidence": "Smart glasses, connected headsets and intelligent earbuds now deliver task instructions while capturing observations; vendors market 'anonymous activity data' revealing where employees spend time and which tasks create delays. Axonify-type platforms deployed at Walmart, Kroger, Lowe's. Framing is uniformly productivity/training — no ownership or compensation language appears.",
+   "url": "https://retailtechinnovationhub.com/home/how-ai-wearables-are-transforming-retail-operations-customer-experience-and-store-productivity",
+   "source": "Retail Technology Innovation Hub",
+   "date": "2026-07-26",
+   "srctype": "import",
+   "swipes": "Innovations",
+   "steep": "Technological",
+   "steep2": "Economic",
+   "classification": "Weak signal",
+   "horizon": "H2",
+   "themes": [
+    "labor as data source",
+    "store-as-instrument"
+   ],
+   "keywords": [
+    "AI wearables",
+    "embodied task data",
+    "frontline capture",
+    "training corpus"
+   ],
+   "domain_branch": "Labor / Work & Operations",
+   "sources": [
+    {
+     "name": "Apollo Technical",
+     "url": "https://www.apollotechnical.com/how-ai-wearables-are-changing-employee-training/",
+     "steep": "Technological",
+     "date": "2026-01-01"
+    }
+   ]
+  },
+  {
+   "title": "Robots pay rent on the sidewalk — but can't buy the curb ramp",
+   "shift": "West Hollywood now charges delivery robot operators annual fees, ADA and geofencing penalties, and a $4-per-device-per-day cut of the ads printed on the robots, all routed into a dedicated accessibility fund. Machines have become ratepayers on public pedestrian infrastructure — while there is still no mechanism for an operator to directly fund the curb ramp its own routing data says is missing.",
+   "ai_read": "Tentative: the fee itself is novel but the sharper item is the absence sitting next to it. Operators now hold better sidewalk condition data than the cities do, and want to pay for specific fixes, and cannot — the money has to launder through a general fund and the repair still travels the ordinary council-district route. That gap between machine-identified need, available private money, and the absence of a transaction is where a new instrument gets invented. Second-order for retail: if last-mile machines end up funding and instrumenting the pedestrian network, store frontage quality becomes partly a function of robot traffic volume — a locational advantage nobody currently prices, and a reason siting might follow bot routes rather than the reverse.",
+   "evidence": "West Hollywood's 2020 PDD pilot license had no penalties; the new contract adds annual fees plus ADA/geofencing penalties and requires Serve and Coco to share ad revenue at $4 per device per day, all into an accessibility improvement fund — implemented ~3 months as of May 2026, projected to raise $40,000–$80,000/year. Robot.com captured ~35,000 sidewalk data points last year in DC and Arlington, rating hazards by type and severity; DC mandates the reporting. Coco's routing analysis identified three specific missing curb ramps on Abbot Kinney Blvd that turned blocks into wheelchair 'islands.' Explicit statement: 'There is currently no mechanism for an operator to directly fund a curb ramp.' Coco partnering with BlindSquare for real-time blind/low-vision hazard navigation (live in LA, Chicago, Miami, Jersey City; originated in Helsinki on an EU grant) and with Swarco so robots can autonomously extend pedestrian crossing time when crowds exceed a threshold.",
+   "url": "https://nextcity.org/urbanist-news/could-delivery-robots-help-pay-for-better-sidewalks",
+   "source": "Next City",
+   "author": "Maylin Tu",
+   "date": "2026-05-18",
+   "srctype": "import",
+   "swipes": "Innovations",
+   "steep": "Political",
+   "steep2": "Technological",
+   "classification": "Weak signal",
+   "horizon": "H2",
+   "themes": [
+    "machine ratepayers",
+    "sidewalk as metered asset",
+    "missing transaction"
+   ],
+   "keywords": [
+    "personal delivery devices",
+    "sidewalk fee",
+    "West Hollywood",
+    "curb rights",
+    "accessibility fund"
+   ],
+   "domain_branch": "Supply Chain / Infrastructure",
+   "sources": [
+    {
+     "name": "West Hollywood council staff report (fee model)",
+     "url": "https://weho.granicus.com/MetaViewer.php?view_id=16&clip_id=4297&meta_id=310231",
+     "steep": "Political",
+     "date": "2025-12-01"
+    },
+    {
+     "name": "Fortune — Coco delivery robots and blind users",
+     "url": "https://fortune.com/2026/04/20/coco-delivery-robots-blind-users-blindsquare-hazards-sidewalk/",
+     "steep": "Social",
+     "date": "2026-04-20"
+    }
+   ]
+  },
+  {
+   "title": "Kirana displacement creates micro-vacancy with no reuse pathway",
+   "shift": "Quick commerce dark stores are displacing India's kirana ecosystem at scale — 4,081 dark stores now formally mapped. The vacated stock is tiny, owner-occupied, and interleaved with housing, so it has none of the adaptive-reuse options that Western big-box vacancy enjoys.",
+   "ai_read": "Tentative and peripheral: retail-vacancy futures work is almost entirely written about large-format Western assets that can become housing, logistics or data centers. A vacancy wave made of 200-square-foot owner-occupied shopfronts embedded in residential fabric has no conversion playbook at all — the unit is too small to repurpose and too numerous to ignore. If this is the shape of retail vacancy in the world's fastest-growing urban markets, the dominant adaptive-reuse doctrine is solving the wrong geometry.",
+   "evidence": "India quick commerce grew $300M (2022) to $7.1B (FY2025), projected $35B by 2030; 4,081 dark stores mapped in the India Quick Commerce Map 2026. Commentary describes AI-driven dark stores 'triggering the market displacement of traditional kiranas' and calls for regulatory intervention. Parallel growth in Indonesia ($3.11B 2025) and Nigeria ($113.8M 2025).",
+   "url": "https://quickcommercemap.com/reports/india-quick-commerce-map-2026",
+   "source": "India Quick Commerce Map 2026",
+   "date": "2026-06-01",
+   "srctype": "import",
+   "swipes": "Statistics",
+   "steep": "Economic",
+   "steep2": "Social",
+   "classification": "Weak signal",
+   "horizon": "H2",
+   "themes": [
+    "micro-vacancy",
+    "peripheral retail geography"
+   ],
+   "keywords": [
+    "kirana",
+    "dark stores",
+    "quick commerce",
+    "adaptive reuse gap"
+   ],
+   "domain_branch": "Supply Chain / Retail Industry",
+   "sources": [
+    {
+     "name": "Drishti IAS",
+     "url": "https://www.drishtiias.com/daily-updates/daily-news-editorials/indias-quick-commerce-boom",
+     "steep": "Economic",
+     "date": "2026-01-01"
+    }
+   ]
+  },
+  {
+   "title": "Store rooftop as atmospheric water plant",
+   "shift": "Atmospheric water harvesting has moved from lab visioning to commissioned pilots and containerised commercial units following the 2025 Nobel recognition of the underlying framework chemistry. Large flat commercial rooftops in arid, fast-growing markets are the obvious host surface, and nobody is yet describing retail real estate that way.",
+   "ai_read": "Tentative, H3: the framing to watch is not the technology but the asset reclassification. If a big-box roof can generate potable water in a water-stressed metro, the store stops being purely a consumer of municipal utilities and becomes a distributed producer — which changes site selection, entitlement negotiations, and possibly the store's standing in local water politics. Strange because it makes a retailer a quasi-utility in exactly the regions where its water access is most politically contested.",
+   "evidence": "AirJoule A250 system commissioned at Arizona State University for independent academic evaluation (Jan 2026); Atoco targeting commercial rollout via 20-foot containerised industrial units; WAVR Technologies moving from pilots to production units into 2026. The 2026 International Atmospheric Water Harvesting Summit characterised as the field moving 'beyond high-level visioning toward performance data and applied systems.'",
+   "url": "https://azwaterinnovation.asu.edu/field-comes-age-2026-international-atmospheric-water-harvesting-summit",
+   "source": "ASU Water Innovation Initiative",
+   "date": "2026-03-01",
+   "srctype": "import",
+   "swipes": "Innovations",
+   "steep": "Environmental",
+   "steep2": "Technological",
+   "classification": "Weak signal",
+   "horizon": "H3",
+   "themes": [
+    "store as utility",
+    "distributed water"
+   ],
+   "keywords": [
+    "atmospheric water harvesting",
+    "MOF",
+    "rooftop asset",
+    "water stress"
+   ],
+   "domain_branch": "Infrastructure / Sustainability & Environment",
+   "sources": [
+    {
+     "name": "AirJoule Technologies",
+     "url": "http://airjouletech.com/2026/01/20/airjoule-technologies-commissions-atmospheric-water-harvesting-system-at-arizona-state-university-for-independent-academic-evaluation/",
+     "steep": "Technological",
+     "date": "2026-01-20"
+    }
+   ]
+  },
+  {
+   "title": "Building codes have no machine-occupancy category",
+   "shift": "Robot-operated buildings are being designed around machine perception — surface reflectivity, contrast, path width, docking alcoves, floor load for heavy autonomous equipment — while building codes remain written entirely around human occupancy and human egress.",
+   "ai_read": "Tentative: this is a pure absence, and an unusually concrete one. Occupancy classification drives everything downstream in a building's life: permitting, fire rating, insurance, valuation, resale. A store whose floor is mostly traversed by machines is currently permitted as though it were full of people, and a store designed for machine legibility (matte floors, high-contrast wayfinding, no glass) may read as hostile or non-compliant under human-centred design norms. Watch for the first jurisdiction to write a machine-occupancy or mixed-occupancy class — that is the moment the category exists.",
+   "evidence": "Active 2026 work on generating machine-navigable indoor maps directly from building CAD files — i.e. treating the architectural model as robot infrastructure. Design literature describes robot-enabled buildings deprioritising natural lighting and aesthetics for machine movement, with mirrored lobbies, glossy floors and dynamic lighting flagged as interfering with LiDAR and depth-camera vision, and calls for wide unobstructed paths, docking alcoves and higher floor load capacity. Explicit statement that current building codes focus on human occupancy and that robotic use 'may require new standards.' NOTE: no jurisdiction has yet published a machine- or mixed-occupancy classification — that absence is the signal, so this candidate rests on the gap between active engineering practice and silent code.",
+   "url": "https://arxiv.org/pdf/2507.00552",
+   "source": "arXiv — Generation of Indoor Open Street Maps for Robot Navigation from CAD Files",
+   "date": "2026-07-01",
+   "srctype": "import",
+   "swipes": "Writings",
+   "steep": "Technological",
+   "steep2": "Political",
+   "classification": "Weak signal",
+   "horizon": "H2",
+   "themes": [
+    "machine occupancy",
+    "code absence"
+   ],
+   "keywords": [
+    "robot-legible architecture",
+    "occupancy classification",
+    "BIM navigation",
+    "LiDAR"
+   ],
+   "domain_branch": "Infrastructure / Construction / Tech (AI)",
+   "sources": [
+    {
+     "name": "arXiv — Semantic navigation using building information on construction sites",
+     "url": "https://arxiv.org/pdf/2104.10296",
+     "steep": "Technological",
+     "date": "2026-01-01"
+    },
+    {
+     "name": "BIM-aided robotic navigation and asset localization (PMC)",
+     "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11978619/",
+     "steep": "Technological",
+     "date": "2026-04-01"
+    }
+   ]
+  },
+  {
+   "title": "Hot-climate building standards start flowing periphery to centre",
+   "shift": "Gulf construction is being described as no longer importing Western standards but setting the global pace for building in a warming world — a reversal of the direction in which building norms have historically travelled.",
+   "ai_read": "Tentative: the interesting claim is directional, not technical. Foresight work on climate adaptation in the built environment assumes temperate-market codes get retrofitted outward. If instead the authoritative reference practice for 45°C+ operation originates in the Gulf and diffuses back into Phoenix, Madrid or Riyadh-analogue US markets, then the retail development playbook for the American Sun Belt is downstream of Gulf practice within a decade. Strange because it makes a market usually treated as an exotic edge case into the source of the default.",
+   "evidence": "Cooling accounts for 70–80% of peak building energy demand across the Gulf; ~USD 177 billion of UAE commercial, hotel, mall and financial-district projects in execution requiring cooling solutions. Explicit framing that the region 'is no longer just importing Western construction standards; it is setting the global pace.' Parallel evidence of standard European/North American catalogue specifications requiring modification for Gulf conditions. Nigerian mall research pushing toward passive cooling on operational-cost grounds.",
+   "url": "https://mena.entrepreneur.com/business-news/the-50c-frontier-how-the-middle-east-is-engineering-the-future-of-passive-cooling",
+   "source": "Entrepreneur Middle East",
+   "date": "2026-05-15",
+   "srctype": "import",
+   "swipes": "Writings",
+   "steep": "Environmental",
+   "steep2": "Economic",
+   "classification": "Weak signal",
+   "horizon": "H3",
+   "themes": [
+    "standards reversal",
+    "peripheral geography as source"
+   ],
+   "keywords": [
+    "passive cooling",
+    "Gulf construction",
+    "thermal design",
+    "district cooling"
+   ],
+   "domain_branch": "Construction / Sustainability & Environment",
+   "sources": [
+    {
+     "name": "BRG Building Solutions",
+     "url": "https://news.brgbuildingsolutions.com/post/the-shift-toward-centralised-cooling-systems-in-the-middle-east",
+     "steep": "Technological",
+     "date": "2026-01-01"
+    }
+   ]
+  },
+  {
+   "title": "Store fitout collides with the material passport",
+   "shift": "EU Digital Product Passports begin applying to selected construction product groups from 2026, and US cities including Portland and San Jose now require deconstruction permits rather than demolition. Retail fitout — refreshed on a 5–7 year cycle and historically landfilled — becomes a tracked, auditable material bank.",
+   "ai_read": "Tentative: the collision is between two clocks. Retail's competitive advantage runs on fast, cheap remodel cycles; material passport regimes assume slow, documented, recoverable building stock. If every fixture, panel and floor tile carries lifecycle data and its disposal is permit-gated, the remodel stops being an operating expense decision and becomes a compliance event with a paper trail. Watch for the first retailer to treat its fixture inventory as a balance-sheet material bank rather than a consumable.",
+   "evidence": "EU DPP mandatory implementation phased 2026–2030 across 27 member states, with construction lifecycle data required for products placed on the EU market from 2026. Portland, Oregon and San Jose, California require deconstruction permits for residential demolitions; Portland's ordinance recovering an estimated 25,000 tons of reusable material annually. Materials-passport recommendations published in npj Materials Sustainability.",
+   "url": "https://www.nature.com/articles/s44296-025-00079-3",
+   "source": "npj Materials Sustainability",
+   "date": "2026-01-01",
+   "srctype": "import",
+   "swipes": "Writings",
+   "steep": "Environmental",
+   "steep2": "Political",
+   "classification": "Weak signal",
+   "horizon": "H2",
+   "themes": [
+    "material bank",
+    "remodel cycle friction"
+   ],
+   "keywords": [
+    "digital product passport",
+    "deconstruction permit",
+    "material passport",
+    "circular construction"
+   ],
+   "domain_branch": "Construction / Sustainability & Environment",
+   "sources": [
+    {
+     "name": "Savills — material circularity in the built environment",
+     "url": "https://www.savills.co.uk/blog/article/390095/commercial-property/earth-day-2026--increasing-material-circularity-in-the-built-environment.aspx",
+     "steep": "Economic",
+     "date": "2026-04-22"
+    }
+   ]
+  },
+  {
+   "title": "Automation reversibility as an unwritten design requirement",
+   "shift": "Retailers are pulling out automation they installed only a few years ago — Amazon removing Just Walk Out from Fresh stores, Dollar General eliminating self-checkout at ~12,000 locations, Target limiting it. The buildings were fitted for the automated configuration; nobody designed them to be un-fitted.",
+   "ai_read": "Tentative: the trend itself (automation retreat on shrink grounds) is already named and counted, so the signal is not the retreat — it is the absent design category. Ceiling sensor arrays, gantries, power and data runs, and floor layouts committed to a cashierless configuration are sunk into the structure. If automation cycles are now demonstrably reversible on a 3–5 year horizon, then 'reversibility' becomes a store design and lease-negotiation requirement with no current standard, spec language, or valuation treatment. Watch for reversibility clauses appearing in retail leases or fitout contracts.",
+   "evidence": "Amazon removing Just Walk Out from Amazon Fresh, replacing with smart carts. Dollar General eliminated self-checkout at ~12,000 locations (majority of stores); Five Below and Target also retreating. January 2026 LendingTree survey of 2,000+ consumers: 27% have taken items without paying at self-service lanes, roughly double a few years prior; 55% of those say they intend to repeat. Industry shift from standalone autonomous outlets to hybrid retrofits (Amazon, Carrefour, SPAR).",
+   "url": "https://www.nbcnews.com/business/business-news/major-retailers-are-backtracking-self-checkout-rcna160234",
+   "source": "NBC News",
+   "date": "2026-01-15",
+   "srctype": "import",
+   "swipes": "Entrants & exits",
+   "steep": "Technological",
+   "steep2": "Economic",
+   "classification": "Weak signal",
+   "horizon": "H1",
+   "themes": [
+    "reversible fitout",
+    "automation retreat"
+   ],
+   "keywords": [
+    "Just Walk Out",
+    "self-checkout",
+    "reversibility",
+    "sunk fitout"
+   ],
+   "domain_branch": "Retail Industry / Tech (AI)",
+   "sources": [
+    {
+     "name": "NPR — Amazon removes Just Walk Out",
+     "url": "https://www.npr.org/2024/04/03/1242448552/amazon-remove-walk-out-technology",
+     "steep": "Technological",
+     "date": "2026-04-03"
+    }
+   ]
+  },
+  {
+   "title": "Physical AI arrives just as insurers write it out of the policy",
+   "shift": "Through 2026 major carriers — AIG, WR Berkley, Great American, with Berkshire Hathaway and Chubb already approved — have filed to exclude AI-related claims from commercial coverage. Retailers deploying in-store robotics and autonomous systems face a coverage gap precisely as the hardware becomes deployable.",
+   "ai_read": "Tentative: insurability is the quiet gate on the built environment — it governs financing, lender covenants, and whether a format can be replicated at scale. The interesting move is that the constraint on robot-operated stores may turn out to be an underwriting decision rather than a technical or labor one, and it arrives from a direction retail strategy does not usually watch. Second-order: if physical AI is uninsurable, the automated store concentrates in operators large enough to self-insure — which reshapes who can build what, and where.",
+   "evidence": "AIG, WR Berkley and Great American filed regulatory paperwork in 2026 to exclude AI-related claims from commercial coverage; Berkshire Hathaway and Chubb already approved. Bloomberg Law reporting policyholder alarm over AI exclusion coverage gaps. Product liability may respond to injury/property damage only in jurisdictions treating AI software as a product; financial losses from the same failure uncovered. Correlated-risk concern that one flawed widely-used model propagates across every business running it simultaneously.",
+   "url": "https://news.bloomberglaw.com/insurance/insurer-ai-exclusions-spark-policyholder-alarm-on-coverage-gaps",
+   "source": "Bloomberg Law",
+   "date": "2026-06-01",
+   "srctype": "import",
+   "swipes": "Statistics",
+   "steep": "Economic",
+   "steep2": "Technological",
+   "classification": "Weak signal",
+   "horizon": "H1",
+   "themes": [
+    "insurability as gate",
+    "physical AI constraint"
+   ],
+   "keywords": [
+    "AI exclusions",
+    "underwriting gap",
+    "physical AI",
+    "self-insurance"
+   ],
+   "domain_branch": "Policy, Regulation, Finance / Tech (AI)",
+   "sources": [
+    {
+     "name": "PYMNTS — insurers face new risk from autonomous robots",
+     "url": "https://www.pymnts.com/news/artificial-intelligence/2026/physical-ai-is-forcing-insurers-to-start-from-scratch",
+     "steep": "Economic",
+     "date": "2026-05-01"
+    },
+    {
+     "name": "Fenwick — the end of 'silent AI'",
+     "url": "https://www.fenwick.com/insights/publications/end-silent-ai-emerging-ai-exclusions-coverage-fragmentation-and-practical-implications",
+     "steep": "Political",
+     "date": "2026-04-01"
+    }
+   ]
+  },
+  {
+   "title": "Storefront as legal costume",
+   "shift": "Facing zoning enforcement, quick-commerce operators have been adding small public-facing areas to dark stores specifically so the building reads as retail rather than warehouse — architecture produced to satisfy a legal classification rather than a use.",
+   "ai_read": "Tentative: the zoning fight over dark stores is already covered, so the signal is the narrower reframing — a facade whose function is jurisdictional rather than commercial. If use classifications keep lagging actual operations, buildings will increasingly carry vestigial public frontage as compliance theatre, and 'is this a store?' becomes a question about square footage of performance rather than activity. Watch whether regulators respond by defining minimum genuine-retail thresholds, which would make the costume measurable — and gameable.",
+   "evidence": "Officials charging that dark-store warehouses on blocks zoned for local retail 'nearly all appear to violate the zoning code'; operators described as rushing to alter storefronts to add small public-access areas to skirt restrictions. NYC Department of Buildings proposed regulations delineating stores from micro-fulfilment centres from warehouses. Clarion Associates notes communities defining micro-fulfilment have mostly grouped it with industrial rather than commercial uses.",
+   "url": "https://clarionassociates.com/whats-new/store-or-warehouse-zoning-for-micro-fulfillment-centers/",
+   "source": "Clarion Associates",
+   "date": "2026-02-01",
+   "srctype": "import",
+   "swipes": "Writings",
+   "steep": "Political",
+   "steep2": "Economic",
+   "classification": "Weak signal",
+   "horizon": "H1",
+   "themes": [
+    "compliance architecture",
+    "use classification lag"
+   ],
+   "keywords": [
+    "dark store",
+    "micro-fulfillment",
+    "zoning",
+    "vestigial frontage"
+   ],
+   "domain_branch": "Policy, Regulation, Finance",
+   "sources": [
+    {
+     "name": "BetaNYC — micro-fulfillment centers and zoning",
+     "url": "https://www.beta.nyc/2022/03/01/darkstores-and-zoning/",
+     "steep": "Political",
+     "date": "2026-01-01"
+    }
+   ]
+  },
+  {
+   "title": "A right of access for machine customers — but only online",
+   "shift": "Proposed US federal rules would bar large platforms from blocking or throttling registered consumer AI agents, and require interoperable interfaces so any agent a consumer chooses can transact. This is effectively a public-accommodation right extended to machines — and it stops at the website.",
+   "ai_read": "Tentative: the absence is the physical premises. Regulators are constructing a non-discrimination duty toward machine shoppers in digital space while nobody has asked the equivalent question of a building — does a store owe a machine customer access to its shelf data, its inventory state, its doors? With a majority of purchases reportedly originating from agent prompts, a physical store that is not machine-readable becomes invisible to the buying process in a way that has no legal remedy and no design response. Watch for the first argument that in-store inventory must be exposed to agents on non-discriminatory terms — that is the moment the physical version of this right is born.",
+   "evidence": "AI AGENT Act provisions would prohibit gatekeeper platforms with 50M+ US users from blocking or throttling registered Custodial User Agents and require interoperable interfaces. Regulatory focus areas named as algorithmic transparency, non-discriminatory API access, cryptographic agent authentication and fiduciary duties for automated buyers. Reporting that a large share of online consumer purchases in mid-2026 originate through prompts to agentic systems; 'Buy it in ChatGPT' live for US users with Etsy and expanding to Shopify; Amazon 'Buy for Me' purchasing from third-party sites.",
+   "url": "https://www.dwt.com/blogs/artificial-intelligence-law-advisor/2026/07/ai-agent-act-consumer-ai-regulation",
+   "source": "Davis Wright Tremaine",
+   "date": "2026-07-01",
+   "srctype": "import",
+   "swipes": "Pitches",
+   "steep": "Political",
+   "steep2": "Technological",
+   "classification": "Weak signal",
+   "horizon": "H2",
+   "themes": [
+    "machine public accommodation",
+    "agent-readable store"
+   ],
+   "keywords": [
+    "AI AGENT Act",
+    "custodial user agent",
+    "agentic commerce",
+    "non-discriminatory access"
+   ],
+   "domain_branch": "People & Human System / Policy, Regulation, Finance",
+   "sources": [
+    {
+     "name": "PYMNTS — Senate bill on bring-your-own AI agents",
+     "url": "https://www.pymnts.com/news/artificial-intelligence/2026/senate-bill-would-let-consumers-bring-their-own-ai-agents-amazon-google/",
+     "steep": "Political",
+     "date": "2026-06-01"
+    },
+    {
+     "name": "Cooley — AI agents and consumer law",
+     "url": "https://www.cooley.com/news/insight/2026/2026-03-26-ai-agents-and-consumer-law-what-businesses-need-to-know",
+     "steep": "Political",
+     "date": "2026-03-26"
+    }
+   ]
+  },
+  {
+   "title": "Store laid out for the sensor, not the shopper",
+   "shift": "Verified shelf visibility is being sold as an audited data product to brands, which makes the sales floor a measurement instrument whose readings have independent revenue. Layout then has two masters: shopper flow, and sensor coverage quality.",
+   "ai_read": "Tentative: retail media as a revenue line is thoroughly named, so the signal is the physical consequence nobody is stating — that if shelf telemetry is monetised per-verified-observation, aisle geometry, sightlines, fixture height and lighting get optimised for camera and sensor confidence rather than for the body moving through the space. Strange because it produces a store that is measurably better at being observed and possibly worse at being shopped, with the trade-off invisible on the P&L since the two revenues sit in different lines.",
+   "evidence": "Vendors marketing the shelf as 'a source of operational intelligence and revenue'; sensor data described as structured, timestamped, analysable and monetisable. Always-on camera, sensor and robot systems capturing shelf state continuously with real-time computer vision processing. Global retail media spend projected to exceed $160B by 2027 and characterised as the fastest-growing ad channel, with investment favouring retailers who can tie digital exposure to real-world shopping behaviour.",
+   "url": "https://www.badger-technologies.com/resource/blog/retail-data-monetization-instore-visibility.html",
+   "source": "Badger Technologies",
+   "date": "2026-04-01",
+   "srctype": "import",
+   "swipes": "Innovations",
+   "steep": "Economic",
+   "steep2": "Technological",
+   "classification": "Weak signal",
+   "horizon": "H2",
+   "themes": [
+    "store-as-instrument",
+    "layout under dual optimisation"
+   ],
+   "keywords": [
+    "shelf telemetry",
+    "retail media",
+    "verified visibility",
+    "sensor coverage"
+   ],
+   "domain_branch": "People & Human System / Tech (AI)",
+   "sources": [
+    {
+     "name": "Bain — the store striking back as a tech-enabled space",
+     "url": "https://www.bain.com/insights/the-store-is-striking-back-as-a-tech-enabled-space-driving-efficiency-experience-and-monetization/",
+     "steep": "Economic",
+     "date": "2026-01-01"
+    }
+   ]
+  },
+  {
+   "title": "The store's sensing stack fragments along county lines",
+   "shift": "Erie County, New York has banned private-sector biometric collection outright — not disclosure, a ban — with fines up to $5,000 per day, after Wegmans declined to say whether it used facial recognition in Western New York stores. Only three states regulate private biometrics directly and there is no federal law, so the binding constraint on what a store may perceive is now being set at county level.",
+   "ai_read": "Tentative: the privacy debate is well-trodden, so the signal is the granularity, not the concern. If perception rules are written county by county, a national chain can no longer deploy one standardised technology package across a metro — the same ceiling sensor array is a routine security fixture on one side of a county line and a five-thousand-a-day liability on the other. The store stops being a repeatable technical object and becomes a jurisdictionally bespoke one, which cuts against the entire logic of chain retail. Second-order and stranger: Erie's ban exempts government agencies, so where commercial biometric capture survives it remains reachable by federal enforcement — making a retailer's sensing choices a de facto immigration-enforcement infrastructure decision in some communities and not others.",
+   "evidence": "Erie County Biometric Transparency and Privacy Act effective 2026-06-05; prohibits private businesses collecting, using, retaining or selling biometric identifiers in most commercial settings; up to $5,000/day penalties; exempts government agencies acting in official duties and financial institutions. Described as first county in New York and among the first major US counties to do so. Triggered by Wegmans disclosure under NYC's 2021 biometric ordinance and subsequent non-response to Investigative Post; Wegmans later confirmed deployment in 'a small fraction' of stores without specifying retention period, count or locations. Only Illinois, Texas and Washington have dedicated private-biometric laws; no comprehensive federal law. FTC banned Rite Aid from facial recognition for five years in 2023 over misidentification of Black, Latino, Asian and female shoppers. Sponsor framing: 'A store can still record video. What it cannot do is run facial recognition software to build a biometric profile of everyone who walks through the door.'",
+   "url": "https://nextcity.org/urbanist-news/retailers-collecting-your-biometrics-local-government-county-ban",
+   "source": "Next City",
+   "author": "Victor Maung",
+   "date": "2026-07-22",
+   "srctype": "import",
+   "swipes": "Entrants & exits",
+   "steep": "Political",
+   "steep2": "Technological",
+   "classification": "Weak signal",
+   "horizon": "H1",
+   "themes": [
+    "jurisdictional fragmentation",
+    "store-as-instrument",
+    "perception rights"
+   ],
+   "keywords": [
+    "biometrics",
+    "facial recognition",
+    "Erie County",
+    "county patchwork",
+    "sensing stack"
+   ],
+   "domain_branch": "Policy, Regulation, Finance / Tech (AI) / People & Human System",
+   "sources": [
+    {
+     "name": "Erie County — Biometrics Transparency and Privacy Act",
+     "url": "https://www3.erie.gov/consumerprotection/biometrics-transparency-and-privacy-act-effective-06052026",
+     "steep": "Political",
+     "date": "2026-06-05"
+    },
+    {
+     "name": "Investigative Post — Wegmans surveilling shoppers",
+     "url": "https://investigativepost.org/2026/01/09/wegmans-surveilling-shoppers-collecting-data/",
+     "steep": "Social",
+     "date": "2026-01-09"
+    }
+   ]
+  },
+  {
+   "title": "HVAC reclassified from energy choice to labor obligation",
+   "shift": "OSHA's proposed federal heat rule would apply to indoor workers wherever combined temperature and humidity exceed 80°F, with escalating mandatory rest requirements above that. If finalised, store and warehouse thermal performance stops being an energy-cost decision and becomes a labor-compliance one.",
+   "ai_read": "Tentative: the rule itself is stalled and widely covered, so the signal is the reclassification, not the regulation. Building thermal design currently sits with sustainability and facilities under an energy-cost frame. Moving it under labor law changes who owns the decision, what the failure mode is (citations and paid-break liability rather than utility spend), and how it gets capitalised. The sharper version: back-of-house, receiving docks and non-climate-controlled stockrooms — spaces designed to lower standards precisely because merchandise, not customers, occupies them — become the compliance exposure.",
+   "evidence": "Proposed rule would cover indoor workers where combined heat and humidity exceed 80°F, requiring water and rest breaks, with paid 15-minute breaks every two hours and symptom monitoring at 90°F. NPRM published 30 Aug 2024; hearings concluded late 2025; post-hearing comment period closed 30 Oct 2025; no finalisation date set. Estimated to affect over 21 million indoor workers in warehouses, factories and kitchens without climate control. OSHA has never set a binding numerical temperature; current 68–76°F guidance derives from ANSI/ASHRAE 55 and is advisory.",
+   "url": "https://www.ehstoday.com/standards/osha/article/21170630/osha-heat-standard-aimed-at-indoor-workers",
+   "source": "EHS Today",
+   "date": "2026-01-01",
+   "srctype": "import",
+   "swipes": "Writings",
+   "steep": "Political",
+   "steep2": "Environmental",
+   "classification": "Weak signal",
+   "horizon": "H2",
+   "themes": [
+    "thermal design as labor law",
+    "back-of-house exposure"
+   ],
+   "keywords": [
+    "OSHA heat standard",
+    "indoor heat",
+    "HVAC compliance",
+    "stockroom"
+   ],
+   "domain_branch": "Labor / Work & Operations / Sustainability & Environment",
+   "sources": [
+    {
+     "name": "Congressional Research Service — OSHA regulation of employee heat exposure",
+     "url": "https://www.congress.gov/crs-product/IN11701",
+     "steep": "Political",
+     "date": "2026-01-01"
+    }
+   ]
+  }
+ ]
+}
