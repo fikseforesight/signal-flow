@@ -180,6 +180,8 @@ NON-NEGOTIABLE RULES:
 - Your reads are TENTATIVE SUGGESTIONS, never verdicts.
 - Items that are clearly established trends or hype: still include the best of them, classification "Trend" or "Hype" (they will be filed to Context by the human).
 - Do NOT assign an impact rating; that is human-held.
+- A retrospective academic or literary critique/analysis of the past (no new discovery, nothing net-new or emerging — especially scholarship analyzing material from more than ~10 years ago) is NOT a signal. Exclude it entirely; do not add it to candidates, even at a low classification, regardless of how strange or fringe its framing is.
+- Reddit items (especially r/Futurology) only qualify if the post itself cites or links concrete external evidence (a study, dataset, article, or named source). Exclude speculative, discussion-only posts with no cited evidence, even if the framing is interesting.
 
 From the raw items, return AS MANY candidates as are at all worth Kristen's eye — up to ${CFG.maxCandidates}, ordered weakest/strangest first. She wants VOLUME and wants to see the rule-outs, so also include borderline and already-trending items, but label those honestly with classification "Trend" or "Hype" and a one-line reason in ai_read. Never silently drop a plausibly-interesting item; include and label it. Keep "ai_read" and "evidence" under 45 words each. Return ONLY a JSON array, no prose, each element:
 {"title": "short signal name (the shift, not the event)",
