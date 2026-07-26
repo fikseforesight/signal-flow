@@ -42,7 +42,12 @@ const properties = {
   ] } },
   "Source": { rich_text: {} },
   "Source URL": { url: {} },
-  "Scan Feed": { select: { options: [opt("daily", "blue"), opt("substack", "green"), opt("wild", "purple")] } },
+  "Scan Feed": { select: { options: [opt("daily", "blue"), opt("substack", "green"), opt("wild", "purple"), opt("manual", "orange")] } },
+  "Domain Branch": { multi_select: { options: [
+    opt("Labor & Operations", "brown"), opt("Supply Chain", "orange"), opt("Infrastructure", "yellow"),
+    opt("Construction", "green"), opt("Retail Industry", "blue"), opt("Tech & AI", "purple"),
+    opt("People & Human System", "pink"), opt("Policy & Finance", "red"), opt("Sustainability & Environment", "gray"),
+  ] } },
   "Themes": { multi_select: {} },
   "Keywords": { multi_select: {} },
   "Date Published": { date: {} },
