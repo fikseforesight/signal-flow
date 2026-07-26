@@ -24,7 +24,7 @@ const FILES = [
   ["wild-candidates.json", "wild"],
 ];
 
-if (existsSync("archive")) { for (const f of readdirSync("archive")) { if (/^candidates-\d{4}-\d{2}-\d{2}\.json$/.test(f)) FILES.push([`archive/${f}`, "daily"]); else if (/^wild-\d{4}-\d{2}-\d{2}\.json$/.test(f)) FILES.push([`archive/${f}`, "wild"]); else if (/^substack-\d{4}-\d{2}-\d{2}\.json$/.test(f)) FILES.push([`archive/${f}`, "substack"]); } }
+if (existsSync("archive")) { for (const f of readdirSync("archive")) { if (/^candidates-\d{4}-\d{2}-\d{2}\.json$/.test(f)) FILES.push([`archive/${f}`, "daily"]); else if (/^wild-\d{4}-\d{2}-\d{2}\.json$/.test(f)) FILES.push([`archive/${f}`, "wild"]); else if (/^substack-\d{4}-\d{2}-\d{2}\.json$/.test(f)) FILES.push([`archive/${f}`, "substack"]); else if (/^manual-\d{4}-\d{2}-\d{2}\.json$/.test(f)) FILES.push(["archive/" + f, "manual"]); } }
 
 const STEEP_VALID = new Set(["Social", "Technological", "Economic", "Environmental", "Political", "Demographic", "Values"]);
 const CLASS_VALID = new Set(["Weak signal", "Wild card", "Trend", "Megatrend", "Hype"]);
@@ -37,6 +37,26 @@ const IMPACT_VALID = new Set(["Local", "Regional", "Global"]);
 const DISRUPTIVE_VALID = new Set(["Minor", "Major", "Catastrophic"]);
 // Source Type is a free-growing select (Notion auto-creates new option names on first use),
 // so no fixed set here — any non-empty string the pipeline attaches is passed through as-is.
+
+// Domain-map branches (Kristen's built-environment map). Candidate files carry a free-text
+// domain_branch like "Policy, Regulation, Finance / Tech (AI)"; Notion multi-select option names
+// cannot contain commas, so match to these canonical comma-free labels instead of splitting.
+const BRANCHES = [
+  ["Labor & Operations", /labor|work & operations|operations/i],
+  ["Supply Chain", /supply chain/i],
+  ["Infrastructure", /infrastructure/i],
+  ["Construction", /construction/i],
+  ["Retail Industry", /retail industry/i],
+  ["Tech & AI", /\btech\b|\bai\b|robotic|automation/i],
+  ["People & Human System", /people|human system/i],
+  ["Policy & Finance", /policy|regulation|finance/i],
+  ["Sustainability & Environment", /sustainab|environment/i],
+];
+function branchTags(c) {
+  const raw = [c.domain_branch, c.domainBranch, c.branch].filter(Boolean).join(" / ");
+  if (!raw) return [];
+  return BRANCHES.filter(([, re]) => re.test(raw)).map(([name]) => ({ name }));
+}
 
 function normUrl(u) {
   if (!u) return "";
@@ -91,6 +111,8 @@ function buildProps(c, feed) {
   if (origins.length) p["STEEP-V Origin"] = { multi_select: origins };
   if (themes.length) p["Themes"] = { multi_select: themes };
   if (keywords.length) p["Keywords"] = { multi_select: keywords };
+  const branches = branchTags(c);
+  if (branches.length) p["Domain Branch"] = { multi_select: branches };
   if (c.date && /^\d{4}-\d{2}-\d{2}/.test(c.date)) p["Date Published"] = { date: { start: c.date.slice(0, 10) } };
   if (c.author) p["Author"] = { rich_text: rt(c.author) };
   if (c.srctype) p["Source Type"] = { select: { name: String(c.srctype).slice(0, 90) } };
