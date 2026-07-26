@@ -52,6 +52,7 @@ const BRANCHES = [
   ["Policy & Finance", /policy|regulation|finance/i],
   ["Sustainability & Environment", /sustainab|environment/i],
 ];
+let CAN_BRANCH = true; // cleared if the Domain Branch property is missing and cannot be created
 function branchTags(c) {
   const raw = [c.domain_branch, c.domainBranch, c.branch].filter(Boolean).join(" / ");
   if (!raw) return [];
@@ -111,7 +112,7 @@ function buildProps(c, feed) {
   if (origins.length) p["STEEP-V Origin"] = { multi_select: origins };
   if (themes.length) p["Themes"] = { multi_select: themes };
   if (keywords.length) p["Keywords"] = { multi_select: keywords };
-  const branches = branchTags(c);
+  const branches = CAN_BRANCH ? branchTags(c) : [];
   if (branches.length) p["Domain Branch"] = { multi_select: branches };
   if (c.date && /^\d{4}-\d{2}-\d{2}/.test(c.date)) p["Date Published"] = { date: { start: c.date.slice(0, 10) } };
   if (c.author) p["Author"] = { rich_text: rt(c.author) };
@@ -162,7 +163,25 @@ function buildBody(c) {
   return blocks.slice(0, 90); // Notion caps children per create request
 }
 
+// Notion auto-creates multi-select OPTIONS on write, but never the PROPERTY itself — so a
+// missing "Domain Branch" would fail every page create. Add it once if absent; if that is not
+// possible (permissions, API change), drop the field rather than breaking the whole sync.
+async function ensureSchema() {
+  try {
+    const db = await notion("/databases/" + DB, "GET");
+    if (db && db.properties && db.properties["Domain Branch"]) return;
+    await notion("/databases/" + DB, "PATCH", {
+      properties: { "Domain Branch": { multi_select: { options: BRANCHES.map(([name]) => ({ name })) } } },
+    });
+    console.log('Added missing "Domain Branch" property to the Notion database.');
+  } catch (e) {
+    CAN_BRANCH = false;
+    console.error('Could not ensure "Domain Branch" property (' + e.message + ') — syncing without it.');
+  }
+}
+
 async function run() {
+  await ensureSchema();
     let added = 0, skipped = 0, failed = 0, seenFiles = 0, tooOld = 0;
     const cutoff = Date.now() - 365 * 864e5; // rolling 1-year window — never sync anything older than this
   for (const [file, feed] of FILES) {
