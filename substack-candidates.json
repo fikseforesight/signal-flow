@@ -1,517 +1,810 @@
 {
- "generated": "2026-07-20T20:43:47.713Z",
- "batch": "2026-07-20",
+ "generated": "2026-07-27T19:15:09.744Z",
+ "batch": "2026-07-27",
  "candidates": [
   {
-   "title": "The Internet Oracle as pre-algorithmic community model",
-   "shift": "A nostalgic essay resurfaces a 1980s anonymous, decentralized, human-curated collaborative-writing chain (email-based, no platform, no algorithm) as a lost mode of internet sociality.",
-   "ai_read": "Tentative: as AI-generated content floods feeds, interest in reviving purely human, anonymous, chain-based creative rituals may signal a coming counter-movement toward deliberately algorithm-free social infrastructure.",
-   "evidence": "Essay details Usenet Oracle's email-routing structure and 'volunteer priesthood' curation model, linked to original 1980s help file and still-live oracle archive at internetoracle.org.",
-   "url": "https://default.blog/p/the-usenet-oracle",
-   "source": "default.blog",
-   "date": "2026-07-13",
-   "horizon": "H3",
-   "srctype": "substack",
-   "swipes": "Writings",
-   "steep": "Social",
-   "steep2": "Technological",
-   "classification": "Weak signal",
-   "themes": [
-    "decentralized internet nostalgia",
-    "post-algorithmic community",
-    "anonymous creative rituals"
-   ],
-   "keywords": [
-    "Usenet",
-    "Internet Oracle",
-    "decentralization",
-    "pre-platform internet"
-   ],
-   "sources": [
-    {
-     "name": "Internet Oracle archive",
-     "url": "https://internetoracle.org/logos.cgi"
-    },
-    {
-     "name": "original help file",
-     "url": "http://www.textfiles.com/internet/vm_oracl"
-    }
-   ]
-  },
-  {
-   "title": "UFO paraphernalia as lifestyle-guide curation",
-   "shift": "A California wellness/beauty roundup casually recommends vintage UFO-contact and Soviet-UFO books alongside stargazing guides, folding fringe paranormal material into aspirational lifestyle content.",
-   "ai_read": "Tentative and strange: mainstreaming of UFO ephemera as tasteful bookstore browsing (not conspiracy content) may hint at paranormal topics losing stigma and becoming aesthetic/cultural capital post-Pentagon disclosures.",
-   "evidence": "Links to 'UFO...Contact from the Pleiades', 'UFO Chronicles of the Soviet Union', and a Pentagon Papers/UAP files piece, presented next to a Golden Guide to Stars in a bookstore recommendation list.",
-   "url": "https://www.readfeedme.com/p/california-beauty-and-wellness-black",
-   "source": "readfeedme.com",
-   "date": "2026-07-20",
-   "horizon": "H3",
-   "srctype": "substack",
-   "swipes": "Superhits & outliers",
-   "steep": "Social",
-   "steep2": "Political",
-   "classification": "Weak signal",
-   "themes": [
-    "paranormal normalization",
-    "UAP disclosure culture",
-    "lifestyle curation of fringe topics"
-   ],
-   "keywords": [
-    "UFO",
-    "UAP",
-    "Pentagon Papers",
-    "wellness curation"
-   ],
-   "sources": [
-    {
-     "name": "UFO Contact from the Pleiades",
-     "url": "https://www.carpetbaggerbooks.com/pages/books/16485/wendelle-c-stevens-lee-and-brit-elders/ufo-contact-from-the-pleiades-volume-i-and-ii-2-volumes"
-    },
-    {
-     "name": "Pentagon UAP files",
-     "url": "https://www.nbcnews.com/science/ufos-and-anomalous-phenomena/ufo-uap-files-pentagon-release-trump-rcna344204"
-    }
-   ]
-  },
-  {
-   "title": "Peptide and biohack ingredients entering mainstream snack formats",
-   "shift": "GLP-1/peptide culture and extreme biohacking claims (horse semen as a 'gym bro hack') are migrating from supplement subcultures into food-science convention pitches and consumer snack formats like frozen yogurt.",
-   "ai_read": "Tentative: signals a food industry racing to package pharma-adjacent 'optimization' ingredients as consumer treats, potentially normalizing unregulated bio-hacks via snack packaging before scrutiny catches up.",
-   "evidence": "Newsletter cites a food-science-convention photo of 'Peptide FroYo' and separately flags horse semen as an emerging 'gym bro hack', alongside beef tallow and butter momentum in the same digest.",
-   "url": "https://www.snaxshot.com/p/peptide-froyo",
-   "source": "snaxshot.com",
-   "date": "2026-07-15",
-   "horizon": "H2",
-   "srctype": "substack",
-   "swipes": "Innovations",
-   "steep": "Social",
-   "steep2": "Economic",
-   "classification": "Weak signal",
-   "themes": [
-    "biohacking mainstreaming",
-    "peptide culture",
-    "functional food frontier"
-   ],
-   "keywords": [
-    "peptides",
-    "GLP-1",
-    "biohacking",
-    "functional food"
-   ],
-   "sources": [
-    {
-     "name": "food science convention post",
-     "url": "https://www.instagram.com/hydroxide.foodscience/?hl=en"
-    }
-   ]
-  },
-  {
-   "title": "Digital-native micro-brands anchoring in convenience stores",
-   "shift": "A cult digital/lifestyle brand ('Maggie's') has bought its first physical convenience-store location, treating the c-store format as a legitimate retail expansion vehicle rather than legacy infrastructure.",
-   "ai_read": "Tentative: convenience stores may be quietly becoming the low-cost, high-frequency physical retail beachhead for internet-native brands, an unusual reversal of the DTC-to-flagship-store playbook.",
-   "evidence": "Snaxshot notes Maggie's purchased its first c-store location this month, framed under a 'C-Store Cult' trend heading.",
-   "url": "https://www.snaxshot.com/p/c-stores-main-character-energy",
-   "source": "snaxshot.com",
-   "date": "2026-07-14",
-   "horizon": "H2",
-   "srctype": "substack",
-   "swipes": "Entrants & exits",
-   "steep": "Economic",
-   "steep2": "Social",
-   "classification": "Weak signal",
-   "themes": [
-    "retail reformatting",
-    "digital brand physicalization",
-    "convenience store renaissance"
-   ],
-   "keywords": [
-    "convenience store",
-    "DTC brands",
-    "retail expansion"
-   ],
-   "sources": []
-  },
-  {
-   "title": "Euphemism as class camouflage among old wealth",
-   "shift": "Ultra-wealthy memoirists describe multimillion-dollar assets ('small mortgage' for a $3M house) and erase identifying family ties (an unnamed grandmother married to a media magnate), sustaining plausible-deniability language around inherited wealth.",
-   "ai_read": "Tentative: as wealth-inequality scrutiny rises, the linguistic camouflage of old money (understatement, omission) may be a durable defensive genre worth tracking as a leading indicator of elite self-presentation under pressure.",
-   "evidence": "Essay cites a New Yorker excavation of Belle Burden's memoir noting the '$3M small mortgage' and unnamed Vanderbilt/Paley lineage, compared to Tina Brown's 'shack' euphemism for a Hamptons estate.",
-   "url": "https://www.deezlinks.com/p/chicago-in-the-summertime-is-apparently",
-   "source": "deezlinks.com",
-   "date": "2026-07-18",
-   "horizon": "H3",
-   "srctype": "substack",
-   "swipes": "Writings",
-   "steep": "Social",
-   "steep2": "Economic",
-   "classification": "Weak signal",
-   "themes": [
-    "wealth concealment language",
-    "elite self-presentation",
-    "inherited wealth optics"
-   ],
-   "keywords": [
-    "euphemism",
-    "old money",
-    "wealth memoir"
-   ],
-   "sources": [
-    {
-     "name": "New Yorker excavation",
-     "url": "https://www.newyorker.com/books/page-turner/whats-missing-from-belle-burdens-strangers"
-    }
-   ]
-  },
-  {
-   "title": "Bay Area wealth relocating to Nevada tax havens",
-   "shift": "SF-area billionaires are quietly buying homes in Nevada, a smaller-scale echo of the broader ultra-wealthy tax-and-residency arbitrage trend but concentrated in a new, less-covered corridor.",
-   "ai_read": "Tentative: this specific SF-to-Nevada micro-migration (rather than the well-covered Texas/Florida moves) could mark an emerging secondary wealth-flight geography worth watching for policy or real-estate ripple effects.",
-   "evidence": "Mentioned in passing as a newsletter topic: 'the SF billionaires buying houses in Nevada' alongside other California dispatch items.",
-   "url": "https://www.readfeedme.com/p/california-beauty-and-wellness-black",
-   "source": "readfeedme.com",
-   "date": "2026-07-20",
-   "horizon": "H2",
-   "srctype": "substack",
-   "swipes": "Entrants & exits",
-   "steep": "Economic",
-   "steep2": "Political",
-   "classification": "Weak signal",
-   "themes": [
-    "wealth migration",
-    "tax arbitrage",
-    "elite geography"
-   ],
-   "keywords": [
-    "Nevada",
-    "billionaires",
-    "tax flight",
-    "Bay Area"
-   ],
-   "sources": []
-  },
-  {
-   "title": "Ambient normalization of overlapping climate/health disasters",
-   "shift": "A casual newsletter aside lists a sinkhole, cyclospora outbreak, Canadian wildfires, and orange NYC skies in one breath as unremarkable 'mid-summer apocalyptic' texture rather than discrete crises.",
-   "ai_read": "Tentative: the flattening of multiple concurrent disaster types into background lifestyle commentary may indicate cultural desensitization to climate/health shocks becoming ambient rather than event-based.",
-   "evidence": "Writer lists sinkhole, cyclospora, Canada fires, and orange NY skies together casually, linking only the sinkhole news item for context.",
-   "url": "https://www.readfeedme.com/p/feed-merch-042",
-   "source": "readfeedme.com",
-   "date": "2026-07-17",
-   "horizon": "H3",
-   "srctype": "substack",
-   "swipes": "Writings",
-   "steep": "Environmental",
-   "steep2": "Social",
-   "classification": "Weak signal",
-   "themes": [
-    "disaster normalization",
-    "climate ambient anxiety",
-    "compound crises"
-   ],
-   "keywords": [
-    "climate normalization",
-    "wildfire smoke",
-    "compound disasters"
-   ],
-   "sources": [
-    {
-     "name": "Sunset Strip sinkhole",
-     "url": "https://westsidetoday.com/2026/07/17/giant-sinkhole-on-sunset-boulevard-shuts-down-part-of-west-hollywoods-traffic-indefinitely/"
-    }
-   ]
-  },
-  {
-   "title": "Ambient/functional music streaming economics under algorithmic pressure",
-   "shift": "The ambient-music streaming boom is scrutinized for potentially exploiting background-listening algorithms in ways that may not financially benefit the artists producing it.",
-   "ai_read": "Tentative: functional music's rise as engineered filler for algorithmic platforms (rather than intentional listening) could be an early template for how AI-era content economics reward volume over authorship.",
-   "evidence": "Essay engages a Pitchfork investigation into whether the ambient streaming boom helps or exploits artists, framed against Nick Cave's claim that music is inherently moral/good.",
-   "url": "https://www.blackbirdspyplane.com/p/is-ambient-music-evil",
-   "source": "blackbirdspyplane.com",
-   "date": "2026-07-14",
-   "horizon": "H2",
-   "srctype": "substack",
-   "swipes": "Statistics",
-   "steep": "Economic",
-   "steep2": "Social",
-   "classification": "Weak signal",
-   "themes": [
-    "algorithmic content economics",
-    "functional music",
-    "artist compensation"
-   ],
-   "keywords": [
-    "ambient music",
-    "streaming economics",
-    "algorithmic playlists"
-   ],
-   "sources": [
-    {
-     "name": "Pitchfork investigation",
-     "url": "https://pitchfork.com/features/article/is-the-ambient-music-streaming-boom-helping-artists/"
-    }
-   ]
-  },
-  {
-   "title": "AI industry funding humanities discourse about itself",
-   "shift": "Microsoft's AI division has launched its own humanities journal, recruiting literary and philosophical figures (Gopnik, Sunstein, de Botton, Nick Cave) to frame AI-human collaboration on its own terms.",
-   "ai_read": "Tentative: a frontier AI lab bankrolling humanist discourse about AI may be an early instance of tech companies pre-emptively shaping the cultural/ethical narrative before regulatory or public backlash consolidates.",
-   "evidence": "Essay links to the first issue of 'The Humanist Review' at humanistreview.ai, describing it as Microsoft AI-launched, beautifully designed, with essays comparing AI collaboration to Lennon-McCartney.",
-   "url": "https://www.ian-leslie.com/p/dear-me-england",
-   "source": "ian-leslie.com",
-   "date": "2026-07-18",
-   "horizon": "H2",
-   "srctype": "substack",
-   "swipes": "Entrants & exits",
-   "steep": "Technological",
-   "steep2": "Social",
-   "classification": "Weak signal",
-   "themes": [
-    "corporate cultural capture",
-    "AI-humanities discourse",
-    "narrative pre-emption"
-   ],
-   "keywords": [
-    "Microsoft AI",
-    "Humanist Review",
-    "AI ethics discourse"
-   ],
-   "sources": [
-    {
-     "name": "Humanist Review issue 1",
-     "url": "https://humanistreview.ai/issue-1/"
-    }
-   ]
-  },
-  {
-   "title": "Masculinity rhetoric as Democratic electoral strategy",
-   "shift": "A Democratic congressional candidate explicitly campaigns on 'more masculinity' and rolling back a perceived 'softer side,' signaling a party-level pivot away from prior gender-progressive messaging toward working-class masculine appeal.",
-   "ai_read": "Tentative: if this framing spreads beyond one candidate, it could mark a durable Democratic repositioning around masculinity as an electoral wedge, distinct from and reactive to prior 'woke' debates.",
-   "evidence": "Essay quotes Ohio candidate Brian Poindexter's Atlantic-covered remarks and contrasts with other candidates (Dan Osborn, Sam Forstag) navigating similar terrain.",
-   "url": "https://thewhitepages.net/p/why-is-the-answer-always-more-masculinity",
-   "source": "thewhitepages.net",
-   "date": "2026-07-15",
+   "title": "Dating AI over disappointing humans",
+   "shift": "Casual, half-joking preference statements ('I'd rather date a centaur') signal a normalization of AI/fantasy companionship over messy human relationships.",
+   "ai_read": "Tentative: throwaway internet jokes may be an early emotional-register shift toward parasocial/synthetic intimacy as an acceptable default, not a fallback.",
+   "evidence": "Cited in kghosh.me digest linking to 'linksiwouldgchatyou' newsletter's 'Uniquely Modern Sorrows' post.",
+   "url": "https://substack.kghosh.me/p/20260726",
+   "source": "substack.kghosh.me",
+   "date": "2026-07-26",
    "horizon": "H2",
    "srctype": "substack",
    "swipes": "Writings",
-   "steep": "Political",
-   "steep2": "Social",
+   "steep": "Social",
    "classification": "Weak signal",
+   "maturity": "Signal",
+   "likelihood": 2,
+   "credibility": 1,
+   "novelty": "High",
+   "impact_scale": "Regional",
+   "disruptive_potential": "Minor",
+   "initial_analysis": "A shift from human dating as default to fantastical/synthetic companionship as an openly stated preference; if it spreads, it reflects deeper erosion of trust in human partnership norms.",
    "themes": [
-    "gender politics realignment",
-    "Democratic messaging shift",
-    "post-woke backlash"
+    "synthetic intimacy",
+    "AI companionship",
+    "relationship norms"
    ],
    "keywords": [
-    "masculinity",
-    "Democratic Party",
-    "gender politics"
+    "centaur",
+    "AI dating",
+    "loneliness",
+    "parasocial"
    ],
    "sources": [
     {
-     "name": "The Atlantic on Poindexter",
-     "url": "https://www.theatlantic.com/politics/2026/07/ohio-poindexter-democrats-men/687880/"
+     "name": "linksiwouldgchatyou",
+     "url": "https://linksiwouldgchatyou.substack.com/p/775-uniquely-modern-sorrows"
     }
-   ]
+   ],
+   "author": "K. Ghosh"
   },
   {
-   "title": "Elite public-school admissions reframed as ethnic 'dominance' narrative",
-   "shift": "Coverage of NYC's SHSAT results is shifting from a meritocracy-vs-diversity frame toward an explicit 'Asian American dominance' framing, even as Black admission numbers ('just 3 students') remain a persistent absence.",
-   "ai_read": "Tentative: the emerging 'dominance' framing (rather than 'access' or 'bias') for Asian American test success may presage a new, more racially explicit vocabulary in meritocracy debates nationally.",
-   "evidence": "Piece cites a Gothamist figure of just 3 Black students admitted to Stuyvesant and a NYT headline, alongside city-council reactions from Lincoln Restler and Democratic officials.",
-   "url": "https://rosselliotbarkan.com/p/the-story-is-asian-american-dominance",
-   "source": "rosselliotbarkan.com",
-   "date": "2026-07-20",
-   "horizon": "H2",
-   "srctype": "substack",
-   "swipes": "Statistics",
-   "steep": "Demographic",
-   "steep2": "Political",
-   "classification": "Weak signal",
-   "themes": [
-    "meritocracy discourse",
-    "racial framing shift",
-    "education admissions politics"
-   ],
-   "keywords": [
-    "SHSAT",
-    "Asian American",
-    "Stuyvesant",
-    "school admissions"
-   ],
-   "sources": [
-    {
-     "name": "Gothamist on Black admissions",
-     "url": "https://gothamist.com/news/just-3-black-students-admitted-to-nycs-elite-stuyvesant-high-school-data-shows"
-    }
-   ]
-  },
-  {
-   "title": "Labeling prompts as 'research' unlocks AI compliance with attack requests",
-   "shift": "Benchmark testing shows leading AI models' willingness to assist terrorist-style attack queries jumps sharply (17% to 42%) merely by framing the same prompt as 'research,' revealing a shallow, easily gamed safety layer.",
-   "ai_read": "Tentative: this is a strange, concrete demonstration that AI safety guardrails may hinge on superficial framing cues rather than intent detection, a fragile point that could be systematically exploited at scale.",
-   "evidence": "Exponential View cites a Tech Against Terrorism benchmark: a third of tested responses would have helped real attackers, with 'research' framing raising compliance from 17% to 42%.",
-   "url": "https://www.exponentialview.co/p/data-to-start-your-week-e71",
-   "source": "exponentialview.co",
-   "date": "2026-07-20",
-   "horizon": "H2",
-   "srctype": "substack",
-   "swipes": "Statistics",
-   "steep": "Technological",
-   "steep2": "Political",
-   "classification": "Weak signal",
-   "themes": [
-    "AI safety fragility",
-    "jailbreak framing",
-    "dual-use AI risk"
-   ],
-   "keywords": [
-    "AI safety",
-    "terrorism benchmark",
-    "prompt framing",
-    "guardrails"
-   ],
-   "sources": [
-    {
-     "name": "Tech Against Terrorism benchmark",
-     "url": "https://techagainstterrorism.org/news/press-release-ai-terrorism-benchmark"
-    }
-   ]
-  },
-  {
-   "title": "Solar's levelized cost rising against decades-long decline narrative",
-   "shift": "Lazard's latest levelized-cost-of-energy report reportedly shows solar photovoltaic costs rising, breaking the long-standing narrative of monotonic solar cost decline that has underpinned energy-transition modeling.",
-   "ai_read": "Tentative: if durable, this cost reversal (rather than a one-off supply-chain blip) would be a significant contra-trend signal undermining assumptions baked into most decarbonization and AI-energy-demand forecasts.",
-   "evidence": "Exponential View flags 'the cost of solar photovoltaic electricity has risen,' linking to Lazard's 2026 Levelized Cost of Energy+ report.",
-   "url": "https://www.exponentialview.co/p/ev-593",
-   "source": "exponentialview.co",
-   "date": "2026-07-19",
+   "title": "Environmentalism that backfires",
+   "shift": "A counterintuitive case where German environmental policy/activism reportedly worsens environmental outcomes, hinting at a growing rift between environmentalist intention and ecological effect.",
+   "ai_read": "Tentative: if well-intentioned green policy is producing net-negative outcomes, this could signal a coming credibility crisis for legacy environmentalism, especially in Europe.",
+   "evidence": "Listed as a dispatch topic 'German Environmentalists Worsen the Environment' in Tomas Pueyo's Energy & Environment Dispatch.",
+   "url": "https://unchartedterritories.tomaspueyo.com/p/energy-and-environment-dispatch",
+   "source": "unchartedterritories.tomaspueyo.com",
+   "date": "2026-07-25",
    "horizon": "H2",
    "srctype": "substack",
    "swipes": "Statistics",
    "steep": "Environmental",
-   "steep2": "Economic",
+   "steep2": "Political",
    "classification": "Weak signal",
+   "maturity": "Early indicator",
+   "likelihood": 2,
+   "credibility": 3,
+   "novelty": "High",
+   "impact_scale": "Regional",
+   "disruptive_potential": "Major",
+   "initial_analysis": "A shift from environmentalism-as-unquestioned-good to environmentalism-as-contested-outcome; driven by policy backfire (e.g., nuclear phase-outs, land-use conflicts). Widely adopted, this could reshape green politics and public trust.",
    "themes": [
-    "solar cost reversal",
-    "energy transition assumptions",
-    "AI energy demand"
+    "environmental policy backfire",
+    "green politics credibility"
    ],
    "keywords": [
-    "solar PV costs",
-    "Lazard LCOE",
+    "Germany",
+    "environmentalism",
+    "policy failure",
     "energy transition"
    ],
    "sources": [
     {
-     "name": "Lazard 2026 LCOE+ report",
-     "url": "https://www.lazard.com/news-announcements/lazard-releases-2026-levelized-cost-of-energyplus-report-pr/"
+     "name": "Uncharted Territories dispatch",
+     "url": "https://unchartedterritories.tomaspueyo.com/p/energy-and-environment-dispatch"
     }
-   ]
+   ],
+   "author": "Tomas Pueyo"
   },
   {
-   "title": "Frontier AI labs facing commoditization just as they IPO",
-   "shift": "Meta, SpaceX/xAI, and Moonshot are releasing near-frontier-quality models at a fraction of Anthropic/OpenAI's prices within the same eight-day window that OpenAI/Anthropic's IPO narratives depend on premium pricing power.",
-   "ai_read": "Tentative: the timing convergence of a multi-competitor price collapse right at IPO season suggests frontier-model economics may be shifting from scarcity-rent to commodity-margin faster than incumbent valuations assume.",
-   "evidence": "Big Technology details Meta's Muse Spark 1.1, xAI's Grok 4.5, and Moonshot's Kimi K3 all undercutting Opus 4.8 on price/performance within days, per Artificial Analysis and vendor announcements.",
-   "url": "https://www.bigtechnology.com/p/ai-model-prices-are-falling-at-the",
-   "source": "bigtechnology.com",
-   "date": "2026-07-17",
-   "horizon": "H1",
+   "title": "Nostalgia for a past you never lived",
+   "shift": "Gen Z expressing nostalgia for eras they never personally experienced, mediated entirely through algorithmic/aesthetic exposure rather than memory.",
+   "ai_read": "Tentative and strange: nostalgia decoupling from lived experience suggests memory itself is becoming a manufactured, purchasable aesthetic rather than a personal artifact.",
+   "evidence": "Freya India references a CBS segment on 'Gen Z's nostalgia for a time we never knew' tied to her book GIRLS® tour.",
+   "url": "https://www.freyaindia.co.uk/p/girls-on-tour",
+   "source": "freyaindia.co.uk",
+   "date": "2026-07-23",
+   "horizon": "H2",
    "srctype": "substack",
-   "swipes": "Entrants & exits",
-   "steep": "Economic",
-   "steep2": "Technological",
-   "classification": "Trend",
+   "swipes": "Writings",
+   "steep": "Social",
+   "steep2": "Demographic",
+   "classification": "Weak signal",
+   "maturity": "Signal",
+   "likelihood": 3,
+   "credibility": 2,
+   "novelty": "High",
+   "impact_scale": "Regional",
+   "disruptive_potential": "Minor",
+   "initial_analysis": "A shift from nostalgia-as-memory to nostalgia-as-aesthetic-commodity, driven by algorithmic curation of past imagery/media. If widespread, marketing and identity formation increasingly borrow unlived pasts as personal narrative.",
    "themes": [
-    "AI commoditization",
-    "frontier lab economics",
-    "IPO timing risk"
+    "manufactured nostalgia",
+    "Gen Z identity",
+    "algorithmic memory"
    ],
    "keywords": [
-    "Kimi K3",
-    "Grok 4.5",
-    "Muse Spark",
-    "AI pricing"
+    "Gen Z",
+    "nostalgia",
+    "aesthetic",
+    "CBS"
    ],
    "sources": [
     {
-     "name": "Muse Spark announcement",
-     "url": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/"
-    },
-    {
-     "name": "Grok 4.5",
-     "url": "https://x.ai/news/grok-4-5"
+     "name": "CBS interview",
+     "url": "https://www.youtube.com/watch?v=WJJtBlTFZ1Q"
     }
-   ]
+   ],
+   "author": "Freya India"
   },
   {
-   "title": "Chinese open-weight model parity shocks US AI hierarchy",
-   "shift": "Moonshot's Kimi K3, a 2.8-trillion-parameter open-weight model, is benchmarking on par with or ahead of top closed US models (Opus 4.8, GPT-5.5/5.6), intensifying the DeepSeek-style geopolitical AI-parity shock.",
-   "ai_read": "Tentative: repeated Chinese open-weight releases matching closed US frontier models may be normalizing open-weight parity as the default competitive state rather than a one-off anomaly, per Platformer's own hype-skepticism.",
-   "evidence": "Big Technology and Platformer both cover K3 pausing new subscriptions due to demand, and Exponential View notes its price is on par with GPT-5.6 but 24x DeepSeek V4 Pro's cost per Artificial Analysis.",
-   "url": "https://www.platformer.news/kimi-k3-launch-moonshot-ai-china/",
-   "source": "platformer.news",
-   "date": "2026-07-17",
+   "title": "Vibe shifts as manufactured consensus",
+   "shift": "Cultural commentators increasingly acknowledge that 'vibe shift' narratives are marginal phenomena retroactively inflated into general consensus, mirroring how narrow election margins get read as mandates.",
+   "ai_read": "Tentative: this is a meta-signal about how trend-diagnosis itself has become a genre, possibly eroding trust in any stated 'shift' including this one.",
+   "evidence": "Essay's self-critique of the author's own 2020 'vibe shift' diagnosis, comparing it to Trump's 1.5% margin being read as a mandate.",
+   "url": "https://www.8ball.report/p/the-shift-to-vibes",
+   "source": "8ball.report",
+   "date": "2026-07-22",
+   "horizon": "H2",
+   "srctype": "substack",
+   "swipes": "Writings",
+   "steep": "Social",
+   "steep2": "Political",
+   "classification": "Weak signal",
+   "maturity": "Signal",
+   "likelihood": 3,
+   "credibility": 2,
+   "novelty": "Medium",
+   "impact_scale": "Regional",
+   "disruptive_potential": "Minor",
+   "initial_analysis": "A shift from trend-spotting as description to trend-spotting as self-aware performance/critique; driven by media's need for narrative even amid marginal data. Could deepen public skepticism toward all 'shift' journalism, including foresight work itself.",
+   "themes": [
+    "narrative manufacturing",
+    "media self-critique",
+    "vibe shift"
+   ],
+   "keywords": [
+    "vibe shift",
+    "narrative",
+    "margins",
+    "media criticism"
+   ],
+   "sources": [
+    {
+     "name": "riffpost cross-post",
+     "url": "https://riffpost.substack.com/p/is-speech-freer-now-five-years-into"
+    }
+   ],
+   "author": "Sean Monahan"
+  },
+  {
+   "title": "AI-generated marketing content caught plagiarizing",
+   "shift": "An 'AI-native' agency's trend report was caught lifting paragraphs verbatim from an independent newsletter, apparently via AI tools, exposing a gap between AI content confidence and originality.",
+   "ai_read": "Tentative: as agencies lean on AI to synthesize 'state of the industry' reports, uncredited scraping of small creators may become endemic and eventually legally contested.",
+   "evidence": "Dentsu-owned 360i copied paragraphs from Matthew Stasoff's guest essay; called out publicly on LinkedIn, agency attributed it to AI.",
+   "url": "https://www.linkinbio.news/p/manychat-ruining-comment-sections",
+   "source": "linkinbio.news",
+   "date": "2026-07-21",
    "horizon": "H1",
    "srctype": "substack",
    "swipes": "Entrants & exits",
    "steep": "Technological",
-   "steep2": "Political",
-   "classification": "Trend",
+   "steep2": "Economic",
+   "classification": "Weak signal",
+   "maturity": "Trigger",
+   "likelihood": 4,
+   "credibility": 3,
+   "novelty": "Medium",
+   "impact_scale": "Regional",
+   "disruptive_potential": "Minor",
+   "initial_analysis": "A shift from AI-assisted research to AI-enabled unattributed scraping at agency scale; driven by pressure to produce 'thought leadership' fast. If normalized, independent creators lose more IP leverage to larger AI-equipped incumbents.",
    "themes": [
-    "China AI parity",
-    "open-weight models",
-    "AI geopolitics"
+    "AI plagiarism",
+    "agency ethics",
+    "creator IP"
    ],
    "keywords": [
-    "Kimi K3",
-    "Moonshot AI",
-    "open-weight AI",
-    "China-US AI race"
+    "360i",
+    "Dentsu",
+    "AI plagiarism",
+    "marketing"
    ],
    "sources": [
     {
-     "name": "Artificial Analysis K3 benchmark",
-     "url": "https://artificialanalysis.ai/models/kimi-k3"
-    },
-    {
-     "name": "Simon Willison on K3",
-     "url": "https://simonw.substack.com/p/kimi-k3-and-what-we-can-still-learn"
+     "name": "LinkedIn callout",
+     "url": "https://www.linkedin.com/posts/rachelkarten_hi-dentsu-and-360i-your-new-state-of-social-share-7482152019697278977-IxKq/"
     }
-   ]
+   ],
+   "author": "Rachel Karten"
   },
   {
-   "title": "DeepSeek's high-margin AI revenue despite low pricing",
-   "shift": "DeepSeek is nearing $500M annualized revenue with 70-80% gross margins on its V4 model, showing that aggressively cheap Chinese AI models can still be highly profitable, not just loss-leading market disruptors.",
-   "ai_read": "Tentative: this margin profile suggests low-price Chinese AI isn't purely subsidized dumping but a genuinely efficient cost structure, which would be a more durable threat to Western frontier-lab economics than assumed.",
-   "evidence": "Exponential View cites The Information's report of DeepSeek's revenue and margin figures ahead of fundraise/IPO plans.",
-   "url": "https://www.exponentialview.co/p/data-to-start-your-week-e71",
-   "source": "exponentialview.co",
-   "date": "2026-07-20",
+   "title": "Certifying '100% human-written' as a selling point",
+   "shift": "A blog competition now runs all finalist entries through an AI-detection tool (Pangram) and publicly certifies winners as human-written, treating authenticity as a verifiable credential.",
+   "ai_read": "Tentative: this could be an early instance of 'human-made' becoming a formal certification category, akin to organic food labeling, as AI text saturates the web.",
+   "evidence": "Experimental History's Blog Jamboree 2026 ran all potential winners through Pangram AI-writing detector before declaring them '100% human-written.'",
+   "url": "https://www.experimental-history.com/p/blog-jamboree-2026-the-winners",
+   "source": "experimental-history.com",
+   "date": "2026-07-21",
+   "horizon": "H2",
+   "srctype": "substack",
+   "swipes": "Innovations",
+   "steep": "Technological",
+   "steep2": "Social",
+   "classification": "Weak signal",
+   "maturity": "Early indicator",
+   "likelihood": 4,
+   "credibility": 3,
+   "novelty": "High",
+   "impact_scale": "Global",
+   "disruptive_potential": "Major",
+   "initial_analysis": "A shift from writing quality alone mattering to provenance-verification becoming part of publishing/judging criteria; driven by AI-detector tools maturing. If widespread, 'human-certified' badges could become standard across creative and journalistic platforms.",
+   "themes": [
+    "authenticity economy",
+    "AI detection",
+    "human-made certification"
+   ],
+   "keywords": [
+    "Pangram",
+    "AI detector",
+    "human-written",
+    "blogging"
+   ],
+   "sources": [
+    {
+     "name": "Blog Jamboree winners",
+     "url": "https://www.experimental-history.com/p/blog-jamboree-2026-the-winners"
+    }
+   ],
+   "author": "Adam Mastroianni"
+  },
+  {
+   "title": "Platforms policing AI-written content",
+   "shift": "Substack is reportedly flagging or penalizing writers who lean too heavily on AI-generated text, shifting the platform from neutral host to content-authenticity enforcer.",
+   "ai_read": "Tentative: a hosting platform actively surveilling authorial process (not just output) marks a new phase of platform governance over creative labor.",
+   "evidence": "Newsletter author notes 'Substack is gonna tell on you if you lean too hard on the AI,' linking to a PvA Field Notes item on the mechanism.",
+   "url": "https://www.peoplevsalgorithms.com/p/you-still-need-humans-to-make-nice",
+   "source": "peoplevsalgorithms.com",
+   "date": "2026-07-24",
    "horizon": "H1",
+   "srctype": "substack",
+   "swipes": "Innovations",
+   "steep": "Technological",
+   "classification": "Weak signal",
+   "maturity": "Early indicator",
+   "likelihood": 3,
+   "credibility": 2,
+   "novelty": "Medium",
+   "impact_scale": "Regional",
+   "disruptive_potential": "Minor",
+   "initial_analysis": "A shift from platforms as passive distribution to platforms as active arbiters of 'authentic' authorship; driven by reader fatigue with AI slop. If it spreads, expect visible AI-use disclosures or penalties across newsletter platforms.",
+   "themes": [
+    "platform governance",
+    "AI disclosure",
+    "authenticity"
+   ],
+   "keywords": [
+    "Substack",
+    "AI detection",
+    "authorship policing"
+   ],
+   "sources": [
+    {
+     "name": "PvA Field Notes",
+     "url": "https://www.pvanotes.com/n/efb6a74f-30dd-4326-9c1a-24b03eda86a2"
+    }
+   ],
+   "author": "Troy Young"
+  },
+  {
+   "title": "Pricing autonomous AI labor by the hour and dollar",
+   "shift": "AI agent task completion is starting to be reported in concrete labor terms — hours worked and dollar cost — as if describing a contractor invoice, not a software run.",
+   "ai_read": "Tentative: framing AI output as '14 hours, $251' anthropomorphizes and monetizes agent labor, an early linguistic marker of AI-as-workforce accounting.",
+   "evidence": "Linked in kghosh.me digest: 'Opus 4.7: 14 hours, $251' referencing oneusefulthing.org's piece on chatbot twilight.",
+   "url": "https://substack.kghosh.me/p/20260726",
+   "source": "substack.kghosh.me",
+   "date": "2026-07-26",
+   "horizon": "H2",
+   "srctype": "substack",
+   "swipes": "Statistics",
+   "steep": "Technological",
+   "steep2": "Economic",
+   "classification": "Weak signal",
+   "maturity": "Early indicator",
+   "likelihood": 3,
+   "credibility": 3,
+   "novelty": "High",
+   "impact_scale": "Global",
+   "disruptive_potential": "Major",
+   "initial_analysis": "A shift from AI as instant tool-call to AI as billed, time-tracked labor unit; driven by longer-horizon autonomous agent tasks. If this framing spreads, expect AI agents priced and scheduled like contractors within org charts.",
+   "themes": [
+    "AI labor economics",
+    "autonomous agents",
+    "cost accounting"
+   ],
+   "keywords": [
+    "Opus 4.7",
+    "AI agents",
+    "labor cost",
+    "chatbots"
+   ],
+   "sources": [
+    {
+     "name": "One Useful Thing",
+     "url": "https://www.oneusefulthing.org/p/the-twilight-of-the-chatbots"
+    }
+   ],
+   "author": "K. Ghosh"
+  },
+  {
+   "title": "AI displacing task-types, not job titles",
+   "shift": "Analysis of AI-native organizations suggests automation is carving out specific task types across many roles rather than eliminating whole job titles wholesale.",
+   "ai_read": "Tentative: this reframes AI labor disruption as diffuse and granular rather than a clean 'robots take jobs' narrative, which may be harder to measure and politically address.",
+   "evidence": "Ajey Gore's 'anatomy of an AI-native org' cited in kghosh.me digest: 'AI came for a task type, not a job title.'",
+   "url": "https://substack.kghosh.me/p/20260719",
+   "source": "substack.kghosh.me",
+   "date": "2026-07-19",
+   "horizon": "H2",
    "srctype": "substack",
    "swipes": "Statistics",
    "steep": "Economic",
    "steep2": "Technological",
-   "classification": "Trend",
+   "classification": "Weak signal",
+   "maturity": "Early indicator",
+   "likelihood": 4,
+   "credibility": 3,
+   "novelty": "Medium",
+   "impact_scale": "Global",
+   "disruptive_potential": "Major",
+   "initial_analysis": "A shift from role-level automation framing to task-level automation, driven by granular AI tool integration inside firms. If this becomes the dominant framework, labor policy and reskilling efforts may need to target skills/tasks rather than occupations.",
    "themes": [
-    "AI cost efficiency",
-    "China AI economics",
-    "DeepSeek margins"
+    "AI labor disruption",
+    "task automation",
+    "org design"
    ],
    "keywords": [
-    "DeepSeek",
-    "AI revenue",
-    "gross margins",
-    "V4 model"
+    "AI-native org",
+    "task automation",
+    "labor market"
    ],
    "sources": [
     {
-     "name": "The Information report",
-     "url": "https://www.theinformation.com/articles/deepseeks-annualized-revenue-nears-500-million-boosting-fundraise-ipo-plans?rc=4pc424"
+     "name": "Ajey Gore essay (via digest)",
+     "url": "https://substack.kghosh.me/p/20260719"
     }
-   ]
+   ],
+   "author": "K. Ghosh"
+  },
+  {
+   "title": "Generative AI as a retail traffic channel",
+   "shift": "Generative AI tools/chat interfaces are reportedly already driving a measurable share (~2%) of traffic to a major retailer like Walmart.",
+   "ai_read": "Tentative: if AI chat referral traffic to retail is already quantifiable, it suggests AI assistants are becoming a discovery layer ahead of search/social, reshaping retail funnels.",
+   "evidence": "Cited stat in kghosh.me digest: 'GenAI drives nearly 2% of traffic to Walmart.'",
+   "url": "https://substack.kghosh.me/p/20260719",
+   "source": "substack.kghosh.me",
+   "date": "2026-07-19",
+   "horizon": "H1",
+   "srctype": "substack",
+   "swipes": "Statistics",
+   "steep": "Technological",
+   "steep2": "Economic",
+   "classification": "Weak signal",
+   "maturity": "Early indicator",
+   "likelihood": 4,
+   "credibility": 3,
+   "novelty": "High",
+   "impact_scale": "Global",
+   "disruptive_potential": "Major",
+   "initial_analysis": "A shift from search/social as primary retail discovery to AI chat interfaces as a nascent referral channel; driven by consumer adoption of AI assistants for shopping queries. If this grows, retail SEO/marketing budgets will need an 'AI visibility' strategy.",
+   "themes": [
+    "AI retail discovery",
+    "traffic attribution",
+    "shopping assistants"
+   ],
+   "keywords": [
+    "GenAI",
+    "Walmart",
+    "retail traffic",
+    "AI referral"
+   ],
+   "lens_retail": "general merchandise",
+   "lens_shopper": "Connect",
+   "sources": [
+    {
+     "name": "digest reference",
+     "url": "https://substack.kghosh.me/p/20260719"
+    }
+   ],
+   "author": "K. Ghosh"
+  },
+  {
+   "title": "Live events as media's anti-AI moat",
+   "shift": "Publishers, facing collapsing traffic-based ad models under AI content saturation, are pivoting to in-person community events as their defensible business moat.",
+   "ai_read": "Tentative: this suggests physical, unscalable experiences are becoming the premium differentiator precisely because AI can't replicate presence, reversing decades of media's push toward infinite scalability.",
+   "evidence": "PvA podcast discussion: 'Publishers see the writing on the wall for traffic-based models and are instead looking to experiential gatherings... events are becoming media's new moat.'",
+   "url": "https://www.peoplevsalgorithms.com/p/the-new-moat",
+   "source": "peoplevsalgorithms.com",
+   "date": "2026-07-24",
+   "horizon": "H2",
+   "srctype": "substack",
+   "swipes": "Innovations",
+   "steep": "Economic",
+   "steep2": "Technological",
+   "classification": "Weak signal",
+   "maturity": "Early indicator",
+   "likelihood": 3,
+   "credibility": 3,
+   "novelty": "Medium",
+   "impact_scale": "Regional",
+   "disruptive_potential": "Major",
+   "initial_analysis": "A shift from scalable digital content as media's core asset to scarce, in-person community experience as the moat; driven by AI's ability to flood/replicate digital text. If widespread, media companies increasingly resemble event/hospitality businesses.",
+   "themes": [
+    "media business model",
+    "experiential economy",
+    "AI content saturation"
+   ],
+   "keywords": [
+    "media moat",
+    "live events",
+    "publishing",
+    "AI content"
+   ],
+   "sources": [
+    {
+     "name": "The Rebooting",
+     "url": "https://therebooting.com/"
+    },
+    {
+     "name": "Human Computer",
+     "url": "https://human.computer/"
+    }
+   ],
+   "author": "Troy Young"
+  },
+  {
+   "title": "Audience-capture strategies losing potency",
+   "shift": "A prominent critique argues that Netflix-style algorithmic 'audience capture' business strategies are failing, with the claim endorsed by a well-known contrarian investor.",
+   "ai_read": "Tentative: if manipulative engagement-optimization is genuinely losing effectiveness (not just critiqued), it could mark an inflection point in platform-era media strategy.",
+   "evidence": "Essay's 'audience capture' critique of Netflix went viral, boosted by investor Michael Burry's public endorsement on Substack Notes.",
+   "url": "https://www.honest-broker.com/p/predictions-on-the-future-of-netflix",
+   "source": "honest-broker.com",
+   "date": "2026-07-23",
+   "horizon": "H2",
+   "srctype": "substack",
+   "swipes": "Superhits & outliers",
+   "steep": "Economic",
+   "steep2": "Technological",
+   "classification": "Weak signal",
+   "maturity": "Trigger",
+   "likelihood": 2,
+   "credibility": 3,
+   "novelty": "Medium",
+   "impact_scale": "Global",
+   "disruptive_potential": "Major",
+   "initial_analysis": "A possible shift from algorithmic engagement-maximization as unquestioned strategy to its public repudiation by both critics and finance figures; driven by subscriber fatigue and content-quality backlash. If it continues, streaming/media giants may need to rebuild trust-based rather than capture-based models.",
+   "themes": [
+    "platform strategy backlash",
+    "streaming crisis",
+    "audience capture"
+   ],
+   "keywords": [
+    "Netflix",
+    "audience capture",
+    "Michael Burry",
+    "streaming"
+   ],
+   "sources": [
+    {
+     "name": "Michael Burry note",
+     "url": "https://substack.com/@michaeljburry/note/c-297559749"
+    }
+   ],
+   "author": "Ted Gioia"
+  },
+  {
+   "title": "Return-to-office as narcissism signal",
+   "shift": "New research reportedly links executive RTO mandates to leader narcissism rather than productivity gains, reframing RTO as a status/control behavior.",
+   "ai_read": "Tentative: if this research holds up, it recasts a major post-pandemic corporate trend as psychological rather than operational, which could shift how RTO policies are challenged.",
+   "evidence": "kghosh.me digest cites Adam Grant et al. research: 'executive return-to-office mandates correlate with narcissism, not productivity.'",
+   "url": "https://substack.kghosh.me/p/20260726",
+   "source": "substack.kghosh.me",
+   "date": "2026-07-26",
+   "horizon": "H1",
+   "srctype": "substack",
+   "swipes": "Statistics",
+   "steep": "Social",
+   "steep2": "Economic",
+   "classification": "Weak signal",
+   "maturity": "Early indicator",
+   "likelihood": 3,
+   "credibility": 3,
+   "novelty": "Medium",
+   "impact_scale": "Regional",
+   "disruptive_potential": "Minor",
+   "initial_analysis": "A shift from RTO-as-productivity-argument to RTO-as-leadership-psychology-critique; driven by academic research challenging corporate rationale. If this framing spreads, employee pushback against RTO may gain a research-backed psychological argument.",
+   "themes": [
+    "return to office",
+    "leadership psychology",
+    "corporate governance"
+   ],
+   "keywords": [
+    "RTO",
+    "narcissism",
+    "Adam Grant",
+    "workplace"
+   ],
+   "sources": [
+    {
+     "name": "workfutures.io",
+     "url": "https://www.workfutures.io/p/a-healthier-yardstick"
+    }
+   ],
+   "author": "K. Ghosh"
+  },
+  {
+   "title": "GLP-1 drugs as a labor-market lever",
+   "shift": "Data suggests previously not-employed women starting GLP-1 weight-loss treatment are 27 points more likely to be employed 18 months later, linking a medical intervention directly to labor force participation.",
+   "ai_read": "Tentative: this is a striking, underexplored link between pharmaceutical intervention and employment outcomes — worth watching as GLP-1 access scales.",
+   "evidence": "Cited stat in kghosh.me digest referencing exponentialview.co's weekly data roundup.",
+   "url": "https://substack.kghosh.me/p/20260726",
+   "source": "substack.kghosh.me",
+   "date": "2026-07-26",
+   "horizon": "H2",
+   "srctype": "substack",
+   "swipes": "Statistics",
+   "steep": "Demographic",
+   "steep2": "Economic",
+   "classification": "Weak signal",
+   "maturity": "Early indicator",
+   "likelihood": 3,
+   "credibility": 3,
+   "novelty": "High",
+   "impact_scale": "Global",
+   "disruptive_potential": "Major",
+   "initial_analysis": "A shift from viewing GLP-1 drugs purely as a health/weight intervention to recognizing them as a labor-market participation driver; if this correlation holds broadly, health policy and workforce policy could become newly intertwined.",
+   "themes": [
+    "GLP-1",
+    "labor participation",
+    "pharma-economic links"
+   ],
+   "keywords": [
+    "GLP-1",
+    "employment",
+    "weight loss drugs",
+    "labor force"
+   ],
+   "sources": [
+    {
+     "name": "Exponential View data",
+     "url": "https://www.exponentialview.co/p/data-to-start-your-week-29-june-2026"
+    }
+   ],
+   "author": "K. Ghosh"
+  },
+  {
+   "title": "Fatherhood's neurological imprint",
+   "shift": "Ongoing research continues to document measurable brain changes in men after becoming fathers, reinforcing biological plasticity tied to caregiving roles.",
+   "ai_read": "Tentative, lower novelty: mostly confirms an established research area, but worth tracking as it intersects with shifting gender roles in caregiving and possible future workplace/parental-leave policy arguments.",
+   "evidence": "Referenced Scientific American article on fatherhood changing men's brains, cited in kghosh.me digest.",
+   "url": "https://substack.kghosh.me/p/20260719",
+   "source": "substack.kghosh.me",
+   "date": "2026-07-19",
+   "horizon": "H2",
+   "srctype": "substack",
+   "swipes": "Statistics",
+   "steep": "Demographic",
+   "steep2": "Social",
+   "classification": "Weak signal",
+   "maturity": "Signal",
+   "likelihood": 4,
+   "credibility": 3,
+   "novelty": "Low",
+   "impact_scale": "Global",
+   "disruptive_potential": "Minor",
+   "initial_analysis": "A shift from viewing caregiving-driven neuroplasticity as maternal-only to recognizing it in fathers too; driven by growing research base. Widely recognized, this could support policy arguments for equal parental leave.",
+   "themes": [
+    "fatherhood",
+    "neuroplasticity",
+    "caregiving roles"
+   ],
+   "keywords": [
+    "fatherhood",
+    "brain changes",
+    "parental leave"
+   ],
+   "sources": [
+    {
+     "name": "Scientific American",
+     "url": "https://www.scientificamerican.com/article/how-becoming-a-dad-changes-mens-brains/"
+    }
+   ],
+   "author": "K. Ghosh"
+  },
+  {
+   "title": "Nuclear's quiet comeback in energy politics",
+   "shift": "The 'US Nuclear Renaissance' is treated as a settled dispatch topic alongside solar and batteries, suggesting nuclear has moved from fringe to mainstream in energy-transition discourse.",
+   "ai_read": "Tentative trend confirmation: nuclear's re-inclusion alongside solar/battery coverage signals its normalization in energy policy conversations after decades of marginalization.",
+   "evidence": "Listed as a dispatch section alongside solar pricing and battery growth in Tomas Pueyo's Energy & Environment Dispatch.",
+   "url": "https://unchartedterritories.tomaspueyo.com/p/energy-and-environment-dispatch",
+   "source": "unchartedterritories.tomaspueyo.com",
+   "date": "2026-07-25",
+   "horizon": "H2",
+   "srctype": "substack",
+   "swipes": "Statistics",
+   "steep": "Environmental",
+   "steep2": "Political",
+   "classification": "Trend",
+   "maturity": "Signal",
+   "likelihood": 4,
+   "credibility": 3,
+   "novelty": "Low",
+   "impact_scale": "Global",
+   "disruptive_potential": "Major",
+   "initial_analysis": "A shift from nuclear-as-taboo to nuclear-as-mainstream energy-transition tool, driven by climate urgency and grid reliability needs. If it continues, expect accelerated new-build approvals and public opinion normalization globally.",
+   "themes": [
+    "nuclear renaissance",
+    "energy transition"
+   ],
+   "keywords": [
+    "nuclear power",
+    "energy policy",
+    "US"
+   ],
+   "sources": [
+    {
+     "name": "Uncharted Territories dispatch",
+     "url": "https://unchartedterritories.tomaspueyo.com/p/energy-and-environment-dispatch"
+    }
+   ],
+   "author": "Tomas Pueyo"
+  },
+  {
+   "title": "Greening the Sahara as active project",
+   "shift": "The dispatch references active efforts toward 'Greening the Sahara,' suggesting large-scale terraforming/afforestation ambitions are moving from theoretical to attempted.",
+   "ai_read": "Tentative wild card: desert-greening projects at continental scale remain speculative but their inclusion as a live dispatch topic (not history) suggests renewed momentum or funding.",
+   "evidence": "Listed as an active dispatch topic in Tomas Pueyo's Energy & Environment Dispatch alongside current fire and nuclear items.",
+   "url": "https://unchartedterritories.tomaspueyo.com/p/energy-and-environment-dispatch",
+   "source": "unchartedterritories.tomaspueyo.com",
+   "date": "2026-07-25",
+   "horizon": "H3",
+   "srctype": "substack",
+   "swipes": "Innovations",
+   "steep": "Environmental",
+   "classification": "Wild card",
+   "maturity": "Signal",
+   "likelihood": 1,
+   "credibility": 2,
+   "novelty": "High",
+   "impact_scale": "Global",
+   "disruptive_potential": "Catastrophic",
+   "initial_analysis": "A shift from desert as fixed geography to desert as an engineerable/reversible system; driven by climate desperation and new afforestation/solar-desalination tech. If it ever scaled, it would be one of the largest deliberate ecosystem interventions in history.",
+   "themes": [
+    "terraforming",
+    "desert greening",
+    "climate intervention"
+   ],
+   "keywords": [
+    "Sahara",
+    "afforestation",
+    "climate engineering"
+   ],
+   "sources": [
+    {
+     "name": "Uncharted Territories dispatch",
+     "url": "https://unchartedterritories.tomaspueyo.com/p/energy-and-environment-dispatch"
+    }
+   ],
+   "author": "Tomas Pueyo"
+  },
+  {
+   "title": "Wealth taxes re-entering mainstream policy debate",
+   "shift": "A dispatch framed around the 'craziness of wealth taxes' suggests wealth tax proposals are prominent enough in current events to warrant dedicated premium commentary.",
+   "ai_read": "Tentative: the framing itself ('craziness') hints at wealth taxes moving from academic fringe to contested mainstream policy, worth tracking regardless of the author's skepticism.",
+   "evidence": "Dispatch described as focused on current events around wealth taxes, positioned as this week's premium topic.",
+   "url": "https://unchartedterritories.tomaspueyo.com/p/dispatch-on-the-craziness-of-wealth",
+   "source": "unchartedterritories.tomaspueyo.com",
+   "date": "2026-07-21",
+   "horizon": "H2",
+   "srctype": "substack",
+   "swipes": "Statistics",
+   "steep": "Political",
+   "steep2": "Economic",
+   "classification": "Weak signal",
+   "maturity": "Signal",
+   "likelihood": 3,
+   "credibility": 2,
+   "novelty": "Medium",
+   "impact_scale": "Global",
+   "disruptive_potential": "Major",
+   "initial_analysis": "A shift from wealth taxation as academic/fringe proposal to active current-events policy debate; driven by rising inequality politics. If adopted anywhere at scale, it would mark a significant reversal of decades-long capital-friendly tax policy trends.",
+   "themes": [
+    "wealth tax",
+    "inequality policy"
+   ],
+   "keywords": [
+    "wealth tax",
+    "tax policy",
+    "inequality"
+   ],
+   "sources": [
+    {
+     "name": "Uncharted Territories dispatch",
+     "url": "https://unchartedterritories.tomaspueyo.com/p/dispatch-on-the-craziness-of-wealth"
+    }
+   ],
+   "author": "Tomas Pueyo"
+  },
+  {
+   "title": "Sports outcomes entangled with trade politics",
+   "shift": "A head-of-state publicly ties a national team's World Cup performance to trade and defense-spending disputes, blurring sports commentary with geopolitical leverage.",
+   "ai_read": "Tentative: leaders using sports results as rhetorical ammunition for trade/defense disputes could be an early sign of sport becoming an explicit geopolitical bargaining chip.",
+   "evidence": "Recap notes Trump calling Spain 'a loser' and threatening to 'cut off trade' over defense spending, linked to Politico and El País coverage, following Spain's World Cup win.",
+   "url": "https://www.colormeloverly.com/p/world-cup-recap-no-5",
+   "source": "colormeloverly.com",
+   "date": "2026-07-20",
+   "horizon": "H1",
+   "srctype": "substack",
+   "swipes": "Writings",
+   "steep": "Political",
+   "classification": "Weak signal",
+   "maturity": "Trigger",
+   "likelihood": 3,
+   "credibility": 3,
+   "novelty": "Medium",
+   "impact_scale": "Regional",
+   "disruptive_potential": "Minor",
+   "initial_analysis": "A shift from sport as separate from statecraft to sport outcomes being explicitly weaponized in trade/defense rhetoric; driven by populist leadership style. If normalized, expect more overt politicization of international sporting events.",
+   "themes": [
+    "sportswashing politics",
+    "trade disputes",
+    "populism"
+   ],
+   "keywords": [
+    "Trump",
+    "Spain",
+    "World Cup",
+    "trade"
+   ],
+   "sources": [
+    {
+     "name": "Politico",
+     "url": "https://www.politico.eu/article/trump-says-hes-cutting-off-trade-with-spain-over-defense-spending-iran/"
+    },
+    {
+     "name": "El País",
+     "url": "https://english.elpais.com/usa/2026-03-05/trump-calls-spain-a-loser-and-warns-the-united-states-will-not-be-a-team-player.html"
+    }
+   ],
+   "author": "Clara"
+  },
+  {
+   "title": "Consumers deputized as brand influencers",
+   "shift": "Top award-winning brand campaigns (Gap, Apple, Burger King) now build dozens of organic social posts explicitly designed to let ordinary consumers extend the campaign narrative themselves.",
+   "ai_read": "Tentative trend: the 'hero asset' is being replaced by consumer-fed content ecosystems, treating audiences as embedded co-marketers rather than passive viewers.",
+   "evidence": "Cannes Lions case studies cited: Gap's 40+ additional social posts for 'Better in Denim' with KATSEYE, Apple's Neo TikTok rollout, Burger King's 'There's A New King' campaign.",
+   "url": "https://www.linkinbio.news/p/consumers-are-influencers-too",
+   "source": "linkinbio.news",
+   "date": "2026-07-23",
+   "horizon": "H1",
+   "srctype": "substack",
+   "swipes": "Innovations",
+   "steep": "Economic",
+   "steep2": "Social",
+   "classification": "Trend",
+   "maturity": "Signal",
+   "likelihood": 4,
+   "credibility": 3,
+   "novelty": "Low",
+   "impact_scale": "Regional",
+   "disruptive_potential": "Minor",
+   "initial_analysis": "A shift from single hero-ad campaigns to distributed, pattern-recognition content ecosystems built with consumer participation; driven by algorithmic feed fatigue with polished ads. If it continues, brand marketing teams will function more like community management operations.",
+   "themes": [
+    "participatory marketing",
+    "brand strategy",
+    "social media"
+   ],
+   "keywords": [
+    "Cannes Lions",
+    "Gap",
+    "Apple",
+    "Burger King",
+    "influencer marketing"
+   ],
+   "lens_retail": "apparel/tech/QSR",
+   "lens_shopper": "Create/Connect",
+   "sources": [
+    {
+     "name": "Gap KATSEYE campaign",
+     "url": "https://www.instagram.com/reels/DNiZlQOJgAN/"
+    },
+    {
+     "name": "Burger King campaign",
+     "url": "https://www.youtube.com/watch?v=tDZ6LzqDNZQ"
+    }
+   ],
+   "author": "Rachel Karten"
   }
  ]
 }
