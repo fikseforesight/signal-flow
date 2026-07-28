@@ -47,6 +47,7 @@ const properties = {
     opt("Labor & Operations", "brown"), opt("Supply Chain", "orange"), opt("Infrastructure", "yellow"),
     opt("Construction", "green"), opt("Retail Industry", "blue"), opt("Tech & AI", "purple"),
     opt("People & Human System", "pink"), opt("Policy & Finance", "red"), opt("Sustainability & Environment", "gray"),
+            opt("Off-map / Not Built-Environment", "default"),
   ] } },
   "Themes": { multi_select: {} },
   "Keywords": { multi_select: {} },
