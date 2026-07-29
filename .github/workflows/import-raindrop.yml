@@ -1,0 +1,34 @@
+name: Import Raindrop reference library
+
+# Manual only. Raindrop has no API access for this collection without a token, so the
+# flow is: export CSV from Raindrop (Settings → Export → CSV), commit it to the repo
+# root as raindrop-export.csv, then run this workflow.
+#
+# Safe to re-run: items are matched on Raindrop ID, so a re-import updates in place
+# rather than creating duplicates.
+on:
+  workflow_dispatch:
+    inputs:
+      csv_path:
+        description: "Path to the Raindrop CSV export"
+        required: false
+        default: "raindrop-export.csv"
+      dry_run:
+        description: "Parse and report only, write nothing to Notion"
+        required: false
+        default: "false"
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Import into Notion Reference Library
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_REFERENCE_DB_ID: ${{ secrets.NOTION_REFERENCE_DB_ID }}
+          DRY_RUN: ${{ github.event.inputs.dry_run == 'true' && '1' || '0' }}
+        run: node raindrop-import.mjs "${{ github.event.inputs.csv_path }}"
