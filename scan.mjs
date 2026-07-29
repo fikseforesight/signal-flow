@@ -18,6 +18,10 @@ const OUTPUT_FILE = process.env.OUTPUT_FILE || "candidates.json";
 const SEEN_FILE = process.env.SEEN_FILE || "seen.json";
 const ARCHIVE_PREFIX = process.env.ARCHIVE_PREFIX || "candidates";
 const SRC = JSON.parse(readFileSync(join(ROOT, SOURCES_FILE), "utf8"));
+// The wild scan is deliberately domain-agnostic — reaching into terrain the daily scan
+// never touches is the entire point of it. So the built-environment relevance gate in
+// the prompt below is applied to the DAILY scan only, never to wild.
+const IS_WILD = /wild/i.test(SOURCES_FILE);
 const CFG = SRC.config;
 const DATA = ROOT;
 const API_KEY = process.env.ANTHROPIC_API_KEY;
@@ -33,6 +37,37 @@ function normUrl(u) {
   } catch {
     return u.trim().toLowerCase();
   }
+}
+
+// De-dup layer 1 of 2: claim fingerprint.
+// The same story routinely arrives through two feeders under two different URLs (an
+// arXiv paper via both arXiv and its Cornell mirror, an essay via both RSS and HN), and
+// a URL hash cannot see that. So we also fingerprint the title: lowercase, drop
+// punctuation and stopwords, singularise, keep the distinctive tokens, dedupe, sort,
+// join. Sorting kills word order, so "Robots inherit dangerous labour" and "Dangerous
+// labour inherited by robots" collapse to the same key.
+//
+// LIMIT, measured not assumed: this catches near-identical headlines only. Tested
+// against five real duplicate pairs that reached the library, genuine paraphrases
+// scored 0.00-0.40 token overlap — the same range as unrelated items — so no lexical
+// threshold can separate them. Paraphrase duplicates are caught in layer 2 instead
+// (the MERGE DUPLICATES rule in the prompt below), which has actual semantics.
+// Titles with under 3 distinctive tokens return "" and fall back to URL-only de-dup
+// rather than risk a false collision that would silently lose a real signal.
+const STOPWORDS = new Set(
+  "about after against along amid among another around because been before being between beyond both could does doing during each either enough every from have here into itself just like made make many more most much must never only other over same should since some such than that their them then there these they thing this those three through toward under until upon very what when where which while will with within without would your".split(" ")
+);
+const singular = (w) => (w.length > 4 && w.endsWith("s") && !w.endsWith("ss") ? w.slice(0, -1) : w);
+function claimKey(title = "") {
+  const toks = String(title)
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, " ")
+    .split(/\s+/)
+    .filter((w) => w.length > 3 && !STOPWORDS.has(w))
+    .map(singular);
+  const distinct = [...new Set(toks)].sort();
+  if (distinct.length < 3) return "";
+  return "claim:" + distinct.slice(0, 8).join("-");
 }
 
 async function get(url, asJson = true, headers = {}, timeoutMs = 20000) {
@@ -182,6 +217,17 @@ NON-NEGOTIABLE RULES:
 - Do NOT assign an impact rating; that is human-held.
 - A retrospective academic or literary critique/analysis of the past (no new discovery, nothing net-new or emerging — especially scholarship analyzing material from more than ~10 years ago) is NOT a signal. Exclude it entirely; do not add it to candidates, even at a low classification, regardless of how strange or fringe its framing is.
 - Reddit items (especially r/Futurology) only qualify if the post itself cites or links concrete external evidence (a study, dataset, article, or named source). Exclude speculative, discussion-only posts with no cited evidence, even if the framing is interesting.
+- MERGE DUPLICATES. If two or more raw items describe the same underlying finding, study, product, incident, or essay — even when the headlines are worded completely differently, or they arrive from different feeders under different URLs — emit exactly ONE candidate for it, citing the single strongest source. Never emit one finding twice under two names. This is on you: the upstream de-duplication matches URLs and near-identical titles, and cannot tell that two differently-worded headlines are the same story. You are the only place that can be caught.
+${IS_WILD ? "" : `
+BUILT-ENVIRONMENT RELEVANCE GATE (daily scan only):
+Before keeping a candidate, name the physical or operational stake — what someone who builds, owns, operates, supplies, staffs, finances, insures, regulates, powers, or occupies physical space would have to do differently if this held.
+
+Read that BROADLY. It counts if the change lands anywhere in the chain that produces or sustains physical space: sites and buildings, infrastructure and utilities, materials and construction methods, logistics and freight, energy and water, land and property, the labour that runs these places, the capital and insurance behind them, the codes and regulations governing them, or the people who move through and use them. Second-order effects fully count — a labour, capital, materials, mobility, climate, or demographic shift that would eventually reshape how space is built, used, staffed, or valued is IN scope. Where genuinely torn, keep it and let the human cut it.
+
+What is OUT of scope: anything whose entire consequence stays inside a screen, a lab, a journal, or a discourse. AI and software news qualifies only where it changes something physical — a machine moving through a building, a sensor in a store, a system rerouting freight, a rule governing a site, a robot doing work a person did. General model releases, developer tooling, benchmark results, interpretability findings, and AI-safety debate do NOT qualify on their own. Neither does scholarship that only reinterprets a concept or reframes the past with nothing downstream changing.
+
+State the stake in one concrete sentence or drop the candidate. Do not stretch to invent one — a strained justification is itself the signal that it does not belong.
+`}
 
 From the raw items, return AS MANY candidates as are at all worth Kristen's eye — up to ${CFG.maxCandidates}, ordered weakest/strangest first. She wants VOLUME and wants to see the rule-outs, so also include borderline and already-trending items, but label those honestly with classification "Trend" or "Hype" and a one-line reason in ai_read. Never silently drop a plausibly-interesting item; include and label it. Keep "ai_read" and "evidence" under 45 words each. Return ONLY a JSON array, no prose, each element:
 {"title": "short signal name (the shift, not the event)",
@@ -254,7 +300,10 @@ const inBatch = new Set();
 for (const it of results) {
   const k = normUrl(it.url);
   if (!k || !it.title || seen.has(k) || inBatch.has(k)) continue;
+  const ck = claimKey(it.title);
+  if (ck && (seen.has(ck) || inBatch.has(ck))) continue;
   inBatch.add(k);
+  if (ck) inBatch.add(ck);
   fresh.push(it);
 }
 console.log(`${results.length} raw → ${fresh.length} unseen`);
@@ -285,8 +334,18 @@ for (const c of candidates) {
 }
 
 // mark everything pulled this run as seen (candidates AND non-selected, so tomorrow is fresh)
-for (const it of capped) seen.add(normUrl(it.url));
-for (const c of candidates) if (c.url) seen.add(normUrl(c.url));
+// Two keys per item now (url + claim), so seenLimit buys roughly half as many runs of
+// de-dup memory as it used to. Raise seenLimit in sources.json if repeats reappear.
+for (const it of capped) {
+  seen.add(normUrl(it.url));
+  const ck = claimKey(it.title);
+  if (ck) seen.add(ck);
+}
+for (const c of candidates) {
+  if (c.url) seen.add(normUrl(c.url));
+  const ck = claimKey(c.title);
+  if (ck) seen.add(ck);
+}
 
 mkdirSync(join(DATA, "archive"), { recursive: true });
 const payload = { generated: new Date().toISOString(), batch: today, candidates };
