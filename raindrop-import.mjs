@@ -1,14 +1,28 @@
 // Signal Flow — Raindrop → Notion Reference Library importer.
-// Reads a Raindrop CSV export (Raindrop: Settings → Export → CSV) committed to the repo
-// root as raindrop-export.csv, and upserts it into the Reference Library database.
+// Reads a Raindrop CSV export (Raindrop: Settings → Export → CSV) from a local path and
+// upserts it into the Reference Library database. See the RUN THIS LOCALLY note below —
+// the CSV is not meant to live in this repo.
 //
 // This is deliberately NOT a scan lane. Raindrop items never enter the triage queue —
-// they are the corroboration layer. Reason: ~77% of the collection is tagged H1 by
-// Kristen's own hand, i.e. near-term/trend material, which would fail the weak-signal
-// bar on arrival and rebuild the inbox problem the triage rebuild just removed. Instead
-// each item is linked to the signals it corroborates via the Signals relation.
+// they are the corroboration layer. Two reasons. First, volume: 280 items would more
+// than double a Pending queue that was just cut from 353 to 145, rebuilding the inbox
+// problem. Second, provenance: these are human-captured and hand-tagged, a different
+// evidentiary class from AI-drafted scan candidates, and collapsing the two would lose
+// that distinction. Instead each item links to the signals it corroborates via Signals.
 //
-// Usage: NOTION_TOKEN=... NOTION_REFERENCE_DB_ID=... node raindrop-import.mjs [csvPath]
+// Horizon spread across the full 280: H1 115, H2 125, H3 39. (An earlier read of only
+// the 30 most-recent items suggested a heavy H1 skew — that was recency bias in the
+// sample, not the shape of the collection. Recorded here so the wrong number does not
+// get re-derived later.)
+//
+// RUN THIS LOCALLY. Do NOT commit the CSV export to this repo — the repo is public and
+// the export carries personal notes and highlights (116 notes / 279 highlights in the
+// July 2026 export of the buildings collection). raindrop-export.csv is gitignored to
+// make that mistake harder to make by accident.
+//
+//   NOTION_TOKEN=secret_xxx NOTION_REFERENCE_DB_ID=xxx node raindrop-import.mjs ~/Downloads/export.csv
+//
+// Add DRY_RUN=1 to parse and report without writing anything.
 // Dependency-free: Node 20+ only.
 
 import { readFileSync, existsSync } from "node:fs";
@@ -104,7 +118,13 @@ const BRANCH_RULES = [
   [/\b(infrastructure|energy|grid|power|transit|rail|road|utility|water system|telecom)\b/i, "Infrastructure"],
   [/\b(real estate|property|housing|zoning|tariff|finance|investment|sovereign wealth|capital|insurance|tax|policy|regulation|geopolitics)\b/i, "Policy & Finance"],
   [/\b(climate|sustainab|emission|carbon|circular|resource scarcity|sand|materials? ?\/ ?resources|environment|waste|water)\b/i, "Sustainability & Environment"],
-  [/\b(demograph|population|migration|aging|generation|community|social|culture|health|care)\b/i, "People & Human System"],
+  [/\b(demograph|population|migration|aging|generation|community|culture|health|care)\b/i, "People & Human System"],
+  // Added after a dry run over the real 280-item export: these tags appeared repeatedly
+  // on otherwise-unmapped items. Each maps to exactly one branch with no ambiguity.
+  [/\b(mycelium|biomaterial|biobased|bio-based|timber|mass timber|adaptive reuse|buildings?|facade|renovation)\b/i, "Construction"],
+  [/\b(public space|placemaking|park|streetscape|depaving|pedestrian|plaza|third place)\b/i, "Infrastructure"],
+  [/\b(utilities|refrigerant|hvac|cooling|heat|heating|insulation)\b/i, "Sustainability & Environment"],
+  [/\b(experience|design & creative|wayfinding|interior|merchandising)\b/i, "Retail Industry"],
 ];
 
 function branchesOf(tags) {
