@@ -99,6 +99,32 @@ function feedSourceName(feedUrl) {
   try { return new URL(feedUrl).hostname.replace(/^www\./, "").replace(/\.substack\.com$/, ""); } catch { return feedUrl; }
 }
 
+// ---------- de-dup: claim fingerprint ----------
+// Mirrors scan.mjs. URL matching alone misses the same essay arriving under two links
+// (a Substack post and its custom-domain mirror, or an essay quoted by a second
+// newsletter). So we also fingerprint the title: lowercase, drop punctuation and
+// stopwords, singularise, keep distinctive tokens, dedupe, sort, join.
+// Same measured limit as scan.mjs: this catches near-identical titles only, not
+// paraphrases. Paraphrases are caught by the MERGE DUPLICATES rule in the prompt.
+const STOPWORDS = new Set(
+  "about after against along amid among another around because been before being between beyond both could does doing during each either enough every from have here into itself just like made make many more most much must never only other over same should since some such than that their them then there these they thing this those three through toward under until upon very what when where which while will with within without would your".split(" ")
+);
+const singular = (w) => (w.length > 4 && w.endsWith("s") && !w.endsWith("ss") ? w.slice(0, -1) : w);
+function claimKey(title = "") {
+  const toks = String(title)
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, " ")
+    .split(/\s+/)
+    .filter((w) => w.length > 3 && !STOPWORDS.has(w))
+    .map(singular);
+  const distinct = [...new Set(toks)].sort();
+  if (distinct.length < 3) return "";
+  return "claim:" + distinct.slice(0, 8).join("-");
+}
+// Items are only written to seen after the whole run, so two feeds carrying the same
+// article inside one run both used to pass. runKeys closes that within-run gap.
+const runKeys = new Set();
+
 // ---------- cursor + seen state ----------
 
 const cursorPath = join(ROOT, "substack-cursor.json");
@@ -165,6 +191,16 @@ NON-NEGOTIABLE RULES:
 - Items that are clearly established trends or hype: still include the best of them, classification "Trend" or "Hype".
 - Do NOT assign an impact rating; that is human-held.
 - A retrospective academic or literary critique/analysis of the past (no new discovery, nothing net-new or emerging — especially essays analyzing material from more than ~10 years ago) is NOT a signal. Exclude it entirely; do not add it to candidates, even at a low classification, regardless of how strange or fringe its framing is.
+- MERGE DUPLICATES. If two or more items describe the same underlying finding, study, product, incident, or essay — even when worded completely differently, or arriving from two different newsletters covering the same story — emit exactly ONE candidate for it, citing the single strongest source. Never emit one finding twice under two names. The upstream de-duplication matches URLs and near-identical titles and cannot tell that two differently-worded pieces are the same story; you are the only place that can be caught.
+
+BUILT-ENVIRONMENT RELEVANCE GATE:
+Before keeping a candidate, name the physical or operational stake — what someone who builds, owns, operates, supplies, staffs, finances, insures, regulates, powers, or occupies physical space would have to do differently if this held.
+
+Read that BROADLY. It counts if the change lands anywhere in the chain that produces or sustains physical space: sites and buildings, infrastructure and utilities, materials and construction methods, logistics and freight, energy and water, land and property, the labour that runs these places, the capital and insurance behind them, the codes and regulations governing them, or the people who move through and use them. Second-order effects fully count — a labour, capital, materials, mobility, climate, or demographic shift that would eventually reshape how space is built, used, staffed, or valued is IN scope. Where genuinely torn, keep it and let the human cut it.
+
+What is OUT of scope: anything whose entire consequence stays inside a screen, a lab, a journal, or a discourse. Media criticism, culture-war commentary, AI-industry trade news, and personal-essay reflection do NOT qualify on their own. An embedded hyperlink pointing to something concrete and physical CAN carry an otherwise out-of-scope essay over the bar — if so, build the candidate around that link, not the essay.
+
+State the stake in one concrete sentence or drop the candidate. Do not stretch to invent one — a strained justification is itself the signal that it does not belong.
 
 Return AS MANY candidates as are at all worth Kristen's eye, ordered weakest/strangest first. Never silently drop a plausibly-interesting item. Keep "ai_read" and "evidence" under 45 words each. Return ONLY a JSON array, no prose, each element:
 {"title": "short signal name (the shift, not the event)",
@@ -228,7 +264,11 @@ for (const feedUrl of batch) {
     const ageDays = (Date.now() - date.getTime()) / 864e5;
     if (!isFinite(ageDays) || ageDays > RECENT_DAYS) continue;
     const key = normUrl(it.link);
-    if (!key || seen.has(key)) continue;
+    if (!key || seen.has(key) || runKeys.has(key)) continue;
+    const ck = claimKey(it.title);
+    if (ck && (seen.has(ck) || runKeys.has(ck))) continue;
+    runKeys.add(key);
+    if (ck) runKeys.add(ck);
     const plain = stripHtml(it.contentHtml);
     rawItems.push({
       title: it.title,
@@ -276,7 +316,13 @@ for (const c of candidates) {
   const a = authorByUrl.get(normUrl(c.url));
   if (a && !c.author) c.author = a;
 }
-for (const it of rawItems) seen.add(normUrl(it.url));
+// Two keys per item now (url + claim), so SEEN_LIMIT buys roughly half as many runs of
+// de-dup memory as it used to. Raise SEEN_LIMIT above if repeats start reappearing.
+for (const it of rawItems) {
+  seen.add(normUrl(it.url));
+  const ck = claimKey(it.title);
+  if (ck) seen.add(ck);
+}
 
 const payload = { generated: new Date().toISOString(), batch: today, candidates };
 writeFileSync(join(ROOT, "substack-candidates.json"), JSON.stringify(payload, null, 1));
