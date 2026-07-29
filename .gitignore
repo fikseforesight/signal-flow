@@ -1,0 +1,12 @@
+# Raindrop exports carry personal notes and highlights. This repo is public —
+# never commit them. Run raindrop-import.mjs against a local path instead.
+raindrop-export.csv
+*raindrop*.csv
+Buildings_Physical_Space_Store.csv
+
+# local env / secrets
+.env
+.env.*
+
+node_modules/
+.DS_Store
