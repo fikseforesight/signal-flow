@@ -1,172 +1,96 @@
 {
- "generated": "2026-08-10T15:31:32.413Z",
- "batch": "2026-08-10",
+ "generated": "2026-08-17T12:02:11.151Z",
+ "batch": "2026-08-17",
  "candidates": [
   {
-   "title": "Podcast-run mutual aid as informal housing safety net",
-   "shift": "A niche podcast's listener-funded redistribution program is directly preventing evictions, funding abusive-marriage exits, and subsidizing medical/legal crises — informal parasocial mutual aid networks doing what public safety nets increasingly don't.",
-   "ai_read": "Tentative: if creator-economy mutual aid scales, it becomes a shadow tenant-stabilization and crisis-insurance layer operating outside landlords, courts, and insurers — worth watching as informal infrastructure.",
-   "evidence": "Podcast reports redistributing funds to prevent an eviction, fund a divorce/exit from abuse, cover medical crises, and support a labor organizer — described as their 'first annual' redistribution project.",
-   "url": "https://www.diabolicalliespod.com/p/heres-what-your-support-of-diabolical",
-   "source": "Diabolical Lies",
-   "date": "2026-08-02",
-   "horizon": "H3",
+   "title": "Scam Compounds as Physical Real Estate",
+   "shift": "The global scam economy has moved from being purely digital fraud to a built-infrastructure phenomenon: guarded compounds (often repurposed casinos/hotels) housing trafficked forced labor running scam operations, concentrated in parts of Southeast Asia.",
+   "ai_read": "Tentative: the essay's own scam-letter anecdote is trivial, but its embedded link on 'mapping the global scam-center phenomenon' reveals a $1T industry with real physical footprint — compounds, cross-border trafficking, regional property reuse. That's the actual signal.",
+   "evidence": "Global Initiative Against Transnational Organized Crime report mapping scam-center locations; QZ data showing FTC imposter-scam losses nearly tripled; Bloomberg's 'Golden Age of Grift' framing.",
+   "url": "https://findings.mouthwash.studio/p/welcome-to-scamtopia",
+   "source": "Findings (Mouthwash Studio)",
+   "date": "2026-08-13",
+   "horizon": "H2",
    "srctype": "substack",
-   "swipes": "Entrants & exits",
-   "steep": "Social",
-   "steep2": "Economic",
+   "swipes": "Statistics",
+   "steep": "Economic",
+   "steep2": "Political",
    "classification": "Weak signal",
-   "maturity": "Early indicator",
-   "likelihood": 2,
-   "credibility": 1,
-   "novelty": "High",
-   "impact_scale": "Local",
-   "disruptive_potential": "Minor",
-   "initial_analysis": "This is an early example of parasocial/creator-economy communities acting as informal mutual-aid insurers for housing and crisis costs, a shift from state/employer safety nets toward audience-funded ones. If it scaled, landlords, eviction courts, and insurers would face a new informal buffer layer intervening before formal processes.",
+   "maturity": "Signal",
+   "likelihood": 4,
+   "credibility": 4,
+   "novelty": "Medium",
+   "impact_scale": "Global",
+   "disruptive_potential": "Major",
+   "initial_analysis": "This is an example of illicit capital shifting from purely digital fraud into physical infrastructure — repurposed buildings and forced-labor compounds — as scam operations scale. Driven by trafficking networks and weak regional enforcement, if unchecked it could normalize scam-compound real estate as a durable regional property and labor market, complicating security, insurance, and land-use regulation in host countries.",
    "themes": [
-    "mutual aid",
-    "housing precarity",
-    "informal safety nets"
+    "scam economy",
+    "forced labor",
+    "regional infrastructure",
+    "illicit real estate"
    ],
    "keywords": [
-    "eviction",
-    "mutual aid",
-    "creator economy",
-    "housing"
+    "scam centers",
+    "trafficking",
+    "compounds",
+    "Southeast Asia",
+    "fraud economy"
    ],
    "sources": [
     {
-     "name": "Diabolical Lies",
-     "url": "https://www.diabolicalliespod.com/p/heres-what-your-support-of-diabolical"
+     "name": "Global Initiative — Mapping Global Scam Center Phenomenon",
+     "url": "https://globalinitiative.net/analysis/mapping-global-scam-center-phenomenon/"
+    },
+    {
+     "name": "QZ — FTC imposter scam losses",
+     "url": "https://qz.com/ftc-imposter-scams-record-losses-2025-062626"
+    },
+    {
+     "name": "Bloomberg — The Golden Age of Grift",
+     "url": "https://www.bloomberg.com/features/2026-golden-age-of-grift/"
     }
    ],
-   "author": "Katie Gatti Tassin"
+   "author": "Mouthwash Studio"
   },
   {
-   "title": "Downwardly-mobile educated youth swelling socialist ranks",
-   "shift": "The Democratic Socialists of America's membership has flipped from a median age of 68 in 2013 to 33 today, dominated by highly educated but downwardly mobile young adults reacting to cost-of-living and housing stress.",
-   "ai_read": "Tentative: a generation priced out of stable housing/wealth-building may push harder for rent control, public housing, and land-use reform as it gains political power — landlords, developers, and municipal planners may face a shifting regulatory horizon.",
-   "evidence": "Nate Silver's analysis cited: DSA median-age shift from 68 (2013) to 33; those born after 1980 now 73% of members, up from 7% in 2013; linked to cost-of-living and wealth-inequality dissatisfaction.",
-   "url": "https://www.derekthompson.org/p/the-9-questions-im-obsessed-with",
-   "source": "Derek Thompson",
-   "date": "2026-08-07",
-   "horizon": "H3",
+   "title": "Media Capital Buying Physical Sports Franchises at Record Scale",
+   "shift": "Tech and media wealth (Kushner, Iger) is converging on ownership of legacy physical sports assets at unprecedented valuations, tying entertainment real estate and venue economics to media-empire capital flows.",
+   "ai_read": "Tentative: a $12.5B Lakers sale, buried as a link in a creator-economy newsletter, may signal that arena/franchise real estate is being re-priced as media infrastructure rather than sports property — worth watching for stadium financing and venue development knock-ons.",
+   "evidence": "Hypebeast item on Josh Kushner and Bob Iger acquiring the LA Lakers for $12.5 billion, cited alongside other creator-economy capital consolidation stories (YouTube/TIFF, LVMH/Porsche).",
+   "url": "https://codesofculture.futureplus.xyz/p/codes-of-culture-issue-113",
+   "source": "Codes of Culture",
+   "date": "2026-08-14",
+   "horizon": "H2",
    "srctype": "substack",
    "swipes": "Statistics",
-   "steep": "Political",
-   "steep2": "Demographic",
+   "steep": "Economic",
    "classification": "Weak signal",
    "maturity": "Signal",
    "likelihood": 3,
    "credibility": 3,
    "novelty": "Medium",
    "impact_scale": "Regional",
-   "disruptive_potential": "Major",
-   "initial_analysis": "This is a demographic capture of a political movement by young, credentialed, economically stalled adults — a shift from labor-movement-era socialism to a housing/cost-of-living-driven politics. If sustained, it could reshape municipal land-use and rent regulation fights as this cohort gains electoral power.",
-   "themes": [
-    "housing politics",
-    "generational wealth",
-    "political realignment"
-   ],
-   "keywords": [
-    "DSA",
-    "rent control",
-    "cost of living",
-    "generational politics"
-   ],
-   "sources": [
-    {
-     "name": "Nate Silver analysis",
-     "url": "https://www.natesilver.net/p/the-dsa-sweet-spot-highly-educated"
-    },
-    {
-     "name": "New Yorker",
-     "url": "https://www.newyorker.com/news/fault-lines/subaru-socialists-and-the-great-disappointed"
-    }
-   ],
-   "author": "Derek Thompson"
-  },
-  {
-   "title": "AI capex now dominating private investment",
-   "shift": "AI-related capital expenditure has grown large enough to dominate private investment in the U.S. economy, per WSJ reporting cited in passing within a broader political essay.",
-   "ai_read": "Tentative: if AI investment truly dominates private capex, data-center siting, power-grid buildout, land acquisition, and construction labor demand shift disproportionately toward a narrow set of hyperscale physical assets — worth tracking as a capital-allocation distortion with real-estate and energy consequences.",
-   "evidence": "Essay links WSJ piece: 'The AI Boom Is Transforming the American Economy Beyond Recognition' — cited as evidence AI 'dominates private investment.'",
-   "url": "https://www.derekthompson.org/p/the-9-questions-im-obsessed-with",
-   "source": "Derek Thompson",
-   "date": "2026-08-07",
-   "horizon": "H2",
-   "srctype": "substack",
-   "swipes": "Statistics",
-   "steep": "Economic",
-   "steep2": "Technological",
-   "classification": "Trend",
-   "maturity": "Signal",
-   "likelihood": 4,
-   "credibility": 3,
-   "novelty": "Low",
-   "impact_scale": "Global",
-   "disruptive_potential": "Major",
-   "initial_analysis": "This reflects a shift from broad-based private investment across sectors toward heavy concentration in AI infrastructure (data centers, chips, power). The physical footprint is data-center construction, grid capacity upgrades, and land/water demand concentrated in specific regions, with second-order effects on energy pricing and construction labor allocation.",
-   "themes": [
-    "AI infrastructure",
-    "capital concentration",
-    "energy demand"
-   ],
-   "keywords": [
-    "AI capex",
-    "data centers",
-    "private investment",
-    "power grid"
-   ],
-   "sources": [
-    {
-     "name": "WSJ",
-     "url": "http://www.wsj.com/economy/the-ai-boom-is-transforming-the-american-economy-beyond-recognition-c7825b31?mod=hp_lead_pos2"
-    }
-   ],
-   "author": "Derek Thompson"
-  },
-  {
-   "title": "Disney's licensing-cycle merchandise blitz as retail choreography",
-   "shift": "Disney's 'World Princess Week,' a manufactured annual retail moment since 2021, now coordinates simultaneous product drops across Funko, LEGO, Pandora, and Loungefly, showing IP-driven merchandise cycles as a deliberate seasonal demand-generation mechanism.",
-   "ai_read": "Tentative: this is an established but intensifying pattern — brand-owned 'micro-holidays' engineered to synchronize multi-vendor licensed production and retail floor resets; worth tracking for what it implies about supply-chain timing pressure on toy/apparel manufacturers.",
-   "evidence": "Essay describes coordinated product reveals across multiple licensees (Funko, LEGO, Pandora, Loungefly) tied to a Disney-created annual week, with links to Disney's 2021 launch and voice-actor promotional tie-ins.",
-   "url": "https://www.bagable.com/p/world-princess-week-disney-funko-lego-pandora-loungefly",
-   "source": "Bagable",
-   "date": "2026-08-08",
-   "horizon": "H1",
-   "srctype": "substack",
-   "swipes": "Superhits & outliers",
-   "steep": "Economic",
-   "classification": "Hype",
-   "maturity": "Signal",
-   "likelihood": 5,
-   "credibility": 2,
-   "impact_scale": "Global",
    "disruptive_potential": "Minor",
-   "novelty": "Low",
-   "lens_retail": "toys/apparel/licensing",
-   "lens_shopper": "Consume",
-   "initial_analysis": "This exemplifies the shift from organic seasonal retail cycles to IP-owner-engineered demand events that synchronize multiple independent manufacturers' production and retail merchandising calendars around a single brand-owned week.",
+   "initial_analysis": "This is an example of media-industry capital moving from content/platforms into hard physical assets (arenas, franchises), driven by desire to control both IP and venue experience. If it continues, expect entertainment-venue financing and development to increasingly be underwritten by media conglomerates rather than traditional sports ownership groups.",
    "themes": [
-    "licensed merchandise",
-    "retail calendar engineering",
-    "IP marketing"
+    "sports real estate",
+    "media capital",
+    "venue economics"
    ],
    "keywords": [
-    "Disney",
-    "licensing",
-    "retail",
-    "toys",
-    "merchandise drop"
+    "Lakers",
+    "arena",
+    "franchise valuation",
+    "media empire",
+    "capital flows"
    ],
    "sources": [
     {
-     "name": "Good Morning America",
-     "url": "https://www.goodmorningamerica.com/living/story/call-princess-disneys-world-princess-week-79519857"
+     "name": "Hypebeast — Kushner/Iger acquire Lakers",
+     "url": "https://hypebeast.com/2026/8/nba-josh-kushner-bob-iger-acquire-los-angeles-lakers-12-5-billion-usd"
     }
    ],
-   "author": "Bagable.com"
+   "author": "Codes of Culture"
   }
  ]
 }
