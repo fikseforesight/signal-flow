@@ -1,96 +1,51 @@
 {
- "generated": "2026-08-17T12:02:11.151Z",
- "batch": "2026-08-17",
+ "generated": "2026-08-24T12:04:19.132Z",
+ "batch": "2026-08-24",
  "candidates": [
   {
-   "title": "Scam Compounds as Physical Real Estate",
-   "shift": "The global scam economy has moved from being purely digital fraud to a built-infrastructure phenomenon: guarded compounds (often repurposed casinos/hotels) housing trafficked forced labor running scam operations, concentrated in parts of Southeast Asia.",
-   "ai_read": "Tentative: the essay's own scam-letter anecdote is trivial, but its embedded link on 'mapping the global scam-center phenomenon' reveals a $1T industry with real physical footprint — compounds, cross-border trafficking, regional property reuse. That's the actual signal.",
-   "evidence": "Global Initiative Against Transnational Organized Crime report mapping scam-center locations; QZ data showing FTC imposter-scam losses nearly tripled; Bloomberg's 'Golden Age of Grift' framing.",
-   "url": "https://findings.mouthwash.studio/p/welcome-to-scamtopia",
-   "source": "Findings (Mouthwash Studio)",
-   "date": "2026-08-13",
+   "title": "Youth employment erosion in AI-exposed occupations",
+   "shift": "Employment of young workers (22-25) in roles most exposed to AI automation is falling further below historical trend — now 19% below, up from 15% a year prior — even as overall labor markets remain stable.",
+   "ai_read": "Tentative: if entry-level cognitive jobs keep thinning, this reshapes office occupancy patterns, corporate training footprints, and junior-staff housing/commuting demand — a demographic labor shift with delayed built-environment consequences.",
+   "evidence": "Stanford Digital Economy Lab 'Canaries in the Coal Mine' study cited by Exponential View, showing AI-exposed youth employment trending further below baseline year-over-year.",
+   "url": "https://www.exponentialview.co/p/data-to-start-your-week-26-08-24",
+   "source": "Exponential View",
+   "date": "2026-08-24",
    "horizon": "H2",
    "srctype": "substack",
    "swipes": "Statistics",
    "steep": "Economic",
-   "steep2": "Political",
+   "steep2": "Demographic",
    "classification": "Weak signal",
-   "maturity": "Signal",
+   "maturity": "Early indicator",
    "likelihood": 4,
    "credibility": 4,
    "novelty": "Medium",
    "impact_scale": "Global",
    "disruptive_potential": "Major",
-   "initial_analysis": "This is an example of illicit capital shifting from purely digital fraud into physical infrastructure — repurposed buildings and forced-labor compounds — as scam operations scale. Driven by trafficking networks and weak regional enforcement, if unchecked it could normalize scam-compound real estate as a durable regional property and labor market, complicating security, insurance, and land-use regulation in host countries.",
+   "initial_analysis": "This is an early indicator of a shift from AI as a productivity tool to AI as a direct substitute for entry-level cognitive labor. Driven by rapid model capability gains in white-collar tasks, if sustained it would hollow out junior office roles, altering corporate real estate needs (less need for training floors, junior desks), entry-level housing/commuting demand near business districts, and the staffing/insurance models built around career-ladder employment.",
    "themes": [
-    "scam economy",
-    "forced labor",
-    "regional infrastructure",
-    "illicit real estate"
+    "labor market disruption",
+    "AI displacement",
+    "office real estate demand"
    ],
    "keywords": [
-    "scam centers",
-    "trafficking",
-    "compounds",
-    "Southeast Asia",
-    "fraud economy"
+    "AI employment",
+    "youth labor market",
+    "office occupancy",
+    "career ladder",
+    "Stanford Digital Economy Lab"
    ],
    "sources": [
     {
-     "name": "Global Initiative — Mapping Global Scam Center Phenomenon",
-     "url": "https://globalinitiative.net/analysis/mapping-global-scam-center-phenomenon/"
+     "name": "Exponential View",
+     "url": "https://www.exponentialview.co/p/data-to-start-your-week-26-08-24"
     },
     {
-     "name": "QZ — FTC imposter scam losses",
-     "url": "https://qz.com/ftc-imposter-scams-record-losses-2025-062626"
-    },
-    {
-     "name": "Bloomberg — The Golden Age of Grift",
-     "url": "https://www.bloomberg.com/features/2026-golden-age-of-grift/"
+     "name": "Stanford Digital Economy Lab",
+     "url": "https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine-six-facts-about-the-recent-employment-effects-of-artificial-intelligence/"
     }
    ],
-   "author": "Mouthwash Studio"
-  },
-  {
-   "title": "Media Capital Buying Physical Sports Franchises at Record Scale",
-   "shift": "Tech and media wealth (Kushner, Iger) is converging on ownership of legacy physical sports assets at unprecedented valuations, tying entertainment real estate and venue economics to media-empire capital flows.",
-   "ai_read": "Tentative: a $12.5B Lakers sale, buried as a link in a creator-economy newsletter, may signal that arena/franchise real estate is being re-priced as media infrastructure rather than sports property — worth watching for stadium financing and venue development knock-ons.",
-   "evidence": "Hypebeast item on Josh Kushner and Bob Iger acquiring the LA Lakers for $12.5 billion, cited alongside other creator-economy capital consolidation stories (YouTube/TIFF, LVMH/Porsche).",
-   "url": "https://codesofculture.futureplus.xyz/p/codes-of-culture-issue-113",
-   "source": "Codes of Culture",
-   "date": "2026-08-14",
-   "horizon": "H2",
-   "srctype": "substack",
-   "swipes": "Statistics",
-   "steep": "Economic",
-   "classification": "Weak signal",
-   "maturity": "Signal",
-   "likelihood": 3,
-   "credibility": 3,
-   "novelty": "Medium",
-   "impact_scale": "Regional",
-   "disruptive_potential": "Minor",
-   "initial_analysis": "This is an example of media-industry capital moving from content/platforms into hard physical assets (arenas, franchises), driven by desire to control both IP and venue experience. If it continues, expect entertainment-venue financing and development to increasingly be underwritten by media conglomerates rather than traditional sports ownership groups.",
-   "themes": [
-    "sports real estate",
-    "media capital",
-    "venue economics"
-   ],
-   "keywords": [
-    "Lakers",
-    "arena",
-    "franchise valuation",
-    "media empire",
-    "capital flows"
-   ],
-   "sources": [
-    {
-     "name": "Hypebeast — Kushner/Iger acquire Lakers",
-     "url": "https://hypebeast.com/2026/8/nba-josh-kushner-bob-iger-acquire-los-angeles-lakers-12-5-billion-usd"
-    }
-   ],
-   "author": "Codes of Culture"
+   "author": "Azeem Azhar"
   }
  ]
 }
