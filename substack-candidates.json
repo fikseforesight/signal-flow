@@ -1,51 +1,208 @@
 {
- "generated": "2026-08-24T12:04:19.132Z",
- "batch": "2026-08-24",
+ "generated": "2026-08-31T18:11:37.735Z",
+ "batch": "2026-08-31",
  "candidates": [
   {
-   "title": "Youth employment erosion in AI-exposed occupations",
-   "shift": "Employment of young workers (22-25) in roles most exposed to AI automation is falling further below historical trend — now 19% below, up from 15% a year prior — even as overall labor markets remain stable.",
-   "ai_read": "Tentative: if entry-level cognitive jobs keep thinning, this reshapes office occupancy patterns, corporate training footprints, and junior-staff housing/commuting demand — a demographic labor shift with delayed built-environment consequences.",
-   "evidence": "Stanford Digital Economy Lab 'Canaries in the Coal Mine' study cited by Exponential View, showing AI-exposed youth employment trending further below baseline year-over-year.",
-   "url": "https://www.exponentialview.co/p/data-to-start-your-week-26-08-24",
-   "source": "Exponential View",
-   "date": "2026-08-24",
+   "title": "Occupational identity maps onto SF micro-neighborhoods",
+   "shift": "A slang coinage ('nontechnical north') sorts specific San Francisco neighborhoods (Marina, Cow Hollow, Pacific Heights) by professional class — finance/marketing vs. engineering — turning occupation into a geographic identity marker.",
+   "ai_read": "Tentative: informal coinages that map professions onto blocks sometimes precede real shifts in neighborhood branding, retail mix, and rent premiums tied to industry wealth concentration. Strange because it's slang becoming a socioeconomic sorting tool.",
+   "evidence": "Term coined by Neall Seth on X, cited in newsletter as describing real residential clustering of venture/product/media professionals versus engineers in specific SF neighborhoods.",
+   "url": "https://www.8ball.report/p/rihannastalgia",
+   "source": "8ball.report",
+   "date": "2026-08-25",
+   "horizon": "H2",
+   "srctype": "substack",
+   "swipes": "Writings",
+   "steep": "Social",
+   "steep2": "Demographic",
+   "classification": "Weak signal",
+   "maturity": "Signal",
+   "likelihood": 2,
+   "credibility": 1,
+   "novelty": "Medium",
+   "impact_scale": "Local",
+   "disruptive_potential": "Minor",
+   "initial_analysis": "Example of professional/industry identity mapping directly onto urban geography, driven by concentrated tech/finance wealth; if it solidifies, could reshape neighborhood branding, local retail mix, and housing price premiums tied to occupational prestige rather than just income.",
+   "themes": [
+    "urban sorting",
+    "tech wealth geography"
+   ],
+   "keywords": [
+    "nontechnical north",
+    "SF neighborhoods",
+    "occupational clustering"
+   ],
+   "author": "Sean Monahan"
+  },
+  {
+   "title": "Portable 'conduct score' proposed across service platforms",
+   "shift": "A newsletter proposes extending gig-economy rating systems (Uber, Airbnb) into a unified, portable 'Conduct Quotient' / 'Net Conduct Score' that would follow a person across services.",
+   "ai_read": "Tentative: if adopted by physical-space operators (restaurants, hotels, short-term rentals), this could let venues screen or gate customers on cross-platform behavioral history, echoing social-credit debates. Strange for how casually it's framed as a consumer convenience.",
+   "evidence": "Essay proposes Conduct Quotient and Net Conduct Score, hosted at openconduct.org/conduct.is, citing existing Uber driver-set minimum ratings and Airbnb host reviews as precedent.",
+   "url": "https://thenewnew.is/p/conduct-quotient-cq-net-conduct-score-ncs",
+   "source": "thenewnew.is",
+   "date": "2026-08-23",
+   "horizon": "H2",
+   "srctype": "substack",
+   "swipes": "Innovations",
+   "steep": "Social",
+   "steep2": "Economic",
+   "classification": "Weak signal",
+   "maturity": "Early indicator",
+   "likelihood": 2,
+   "credibility": 1,
+   "novelty": "High",
+   "impact_scale": "Regional",
+   "disruptive_potential": "Major",
+   "initial_analysis": "Shift from siloed platform reputation scores toward a unified cross-service behavioral credit system; if it gains adoption, operators of physical service spaces could gate access or pricing based on portable conduct history, reshaping customer screening, liability, and hospitality staffing practices.",
+   "themes": [
+    "reputation economy",
+    "behavioral credit",
+    "gig economy"
+   ],
+   "keywords": [
+    "Conduct Quotient",
+    "Net Conduct Score",
+    "Uber rating",
+    "Airbnb review"
+   ],
+   "author": "Brent Turner"
+  },
+  {
+   "title": "'Technological history' proposed as clinical intake category",
+   "shift": "A mental-health commentator argues clinics should formally add patients' internet/AI exposure ('technological history') to psychiatric intake, driven by rising 'AI psychosis' case discussion.",
+   "ai_read": "Tentative: if clinics adopt this, behavioral health facilities would need new intake forms and staff training, treating digital exposure like substance-use history. Strange for formalizing internet use as a clinical diagnostic variable.",
+   "evidence": "Essay cites a preprint on AI-associated psychological destabilization and related reporting on teen social-media-linked deaths (Kentucky lawmaker's proposed settlement fund).",
+   "url": "https://default.blog/p/should-technological-history-be-a",
+   "source": "default.blog",
+   "date": "2026-08-27",
+   "horizon": "H2",
+   "srctype": "substack",
+   "swipes": "Writings",
+   "steep": "Social",
+   "steep2": "Technological",
+   "classification": "Weak signal",
+   "maturity": "Early indicator",
+   "likelihood": 2,
+   "credibility": 1,
+   "novelty": "High",
+   "impact_scale": "Local",
+   "disruptive_potential": "Minor",
+   "initial_analysis": "Shift from psychiatric intake focused on substance/family history toward one incorporating digital/technological exposure as a clinical variable, driven by emerging 'AI psychosis' cases; if adopted, mental health facilities would need new intake protocols, staff training, and possibly new diagnostic coding.",
+   "themes": [
+    "mental health",
+    "AI psychosis",
+    "clinical protocol"
+   ],
+   "keywords": [
+    "AI psychosis",
+    "psych intake",
+    "technological history",
+    "clinical practice"
+   ],
+   "author": "Katherine Dee"
+  },
+  {
+   "title": "Venues institute lifetime bans on smart-glasses wearers",
+   "shift": "A New York nightlife establishment is banning wearers of smart glasses (e.g., Meta Ray-Bans) for life, citing covert-recording concerns.",
+   "ai_read": "Tentative early indicator that hospitality/venue operators are building formal device policies around ambient AI cameras, potentially becoming standard alongside no-phone/no-camera rules in nightlife and other physical social spaces.",
+   "evidence": "Feed Me newsletter reports a specific NYC establishment enforcing lifetime bans on patrons wearing Meta smart glasses.",
+   "url": "https://www.readfeedme.com/p/wearing-smart-glasses-at-this-new",
+   "source": "readfeedme.com",
+   "date": "2026-08-28",
+   "horizon": "H1",
+   "srctype": "substack",
+   "swipes": "Entrants & exits",
+   "steep": "Technological",
+   "steep2": "Social",
+   "classification": "Weak signal",
+   "maturity": "Early indicator",
+   "likelihood": 3,
+   "credibility": 2,
+   "novelty": "Medium",
+   "impact_scale": "Local",
+   "disruptive_potential": "Minor",
+   "initial_analysis": "Shift from unrestricted device use in physical social venues to explicit wearable-camera bans, driven by privacy/surveillance concerns; if it spreads, restaurants, clubs, and other physical venues may need formal device policies and staff enforcement protocols akin to dress codes.",
+   "themes": [
+    "privacy",
+    "wearables",
+    "venue policy"
+   ],
+   "keywords": [
+    "smart glasses",
+    "Meta Ray-Ban",
+    "nightclub ban",
+    "surveillance"
+   ],
+   "author": "Emily Sundberg"
+  },
+  {
+   "title": "Parking spots sold as standalone real estate assets",
+   "shift": "Individual parking spots in NYC (Park Slope) are being listed and sold as standalone real-estate assets for roughly $250k via Compass and Zillow, decoupled from housing units.",
+   "ai_read": "Tentative signal of extreme land-scarcity-driven commodification of urban space; strange because parking becomes an investable asset class in itself rather than a housing amenity.",
+   "evidence": "NYT piece cited in newsletter: 'Parking spots in Park Slope are going for $250k—and listing on Compass and Zillow.'",
+   "url": "https://www.readfeedme.com/p/wsj-is-hiring-a-multi-hyphenate-star",
+   "source": "readfeedme.com",
+   "date": "2026-08-31",
    "horizon": "H2",
    "srctype": "substack",
    "swipes": "Statistics",
    "steep": "Economic",
-   "steep2": "Demographic",
+   "steep2": "Environmental",
    "classification": "Weak signal",
    "maturity": "Early indicator",
-   "likelihood": 4,
-   "credibility": 4,
+   "likelihood": 3,
+   "credibility": 3,
+   "novelty": "Medium",
+   "impact_scale": "Local",
+   "disruptive_potential": "Minor",
+   "initial_analysis": "Shift from parking as an ancillary building amenity to parking as a tradable real-estate commodity, driven by extreme land scarcity and car ownership pressure in dense cities; if it spreads, developers and city planners may need to formally unbundle, price, and regulate parking rights as their own asset class.",
+   "themes": [
+    "urban land scarcity",
+    "parking economy",
+    "real estate commodification"
+   ],
+   "keywords": [
+    "parking spot sale",
+    "Park Slope",
+    "Compass Zillow",
+    "real estate asset"
+   ],
+   "author": "Emily Sundberg"
+  },
+  {
+   "title": "Meta's AI-staff-replacement plan reportedly imploded",
+   "shift": "A Reuters investigation reports that Meta's internal plan to replace large numbers of staff with AI agents failed and 'imploded,' even as other founders (Wabi, Replit) report freezing junior hiring due to AI.",
+   "ai_read": "Tentative: aggressive AI-driven headcount-reduction plans are hitting real operational limits at a flagship adopter, which could complicate — or delay — office-space and staffing contraction forecasts tied to AI labor-disruption narratives.",
+   "evidence": "Reuters investigation 'Mark Zuckerberg had a bold plan to replace Meta staff with AI. Here's how it imploded'; multiple founders quoted halting junior engineer hiring due to AI agents.",
+   "url": "https://www.platformer.news/clara-shih-new-work-dear-cc-interview-meta-salesforce/",
+   "source": "platformer.news",
+   "date": "2026-08-28",
+   "horizon": "H2",
+   "srctype": "substack",
+   "swipes": "Writings",
+   "steep": "Economic",
+   "steep2": "Technological",
+   "classification": "Weak signal",
+   "maturity": "Trigger",
+   "likelihood": 3,
+   "credibility": 3,
    "novelty": "Medium",
    "impact_scale": "Global",
    "disruptive_potential": "Major",
-   "initial_analysis": "This is an early indicator of a shift from AI as a productivity tool to AI as a direct substitute for entry-level cognitive labor. Driven by rapid model capability gains in white-collar tasks, if sustained it would hollow out junior office roles, altering corporate real estate needs (less need for training floors, junior desks), entry-level housing/commuting demand near business districts, and the staffing/insurance models built around career-ladder employment.",
+   "initial_analysis": "Shift from confident 'AI replaces workforce' corporate plans toward messy real-world reversals, driven by overestimation of agentic AI capability; if this pattern generalizes, it complicates office real-estate and staffing forecasts built on assumptions of rapid AI-driven downsizing.",
    "themes": [
-    "labor market disruption",
-    "AI displacement",
-    "office real estate demand"
+    "AI labor disruption",
+    "corporate real estate",
+    "workforce planning"
    ],
    "keywords": [
-    "AI employment",
-    "youth labor market",
-    "office occupancy",
-    "career ladder",
-    "Stanford Digital Economy Lab"
+    "Meta AI replacement",
+    "junior hiring freeze",
+    "AI agents",
+    "labor market"
    ],
-   "sources": [
-    {
-     "name": "Exponential View",
-     "url": "https://www.exponentialview.co/p/data-to-start-your-week-26-08-24"
-    },
-    {
-     "name": "Stanford Digital Economy Lab",
-     "url": "https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine-six-facts-about-the-recent-employment-effects-of-artificial-intelligence/"
-    }
-   ],
-   "author": "Azeem Azhar"
+   "author": "Casey Newton"
   }
  ]
 }
