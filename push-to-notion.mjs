@@ -110,8 +110,11 @@ function buildProps(c, feed) {
   if (HORIZON_VALID.has(c.horizon)) p["Horizon"] = { select: { name: c.horizon } };
   if (SWIPES_VALID.has(c.swipes)) p["SWIPES"] = { select: { name: c.swipes } };
   if (origins.length) p["STEEP-V Origin"] = { multi_select: origins };
-  if (themes.length) p["Themes"] = { multi_select: themes };
-  if (keywords.length) p["Keywords"] = { multi_select: keywords };
+  // Themes/Keywords hit Notion's multi-select option cap (~5,600 options) around Sept 13, 2026:
+  // any candidate with a never-seen keyword was rejected (400) and silently dropped.
+  // Both properties were converted to plain text in Notion (Oct 2026) so new terms never block a write.
+  if (themes.length) p["Themes"] = { rich_text: rt(themes.map((t) => t.name).join(", ")) };
+  if (keywords.length) p["Keywords"] = { rich_text: rt(keywords.map((k) => k.name).join(", ")) };
   const branches = CAN_BRANCH ? branchTags(c) : [];
   if (branches.length) p["Domain Branch"] = { multi_select: branches };
   if (c.date && /^\d{4}-\d{2}-\d{2}/.test(c.date)) p["Date Published"] = { date: { start: c.date.slice(0, 10) } };
@@ -209,6 +212,8 @@ async function run() {
   }
   if (!seenFiles) console.log("No candidate files found.");
     console.log(`\nNotion sync: ${added} new, ${skipped} already present, ${tooOld} older than the 1-year rolling window${failed ? `, ${failed} failed` : ""}.`);
+    // Fail the GitHub Actions run loudly if any write failed, so silent drops can't hide behind a green check again.
+    if (failed > 0) process.exitCode = 1;
 }
 
 run().catch((e) => { console.error(e); process.exit(1); });
