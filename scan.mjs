@@ -204,7 +204,7 @@ async function rss() {
 
 // ---------- the AI pass ----------
 
-async function claudePass(items) {
+async function claudePass(items, maxC = CFG.maxCandidates) {
   const sys = `You are the scanning funnel for Signal Flow, a strategic-foresight weak-signal tool. The human (Kristen) holds ALL qualification judgment; you widen and label.
 
 Domain map: ${SRC.domainMap}
@@ -229,7 +229,7 @@ What is OUT of scope: anything whose entire consequence stays inside a screen, a
 State the stake in one concrete sentence or drop the candidate. Do not stretch to invent one — a strained justification is itself the signal that it does not belong.
 `}
 
-From the raw items, return AS MANY candidates as are at all worth Kristen's eye — up to ${CFG.maxCandidates}, ordered weakest/strangest first. She wants VOLUME and wants to see the rule-outs, so also include borderline and already-trending items, but label those honestly with classification "Trend" or "Hype" and a one-line reason in ai_read. Never silently drop a plausibly-interesting item; include and label it. Keep "ai_read" and "evidence" under 45 words each. Return ONLY a JSON array, no prose, each element:
+From the raw items, return AS MANY candidates as are at all worth Kristen's eye — up to ${maxC}, ordered weakest/strangest first. She wants VOLUME and wants to see the rule-outs, so also include borderline and already-trending items, but label those honestly with classification "Trend" or "Hype" and a one-line reason in ai_read. Never silently drop a plausibly-interesting item; include and label it. Keep "ai_read" and "evidence" under 45 words each. Return ONLY a JSON array, no prose, each element:
 {"title": "short signal name (the shift, not the event)",
  "shift": "1-2 sentences on the underlying shift",
  "ai_read": "tentative read: why it might matter and why it is strange, labeled tentative",
@@ -263,7 +263,7 @@ From the raw items, return AS MANY candidates as are at all worth Kristen's eye 
   const j = await res.json();
   const text = (j.content || []).map((b) => b.text || "").join("");
   const m = text.match(/\[[\s\S]*/);
-  if (!m) throw new Error("No JSON array in model response");
+  if (!m) throw new Error(`No JSON array in model response (stop_reason=${j.stop_reason}; starts: ${JSON.stringify(text.slice(0, 300))})`);
   // salvage parse: if the response was truncated mid-object, trim back to the
   // last complete object boundary and close the array — never lose a whole batch
   const raw = m[0];
@@ -275,6 +275,35 @@ From the raw items, return AS MANY candidates as are at all worth Kristen's eye 
     if (end <= 0) break;
   }
   throw new Error("Could not parse model response as JSON");
+}
+
+// Batched, retrying AI pass. Before Oct 2026 the whole day's items went in one request,
+// and a single malformed reply crashed the scan and lost the day (9 crashes Sept 14-Oct 1).
+// Now: ~40 items per request, 3 tries per batch, and a failed batch is logged and skipped
+// instead of killing the run.
+async function claudePassBatched(items) {
+  const BATCH = 40;
+  const out = [];
+  let failedBatches = 0;
+  for (let s = 0; s < items.length; s += BATCH) {
+    const chunk = items.slice(s, s + BATCH);
+    const maxC = Math.max(5, Math.ceil(CFG.maxCandidates * chunk.length / items.length));
+    let done = false;
+    for (let attempt = 1; attempt <= 3 && !done; attempt++) {
+      try {
+        const r = await claudePass(chunk, maxC);
+        out.push(...r);
+        console.log(`  batch ${s / BATCH + 1}: ${r.length} candidates`);
+        done = true;
+      } catch (e) {
+        console.error(`  batch ${s / BATCH + 1} attempt ${attempt} failed: ${e.message}`);
+        if (attempt < 3) await sleep(5000 * attempt);
+      }
+    }
+    if (!done) failedBatches++;
+  }
+  if (failedBatches && !out.length) throw new Error(`All ${failedBatches} AI batches failed`);
+  return out;
 }
 
 // ---------- main ----------
@@ -312,7 +341,15 @@ const capped = fresh.slice(0, CFG.maxRawItems);
 let candidates = [];
 if (capped.length && API_KEY) {
   console.log(`AI pass on ${capped.length} items…`);
-  candidates = await claudePass(capped);
+  try {
+    candidates = await claudePassBatched(capped);
+  } catch (err) {
+    console.error(`AI pass failed entirely (${err.message}) — writing raw items as bare candidates so the day is not lost.`);
+    candidates = capped.slice(0, CFG.maxCandidates).map((i) => ({
+      title: i.title, shift: "", ai_read: "(AI pass failed — raw feed item, needs manual triage)", evidence: i.snippet,
+      url: i.url, source: i.source, date: i.date, srctype: "import", classification: "", themes: [], keywords: [],
+    }));
+  }
   console.log(`  ${candidates.length} candidates drafted`);
 } else if (!API_KEY) {
   console.error("ANTHROPIC_API_KEY missing — writing raw items as bare candidates.");
