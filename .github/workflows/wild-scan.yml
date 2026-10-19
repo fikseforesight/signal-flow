@@ -12,6 +12,10 @@ on:
     - cron: "15 12 * * 2,5"   # ~7:15am CT Tuesday & Friday
   workflow_dispatch: {}
 
+permissions:
+  contents: write
+  issues: write
+
 jobs:
   scan:
     runs-on: ubuntu-latest
@@ -43,3 +47,13 @@ jobs:
           echo "push attempt $i failed, retrying"
           sleep 5
           done
+
+      - name: Review queue + alerts
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node alert.mjs
+
+      - name: Fail the run if AI triage did not run
+        run: |
+          node -e 'const s=require("./scan-status.json"); if(s.ai==="failed"||s.ai==="no-key"){console.error("AI pass: "+s.ai+" — "+s.error); process.exit(1)}'

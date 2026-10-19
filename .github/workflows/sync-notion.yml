@@ -8,6 +8,10 @@ name: Sync to Notion
 # Idempotent (dedup by Signal ID), so overlapping triggers never duplicate.
 
 on:
+  # Runs the moment a scan finishes (Oct 2026) — no more waiting for the next timed slot.
+  workflow_run:
+    workflows: ["Daily signal scan", "Wild scan"]
+    types: [completed]
   schedule:
     - cron: "40 11 * * *"   # ~6:40am CT, ~23 min after the daily scan
   push:
@@ -16,7 +20,16 @@ on:
       - "candidates.json"
       - "substack-candidates.json"
       - "wild-candidates.json"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      full_sync:
+        description: "Re-check the whole archive (slow; normally only the last 10 days)"
+        type: boolean
+        default: false
+
+concurrency:
+  group: notion-sync
+  cancel-in-progress: false
 
 jobs:
   sync:
@@ -30,4 +43,5 @@ jobs:
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+          FULL_SYNC: ${{ inputs.full_sync && '1' || '0' }}
         run: node push-to-notion.mjs

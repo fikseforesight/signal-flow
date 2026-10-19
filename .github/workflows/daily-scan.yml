@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  issues: write   # alert issues: AI failures + strong candidates
 
 jobs:
   scan:
@@ -18,7 +19,7 @@ jobs:
         with:
           node-version: 20
 
-      - name: Run scan
+      - name: Run scan (triage + critique pass)
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: node scan.mjs
@@ -29,5 +30,14 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add -A
           git diff --cached --quiet && echo "No changes to commit" || git commit -m "Daily scan $(date -u +%F)"
-          git pull --rebase origin main
-          git push
+          for i in 1 2 3 4 5; do git pull --rebase origin main && git push && break; sleep 5; done
+
+      - name: Review queue + alerts
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node alert.mjs
+
+      - name: Fail the run if AI triage did not run
+        run: |
+          node -e 'const s=require("./scan-status.json"); if(s.ai==="failed"||s.ai==="no-key"){console.error("AI pass: "+s.ai+" — "+s.error); process.exit(1)}'

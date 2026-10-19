@@ -1,0 +1,36 @@
+name: Weekly foresight digest + blind spots
+
+# Mondays ~7:45am CT, after the Monday Substack scan and daily sync. Reads Notion, writes
+# reports/digest-DATE.md and reports/blindspots-DATE.md, and opens one issue (emailed to you).
+
+on:
+  schedule:
+    - cron: "45 12 * * 1"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  reports:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build digest and blind-spot report
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node reports.mjs
+      - name: Commit reports
+        run: |
+          git config user.name "signal-flow-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add reports
+          git diff --cached --quiet && echo "No changes" || git commit -m "Weekly reports $(date -u +%F)"
+          for i in 1 2 3; do git pull --rebase origin main && git push && break; sleep 5; done
