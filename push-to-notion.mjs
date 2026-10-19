@@ -24,7 +24,13 @@ const FILES = [
   ["wild-candidates.json", "wild"],
 ];
 
-if (existsSync("archive")) { for (const f of readdirSync("archive")) { if (/^candidates-\d{4}-\d{2}-\d{2}\.json$/.test(f)) FILES.push([`archive/${f}`, "daily"]); else if (/^wild-\d{4}-\d{2}-\d{2}\.json$/.test(f)) FILES.push([`archive/${f}`, "wild"]); else if (/^substack-\d{4}-\d{2}-\d{2}\.json$/.test(f)) FILES.push([`archive/${f}`, "substack"]); else if (/^manual-\d{4}-\d{2}-\d{2}\.json$/.test(f)) FILES.push(["archive/" + f, "manual"]); } }
+// Only re-check recent archive files (default 10 days). Every archived candidate costs one Notion
+// query per run, so syncing the whole archive daily grew to thousands of calls and slowed the
+// sync to ~20+ min. Set FULL_SYNC=1 (Actions → Sync to Notion → Run workflow) to backfill everything.
+const SYNC_DAYS = Number(process.env.SYNC_DAYS || 10);
+const FULL = process.env.FULL_SYNC === "1";
+const recent = (f) => { const m = f.match(/(\d{4}-\d{2}-\d{2})/); return FULL || !m || (Date.now() - new Date(m[1]).getTime()) / 864e5 <= SYNC_DAYS; };
+if (existsSync("archive")) { for (const f of readdirSync("archive").filter(recent)) { if (/^candidates-\d{4}-\d{2}-\d{2}\.json$/.test(f)) FILES.push([`archive/${f}`, "daily"]); else if (/^wild-\d{4}-\d{2}-\d{2}\.json$/.test(f)) FILES.push([`archive/${f}`, "wild"]); else if (/^substack-\d{4}-\d{2}-\d{2}\.json$/.test(f)) FILES.push([`archive/${f}`, "substack"]); else if (/^manual-\d{4}-\d{2}-\d{2}\.json$/.test(f)) FILES.push(["archive/" + f, "manual"]); } }
 
 const STEEP_VALID = new Set(["Social", "Technological", "Economic", "Environmental", "Political", "Demographic", "Values"]);
 const CLASS_VALID = new Set(["Weak signal", "Wild card", "Trend", "Megatrend", "Hype"]);
@@ -51,7 +57,10 @@ const BRANCHES = [
   ["People & Human System", /people|human system/i],
   ["Policy & Finance", /policy|regulation|finance/i],
   ["Sustainability & Environment", /sustainab|environment/i],
+  ["Off-map / Not Built-Environment", /off-map/i],
 ];
+const FIRST_VALID = new Set(["yes", "plausible", "no"]);
+const BLOCKED = ["archdaily.com"]; // Kristen, Oct 2026: ArchDaily items are not scan hits
 let CAN_BRANCH = true; // cleared if the Domain Branch property is missing and cannot be created
 function branchTags(c) {
   const raw = [c.domain_branch, c.domainBranch, c.branch].filter(Boolean).join(" / ");
@@ -131,6 +140,11 @@ function buildProps(c, feed) {
   if (IMPACT_VALID.has(c.impact_scale)) p["Impact Scale"] = { select: { name: c.impact_scale } };
   if (DISRUPTIVE_VALID.has(c.disruptive_potential)) p["Disruptive Potential"] = { select: { name: c.disruptive_potential } };
   if (c.initial_analysis) p["Initial Analysis"] = { rich_text: rt(c.initial_analysis) };
+  // Oct 2026 additions — written only if the property exists (ensureSchema creates them).
+  if (HAS.Critique && c.critique) p["Critique"] = { rich_text: rt(c.critique) };
+  if (HAS.Weakness && Number.isFinite(c.weakness)) p["Weakness"] = { number: c.weakness };
+  if (HAS["First?"] && FIRST_VALID.has(String(c.first_claim || "").toLowerCase())) p["First?"] = { select: { name: String(c.first_claim).toLowerCase() } };
+  if (HAS.Geography && c.geography) p["Geography"] = { rich_text: rt(c.geography) };
   // Signal Strength / Tests Met / Decision-at-stake are HUMAN-held — left blank on ingest.
   return p;
 }
@@ -145,6 +159,7 @@ function buildBody(c) {
     ] } });
   };
   para("AI read (tentative)", c.ai_read || c.aiRead);
+  para("Critique (adversarial demotion pass)", c.critique);
   para("Evidence", c.evidence);
   para("What's changing", c.shift);
   // extracted hyperlinks: primary url + every link in the nested sources[] array
@@ -169,9 +184,23 @@ function buildBody(c) {
 // Notion auto-creates multi-select OPTIONS on write, but never the PROPERTY itself — so a
 // missing "Domain Branch" would fail every page create. Add it once if absent; if that is not
 // possible (permissions, API change), drop the field rather than breaking the whole sync.
+const HAS = {};
+const EXTRA = {
+  "Critique": { rich_text: {} },
+  "Weakness": { number: { format: "number" } },
+  "First?": { select: { options: [{ name: "yes" }, { name: "plausible" }, { name: "no" }] } },
+  "Geography": { rich_text: {} },
+};
 async function ensureSchema() {
   try {
     const db = await notion("/databases/" + DB, "GET");
+    const missing = Object.fromEntries(Object.entries(EXTRA).filter(([k]) => !db.properties[k]));
+    if (Object.keys(missing).length) {
+      try { await notion("/databases/" + DB, "PATCH", { properties: missing }); console.log("Added properties: " + Object.keys(missing).join(", ")); }
+      catch (e) { console.error("Could not add new properties (" + e.message + ")"); }
+    }
+    const db2 = Object.keys(missing).length ? await notion("/databases/" + DB, "GET") : db;
+    for (const k of Object.keys(EXTRA)) HAS[k] = !!db2.properties[k];
     if (db && db.properties && db.properties["Domain Branch"]) return;
     await notion("/databases/" + DB, "PATCH", {
       properties: { "Domain Branch": { multi_select: { options: BRANCHES.map(([name]) => ({ name })) } } },
@@ -197,6 +226,7 @@ async function run() {
     console.log(`${file} (${feed}): ${cands.length} candidates`);
     for (const c of cands) {
       if (!c || (!c.title && !c.url)) continue;
+      if (BLOCKED.some((d) => normUrl(c.url).startsWith(d))) continue;
       if (c.date) {
         const t = new Date(String(c.date).slice(0, 10)).getTime();
         if (!isNaN(t) && t < cutoff) { tooOld++; continue; }        // rolling window: skip anything older than 1 year

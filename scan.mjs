@@ -25,6 +25,8 @@ const IS_WILD = /wild/i.test(SOURCES_FILE);
 const CFG = SRC.config;
 const DATA = ROOT;
 const API_KEY = process.env.ANTHROPIC_API_KEY;
+// Sources Kristen has ruled out as signal sources (Oct 2026: ArchDaily — project showcases, not change).
+const BLOCKED = (CFG.blockedDomains || []).map((d) => d.toLowerCase().replace(/^www\./, ""));
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const today = new Date().toISOString().slice(0, 10);
@@ -235,7 +237,10 @@ From the raw items, return AS MANY candidates as are at all worth Kristen's eye 
  "ai_read": "tentative read: why it might matter and why it is strange, labeled tentative",
  "evidence": "what supports it, from the item",
  "url": "...", "source": "...", "date": "YYYY-MM-DD",
- "horizon": "H1|H2|H3 — REQUIRED; when the change likely matters most. Bias to H3 (10-30yr) for weak/civilizational signals",
+ "horizon": "H1|H2|H3 — REQUIRED. Judge on evidence, never on strangeness: H1 = already reshaping current operations; H2 = an emerging transition with real instances, likely to matter in ~3-10 yrs; H3 = a seed of a different system, ~10-30 yrs. Do NOT default to H3 just because an item is odd",
+ "domain_branch": "REQUIRED. One or two of: Labor & Operations | Supply Chain | Infrastructure | Construction | Retail Industry | Tech & AI | People & Human System | Policy & Finance | Sustainability & Environment | Off-map — joined with ' / '",
+ "geography": "country or region where the change is actually happening (e.g. 'Japan', 'Gulf', 'US-Texas'), or 'Global'",
+ "first_claim": "yes|plausible|no — is this credibly a FIRST (first law, first deployment, first instance anywhere or in a major market)?",
  "swipes": "Statistics|Writings|Innovations|Pitches|Entrants & exits|Superhits & outliers",
  "steep": "Social|Technological|Economic|Environmental|Political|Demographic",
  "steep2": "optional second, same enum or omit",
@@ -281,6 +286,7 @@ From the raw items, return AS MANY candidates as are at all worth Kristen's eye 
 // and a single malformed reply crashed the scan and lost the day (9 crashes Sept 14-Oct 1).
 // Now: ~40 items per request, 3 tries per batch, and a failed batch is logged and skipped
 // instead of killing the run.
+let FAILED_BATCHES = 0, LAST_AI_ERROR = "";
 async function claudePassBatched(items) {
   const BATCH = 40;
   const out = [];
@@ -296,14 +302,79 @@ async function claudePassBatched(items) {
         console.log(`  batch ${s / BATCH + 1}: ${r.length} candidates`);
         done = true;
       } catch (e) {
+        LAST_AI_ERROR = e.message;
         console.error(`  batch ${s / BATCH + 1} attempt ${attempt} failed: ${e.message}`);
         if (attempt < 3) await sleep(5000 * attempt);
       }
     }
-    if (!done) failedBatches++;
+    if (!done) { failedBatches++; FAILED_BATCHES++; }
   }
-  if (failedBatches && !out.length) throw new Error(`All ${failedBatches} AI batches failed`);
+  if (failedBatches && !out.length) throw new Error(`All ${failedBatches} AI batches failed. Last error: ${LAST_AI_ERROR}`);
   return out;
+}
+
+// ---------- the critique pass (adversarial demotion gate) ----------
+// Oct 2026: the first pass is told to widen, and an AI that widens also over-rates its own
+// finds — in a manual audit of 253 kept items, only 27 survived as genuine firsts/weak signals.
+// So every Weak signal / Wild card now goes through a second, hostile pass whose ONLY job is to
+// prove the item is already known. It runs the same six-question demotion bar Kristen uses.
+// It can demote (to Trend/Hype); it can never promote, and it never deletes.
+async function critiquePass(cands) {
+  const pool = cands.map((c, i) => ({ c, i })).filter(({ c }) => c.classification === "Weak signal" || c.classification === "Wild card");
+  if (!pool.length) return { checked: 0, demoted: 0 };
+  const sys = `You are the adversarial critique analyst for a strategic-foresight weak-signal library. Default posture: DEMOTION. For each candidate, actively try to prove it has ALREADY cleared the weak-signal bar — i.e. that it is a known, named, counted thing.
+
+Weakness = how LITTLE-KNOWN a change is, not how strange it sounds. Answer six tests for each, using your own knowledge plus the evidence given:
+1 named: does the shift already have a coined, widely-used name?
+2 codified: is it backed by law, standard, code, or formal programme in more than one place?
+3 counted: is there survey, market or analyst data quantifying it?
+4 mainstream: has it had mainstream national/international press (not trade press) coverage?
+5 multiple: are there multiple independent instances (3+), not one?
+6 practitioners: do practitioners in the field already use a trend name for it?
+Answer each "yes", "no" or "unknown". Use "unknown" honestly when you cannot tell (e.g. after your knowledge cutoff) — unknown is NOT yes.
+
+Verdict: "keep" if 0-2 yes; "demote" if 3+ yes. Also judge "first": is this credibly a world/national/major-market FIRST? (yes|plausible|no). Also flag "mismatch": true if the title claims more than the evidence supports.
+Return ONLY a JSON array, one object per candidate, same order:
+{"id": <number given>, "tests": {"named":"","codified":"","counted":"","mainstream":"","multiple":"","practitioners":""}, "verdict": "keep|demote", "first": "yes|plausible|no", "mismatch": false, "why": "max 30 words: the strongest reason it is or is not already known"}`;
+  let checked = 0, demoted = 0;
+  for (let s = 0; s < pool.length; s += 25) {
+    const chunk = pool.slice(s, s + 25);
+    const user = chunk.map(({ c, i }) => `id ${i}: ${c.title} — shift: ${c.shift || ""} — evidence: ${c.evidence || ""} — source: ${c.source || ""} (${c.date || ""})`).join("\n");
+    let arr = null;
+    for (let attempt = 1; attempt <= 2 && !arr; attempt++) {
+      try {
+        const res = await fetch("https://api.anthropic.com/v1/messages", {
+          method: "POST",
+          headers: { "content-type": "application/json", "x-api-key": API_KEY, "anthropic-version": "2023-06-01" },
+          body: JSON.stringify({ model: CFG.critiqueModel || CFG.model, max_tokens: 8000, system: sys, messages: [{ role: "user", content: user }] }),
+        });
+        if (!res.ok) throw new Error(`Anthropic API ${res.status}: ${(await res.text()).slice(0, 200)}`);
+        const j = await res.json();
+        const text = (j.content || []).map((b) => b.text || "").join("");
+        arr = JSON.parse((text.match(/\[[\s\S]*\]/) || ["[]"])[0]);
+      } catch (e) { console.error(`  critique chunk ${s / 25 + 1} attempt ${attempt} failed: ${e.message}`); }
+    }
+    for (const r of arr || []) {
+      const c = cands[r.id];
+      if (!c || !r.tests) continue;
+      const yes = Object.values(r.tests).filter((v) => String(v).toLowerCase() === "yes").length;
+      const unknown = Object.values(r.tests).filter((v) => String(v).toLowerCase() === "unknown").length;
+      // Weakness = number of tests answered a firm "no" (unknowns don't count either way).
+      // 6 = no trace of it being known; 0 = fully established.
+      c.weakness = Object.values(r.tests).filter((v) => String(v).toLowerCase() === "no").length;
+      c.first_claim = r.first || c.first_claim;
+      const testsLine = Object.entries(r.tests).map(([k, v]) => `${k}:${v}`).join(" ");
+      c.critique = `${r.verdict === "demote" || yes >= 3 ? "DEMOTE" : "KEEP"} (${yes}/6 known${unknown ? `, ${unknown} unknown` : ""}) — ${r.why || ""} [${testsLine}]${r.mismatch ? " ⚠ title overstates evidence" : ""}`;
+      if (yes >= 3) {
+        c.original_classification = c.classification;
+        c.classification = "Trend";
+        c.ai_read = `[Critique demoted: ${r.why || "already known"}] ` + (c.ai_read || "");
+        demoted++;
+      }
+      checked++;
+    }
+  }
+  return { checked, demoted };
 }
 
 // ---------- main ----------
@@ -329,6 +400,8 @@ const inBatch = new Set();
 for (const it of results) {
   const k = normUrl(it.url);
   if (!k || !it.title || seen.has(k) || inBatch.has(k)) continue;
+  if (BLOCKED.some((d) => k.startsWith(d) || k.includes("." + d))) continue; // blocked sources (e.g. ArchDaily)
+  if (/\/spons\/|\/sponsored\//.test(k)) continue;                               // paid/sponsored posts are not signals
   const ck = claimKey(it.title);
   if (ck && (seen.has(ck) || inBatch.has(ck))) continue;
   inBatch.add(k);
@@ -337,13 +410,31 @@ for (const it of results) {
 }
 console.log(`${results.length} raw → ${fresh.length} unseen`);
 
-const capped = fresh.slice(0, CFG.maxRawItems);
+// Round-robin across feeders before capping. Previously fresh.slice(0, cap) kept items in
+// feeder order (gdelt, arxiv, openalex, hn, reddit, rss), so on busy days the hand-picked RSS
+// feeds — the best sources — were the ones cut. Interleaving gives every feeder a fair share.
+const byFeeder = new Map();
+for (const it of fresh) { if (!byFeeder.has(it.feeder)) byFeeder.set(it.feeder, []); byFeeder.get(it.feeder).push(it); }
+const interleaved = [];
+for (let i = 0; interleaved.length < fresh.length; i++) for (const arr of byFeeder.values()) if (arr[i]) interleaved.push(arr[i]);
+const capped = interleaved.slice(0, CFG.maxRawItems);
 let candidates = [];
+// Run status is written to scan-status.json so the workflow can (a) open an alert issue and
+// (b) turn the run RED when the AI pass fails. Before Oct 2026 a failed AI pass (e.g. API out
+// of credits, Oct 3-18) fell back to raw items and the run stayed green — nobody noticed for 2 weeks.
+const status = { date: today, feed: ARCHIVE_PREFIX, raw: results.length, unseen: fresh.length, sent: capped.length, ai: "skipped", error: "", critique: null };
 if (capped.length && API_KEY) {
   console.log(`AI pass on ${capped.length} items…`);
   try {
     candidates = await claudePassBatched(capped);
+    status.ai = "ok";
+    if (CFG.critique !== false) {
+      console.log("Critique pass…");
+      status.critique = await critiquePass(candidates);
+      console.log(`  critique: ${status.critique.checked} checked, ${status.critique.demoted} demoted to Trend`);
+    }
   } catch (err) {
+    status.ai = "failed"; status.error = err.message.slice(0, 400);
     console.error(`AI pass failed entirely (${err.message}) — writing raw items as bare candidates so the day is not lost.`);
     candidates = capped.slice(0, CFG.maxCandidates).map((i) => ({
       title: i.title, shift: "", ai_read: "(AI pass failed — raw feed item, needs manual triage)", evidence: i.snippet,
@@ -352,6 +443,7 @@ if (capped.length && API_KEY) {
   }
   console.log(`  ${candidates.length} candidates drafted`);
 } else if (!API_KEY) {
+  status.ai = "no-key"; status.error = "ANTHROPIC_API_KEY secret is missing";
   console.error("ANTHROPIC_API_KEY missing — writing raw items as bare candidates.");
   candidates = capped.slice(0, CFG.maxCandidates).map((i) => ({
     title: i.title, shift: "", ai_read: "(no AI pass — raw feed item)", evidence: i.snippet,
@@ -390,3 +482,7 @@ writeFileSync(join(DATA, OUTPUT_FILE), JSON.stringify(payload, null, 1));
 writeFileSync(join(DATA, "archive", `${ARCHIVE_PREFIX}-${today}.json`), JSON.stringify(payload, null, 1));
 writeFileSync(seenPath, JSON.stringify([...seen].slice(-CFG.seenLimit), null, 0));
 console.log(`Wrote ${candidates.length} candidates for ${today} → ${OUTPUT_FILE}.`);
+status.candidates = candidates.length;
+status.failedBatches = FAILED_BATCHES;
+if (status.ai === "ok" && FAILED_BATCHES) status.ai = "partial";
+writeFileSync(join(DATA, "scan-status.json"), JSON.stringify(status, null, 1));

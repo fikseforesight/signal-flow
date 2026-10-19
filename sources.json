@@ -1,16 +1,20 @@
 {
   "config": {
     "model": "claude-sonnet-5",
-    "maxRawItems": 150,
-    "maxCandidates": 35,
+    "maxRawItems": 240,
+    "maxCandidates": 45,
     "seenLimit": 8000,
     "gdeltTimespan": "36h",
     "arxivDays": 6,
     "hnDays": 4,
     "redditDays": 5,
-    "rssGate": false
+    "rssGate": false,
+    "blockedDomains": [
+      "archdaily.com"
+    ],
+    "critique": true
   },
-  "domainMap": "Kristen is a strategic-foresight professional. This is the DAILY DOMAIN-MAP scan, and it is ANCHORED — its job is the built environment. (The separate twice-weekly WILD scan handles domain-agnostic reach; do not duplicate its job here.) ===CENTRE NODE=== Building / Space / Store. The governing question: how do external forces reshape the role, form, and value of a mass-market retailer's physical stores and real-estate assets? ===THE NINE BRANCHES, scan all of them=== (1) LABOR / WORK & OPERATIONS — frontline team members, work tasks, scheduling, task decomposition; (2) SUPPLY CHAIN — storage & receiving, fulfilment, delivery format, goods transportation; (3) INFRASTRUCTURE — utilities (energy, water, and compute), parking, location, layout/format; (4) CONSTRUCTION — methods incl. 3D printing, materials & resources, trade workers and equipment; (5) RETAIL INDUSTRY — competitors, formats, entrants and exits; (6) TECH — AI (especially PHYSICAL AI), robotics, computer vision, automation; (7) PEOPLE & HUMAN SYSTEM — commerce (eComm, social commerce), transaction/payments/checkout, inspiration & discovery, connection & community (food/cafe), experience (digital and physical), transportation & mobility, demographic shifts, migration and population movement; (8) POLICY, REGULATION, FINANCE — zoning, insurance, regions, permitting, capital; (9) SUSTAINABILITY & ENVIRONMENT — heat, climate events (hurricane, flood, fire, tornado), circular and regenerative. ===BALANCE=== TECH/AI is ONE branch of nine, not the frame for all of them. Do not let AI stories crowd out labor, construction, policy, supply chain, sustainability or people signals. Aim for spread across branches, not depth in one. ===TWO OPEN HUNT ZONES=== 'compute?' under Utilities and 'delivery format?' under Supply Chain are unresolved questions on Kristen's map — treat them as live hunt zones, not settled categories. ===WHAT TO REWARD (weakest first)=== absences (a category, code, standard, contract, insurance product or transaction that does NOT yet exist but is now needed); reframings (a new reading of a named thing); second- and third-order implications nobody has drawn; cross-branch convergences (the same shift surfacing in two branches at once); single instances; peripheral and non-Western geography (Gulf, Africa, South and Southeast Asia, Latin America) — especially where the periphery is SETTING a standard rather than receiving one; and anything that would sound absurd or unsettling to a working retail-real-estate professional. Bias horizon to H2-H3. ===EDGES, NOT HEADLINES=== A retail-trade-press headline about a named, counted, already-forecast thing is not a signal. Reach past the announcement to the structural consequence nobody has stated. ===EMERGING, NOT RETROSPECTIVE=== this scan wants things beginning to happen in the real world, not scholarly re-readings of the past. ===VOLUME & THE RULE-OUTS=== Kristen wants to SEE the rule-outs, not just the survivors — she calibrates her own judgment on them. Cast a wide net within the domain map and return MANY candidates (up to the max). Include borderline items AND already-trending ones, but LABEL them honestly: set classification to 'Trend' or 'Hype' and say briefly in ai_read why (e.g. 'already named and widely covered — included for your judgment, probably Context'). NEVER silently drop something; when in doubt, INCLUDE and label. Demote rather than delete. ===OFF-MAP ALLOWANCE=== if an item is genuinely extraordinary but sits outside the nine branches, you may still include it (max ~3 per run) — say in ai_read which branch it might eventually touch. Do NOT assign an impact rating — that is human-held.",
+  "domainMap": "Kristen is a strategic-foresight professional. This is the DAILY DOMAIN-MAP scan, and it is ANCHORED — its job is the built environment. (The separate twice-weekly WILD scan handles domain-agnostic reach; do not duplicate its job here.) ===CENTRE NODE=== Building / Space / Store. The governing question: how do external forces reshape the role, form, and value of a mass-market retailer's physical stores and real-estate assets? ===THE NINE BRANCHES, scan all of them=== (1) LABOR / WORK & OPERATIONS — frontline team members, work tasks, scheduling, task decomposition; (2) SUPPLY CHAIN — storage & receiving, fulfilment, delivery format, goods transportation; (3) INFRASTRUCTURE — utilities (energy, water, and compute), parking, location, layout/format; (4) CONSTRUCTION — methods incl. 3D printing, materials & resources, trade workers and equipment; (5) RETAIL INDUSTRY — competitors, formats, entrants and exits; (6) TECH — AI (especially PHYSICAL AI), robotics, computer vision, automation; (7) PEOPLE & HUMAN SYSTEM — commerce (eComm, social commerce), transaction/payments/checkout, inspiration & discovery, connection & community (food/cafe), experience (digital and physical), transportation & mobility, demographic shifts, migration and population movement; (8) POLICY, REGULATION, FINANCE — zoning, insurance, regions, permitting, capital; (9) SUSTAINABILITY & ENVIRONMENT — heat, climate events (hurricane, flood, fire, tornado), circular and regenerative. ===BALANCE=== TECH/AI is ONE branch of nine, not the frame for all of them. Do not let AI stories crowd out labor, construction, policy, supply chain, sustainability or people signals. Aim for spread across branches, not depth in one. ===OPEN HUNT ZONES=== 'compute?' under Utilities and 'delivery format?' under Supply Chain are unresolved questions on Kristen's map — treat them as live hunt zones, not settled categories. Added Oct 2026 because the library was thin there: HEALTH & CARE SPACES (hospitals, clinics and pharmacies moving into or out of retail and community buildings), COMMUNITY & CIVIC LIFE (who owns, hosts and governs shared places: co-ops, community ownership, churches, libraries, third places), HOUSING (where and how people live, including in cars and parking lots), and the EVERYDAY ECONOMY (cash, prices, payments, credit, public provision of goods). ===WHAT TO REWARD (weakest first)=== absences (a category, code, standard, contract, insurance product or transaction that does NOT yet exist but is now needed); reframings (a new reading of a named thing); second- and third-order implications nobody has drawn; cross-branch convergences (the same shift surfacing in two branches at once); single instances; peripheral and non-Western geography (Gulf, Africa, South and Southeast Asia, Latin America) — especially where the periphery is SETTING a standard rather than receiving one; and anything that would sound absurd or unsettling to a working retail-real-estate professional. Judge horizon on evidence; do not inflate it for strangeness. ===EDGES, NOT HEADLINES=== A retail-trade-press headline about a named, counted, already-forecast thing is not a signal. Reach past the announcement to the structural consequence nobody has stated. ===EMERGING, NOT RETROSPECTIVE=== this scan wants things beginning to happen in the real world, not scholarly re-readings of the past. ===VOLUME & THE RULE-OUTS=== Kristen wants to SEE the rule-outs, not just the survivors — she calibrates her own judgment on them. Cast a wide net within the domain map and return MANY candidates (up to the max). Include borderline items AND already-trending ones, but LABEL them honestly: set classification to 'Trend' or 'Hype' and say briefly in ai_read why (e.g. 'already named and widely covered — included for your judgment, probably Context'). NEVER silently drop something; when in doubt, INCLUDE and label. Demote rather than delete. ===OFF-MAP ALLOWANCE=== if an item is genuinely extraordinary but sits outside the nine branches, you may still include it (max ~3 per run) — say in ai_read which branch it might eventually touch. Do NOT assign an impact rating — that is human-held.",
   "gdeltQueries": [
     "vacant retail store adaptive reuse conversion",
     "dark store micro-fulfilment zoning ruling",
@@ -23,7 +27,13 @@
     "mall conversion data centre power substation",
     "shopper biometric facial recognition store ban",
     "3D printed construction building material retail",
-    "street vendor informal market displaced quick commerce"
+    "street vendor informal market displaced quick commerce",
+    "hospital clinic opens in vacant store shopping centre",
+    "community right to buy shop pub local ownership",
+    "city-owned grocery store municipal",
+    "people living in cars parking lot program",
+    "heat insurance payout workers temperature trigger",
+    "church closure building converted housing community"
   ],
   "arxivQueries": [
     "all:\"built environment\" AND all:automation",
@@ -66,26 +76,165 @@
     "environment"
   ],
   "rssFeeds": [
-    { "name": "Rest of World", "url": "https://restofworld.org/feed/latest/" },
-    { "name": "IEEE Spectrum Robotics", "url": "https://spectrum.ieee.org/feeds/topic/robotics.rss" },
-    { "name": "Retail Dive", "url": "https://www.retaildive.com/feeds/news/" },
-    { "name": "Supply Chain Dive", "url": "https://www.supplychaindive.com/feeds/news/" },
-    { "name": "Smart Cities Dive", "url": "https://www.smartcitiesdive.com/feeds/news/" },
-    { "name": "ArchDaily", "url": "https://www.archdaily.com/rss/" },
-    { "name": "Dezeen", "url": "https://www.dezeen.com/feed/" },
-    { "name": "Strong Towns", "url": "https://www.strongtowns.org/journal?format=rss" },
-    { "name": "Low-Tech Magazine", "url": "https://solar.lowtechmagazine.com/posts/index.xml" },
-    { "name": "MIT Technology Review", "url": "https://www.technologyreview.com/feed/" },
-    { "name": "Noema Magazine", "url": "https://www.noemamag.com/feed/" }
+    {
+      "name": "Rest of World",
+      "url": "https://restofworld.org/feed/latest/"
+    },
+    {
+      "name": "IEEE Spectrum Robotics",
+      "url": "https://spectrum.ieee.org/feeds/topic/robotics.rss"
+    },
+    {
+      "name": "Retail Dive",
+      "url": "https://www.retaildive.com/feeds/news/"
+    },
+    {
+      "name": "Supply Chain Dive",
+      "url": "https://www.supplychaindive.com/feeds/news/"
+    },
+    {
+      "name": "Smart Cities Dive",
+      "url": "https://www.smartcitiesdive.com/feeds/news/"
+    },
+    {
+      "name": "Dezeen",
+      "url": "https://www.dezeen.com/feed/"
+    },
+    {
+      "name": "Strong Towns",
+      "url": "https://www.strongtowns.org/journal?format=rss"
+    },
+    {
+      "name": "Low-Tech Magazine",
+      "url": "https://solar.lowtechmagazine.com/posts/index.xml"
+    },
+    {
+      "name": "MIT Technology Review",
+      "url": "https://www.technologyreview.com/feed/"
+    },
+    {
+      "name": "Noema Magazine",
+      "url": "https://www.noemamag.com/feed/"
+    },
+    {
+      "name": "Healthcare Dive",
+      "url": "https://www.healthcaredive.com/feeds/news/"
+    },
+    {
+      "name": "Becker's Hospital Review",
+      "url": "https://www.beckershospitalreview.com/feed/"
+    },
+    {
+      "name": "Building Better Healthcare (UK)",
+      "url": "https://buildingbetterhealthcare.com/rss"
+    },
+    {
+      "name": "Multifamily Dive",
+      "url": "https://www.multifamilydive.com/feeds/news/"
+    },
+    {
+      "name": "Grocery Dive",
+      "url": "https://www.grocerydive.com/feeds/news/"
+    },
+    {
+      "name": "Payments Dive",
+      "url": "https://www.paymentsdive.com/feeds/news/"
+    },
+    {
+      "name": "Bisnow",
+      "url": "https://www.bisnow.com/rss"
+    },
+    {
+      "name": "Shelterforce",
+      "url": "https://shelterforce.org/feed/"
+    },
+    {
+      "name": "Planetizen",
+      "url": "https://www.planetizen.com/frontpage/feed"
+    },
+    {
+      "name": "Shareable",
+      "url": "https://www.shareable.net/feed/"
+    },
+    {
+      "name": "Stateline",
+      "url": "https://stateline.org/feed/"
+    },
+    {
+      "name": "Route Fifty",
+      "url": "https://www.route-fifty.com/rss/all/"
+    },
+    {
+      "name": "Guardian Cities",
+      "url": "https://www.theguardian.com/cities/rss"
+    },
+    {
+      "name": "Guardian Housing",
+      "url": "https://www.theguardian.com/society/housing/rss"
+    },
+    {
+      "name": "Inside Climate News",
+      "url": "https://insideclimatenews.org/feed/"
+    },
+    {
+      "name": "Grist",
+      "url": "https://grist.org/feed/"
+    },
+    {
+      "name": "Japan Times",
+      "url": "https://www.japantimes.co.jp/feed/"
+    }
   ],
   "relevanceKeywords": [
-    "store", "retail", "shop", "building", "construction", "warehouse", "logistics",
-    "zoning", "real estate", "property", "lease", "tenant", "permit", "code",
-    "robot", "automation", "sensor", "computer vision", "AI",
-    "energy", "grid", "cooling", "heat", "water", "compute", "data center",
-    "climate", "flood", "fire", "material", "circular",
-    "worker", "labor", "wage", "task", "delivery", "fulfilment", "fulfillment",
-    "parking", "curb", "sidewalk", "urban", "city", "mall",
-    "insurance", "underwriting", "shopper", "checkout", "payment", "supply chain"
+    "store",
+    "retail",
+    "shop",
+    "building",
+    "construction",
+    "warehouse",
+    "logistics",
+    "zoning",
+    "real estate",
+    "property",
+    "lease",
+    "tenant",
+    "permit",
+    "code",
+    "robot",
+    "automation",
+    "sensor",
+    "computer vision",
+    "AI",
+    "energy",
+    "grid",
+    "cooling",
+    "heat",
+    "water",
+    "compute",
+    "data center",
+    "climate",
+    "flood",
+    "fire",
+    "material",
+    "circular",
+    "worker",
+    "labor",
+    "wage",
+    "task",
+    "delivery",
+    "fulfilment",
+    "fulfillment",
+    "parking",
+    "curb",
+    "sidewalk",
+    "urban",
+    "city",
+    "mall",
+    "insurance",
+    "underwriting",
+    "shopper",
+    "checkout",
+    "payment",
+    "supply chain"
   ]
 }

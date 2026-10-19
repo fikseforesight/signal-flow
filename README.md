@@ -23,6 +23,15 @@ Substack (weekly-substack-scan.yml + substack-scan.mjs) is a separate engine wit
 
 Every candidate is de-duplicated (seen*.json), Claude drafts a tentative AI Read under anti-consensus rules (never down-rank for implausibility or fringeness), and sync-notion.yml pushes the result into Notion, tagging Scan Feed and Domain Branch along the way.
 
+## Oct 2026 upgrades — critique, alerts, blind spots, digest
+
+- **Critique pass.** After triage, every Weak signal / Wild card goes through a second, adversarial AI pass that tries to prove it is already known (six tests: named, codified, counted, mainstream, multiple instances, practitioner-named). 3+ "yes" → demoted to Trend. Writes `Critique`, `Weakness` (0–6 firm "no"s), `First?` and `Geography` to Notion. It can demote, never promote, never delete.
+- **Faster review.** Notion sync now fires the moment a scan finishes. Each run's Summary page shows a ranked review queue. A GitHub issue (emailed) opens for strong candidates (credible firsts, wild cards, weakness 5–6).
+- **Loud failures.** If the AI pass fails (e.g. API credits run out) the run turns red and an issue opens with the error. Raw items are still saved.
+- **Weekly reports (Mondays).** `reports.mjs` writes `reports/digest-DATE.md` (top candidates, clusters, pressure on drivers, doubts) and `reports/blindspots-DATE.md` (thin branches and hunt zones, STEEP/horizon balance, source monoculture, geography), and emails both as one issue.
+- **Scan fixes.** Domain Branch and Geography are now actually requested from the model (Domain Branch was never filled before). Horizon is judged on evidence (the old prompt told the model to bias toward H3). Feeders are interleaved before the raw-item cap so curated RSS isn't cut first. ArchDaily and sponsored posts are blocked. 17 feeds added for health, housing, community, CRE, payments, state policy, climate and Japan.
+- **Sync speed.** Only the last 10 days of archive are re-checked; Run workflow → "full sync" re-checks everything.
+
 ## File layout
 
 scan.mjs — daily + wild scan engine
@@ -33,6 +42,9 @@ substack-feeds.txt — subscribed substack list
 substack-cursor.json — rotation state for the substack scan
 seen.json, seen-wild.json, substack-seen.json — de-dup memory per scan
 push-to-notion.mjs — reads scan output, writes to Notion
+alert.mjs — post-scan review queue + alert issues
+reports.mjs, reports-config.json — weekly digest and blind-spot monitor
+reports/ — weekly report archive
 setup-notion.mjs — one-time Notion database schema creator
 candidates.json, wild-candidates.json, substack-candidates.json — latest batch per scan, overwritten each run
 archive/ — permanent record of every past batch

@@ -1,0 +1,34 @@
+{
+  "model": "claude-sonnet-5",
+  "drivers": [
+    "Physical + Digital Life Intertwine", "Communities and Markets Diverge", "Heat and Climate Pressure Intensify",
+    "Race for Critical Resources", "Automation vs. Human Trust", "Risk Sorts Places and Assets",
+    "Local Permission and Power", "Buildings Become Utility Partners", "Place as Social Infrastructure",
+    "Existing Assets, New Uses", "Machines Do the Shopping (proposed)", "The World Splits into Blocs (proposed)"
+  ],
+  "branches": [
+    "Labor & Operations", "Supply Chain", "Infrastructure", "Construction", "Retail Industry",
+    "Tech & AI", "People & Human System", "Policy & Finance", "Sustainability & Environment"
+  ],
+  "huntZones": {
+    "Health & care spaces": ["hospital", "clinic", "health", "pharmac", "patient", "care home", "nhs"],
+    "Community & civic life": ["community", "church", "library", "co-op", "cooperative", "civic", "mutual aid", "third place", "neighbo"],
+    "Housing": ["housing", "rent", "tenant", "landlord", "homeless", "apartment", "dwelling", "home "],
+    "Everyday economy": ["price", "cash", "payment", "credit", "wage", "grocery", "afford", "tax", "insurance"]
+  },
+  "feedIdeas": {
+    "Labor & Operations": ["HR Dive", "Labor Notes", "Rest of World (gig work)"],
+    "Supply Chain": ["FreightWaves", "The Loadstar", "Supply Chain Dive"],
+    "Infrastructure": ["Utility Dive", "Canary Media", "Data Center Dynamics"],
+    "Construction": ["ENR", "Construction Dive (feed currently down)", "Global Construction Review"],
+    "Retail Industry": ["Modern Retail", "Inside Retail Asia", "Grocery Dive"],
+    "People & Human System": ["Shareable", "Civil Eats", "Next City"],
+    "Policy & Finance": ["Stateline", "Route Fifty", "Insurance Journal"],
+    "Sustainability & Environment": ["Inside Climate News", "Grist", "Carbon Brief"],
+    "Health & care spaces": ["Healthcare Dive", "Becker's Hospital Review", "Building Better Healthcare"],
+    "Community & civic life": ["Shareable", "Shelterforce", "Locality (UK)"],
+    "Housing": ["Shelterforce", "Multifamily Dive", "Guardian Housing"],
+    "Everyday economy": ["Payments Dive", "Grocery Dive", "Stateline"],
+    "Geography": ["Rest of World", "Japan Times", "The Africa Report", "Gulf News", "Mongabay"]
+  }
+}
