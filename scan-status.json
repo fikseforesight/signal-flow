@@ -1,12 +1,12 @@
 {
- "date": "2026-10-23",
- "feed": "wild",
- "raw": 46,
- "unseen": 31,
- "sent": 31,
+ "date": "2026-10-24",
+ "feed": "candidates",
+ "raw": 162,
+ "unseen": 72,
+ "sent": 72,
  "ai": "failed",
- "error": "All 1 AI batches failed. Last error: Anthropic API 400: {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CgKYCk89frDtp8jWAHmnF\"}",
+ "error": "All 2 AI batches failed. Last error: Anthropic API 400: {\"type\":\"error\",\"error\":{\"type\":\"invalid_request_error\",\"message\":\"Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.\"},\"request_id\":\"req_011CgMEcBkp7TcH5U4Aft64B\"}",
  "critique": null,
- "candidates": 30,
- "failedBatches": 1
+ "candidates": 45,
+ "failedBatches": 2
 }
