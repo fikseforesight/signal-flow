@@ -45,9 +45,11 @@ const branchCounts = new Map(count(live, (x) => x.branch.split(" / ")));
 const untagged = live.filter((x) => !x.branch).length;
 B += `## Domain-map branches\n\n| Branch | Items | Share |\n|---|---|---|\n`;
 const thin = [];
-for (const b of CFG.branches) { const n = branchCounts.get(b) || 0; B += `| ${b} | ${n} | ${pct(n, live.length)} |\n`; if (n < live.length * 0.05) thin.push(b); }
+const tagged = live.length - live.filter((x) => !x.branch).length;
+// Judge thinness only against items that HAVE a branch; skip entirely until enough are tagged.
+for (const b of CFG.branches) { const n = branchCounts.get(b) || 0; B += `| ${b} | ${n} | ${pct(n, tagged)} of tagged |\n`; if (tagged >= 50 && n < tagged * 0.05) thin.push(b); }
 B += `| Off-map | ${branchCounts.get("Off-map / Not Built-Environment") || 0} | |\n| (no branch tagged) | ${untagged} | ${pct(untagged, live.length)} |\n\n`;
-if (untagged > live.length * 0.5) B += `> Most items have no branch yet — branch tagging only started Oct 2026, so this table fills in over the coming weeks.\n\n`;
+if (tagged < 50) B += `> Only ${tagged} items carry a branch so far (tagging started Oct 2026), so branch thinness is not judged yet.\n\n`;
 B += `## Hunt zones (keyword count in title + shift)\n\n`;
 for (const [zone, kws] of Object.entries(CFG.huntZones)) {
   const n = live.filter((x) => kws.some((k) => (x.title + " " + x.shift).toLowerCase().includes(k))).length;

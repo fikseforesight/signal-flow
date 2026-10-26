@@ -382,9 +382,18 @@ Return ONLY a JSON array, one object per candidate, same order:
 const seenPath = join(DATA, SEEN_FILE);
 const seen = new Set(existsSync(seenPath) ? JSON.parse(readFileSync(seenPath, "utf8")) : []);
 
-console.log("Pulling feeders…");
-const results = [];
-for (const [name, fn] of [["gdelt", gdelt], ["arxiv", arxiv], ["openalex", openalex], ["hn", hackernews], ["reddit", reddit], ["rss", rss]]) {
+// RE-TRIAGE MODE (Oct 2026): RAW_INPUT_FILE points at items exported from Notion that were
+// saved untriaged during an AI outage. Feeders and seen-memory are skipped; the same triage +
+// critique passes run on them. retriage.mjs then writes the results back onto the same pages.
+const RAW_INPUT = process.env.RAW_INPUT_FILE;
+if (RAW_INPUT) {
+  const n = JSON.parse(readFileSync(RAW_INPUT, "utf8")).length;
+  CFG.maxRawItems = n;
+  CFG.maxCandidates = Math.max(5, Math.ceil(n * Number(process.env.KEEP_RATIO || 0.25)));
+}
+console.log(RAW_INPUT ? `Re-triage mode: ${RAW_INPUT}` : "Pulling feeders…");
+const results = RAW_INPUT ? JSON.parse(readFileSync(RAW_INPUT, "utf8")) : [];
+for (const [name, fn] of RAW_INPUT ? [] : [["gdelt", gdelt], ["arxiv", arxiv], ["openalex", openalex], ["hn", hackernews], ["reddit", reddit], ["rss", rss]]) {
   try {
     const r = await fn();
     console.log(`  ${name}: ${r.length} items`);
@@ -399,11 +408,11 @@ const fresh = [];
 const inBatch = new Set();
 for (const it of results) {
   const k = normUrl(it.url);
-  if (!k || !it.title || seen.has(k) || inBatch.has(k)) continue;
+  if (!k || !it.title || (!RAW_INPUT && seen.has(k)) || inBatch.has(k)) continue;
   if (BLOCKED.some((d) => k.startsWith(d) || k.includes("." + d))) continue; // blocked sources (e.g. ArchDaily)
   if (/\/spons\/|\/sponsored\//.test(k)) continue;                               // paid/sponsored posts are not signals
   const ck = claimKey(it.title);
-  if (ck && (seen.has(ck) || inBatch.has(ck))) continue;
+  if (ck && ((!RAW_INPUT && seen.has(ck)) || inBatch.has(ck))) continue;
   inBatch.add(k);
   if (ck) inBatch.add(ck);
   fresh.push(it);
@@ -461,6 +470,10 @@ for (const c of candidates) {
   const f = feederByUrl.get(normUrl(c.url));
   if (f) c.srctype = f;
 }
+if (RAW_INPUT) {
+  const pageByUrl = new Map(capped.filter((i) => i.page_id).map((i) => [normUrl(i.url), i.page_id]));
+  for (const c of candidates) { const p = pageByUrl.get(normUrl(c.url)); if (p) c.page_id = p; }
+}
 
 // mark everything pulled this run as seen (candidates AND non-selected, so tomorrow is fresh)
 // Two keys per item now (url + claim), so seenLimit buys roughly half as many runs of
@@ -480,7 +493,7 @@ mkdirSync(join(DATA, "archive"), { recursive: true });
 const payload = { generated: new Date().toISOString(), batch: today, candidates };
 writeFileSync(join(DATA, OUTPUT_FILE), JSON.stringify(payload, null, 1));
 writeFileSync(join(DATA, "archive", `${ARCHIVE_PREFIX}-${today}.json`), JSON.stringify(payload, null, 1));
-writeFileSync(seenPath, JSON.stringify([...seen].slice(-CFG.seenLimit), null, 0));
+if (!RAW_INPUT) writeFileSync(seenPath, JSON.stringify([...seen].slice(-CFG.seenLimit), null, 0));
 console.log(`Wrote ${candidates.length} candidates for ${today} → ${OUTPUT_FILE}.`);
 status.candidates = candidates.length;
 status.failedBatches = FAILED_BATCHES;

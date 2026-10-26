@@ -246,4 +246,6 @@ async function run() {
     if (failed > 0) process.exitCode = 1;
 }
 
-run().catch((e) => { console.error(e); process.exit(1); });
+// NO_AUTORUN=1 lets retriage.mjs import the property builders without running a sync.
+if (process.env.NO_AUTORUN !== "1") run().catch((e) => { console.error(e); process.exit(1); });
+export { buildProps, buildBody, ensureSchema, notion, normUrl };
