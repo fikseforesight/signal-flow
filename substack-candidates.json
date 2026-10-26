@@ -1,87 +1,95 @@
 {
- "generated": "2026-09-28T18:45:30.630Z",
- "batch": "2026-09-28",
+ "generated": "2026-10-26T18:18:48.818Z",
+ "batch": "2026-10-26",
  "candidates": [
   {
-   "title": "Cute Face, Real Wallet Access",
-   "shift": "Consumer AI agents are being given authority to send money and email autonomously, but wrapped in soft, anthropomorphic mascot design rather than abstract UI marks.",
-   "ai_read": "Tentative: the cartoon face may be doing trust-laundering work for financial/transactional authority most users don't fully register — a design choice with fraud/liability implications once agents act unsupervised.",
-   "evidence": "Axios reports Meta's Muse assistant, fronted by mascot 'Jolly,' can send email, make purchases, and keep working after the app is closed — unlike OpenAI's or Google's abstract activity indicators.",
-   "url": "https://www.analyzingtrends.com/p/what-the-face-is-wired-to",
-   "source": "analyzingtrends.com",
-   "date": "2026-09-27",
-   "horizon": "H2",
+   "title": "AI research loops start closing without a human at the bench",
+   "shift": "AI systems are reportedly completing full research cycles (hypothesis, test, iterate) unsupervised in math/coding, with early signs of extension into engineering and science domains that touch physical systems.",
+   "ai_read": "Tentative: if autonomous R&D loops extend from code into materials science, structural engineering, or energy-system design, it could compress decades of materials/engineering R&D timelines — strange because the bottleneck shifts from ideas to physical validation speed.",
+   "evidence": "Anthropic claims 26% of its AI R&D was Claude-led; OpenAI model produced 719 math manuscripts; AlphaEvolve cut Gemini training time; an AI agent matched humans at improving other AI agents (arXiv 2609.26457).",
+   "url": "https://www.exponentialview.co/p/monday-data-for-science-the-bottleneck",
+   "source": "exponentialview.co",
+   "date": "2026-10-26",
+   "horizon": "H3",
    "srctype": "substack",
-   "swipes": "Innovations",
+   "swipes": "Statistics",
    "steep": "Technological",
    "steep2": "Economic",
    "classification": "Weak signal",
    "maturity": "Early indicator",
-   "likelihood": 3,
+   "likelihood": 2,
    "credibility": 3,
-   "novelty": "Medium",
-   "impact_scale": "Regional",
+   "novelty": "High",
+   "impact_scale": "Global",
    "disruptive_potential": "Major",
-   "initial_analysis": "This is an example of authority (financial/communication) migrating into consumer software fronted by disarming, non-human personas, driven by AI agent commercialization. If common, retailers, payment processors, and insurers will need new fraud and liability frameworks for autonomous agent-initiated transactions.",
+   "initial_analysis": "This is an early indicator of a shift from human-paced to machine-paced R&D cycles; if it extends beyond code/math into materials and engineering, firms that design, test, and certify physical systems (construction materials, energy tech) could see compressed innovation timelines and new validation bottlenecks.",
    "themes": [
-    "agentic AI",
-    "autonomous commerce",
-    "consumer trust design"
+    "AI-driven R&D",
+    "automation of science",
+    "engineering acceleration"
    ],
    "keywords": [
-    "Meta Muse",
-    "AI agent",
-    "anthropomorphism",
-    "autonomous purchasing",
-    "Jolly"
+    "AI research loop",
+    "Claude",
+    "AlphaEvolve",
+    "autonomous R&D",
+    "singularity claim"
    ],
    "sources": [
     {
-     "name": "Axios",
-     "url": "https://www.axios.com/2026/09/25/ai-doom-meta-muse-mascot"
+     "name": "Anthropic measuring pace of AI development",
+     "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development"
+    },
+    {
+     "name": "AlphaEvolve blog",
+     "url": "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/"
+    },
+    {
+     "name": "arXiv agent-improving-agent study",
+     "url": "https://arxiv.org/abs/2609.26457"
     }
    ],
-   "author": "Analyzing Trends"
+   "author": "Azeem Azhar"
   },
   {
-   "title": "The Plumbing Behind the Jacuzzi: Distribution as Brand Strategy",
-   "shift": "A pushback within beverage brand-building against DTC/social-first growth narratives, reasserting that wholesale distribution relationships and logistics ('the plumbing') are the actual foundation of scale.",
-   "ai_read": "Tentative: if this reframing spreads through CPG, brand investment may shift back toward warehousing, trucking, and distributor relationships rather than digital marketing spend — a quiet reversal of DTC-era assumptions.",
-   "evidence": "Chris Maffeo, from a three-generation wholesale family business and export roles at SABMiller/Asahi/Carlsberg, built a body of work arguing 'bottom-up' branding is misunderstood without accounting for wholesale/distributor infrastructure.",
-   "url": "https://www.newrulesbev.com/p/what-bottom-up-really-means-in-beverage",
-   "source": "newrulesbev.com",
-   "date": "2026-09-22",
+   "title": "EV adoption quietly defuses the oil-shock weapon",
+   "shift": "As electric vehicle penetration rises, oil-importing nations' economic exposure to oil-price and supply shocks is structurally declining — a 'security dividend' from electrification independent of climate motives.",
+   "ai_read": "Tentative: if this trend holds, it reshapes energy-security calculus for grid planners, fuel-logistics networks, and even geopolitical risk pricing for infrastructure investment in oil-import-dependent regions — a slow-moving but foundational rewiring of energy infrastructure incentives.",
+   "evidence": "Essay argues electrification is reducing oil-import countries' exposure to supply disruptions, framed via a forthcoming 'next oil shock that never will be' analysis, part of a Monday briefing citing WSJ/DeepMind-adjacent sourcing on energy and AGI timelines.",
+   "url": "https://www.exponentialview.co/p/ev-607",
+   "source": "exponentialview.co",
+   "date": "2026-10-25",
    "horizon": "H2",
    "srctype": "substack",
-   "swipes": "Writings",
+   "swipes": "Statistics",
    "steep": "Economic",
-   "classification": "Weak signal",
+   "steep2": "Environmental",
+   "classification": "Trend",
    "maturity": "Signal",
-   "likelihood": 3,
-   "credibility": 2,
-   "impact_scale": "Regional",
-   "disruptive_potential": "Minor",
-   "lens_retail": "beverage",
+   "likelihood": 4,
+   "credibility": 3,
    "novelty": "Medium",
-   "initial_analysis": "This is an example of a category correcting from marketing-led to logistics-led growth models, driven by veteran operators reasserting the primacy of physical distribution networks. If it spreads, beverage and adjacent CPG firms may reallocate capital toward warehousing and distributor relationships over digital acquisition.",
+   "impact_scale": "Global",
+   "disruptive_potential": "Major",
+   "initial_analysis": "This is an example of energy infrastructure risk shifting from fossil-fuel geopolitics toward electrified, grid-based systems; if it continues, oil-import-dependent nations' fuel logistics, strategic reserves, and energy-security planning could be deprioritized in favor of grid resilience and battery supply chains.",
    "themes": [
-    "distribution infrastructure",
-    "beverage industry",
-    "wholesale logistics"
+    "energy security",
+    "electrification",
+    "infrastructure risk"
    ],
    "keywords": [
-    "three-tier system",
-    "wholesale",
-    "beverage brand building",
-    "distribution"
+    "EVs",
+    "oil shock",
+    "energy security dividend",
+    "electrification"
    ],
    "sources": [
     {
-     "name": "newrulesbev.com",
-     "url": "https://www.newrulesbev.com/p/what-bottom-up-really-means-in-beverage"
+     "name": "Exponential View #607",
+     "url": "https://www.exponentialview.co/p/ev-607"
     }
    ],
-   "author": "Margaret Kerr-Jarrett"
+   "author": "Azeem Azhar"
   }
  ]
 }
