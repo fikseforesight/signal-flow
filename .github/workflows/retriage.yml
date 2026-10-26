@@ -5,7 +5,15 @@ name: Re-triage untriaged backlog
 # back onto the same pages. Safe to re-run: it only touches pages still Pending AND raw.
 
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      critique_only:
+        description: "Only run the critique pass on Pending weak signals / wild cards that have none"
+        type: boolean
+        default: false
+      since:
+        description: "Critique-only: items created on/after (YYYY-MM-DD)"
+        default: "2026-10-01"
 
 permissions:
   contents: write
@@ -28,13 +36,17 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: Critique-only pass
+        if: ${{ inputs.critique_only }}
+        run: node retriage.mjs critique "${{ inputs.since }}"
       - name: Daily backlog
+        if: ${{ !inputs.critique_only }}
         run: |
           node retriage.mjs fetch daily
           RAW_INPUT_FILE=raw-retriage-daily.json SOURCES_FILE=sources.json OUTPUT_FILE=retriage-daily-candidates.json ARCHIVE_PREFIX=retriage-daily node scan.mjs
           node retriage.mjs apply daily
       - name: Wild backlog
-        if: always()
+        if: ${{ always() && !inputs.critique_only }}
         run: |
           node retriage.mjs fetch wild
           RAW_INPUT_FILE=raw-retriage-wild.json SOURCES_FILE=sources-wild.json OUTPUT_FILE=retriage-wild-candidates.json ARCHIVE_PREFIX=retriage-wild node scan.mjs
