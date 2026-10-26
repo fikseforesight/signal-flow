@@ -313,69 +313,9 @@ async function claudePassBatched(items) {
   return out;
 }
 
-// ---------- the critique pass (adversarial demotion gate) ----------
-// Oct 2026: the first pass is told to widen, and an AI that widens also over-rates its own
-// finds — in a manual audit of 253 kept items, only 27 survived as genuine firsts/weak signals.
-// So every Weak signal / Wild card now goes through a second, hostile pass whose ONLY job is to
-// prove the item is already known. It runs the same six-question demotion bar Kristen uses.
-// It can demote (to Trend/Hype); it can never promote, and it never deletes.
-async function critiquePass(cands) {
-  const pool = cands.map((c, i) => ({ c, i })).filter(({ c }) => c.classification === "Weak signal" || c.classification === "Wild card");
-  if (!pool.length) return { checked: 0, demoted: 0 };
-  const sys = `You are the adversarial critique analyst for a strategic-foresight weak-signal library. Default posture: DEMOTION. For each candidate, actively try to prove it has ALREADY cleared the weak-signal bar — i.e. that it is a known, named, counted thing.
-
-Weakness = how LITTLE-KNOWN a change is, not how strange it sounds. Answer six tests for each, using your own knowledge plus the evidence given:
-1 named: does the shift already have a coined, widely-used name?
-2 codified: is it backed by law, standard, code, or formal programme in more than one place?
-3 counted: is there survey, market or analyst data quantifying it?
-4 mainstream: has it had mainstream national/international press (not trade press) coverage?
-5 multiple: are there multiple independent instances (3+), not one?
-6 practitioners: do practitioners in the field already use a trend name for it?
-Answer each "yes", "no" or "unknown". Use "unknown" honestly when you cannot tell (e.g. after your knowledge cutoff) — unknown is NOT yes.
-
-Verdict: "keep" if 0-2 yes; "demote" if 3+ yes. Also judge "first": is this credibly a world/national/major-market FIRST? (yes|plausible|no). Also flag "mismatch": true if the title claims more than the evidence supports.
-Return ONLY a JSON array, one object per candidate, same order:
-{"id": <number given>, "tests": {"named":"","codified":"","counted":"","mainstream":"","multiple":"","practitioners":""}, "verdict": "keep|demote", "first": "yes|plausible|no", "mismatch": false, "why": "max 30 words: the strongest reason it is or is not already known"}`;
-  let checked = 0, demoted = 0;
-  for (let s = 0; s < pool.length; s += 25) {
-    const chunk = pool.slice(s, s + 25);
-    const user = chunk.map(({ c, i }) => `id ${i}: ${c.title} — shift: ${c.shift || ""} — evidence: ${c.evidence || ""} — source: ${c.source || ""} (${c.date || ""})`).join("\n");
-    let arr = null;
-    for (let attempt = 1; attempt <= 2 && !arr; attempt++) {
-      try {
-        const res = await fetch("https://api.anthropic.com/v1/messages", {
-          method: "POST",
-          headers: { "content-type": "application/json", "x-api-key": API_KEY, "anthropic-version": "2023-06-01" },
-          body: JSON.stringify({ model: CFG.critiqueModel || CFG.model, max_tokens: 8000, system: sys, messages: [{ role: "user", content: user }] }),
-        });
-        if (!res.ok) throw new Error(`Anthropic API ${res.status}: ${(await res.text()).slice(0, 200)}`);
-        const j = await res.json();
-        const text = (j.content || []).map((b) => b.text || "").join("");
-        arr = JSON.parse((text.match(/\[[\s\S]*\]/) || ["[]"])[0]);
-      } catch (e) { console.error(`  critique chunk ${s / 25 + 1} attempt ${attempt} failed: ${e.message}`); }
-    }
-    for (const r of arr || []) {
-      const c = cands[r.id];
-      if (!c || !r.tests) continue;
-      const yes = Object.values(r.tests).filter((v) => String(v).toLowerCase() === "yes").length;
-      const unknown = Object.values(r.tests).filter((v) => String(v).toLowerCase() === "unknown").length;
-      // Weakness = number of tests answered a firm "no" (unknowns don't count either way).
-      // 6 = no trace of it being known; 0 = fully established.
-      c.weakness = Object.values(r.tests).filter((v) => String(v).toLowerCase() === "no").length;
-      c.first_claim = r.first || c.first_claim;
-      const testsLine = Object.entries(r.tests).map(([k, v]) => `${k}:${v}`).join(" ");
-      c.critique = `${r.verdict === "demote" || yes >= 3 ? "DEMOTE" : "KEEP"} (${yes}/6 known${unknown ? `, ${unknown} unknown` : ""}) — ${r.why || ""} [${testsLine}]${r.mismatch ? " ⚠ title overstates evidence" : ""}`;
-      if (yes >= 3) {
-        c.original_classification = c.classification;
-        c.classification = "Trend";
-        c.ai_read = `[Critique demoted: ${r.why || "already known"}] ` + (c.ai_read || "");
-        demoted++;
-      }
-      checked++;
-    }
-  }
-  return { checked, demoted };
-}
+// ---------- the critique pass lives in critique.mjs (shared with retriage.mjs) ----------
+import { critiquePass as critiqueShared } from "./critique.mjs";
+const critiquePass = (cands) => critiqueShared(cands, { apiKey: API_KEY, model: CFG.critiqueModel || CFG.model });
 
 // ---------- main ----------
 
