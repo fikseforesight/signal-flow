@@ -1,0 +1,49 @@
+name: Re-triage untriaged backlog
+
+# One-off / on-demand. Finds Notion pages that were saved as raw, untriaged items during an
+# AI outage, runs them through the normal triage + critique passes, and writes the results
+# back onto the same pages. Safe to re-run: it only touches pages still Pending AND raw.
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: notion-sync
+  cancel-in-progress: false
+
+jobs:
+  retriage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    env:
+      NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+      NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      NO_AUTORUN: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Daily backlog
+        run: |
+          node retriage.mjs fetch daily
+          RAW_INPUT_FILE=raw-retriage-daily.json SOURCES_FILE=sources.json OUTPUT_FILE=retriage-daily-candidates.json ARCHIVE_PREFIX=retriage-daily node scan.mjs
+          node retriage.mjs apply daily
+      - name: Wild backlog
+        if: always()
+        run: |
+          node retriage.mjs fetch wild
+          RAW_INPUT_FILE=raw-retriage-wild.json SOURCES_FILE=sources-wild.json OUTPUT_FILE=retriage-wild-candidates.json ARCHIVE_PREFIX=retriage-wild node scan.mjs
+          node retriage.mjs apply wild
+      - name: Archive results
+        if: always()
+        run: |
+          git config user.name "signal-flow-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add archive/retriage-*.json || true
+          git diff --cached --quiet && echo "nothing to commit" || git commit -m "Re-triage backlog $(date -u +%F)"
+          for i in 1 2 3; do git pull --rebase origin main && git push && break; sleep 5; done
