@@ -93,18 +93,17 @@ async function critiqueOnly(since, all = false) {
   await ensureSchema();
   const rows = []; let cursor;
   do {
-    const j = await notion(`/databases/${DB}/query`, "POST", { page_size: 100, ...(cursor ? { start_cursor: cursor } : {}), filter: { and: [
-      ...(all
-        // re-grade: everything still Pending, PLUS items the earlier (stricter) gauntlet demoted
-        ? [{ or: [
-            { and: [{ property: "Status", select: { equals: "Pending" } }, { or: [{ property: "Classification", select: { equals: "Weak signal" } }, { property: "Classification", select: { equals: "Wild card" } }] }] },
-            { and: [{ property: "Status", select: { equals: "Demoted" } }, { property: "Critique", rich_text: { starts_with: "DEMOTED" } }] },
-          ] }]
-        : [{ property: "Status", select: { equals: "Pending" } },
-           { or: [{ property: "Classification", select: { equals: "Weak signal" } }, { property: "Classification", select: { equals: "Wild card" } }] },
-           { property: "Critique", rich_text: { is_empty: true } }]),
-      { timestamp: "created_time", created_time: { on_or_after: since } },
-    ] } });
+    // Notion allows only two levels of filter nesting, so the two cases are built as OR-of-ANDs.
+    const since_f = { timestamp: "created_time", created_time: { on_or_after: since } };
+    const notRuleout = ["Trend", "Hype", "Megatrend"].map((n) => ({ property: "Classification", select: { does_not_equal: n } }));
+    const pendingSet = [{ property: "Status", select: { equals: "Pending" } }, { property: "Classification", select: { is_not_empty: true } }, ...notRuleout, since_f];
+    const filter = all
+      ? { or: [
+          { and: pendingSet },
+          { and: [{ property: "Status", select: { equals: "Demoted" } }, { property: "Critique", rich_text: { starts_with: "DEMOTED" } }, since_f] },
+        ] }
+      : { and: [...pendingSet, { property: "Critique", rich_text: { is_empty: true } }] };
+    const j = await notion(`/databases/${DB}/query`, "POST", { page_size: 100, ...(cursor ? { start_cursor: cursor } : {}), filter });
     for (const p of j.results) { const P = p.properties; const wasDemoted = txt(P["Status"]) === "Demoted"; const cls = txt(P["Classification"]); rows.push({ page_id: p.id, was_demoted: wasDemoted, title: txt(P["Signal"]), shift: txt(P["What's changing"]), evidence: txt(P["Evidence"]).slice(0, 400), source: txt(P["Source"]), url: txt(P["Source URL"]), date: txt(P["Date Published"]), horizon: txt(P["Horizon"]), classification: cls === "Wild card" ? "Wild card" : "Weak signal", ai_read: txt(P["AI Read"]).replace(/^(\[(R[123]|Critique)[^\]]*\]\s*)+/g, "") }); }
     cursor = j.has_more ? j.next_cursor : null;
   } while (cursor);
