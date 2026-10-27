@@ -29,11 +29,20 @@ List only outlets you actually found in search results; an empty list is a valid
 
 export async function corroborate(item, { apiKey, model, maxUses = 4 } = {}) {
   const user = `Item: ${item.title}\nWhat it says: ${item.shift || item.evidence || ""}\nOriginal URL: ${item.url}\nDate: ${item.date || "unknown"}`;
-  const res = await fetch("https://api.anthropic.com/v1/messages", {
-    method: "POST",
-    headers: { "content-type": "application/json", "x-api-key": apiKey, "anthropic-version": "2023-06-01" },
-    body: JSON.stringify({ model, max_tokens: 2000, system: SYS, tools: [{ type: "web_search_20250305", name: "web_search", max_uses: maxUses }], messages: [{ role: "user", content: user }] }),
-  });
+  // Web search pulls large pages into context, so rate limits (429) and overloads (529) are common in
+  // bulk runs. Back off and retry rather than fail the item.
+  let res;
+  for (let attempt = 1; attempt <= 5; attempt++) {
+    res = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-api-key": apiKey, "anthropic-version": "2023-06-01" },
+      body: JSON.stringify({ model, max_tokens: 2000, system: SYS, tools: [{ type: "web_search_20250305", name: "web_search", max_uses: maxUses }], messages: [{ role: "user", content: user }] }),
+    });
+    if (res.ok || ![429, 500, 529].includes(res.status)) break;
+    const wait = Number(res.headers.get("retry-after")) * 1000 || 20000 * attempt;
+    console.error(`  corroboration ${res.status}, retrying in ${Math.round(wait / 1000)}s`);
+    await new Promise((r) => setTimeout(r, wait));
+  }
   if (!res.ok) throw new Error(`Anthropic API ${res.status}: ${(await res.text()).slice(0, 200)}`);
   const j = await res.json();
   // Only trust URLs that actually appeared in the web-search results, so the model can't invent outlets.
