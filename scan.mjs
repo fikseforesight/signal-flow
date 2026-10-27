@@ -28,6 +28,7 @@ const API_KEY = process.env.ANTHROPIC_API_KEY;
 // Sources Kristen has ruled out as signal sources (Oct 2026: ArchDaily — project showcases, not change).
 const BLOCKED = (CFG.blockedDomains || []).map((d) => d.toLowerCase().replace(/^www\./, ""));
 import { NONCREDIBLE } from "./credibility.mjs";
+import { corroborate, NEEDS_CORROBORATION } from "./corroborate.mjs";
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const today = new Date().toISOString().slice(0, 10);
@@ -382,6 +383,25 @@ if (capped.length && API_KEY) {
   try {
     candidates = await claudePassBatched(capped);
     status.ai = "ok";
+    // ArchDaily items only survive if two independent credible outlets also report the same thing.
+    const needs = candidates.filter((c) => { try { return NEEDS_CORROBORATION.test(new URL(c.url).hostname); } catch { return false; } });
+    if (needs.length) {
+      status.corroboration = { checked: needs.length, passed: 0, dropped: 0, errors: 0 };
+      const drop = new Set();
+      for (const c of needs) {
+        try {
+          const r = await corroborate(c, { apiKey: API_KEY, model: CFG.model });
+          if (r.ok) {
+            status.corroboration.passed++;
+            c.corroborated = true;
+            c.sources = r.outlets.map((o) => ({ name: o.name, url: o.url }));
+            c.evidence = `${c.evidence || ""} [Corroborated by ${r.outlets.map((o) => o.name).join(", ")}]`.trim();
+          } else { status.corroboration.dropped++; drop.add(c); }
+        } catch (e) { status.corroboration.errors++; drop.add(c); console.error(`  corroboration failed for ${c.title}: ${e.message}`); }
+      }
+      candidates = candidates.filter((c) => !drop.has(c));
+      console.log(`  ArchDaily corroboration: ${needs.length} checked, ${status.corroboration.passed} kept, ${drop.size} dropped`);
+    }
     if (CFG.critique !== false) {
       console.log("Critique pass…");
       status.critique = await critiquePass(candidates);

@@ -60,7 +60,7 @@ const BRANCHES = [
   ["Off-map / Not Built-Environment", /off-map/i],
 ];
 const FIRST_VALID = new Set(["yes", "plausible", "no"]);
-const BLOCKED = ["archdaily.com"]; // Kristen, Oct 2026: ArchDaily items are not scan hits
+const BLOCKED = ["archdaily.com"]; // Kristen, Oct 2026: ArchDaily items only count when two other credible outlets report the same thing
 let CAN_BRANCH = true; // cleared if the Domain Branch property is missing and cannot be created
 function branchTags(c) {
   const raw = [c.domain_branch, c.domainBranch, c.branch].filter(Boolean).join(" / ");
@@ -226,7 +226,7 @@ async function run() {
     console.log(`${file} (${feed}): ${cands.length} candidates`);
     for (const c of cands) {
       if (!c || (!c.title && !c.url)) continue;
-      if (BLOCKED.some((d) => normUrl(c.url).startsWith(d))) continue;
+      if (BLOCKED.some((d) => normUrl(c.url).startsWith(d)) && !c.corroborated) continue; // ArchDaily only if corroborated by 2 outlets
       if (c.date) {
         const t = new Date(String(c.date).slice(0, 10)).getTime();
         if (!isNaN(t) && t < cutoff) { tooOld++; continue; }        // rolling window: skip anything older than 1 year

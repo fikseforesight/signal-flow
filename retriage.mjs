@@ -10,6 +10,7 @@
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { buildProps, buildBody, ensureSchema, notion, normUrl } from "./push-to-notion.mjs";
 import { critiquePass } from "./critique.mjs";
+import { corroborate } from "./corroborate.mjs";
 import { isNonCredibleUrl, isNonCredibleSource, openalexCore } from "./credibility.mjs";
 
 const [mode, feed] = process.argv.slice(2);
@@ -176,7 +177,50 @@ async function credibility(since) {
   if (process.env.GITHUB_STEP_SUMMARY) writeFileSync(process.env.GITHUB_STEP_SUMMARY, `### ${msg}\n`, { flag: "a" });
 }
 
-if (mode === "credibility") await credibility(feed || "2026-01-01");
+// ARCHDAILY MODE: every ArchDaily item must be independently reported by 2+ credible outlets.
+// Pending items that fail → Demoted (with the reason). Pending items that pass → stay, with the
+// corroborating links added to the page. Core items (Kristen's own picks) are never demoted — they
+// only get the result noted in AI Read so she can decide.
+async function archdaily() {
+  const cfg = JSON.parse(readFileSync("sources.json", "utf8")).config;
+  const rows = []; let cursor;
+  do {
+    const j = await notion(`/databases/${DB}/query`, "POST", { page_size: 100, ...(cursor ? { start_cursor: cursor } : {}), filter: { and: [
+      { property: "Source URL", url: { contains: "archdaily" } },
+      { or: [{ property: "Status", select: { equals: "Pending" } }, { property: "Status", select: { equals: "Core" } }] },
+    ] } });
+    for (const p of j.results) { const P = p.properties; rows.push({ page_id: p.id, status: txt(P["Status"]), title: txt(P["Signal"]), shift: txt(P["What's changing"]), evidence: txt(P["Evidence"]), url: txt(P["Source URL"]), date: txt(P["Date Published"]), ai_read: txt(P["AI Read"]).replace(/^\[Corroboration[^\]]*\]\s*/, "") }); }
+    cursor = j.has_more ? j.next_cursor : null;
+  } while (cursor);
+  console.log(`${rows.length} ArchDaily items (Pending + Core) to verify`);
+  let passed = 0, demoted = 0, coreUnverified = 0, errors = 0;
+  const lines = [];
+  for (const r of rows) {
+    let res;
+    try { res = await corroborate(r, { apiKey: process.env.ANTHROPIC_API_KEY, model: cfg.model }); }
+    catch (e) { errors++; console.error(`  ! ${r.title.slice(0, 50)}: ${e.message}`); continue; }
+    const tag = res.ok ? `[Corroboration 2026-10-27: confirmed by ${res.outlets.map((o) => o.name).join(", ")}]` : `[Corroboration 2026-10-27: NOT confirmed — ${res.outlets.length} independent credible outlet(s) found${res.note ? `; ${res.note}` : ""}]`;
+    const props = { "AI Read": { rich_text: [{ type: "text", text: { content: `${tag} ${r.ai_read}`.slice(0, 1990) } }] } };
+    if (!res.ok && r.status === "Pending") { props["Status"] = { select: { name: "Demoted" } }; demoted++; }
+    if (!res.ok && r.status === "Core") coreUnverified++;
+    if (res.ok) passed++;
+    try {
+      await notion(`/pages/${r.page_id}`, "PATCH", { properties: props });
+      if (res.outlets.length) await notion(`/blocks/${r.page_id}/children`, "PATCH", { children: [
+        { object: "block", type: "heading_3", heading_3: { rich_text: [{ type: "text", text: { content: "Independent coverage (corroboration check)" } }] } },
+        ...res.outlets.slice(0, 6).map((o) => ({ object: "block", type: "bulleted_list_item", bulleted_list_item: { rich_text: [{ type: "text", text: { content: String(o.name).slice(0, 200), link: { url: o.url } } }] } })),
+      ] });
+    } catch (e) { errors++; console.error(`  ! write ${r.title.slice(0, 50)}: ${e.message}`); }
+    lines.push(`- ${res.ok ? "✅" : r.status === "Core" ? "⚠️ Core, unconfirmed" : "❌ demoted"} ${r.title} — ${res.outlets.map((o) => o.name).join(", ") || "no independent coverage"}`);
+    await sleep(500);
+  }
+  const msg = `ArchDaily corroboration: ${rows.length} checked → ${passed} confirmed by 2+ outlets, ${demoted} Pending demoted, ${coreUnverified} Core items unconfirmed (left as Core, flagged), ${errors} errors.`;
+  console.log(msg + "\n" + lines.join("\n"));
+  if (process.env.GITHUB_STEP_SUMMARY) writeFileSync(process.env.GITHUB_STEP_SUMMARY, `### ${msg}\n\n${lines.join("\n")}\n`, { flag: "a" });
+}
+
+if (mode === "archdaily") await archdaily();
+else if (mode === "credibility") await credibility(feed || "2026-01-01");
 else if (mode === "critique") await critiqueOnly(feed || "2026-10-01");
 else if (mode === "recritique") await critiqueOnly(feed || "2026-10-01", true);
 else if (mode === "fetch") await fetchRaw();
