@@ -36,11 +36,11 @@ Return ONLY a JSON array, one object per candidate, same order, same number:
 const R2 = `You are round 2 of 3 in an adversarial critique of a weak-signal library for a foresight lead studying how external forces reshape a mass-market retailer's physical stores and real estate. These candidates survived round 1. Now be hypercritical about SUBSTANCE (not novelty — novelty is graded later). Demote if ANY of these is true:
 - not_change: it is an opinion, essay, forecast, design concept, student project, lab/simulation result, literature review, survey of intentions, or product announcement with no real-world deployment — rather than something that has actually started happening (a deployment, law, contract, purchase, behaviour, price, failure, closure, first instance).
 - weak_source: the only evidence is a low-credibility venue (preprint server, unindexed or predatory journal, anonymous forum post with no linked evidence, press release), or the summary overstates the source.
-- no_stake: the link to physical space (stores, buildings, sites, logistics, real estate, labour in those places) is strained or invented.
+- no_stake: there is NO plausible route — direct or second-order — by which this changes physical space (stores, buildings, sites, logistics, real estate, energy/water, insurance or labour in those places). If the route is indirect but plausible, KEEP it with reason "indirect" — do not demote.
 - retrospective: it reinterprets the past rather than showing something new.
 Note: a credible study, measurement, pilot or proposal tied to a real place counts as something happening — do NOT demote it as not_change. Reserve not_change for pure opinion, concept renders, student projects and speculation.
 Return ONLY a JSON array, one object per candidate, same order, same number:
-{"n":1,"verdict":"keep|demote","reason":"not_change|weak_source|no_stake|retrospective|ok","why":"max 25 words"}`;
+{"n":1,"verdict":"keep|demote","reason":"not_change|weak_source|no_stake|retrospective|indirect|ok","why":"max 25 words"}`;
 
 const R3 = `You are round 3 of 3 on a weak-signal library. Two hostile reviewers read each candidate: (a) a sceptical senior strategic-foresight practitioner who has read every trend report, and (b) a retail real-estate executive who runs 1,000+ stores. Be honest and hard-nosed, but GRADE rather than reject: place each item on the Three Horizons.
 - "edge": BOTH reviewers would find it genuinely new and unsettling — a true weak signal or wild card (keep its horizon, H2 or H3).
@@ -100,7 +100,7 @@ function demote(c, cls, note) {
 
 // The WILD scan is deliberately domain-agnostic, so for it the physical-space stake test is dropped
 // and the round-3 reviewers judge novelty for a general foresight practitioner instead.
-const wildR2 = (s) => s.replace(/- no_stake:[^\n]*\n/, "");
+const wildR2 = (s) => s.replace(/- no_stake:[^\n]*\n/, "").replace(" for a foresight lead studying how external forces reshape a mass-market retailer's physical stores and real estate", "");
 const wildR3 = (s) => s.replace("and (b) a retail real-estate executive who runs 1,000+ stores", "and (b) a well-read futurist");
 export async function critiquePass(cands, opts = {}) {
   const r2 = opts.wild ? wildR2(R2) : R2, r3 = opts.wild ? wildR3(R3) : R3;

@@ -104,11 +104,15 @@ async function critiqueOnly(since, all = false) {
         ] }
       : { and: [...pendingSet, { property: "Critique", rich_text: { is_empty: true } }] };
     const j = await notion(`/databases/${DB}/query`, "POST", { page_size: 100, ...(cursor ? { start_cursor: cursor } : {}), filter });
-    for (const p of j.results) { const P = p.properties; const wasDemoted = txt(P["Status"]) === "Demoted"; const cls = txt(P["Classification"]); rows.push({ page_id: p.id, was_demoted: wasDemoted, title: txt(P["Signal"]), shift: txt(P["What's changing"]), evidence: txt(P["Evidence"]).slice(0, 400), source: txt(P["Source"]), url: txt(P["Source URL"]), date: txt(P["Date Published"]), horizon: txt(P["Horizon"]), classification: cls === "Wild card" ? "Wild card" : "Weak signal", ai_read: txt(P["AI Read"]).replace(/^(\[(R[123]|Critique)[^\]]*\]\s*)+/g, "") }); }
+    for (const p of j.results) { const P = p.properties; const wasDemoted = txt(P["Status"]) === "Demoted"; const cls = txt(P["Classification"]); rows.push({ page_id: p.id, feed: txt(P["Scan Feed"]), was_demoted: wasDemoted, title: txt(P["Signal"]), shift: txt(P["What's changing"]), evidence: txt(P["Evidence"]).slice(0, 400), source: txt(P["Source"]), url: txt(P["Source URL"]), date: txt(P["Date Published"]), horizon: txt(P["Horizon"]), classification: cls === "Wild card" ? "Wild card" : "Weak signal", ai_read: txt(P["AI Read"]).replace(/^(\[(R[123]|Critique)[^\]]*\]\s*)+/g, "") }); }
     cursor = j.has_more ? j.next_cursor : null;
   } while (cursor);
   console.log(`${rows.length} ${all ? "" : "uncritiqued "}Pending weak signals / wild cards since ${since}`);
-  const stats = await critiquePass(rows, { apiKey: process.env.ANTHROPIC_API_KEY, model: cfg.critiqueModel || cfg.model });
+  // Wild-scan items are judged without the physical-space stake test (that scan is domain-agnostic on purpose).
+  const opts = { apiKey: process.env.ANTHROPIC_API_KEY, model: cfg.critiqueModel || cfg.model };
+  const sA = await critiquePass(rows.filter((r) => r.feed !== "wild"), opts);
+  const sB = await critiquePass(rows.filter((r) => r.feed === "wild"), { ...opts, wild: true });
+  const stats = Object.fromEntries(Object.keys(sA).map((k) => [k, (sA[k] || 0) + (sB[k] || 0)]));
   let written = 0, failed = 0;
   for (const c of rows.filter((r) => r.critique)) {
     const props = { "Critique": { rich_text: [{ type: "text", text: { content: c.critique.slice(0, 1990) } }] }, "Weakness": { number: c.weakness } };
