@@ -89,7 +89,12 @@ function demote(c, cls, note) {
   c.ai_read = `[${note}] ` + (c.ai_read || "");
 }
 
+// The WILD scan is deliberately domain-agnostic, so for it the physical-space stake test is dropped
+// and the round-3 reviewers judge novelty for a general foresight practitioner instead.
+const wildR2 = (s) => s.replace(/- no_stake:[^\n]*\n/, "");
+const wildR3 = (s) => s.replace("and (b) a retail real-estate executive who runs 1,000+ stores", "and (b) a well-read futurist").replace("enough to change a question they ask about stores or property in the next 3-15 years", "enough to change how they think about the next 3-15 years");
 export async function critiquePass(cands, opts = {}) {
+  const r2 = opts.wild ? wildR2(R2) : R2, r3 = opts.wild ? wildR3(R3) : R3;
   const pool = cands.filter((c) => c.classification === "Weak signal" || c.classification === "Wild card");
   const log = new Map(pool.map((c) => [c, []]));
   const stats = { checked: 0, demoted: 0, missing: 0, r1: 0, r2: 0, r3: 0, survived: 0 };
@@ -108,7 +113,7 @@ export async function critiquePass(cands, opts = {}) {
   const s1 = pool.filter((c) => c._r1 && !c.critique_demoted);
 
   // ---- R2: substance, source, stake ----
-  stats.missing += await round(s1, R2, opts, (c, r) => {
+  stats.missing += await round(s1, r2, opts, (c, r) => {
     c._r2 = true;
     const bad = String(r.verdict).toLowerCase() === "demote";
     log.get(c).push(`R2 ${bad ? "DEMOTE" : "KEEP"} (${r.reason || "?"}) ${r.why || ""}`);
@@ -117,7 +122,7 @@ export async function critiquePass(cands, opts = {}) {
   const s2 = s1.filter((c) => c._r2 && !c.critique_demoted);
 
   // ---- R3: practitioner veto ----
-  stats.missing += await round(s2, R3, opts, (c, r) => {
+  stats.missing += await round(s2, r3, opts, (c, r) => {
     c._r3 = true;
     const bad = String(r.verdict).toLowerCase() === "demote";
     log.get(c).push(`R3 ${bad ? "DEMOTE" : "KEEP"} ${r.class ? `(${r.class}) ` : ""}${r.why || ""}`);

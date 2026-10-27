@@ -319,7 +319,7 @@ async function claudePassBatched(items) {
 
 // ---------- the critique pass lives in critique.mjs (shared with retriage.mjs) ----------
 import { critiquePass as critiqueShared } from "./critique.mjs";
-const critiquePass = (cands) => critiqueShared(cands, { apiKey: API_KEY, model: CFG.critiqueModel || CFG.model });
+const critiquePass = (cands) => critiqueShared(cands, { apiKey: API_KEY, model: CFG.critiqueModel || CFG.model, wild: IS_WILD });
 
 // ---------- main ----------
 
