@@ -9,10 +9,10 @@
 // architect's / developer's / brand's own channels, press-release wires, social media, Wikipedia,
 // or anything that is clearly a copy of the same press kit.
 export const NEEDS_CORROBORATION = /(^|\.)archdaily\.(com|cn|mx|com\.br)/i;
-const SHOWCASE = /archdaily|dezeen|designboom|architizer|archello|divisare|archdaily|yankodesign|inhabitat|designwanted|amazingarchitecture|world-architects|e-architect|arquitecturaviva|plataformaarquitectura|leibal|contemporist|homeadore|prnewswire|businesswire|globenewswire|wikipedia|instagram|linkedin|facebook|x\.com|twitter/i;
+const SHOWCASE = /superfuture|gooood|architectsdiary|abirpothi|casadevalentina|archdaily|dezeen|designboom|architizer|archello|divisare|archdaily|yankodesign|inhabitat|designwanted|amazingarchitecture|world-architects|e-architect|arquitecturaviva|plataformaarquitectura|leibal|contemporist|homeadore|prnewswire|businesswire|globenewswire|wikipedia|instagram|linkedin|facebook|x\.com|twitter/i;
 
 const SYS = `You verify signals for a strategic-foresight library. Given an item first reported by a design-showcase website, use web search to find INDEPENDENT coverage of the same specific project, event or development by credible outlets: established news organisations, trade press with editorial standards, official/government records, or peer-reviewed journals.
-Do NOT count: design-showcase sites (ArchDaily, Dezeen, Designboom, Architizer, Archello, Divisare, etc.), the architect's/developer's/brand's own website or channels, press-release wires, social media, Wikipedia, or pages that merely copy the same press kit.
+Do NOT count: design-showcase or design-lifestyle sites (ArchDaily, Dezeen, Designboom, Architizer, Archello, Divisare, Superfuture, gooood, etc.), the architect's/developer's/brand's own website or channels, industry associations or award programmes promoting the project, personal or lifestyle blogs, press-release wires, social media, Wikipedia, or pages that merely copy the same press kit. When in doubt, do not count it.
 It must be the same specific thing (same project/place/organisation), not just the general topic.
 Search efficiently. Then reply with ONLY this JSON (no prose):
 {"outlets":[{"name":"outlet name","url":"https://..."}],"note":"max 20 words"}
