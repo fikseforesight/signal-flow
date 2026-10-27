@@ -1,8 +1,8 @@
 {
   "config": {
     "model": "claude-sonnet-5",
-    "maxRawItems": 240,
-    "maxCandidates": 45,
+    "maxRawItems": 300,
+    "maxCandidates": 50,
     "seenLimit": 8000,
     "gdeltTimespan": "36h",
     "arxivDays": 6,
@@ -10,7 +10,8 @@
     "redditDays": 5,
     "rssGate": false,
     "blockedDomains": [],
-    "critique": true
+    "critique": true,
+    "academicShare": 0.15
   },
   "domainMap": "Kristen is a strategic-foresight professional. This is the DAILY DOMAIN-MAP scan, and it is ANCHORED — its job is the built environment. (The separate twice-weekly WILD scan handles domain-agnostic reach; do not duplicate its job here.) ===CENTRE NODE=== Building / Space / Store. The governing question: how do external forces reshape the role, form, and value of a mass-market retailer's physical stores and real-estate assets? ===THE NINE BRANCHES, scan all of them=== (1) LABOR / WORK & OPERATIONS — frontline team members, work tasks, scheduling, task decomposition; (2) SUPPLY CHAIN — storage & receiving, fulfilment, delivery format, goods transportation; (3) INFRASTRUCTURE — utilities (energy, water, and compute), parking, location, layout/format; (4) CONSTRUCTION — methods incl. 3D printing, materials & resources, trade workers and equipment; (5) RETAIL INDUSTRY — competitors, formats, entrants and exits; (6) TECH — AI (especially PHYSICAL AI), robotics, computer vision, automation; (7) PEOPLE & HUMAN SYSTEM — commerce (eComm, social commerce), transaction/payments/checkout, inspiration & discovery, connection & community (food/cafe), experience (digital and physical), transportation & mobility, demographic shifts, migration and population movement; (8) POLICY, REGULATION, FINANCE — zoning, insurance, regions, permitting, capital; (9) SUSTAINABILITY & ENVIRONMENT — heat, climate events (hurricane, flood, fire, tornado), circular and regenerative. ===BALANCE=== TECH/AI is ONE branch of nine, not the frame for all of them. Do not let AI stories crowd out labor, construction, policy, supply chain, sustainability or people signals. Aim for spread across branches, not depth in one. ===OPEN HUNT ZONES=== 'compute?' under Utilities and 'delivery format?' under Supply Chain are unresolved questions on Kristen's map — treat them as live hunt zones, not settled categories. Added Oct 2026 because the library was thin there: HEALTH & CARE SPACES (hospitals, clinics and pharmacies moving into or out of retail and community buildings), COMMUNITY & CIVIC LIFE (who owns, hosts and governs shared places: co-ops, community ownership, churches, libraries, third places), HOUSING (where and how people live, including in cars and parking lots), and the EVERYDAY ECONOMY (cash, prices, payments, credit, public provision of goods). ===WHAT TO REWARD (weakest first)=== absences (a category, code, standard, contract, insurance product or transaction that does NOT yet exist but is now needed); reframings (a new reading of a named thing); second- and third-order implications nobody has drawn; cross-branch convergences (the same shift surfacing in two branches at once); single instances; peripheral and non-Western geography (Gulf, Africa, South and Southeast Asia, Latin America) — especially where the periphery is SETTING a standard rather than receiving one; and anything that would sound absurd or unsettling to a working retail-real-estate professional. Judge horizon on evidence; do not inflate it for strangeness. ===EDGES, NOT HEADLINES=== A retail-trade-press headline about a named, counted, already-forecast thing is not a signal. Reach past the announcement to the structural consequence nobody has stated. ===EMERGING, NOT RETROSPECTIVE=== this scan wants things beginning to happen in the real world, not scholarly re-readings of the past. ===VOLUME & THE RULE-OUTS=== Kristen wants to SEE the rule-outs, not just the survivors — she calibrates her own judgment on them. Cast a wide net within the domain map and return MANY candidates (up to the max). Include borderline items AND already-trending ones, but LABEL them honestly: set classification to 'Trend' or 'Hype' and say briefly in ai_read why (e.g. 'already named and widely covered — included for your judgment, probably Context'). NEVER silently drop something; when in doubt, INCLUDE and label. Demote rather than delete. ===OFF-MAP ALLOWANCE=== if an item is genuinely extraordinary but sits outside the nine branches, you may still include it (max ~3 per run) — say in ai_read which branch it might eventually touch. Do NOT assign an impact rating — that is human-held.",
   "gdeltQueries": [
@@ -99,7 +100,7 @@
       "url": "https://www.archdaily.com/rss/"
     },
     {
-      "name": "Dezeen",
+      "name": "Dezeen (needs 2-outlet corroboration)",
       "url": "https://www.dezeen.com/feed/"
     },
     {
@@ -185,6 +186,194 @@
     {
       "name": "Japan Times",
       "url": "https://www.japantimes.co.jp/feed/"
+    },
+    {
+      "name": "Bloomberg Markets",
+      "url": "https://feeds.bloomberg.com/markets/news.rss",
+      "gate": true
+    },
+    {
+      "name": "Guardian Retail",
+      "url": "https://www.theguardian.com/business/retail/rss",
+      "gate": true
+    },
+    {
+      "name": "Guardian Property",
+      "url": "https://www.theguardian.com/money/property/rss",
+      "gate": true
+    },
+    {
+      "name": "Guardian Climate",
+      "url": "https://www.theguardian.com/environment/climate-crisis/rss",
+      "gate": true
+    },
+    {
+      "name": "NYT Real Estate",
+      "url": "https://rss.nytimes.com/services/xml/rss/nyt/RealEstate.xml",
+      "gate": true
+    },
+    {
+      "name": "NYT Business",
+      "url": "https://rss.nytimes.com/services/xml/rss/nyt/Business.xml",
+      "gate": true
+    },
+    {
+      "name": "NPR Business",
+      "url": "https://feeds.npr.org/1006/rss.xml",
+      "gate": true
+    },
+    {
+      "name": "The Economist Finance & Economics",
+      "url": "https://www.economist.com/finance-and-economics/rss.xml",
+      "gate": true
+    },
+    {
+      "name": "The Economist International",
+      "url": "https://www.economist.com/international/rss.xml",
+      "gate": true
+    },
+    {
+      "name": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/rss/feed/nar",
+      "gate": true
+    },
+    {
+      "name": "SCMP Business",
+      "url": "https://www.scmp.com/rss/92/feed",
+      "gate": true
+    },
+    {
+      "name": "SCMP China Economy",
+      "url": "https://www.scmp.com/rss/318421/feed",
+      "gate": true
+    },
+    {
+      "name": "The National (UAE)",
+      "url": "https://www.thenationalnews.com/arc/outboundfeeds/rss/?outputType=xml",
+      "gate": true
+    },
+    {
+      "name": "Al Jazeera",
+      "url": "https://www.aljazeera.com/xml/rss/all.xml",
+      "gate": true
+    },
+    {
+      "name": "Arab News",
+      "url": "https://www.arabnews.com/rss.xml",
+      "gate": true
+    },
+    {
+      "name": "DW Business",
+      "url": "https://rss.dw.com/rdf/rss-en-bus",
+      "gate": true
+    },
+    {
+      "name": "Le Monde (English)",
+      "url": "https://www.lemonde.fr/en/rss/une.xml",
+      "gate": true
+    },
+    {
+      "name": "The Hindu Business",
+      "url": "https://www.thehindu.com/business/feeder/default.rss",
+      "gate": true
+    },
+    {
+      "name": "Mint Companies",
+      "url": "https://www.livemint.com/rss/companies",
+      "gate": true
+    },
+    {
+      "name": "Daily Maverick",
+      "url": "https://www.dailymaverick.co.za/dmrss/",
+      "gate": true
+    },
+    {
+      "name": "TechCabal",
+      "url": "https://techcabal.com/feed/",
+      "gate": true
+    },
+    {
+      "name": "BBC Business",
+      "url": "https://feeds.bbci.co.uk/news/business/rss.xml",
+      "gate": true
+    },
+    {
+      "name": "CBC Business",
+      "url": "https://www.cbc.ca/webfeed/rss/rss-business",
+      "gate": true
+    },
+    {
+      "name": "Globe and Mail Real Estate",
+      "url": "https://www.theglobeandmail.com/arc/outboundfeeds/rss/category/real-estate/",
+      "gate": true
+    },
+    {
+      "name": "ABC Australia Business",
+      "url": "https://www.abc.net.au/news/feed/51892/rss.xml",
+      "gate": true
+    },
+    {
+      "name": "Straits Times Business",
+      "url": "https://www.straitstimes.com/news/business/rss.xml",
+      "gate": true
+    },
+    {
+      "name": "CNA Business",
+      "url": "https://www.channelnewsasia.com/rssfeeds/8395884",
+      "gate": true
+    },
+    {
+      "name": "Infobae",
+      "url": "https://www.infobae.com/arc/outboundfeeds/rss/",
+      "gate": true
+    },
+    {
+      "name": "Mexico News Daily",
+      "url": "https://www.mexiconewsdaily.com/feed/",
+      "gate": true
+    },
+    {
+      "name": "Semafor",
+      "url": "https://www.semafor.com/rss.xml",
+      "gate": true
+    },
+    {
+      "name": "Axios",
+      "url": "https://www.axios.com/feeds/feed.rss",
+      "gate": true
+    },
+    {
+      "name": "City AM",
+      "url": "https://www.cityam.com/feed/",
+      "gate": true
+    },
+    {
+      "name": "Modern Retail",
+      "url": "https://www.modernretail.co/feed/"
+    },
+    {
+      "name": "FreightWaves",
+      "url": "https://www.freightwaves.com/news/feed"
+    },
+    {
+      "name": "ENR",
+      "url": "https://www.enr.com/rss/articles"
+    },
+    {
+      "name": "Global Construction Review",
+      "url": "https://www.globalconstructionreview.com/feed/"
+    },
+    {
+      "name": "Insurance Journal",
+      "url": "https://www.insurancejournal.com/rss/news/"
+    },
+    {
+      "name": "Carbon Brief",
+      "url": "https://www.carbonbrief.org/feed/"
+    },
+    {
+      "name": "DatacenterDynamics",
+      "url": "https://www.datacenterdynamics.com/en/rss/"
     }
   ],
   "relevanceKeywords": [

@@ -186,20 +186,20 @@ async function archdaily() {
   const rows = []; let cursor;
   do {
     const j = await notion(`/databases/${DB}/query`, "POST", { page_size: 100, ...(cursor ? { start_cursor: cursor } : {}), filter: { and: [
-      { property: "Source URL", url: { contains: "archdaily" } },
+      { or: [{ property: "Source URL", url: { contains: "archdaily" } }, { property: "Source URL", url: { contains: "dezeen" } }] },
       { or: [{ property: "Status", select: { equals: "Pending" } }, { property: "Status", select: { equals: "Core" } }] },
     ] } });
     for (const p of j.results) { const P = p.properties; rows.push({ page_id: p.id, status: txt(P["Status"]), title: txt(P["Signal"]), shift: txt(P["What's changing"]), evidence: txt(P["Evidence"]), url: txt(P["Source URL"]), date: txt(P["Date Published"]), ai_read: txt(P["AI Read"]).replace(/^\[Corroboration[^\]]*\]\s*/, "") }); }
     cursor = j.has_more ? j.next_cursor : null;
   } while (cursor);
-  console.log(`${rows.length} ArchDaily items (Pending + Core) to verify`);
+  console.log(`${rows.length} ArchDaily / Dezeen items (Pending + Core) to verify`);
   let passed = 0, demoted = 0, coreUnverified = 0, errors = 0;
   const lines = [];
   for (const r of rows) {
     let res;
     try { res = await corroborate(r, { apiKey: process.env.ANTHROPIC_API_KEY, model: cfg.model }); }
     catch (e) { errors++; console.error(`  ! ${r.title.slice(0, 50)}: ${e.message}`); continue; }
-    const tag = res.ok ? `[Corroboration 2026-10-27: confirmed by ${res.outlets.map((o) => o.name).join(", ")}]` : `[Corroboration 2026-10-27: NOT confirmed — ${res.outlets.length} independent credible outlet(s) found${res.note ? `; ${res.note}` : ""}]`;
+    const tag = res.ok ? `[Corroboration ${new Date().toISOString().slice(0, 10)}: confirmed by ${res.outlets.map((o) => o.name).join(", ")}]` : `[Corroboration ${new Date().toISOString().slice(0, 10)}: NOT confirmed — ${res.outlets.length} independent credible outlet(s) found${res.note ? `; ${res.note}` : ""}]`;
     const props = { "AI Read": { rich_text: [{ type: "text", text: { content: `${tag} ${r.ai_read}`.slice(0, 1990) } }] } };
     if (!res.ok && r.status === "Pending") { props["Status"] = { select: { name: "Demoted" } }; demoted++; }
     if (!res.ok && r.status === "Core") coreUnverified++;
@@ -214,7 +214,7 @@ async function archdaily() {
     lines.push(`- ${res.ok ? "✅" : r.status === "Core" ? "⚠️ Core, unconfirmed" : "❌ demoted"} ${r.title} — ${res.outlets.map((o) => o.name).join(", ") || "no independent coverage"}`);
     await sleep(500);
   }
-  const msg = `ArchDaily corroboration: ${rows.length} checked → ${passed} confirmed by 2+ outlets, ${demoted} Pending demoted, ${coreUnverified} Core items unconfirmed (left as Core, flagged), ${errors} errors.`;
+  const msg = `Design-press corroboration (ArchDaily + Dezeen, credible-outlet list): ${rows.length} checked → ${passed} confirmed by 2+ outlets, ${demoted} Pending demoted, ${coreUnverified} Core items unconfirmed (left as Core, flagged), ${errors} errors.`;
   console.log(msg + "\n" + lines.join("\n"));
   if (process.env.GITHUB_STEP_SUMMARY) writeFileSync(process.env.GITHUB_STEP_SUMMARY, `### ${msg}\n\n${lines.join("\n")}\n`, { flag: "a" });
 }

@@ -130,7 +130,7 @@ async function reddit() {
 async function arxiv() {
   const out = [];
   for (const q of SRC.arxivQueries) {
-    const u = `https://export.arxiv.org/api/query?search_query=${encodeURIComponent(q)}&sortBy=submittedDate&sortOrder=descending&max_results=5`;
+    const u = `https://export.arxiv.org/api/query?search_query=${encodeURIComponent(q)}&sortBy=submittedDate&sortOrder=descending&max_results=3`;
     const xml = await get(u, false);
     if (!xml) continue;
     for (const entry of xml.split("<entry>").slice(1)) {
@@ -155,7 +155,7 @@ async function openalex() {
     // Credibility gate (Oct 2026, Kristen: "obscure non-credible journals are a no"): only works whose
     // venue is in OpenAlex's CORE set (established, indexed journals) are pulled. Conference papers,
     // repositories, preprint servers and unindexed/predatory journals are excluded at the source.
-    const u = `https://api.openalex.org/works?search=${encodeURIComponent(q)}&filter=from_publication_date:${from},primary_location.source.is_core:true&per-page=5&sort=publication_date:desc`;
+    const u = `https://api.openalex.org/works?search=${encodeURIComponent(q)}&filter=from_publication_date:${from},primary_location.source.is_core:true&per-page=3&sort=publication_date:desc`;
     const j = await get(u);
         for (const w of j?.results || []) {
                 const authorNames = (w.authorships || []).map((a) => a.author?.display_name).filter(Boolean);
@@ -198,7 +198,7 @@ async function rss() {
       const title = pick("title"), snippet = pick("description").slice(0, 300);
       const author = (pick("dc:creator") || pick("author")).slice(0, 120);
       // relevance gate (skipped when config.rssGate === false, since feeds are hand-picked idea sources)
-      if (CFG.rssGate !== false) {
+      if (CFG.rssGate !== false || f.gate) {   // general-news feeds carry gate:true so only built-environment-relevant stories pass
         const hay = (title + " " + snippet).toLowerCase();
         if (!SRC.relevanceKeywords.some((k) => hay.includes(k))) continue;
       }
@@ -401,6 +401,19 @@ if (capped.length && API_KEY) {
       }
       candidates = candidates.filter((c) => !drop.has(c));
       console.log(`  ArchDaily corroboration: ${needs.length} checked, ${status.corroboration.passed} kept, ${drop.size} dropped`);
+    }
+    // Academic cap (Oct 27, Kristen: "doi.org is a lot"): journal/preprint items may be at most
+    // ACADEMIC_SHARE of a run's candidates; the most novel are kept, the rest dropped.
+    {
+      const isAcad = (c) => /doi\.org|arxiv\.org|openalex\.org/i.test(c.url || "") || ["openalex", "arxiv"].includes(c.srctype);
+      const acad = candidates.filter(isAcad);
+      const cap = Math.max(1, Math.floor(candidates.length * (CFG.academicShare ?? 0.15)));
+      if (acad.length > cap) {
+        const rank = { High: 0, Medium: 1, Low: 2 };
+        const keep = new Set(acad.sort((a, b) => (rank[a.novelty] ?? 3) - (rank[b.novelty] ?? 3)).slice(0, cap));
+        candidates = candidates.filter((c) => !isAcad(c) || keep.has(c));
+        console.log(`  academic cap: kept ${cap} of ${acad.length} journal/preprint items`);
+      }
     }
     if (CFG.critique !== false) {
       console.log("Critique pass…");

@@ -4,14 +4,23 @@
 // project exists, not that anything is changing. This module asks Claude (with live web search)
 // to find independent coverage and returns the outlets it found.
 //
-// Credible = established news organisations, trade press with editorial standards, official /
-// government records, or peer-reviewed journals. NOT counted: other design-showcase sites, the
+// Credible = on the curated list in media-outlets.json (global wires, national papers of record across
+// regions, business press, trade press with editorial standards) or an official government domain. NOT counted: other design-showcase sites, the
 // architect's / developer's / brand's own channels, press-release wires, social media, Wikipedia,
 // or anything that is clearly a copy of the same press kit.
-export const NEEDS_CORROBORATION = /(^|\.)archdaily\.(com|cn|mx|com\.br)/i;
+import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import { dirname, join } from "node:path";
+// Design-showcase sources whose items must be independently corroborated (Kristen, Oct 27: ArchDaily, then Dezeen).
+export const NEEDS_CORROBORATION = /(^|\.)(archdaily\.(com|cn|mx|com\.br)|dezeen\.com)$/i;
+// Corroboration only counts outlets on the curated list of ~280 credible news / trade / official outlets.
+const MEDIA = JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), "media-outlets.json"), "utf8"));
+const ALLOW = new Set(Object.entries(MEDIA).filter(([k, v]) => Array.isArray(v) && k !== "official_suffixes").flatMap(([, v]) => v));
+const OFFICIAL = MEDIA.official_suffixes || [];
+export const isCredibleOutlet = (host) => { const h = host.replace(/^www\./, ""); return [...ALLOW].some((d) => h === d || h.endsWith("." + d)) || OFFICIAL.some((s) => h.endsWith(s)); };
 const SHOWCASE = /superfuture|gooood|architectsdiary|abirpothi|casadevalentina|archdaily|dezeen|designboom|architizer|archello|divisare|archdaily|yankodesign|inhabitat|designwanted|amazingarchitecture|world-architects|e-architect|arquitecturaviva|plataformaarquitectura|leibal|contemporist|homeadore|prnewswire|businesswire|globenewswire|wikipedia|instagram|linkedin|facebook|x\.com|twitter/i;
 
-const SYS = `You verify signals for a strategic-foresight library. Given an item first reported by a design-showcase website, use web search to find INDEPENDENT coverage of the same specific project, event or development by credible outlets: established news organisations, trade press with editorial standards, official/government records, or peer-reviewed journals.
+const SYS = `You verify signals for a strategic-foresight library. Given an item first reported by a design-showcase website, use web search to find INDEPENDENT coverage of the same specific project, event or development by credible outlets: major national or international news organisations (e.g. Reuters, Bloomberg, FT, NYT, Guardian, Le Monde, Nikkei, SCMP, The Hindu, The National, Folha), reputable regional papers of record, business or trade press with editorial standards, or official government records.
 Do NOT count: design-showcase or design-lifestyle sites (ArchDaily, Dezeen, Designboom, Architizer, Archello, Divisare, Superfuture, gooood, etc.), the architect's/developer's/brand's own website or channels, industry associations or award programmes promoting the project, personal or lifestyle blogs, press-release wires, social media, Wikipedia, or pages that merely copy the same press kit. When in doubt, do not count it.
 It must be the same specific thing (same project/place/organisation), not just the general topic.
 Search efficiently. Then reply with ONLY this JSON (no prose):
@@ -40,6 +49,7 @@ export async function corroborate(item, { apiKey, model, maxUses = 4 } = {}) {
     const u = String(o.url || "").replace(/[#?].*$/, "").replace(/\/+$/, "");
     const h = host(u);
     if (!h || SHOWCASE.test(h) || host(item.url) === h) continue;
+    if (!isCredibleOutlet(h)) continue;      // only outlets on the curated credible-media list count
     if (!seenHosts.has(h)) continue;          // outlet never appeared in the actual search results → ignore
     if (!byHost.has(h)) byHost.set(h, { name: o.name || h, url: o.url });
   }
