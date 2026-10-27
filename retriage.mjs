@@ -94,12 +94,18 @@ async function critiqueOnly(since, all = false) {
   const rows = []; let cursor;
   do {
     const j = await notion(`/databases/${DB}/query`, "POST", { page_size: 100, ...(cursor ? { start_cursor: cursor } : {}), filter: { and: [
-      { property: "Status", select: { equals: "Pending" } },
-      { or: [{ property: "Classification", select: { equals: "Weak signal" } }, { property: "Classification", select: { equals: "Wild card" } }] },
-      ...(all ? [] : [{ property: "Critique", rich_text: { is_empty: true } }]),
+      ...(all
+        // re-grade: everything still Pending, PLUS items the earlier (stricter) gauntlet demoted
+        ? [{ or: [
+            { and: [{ property: "Status", select: { equals: "Pending" } }, { or: [{ property: "Classification", select: { equals: "Weak signal" } }, { property: "Classification", select: { equals: "Wild card" } }] }] },
+            { and: [{ property: "Status", select: { equals: "Demoted" } }, { property: "Critique", rich_text: { starts_with: "DEMOTED" } }] },
+          ] }]
+        : [{ property: "Status", select: { equals: "Pending" } },
+           { or: [{ property: "Classification", select: { equals: "Weak signal" } }, { property: "Classification", select: { equals: "Wild card" } }] },
+           { property: "Critique", rich_text: { is_empty: true } }]),
       { timestamp: "created_time", created_time: { on_or_after: since } },
     ] } });
-    for (const p of j.results) { const P = p.properties; rows.push({ page_id: p.id, title: txt(P["Signal"]), shift: txt(P["What's changing"]), evidence: txt(P["Evidence"]).slice(0, 400), source: txt(P["Source"]), url: txt(P["Source URL"]), date: txt(P["Date Published"]), classification: txt(P["Classification"]), ai_read: txt(P["AI Read"]).replace(/^\[(R[123]|Critique)[^\]]*\]\s*/g, "") }); }
+    for (const p of j.results) { const P = p.properties; const wasDemoted = txt(P["Status"]) === "Demoted"; const cls = txt(P["Classification"]); rows.push({ page_id: p.id, was_demoted: wasDemoted, title: txt(P["Signal"]), shift: txt(P["What's changing"]), evidence: txt(P["Evidence"]).slice(0, 400), source: txt(P["Source"]), url: txt(P["Source URL"]), date: txt(P["Date Published"]), horizon: txt(P["Horizon"]), classification: cls === "Wild card" ? "Wild card" : "Weak signal", ai_read: txt(P["AI Read"]).replace(/^(\[(R[123]|Critique)[^\]]*\]\s*)+/g, "") }); }
     cursor = j.has_more ? j.next_cursor : null;
   } while (cursor);
   console.log(`${rows.length} ${all ? "" : "uncritiqued "}Pending weak signals / wild cards since ${since}`);
@@ -108,7 +114,9 @@ async function critiqueOnly(since, all = false) {
   for (const c of rows.filter((r) => r.critique)) {
     const props = { "Critique": { rich_text: [{ type: "text", text: { content: c.critique.slice(0, 1990) } }] }, "Weakness": { number: c.weakness } };
     if (["yes", "plausible", "no"].includes(String(c.first_claim).toLowerCase())) props["First?"] = { select: { name: String(c.first_claim).toLowerCase() } };
-    if (c.classification && c.classification !== c.original_classification) props["Classification"] = { select: { name: c.classification } };
+    props["Classification"] = { select: { name: c.classification } };
+    if (/^H[123]$/.test(c.horizon || "")) props["Horizon"] = { select: { name: c.horizon } };
+    if (!c.critique_demoted && c.was_demoted) { props["Status"] = { select: { name: "Pending" } }; props["AI Read"] = { rich_text: [{ type: "text", text: { content: c.ai_read.slice(0, 1990) } }] }; }
     if (c.critique_demoted) {
       props["Status"] = { select: { name: "Demoted" } };
       props["AI Read"] = { rich_text: [{ type: "text", text: { content: c.ai_read.slice(0, 1990) } }] };
@@ -117,7 +125,8 @@ async function critiqueOnly(since, all = false) {
     catch (e) { failed++; console.error(`  ! ${c.title.slice(0, 50)}: ${e.message}`); }
     await sleep(350);
   }
-  const msg = `Critique gauntlet: ${rows.length} items → R1 demoted ${stats.r1}, R2 demoted ${stats.r2}, R3 vetoed ${stats.r3} → ${stats.survived} survived 3/3 (${stats.missing} missing verdicts); ${written} pages written${failed ? `, ${failed} failed` : ""}.`;
+  const restored = rows.filter((r) => r.was_demoted && r.critique && !r.critique_demoted).length;
+  const msg = `Critique gauntlet: ${rows.length} items → demoted R1 ${stats.r1} / R2 ${stats.r2} / R3 noise ${stats.r3} → kept ${stats.survived} (${stats.edge} edge, ${stats.emerging} emerging H2, ${stats.established} established H1; ${restored} restored from Demoted). ${stats.missing} missing verdicts; ${written} pages written${failed ? `, ${failed} failed` : ""}.`;
   console.log(msg);
   if (process.env.GITHUB_STEP_SUMMARY) writeFileSync(process.env.GITHUB_STEP_SUMMARY, `### ${msg}\n`, { flag: "a" });
   if (failed) process.exitCode = 1;

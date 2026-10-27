@@ -12,7 +12,12 @@
 //   R3  VETO        A sceptical senior foresight practitioner + a retail real-estate executive.
 //                   Would either already know it, shrug, or call it noise? Does the title overstate?
 //
-// It can demote, never promote, never delete. Every verdict and reason is written to Critique.
+// v4 (Oct 26, Kristen: "only 6 passed from over a month, maybe be a bit more lenient — just acknowledging
+// they're H1 or H2"): the gauntlet now GRADES instead of only culling. Known-ness and the practitioner
+// read set the Horizon (EDGE keeps H2/H3, EMERGING → H2, ESTABLISHED → H1) and items stay in the queue.
+// Only hard fails are demoted: weak/non-credible source, no real physical-space stake, retrospective,
+// pure opinion/concept with nothing happening, near-universal knowledge (5-6/6 known), or noise.
+// It never deletes. Every verdict and reason is written to Critique.
 // Items are numbered 1..n within each chunk and mapped back by position; flat or nested JSON accepted.
 const TESTS = ["named", "codified", "counted", "mainstream", "multiple", "practitioners"];
 
@@ -28,19 +33,23 @@ Answer "yes", "no" or "unknown" (unknown is NOT yes). Also "first": yes|plausibl
 Return ONLY a JSON array, one object per candidate, same order, same number:
 {"n":1,"named":"","codified":"","counted":"","mainstream":"","multiple":"","practitioners":"","first":"","why":"max 25 words"}`;
 
-const R2 = `You are round 2 of 3 in an adversarial critique of a weak-signal library for a foresight lead studying how external forces reshape a mass-market retailer's physical stores and real estate. These candidates survived round 1 (not already well known). Now be hypercritical about SUBSTANCE. Demote if ANY of these is true:
+const R2 = `You are round 2 of 3 in an adversarial critique of a weak-signal library for a foresight lead studying how external forces reshape a mass-market retailer's physical stores and real estate. These candidates survived round 1. Now be hypercritical about SUBSTANCE (not novelty — novelty is graded later). Demote if ANY of these is true:
 - not_change: it is an opinion, essay, forecast, design concept, student project, lab/simulation result, literature review, survey of intentions, or product announcement with no real-world deployment — rather than something that has actually started happening (a deployment, law, contract, purchase, behaviour, price, failure, closure, first instance).
 - weak_source: the only evidence is a low-credibility venue (preprint server, unindexed or predatory journal, anonymous forum post with no linked evidence, press release), or the summary overstates the source.
 - no_stake: the link to physical space (stores, buildings, sites, logistics, real estate, labour in those places) is strained or invented.
 - retrospective: it reinterprets the past rather than showing something new.
+Note: a credible study, measurement, pilot or proposal tied to a real place counts as something happening — do NOT demote it as not_change. Reserve not_change for pure opinion, concept renders, student projects and speculation.
 Return ONLY a JSON array, one object per candidate, same order, same number:
 {"n":1,"verdict":"keep|demote","reason":"not_change|weak_source|no_stake|retrospective|ok","why":"max 25 words"}`;
 
-const R3 = `You are round 3 of 3 — the final veto — on a weak-signal library. Two hostile reviewers read each surviving candidate: (a) a sceptical senior strategic-foresight practitioner who has read every trend report, and (b) a retail real-estate executive who runs 1,000+ stores. Be hypercritical. Demote unless BOTH would find it genuinely new AND unsettling enough to change a question they ask about stores or property in the next 3-15 years.
-Demote if: either reviewer would say "we know", "so what", "that's noise", or "that's a one-off curiosity"; the headline claims more than the evidence; or it is a minor variation of a well-known trend. Keep only real edges.
-For kept items say what kind: "Weak signal" (early, little-known, plausible) or "Wild card" (low-probability, high-impact).
+const R3 = `You are round 3 of 3 on a weak-signal library. Two hostile reviewers read each candidate: (a) a sceptical senior strategic-foresight practitioner who has read every trend report, and (b) a retail real-estate executive who runs 1,000+ stores. Be honest and hard-nosed, but GRADE rather than reject: place each item on the Three Horizons.
+- "edge": BOTH reviewers would find it genuinely new and unsettling — a true weak signal or wild card (keep its horizon, H2 or H3).
+- "emerging": known to specialists or early movers but not yet mainstream practice; a real shift gaining ground (H2).
+- "established": both reviewers already know it — part of today's operating picture (H1).
+- "noise": a one-off curiosity, PR stunt or non-event with no plausible consequence.
+Also flag "overstated": true if the headline claims more than the evidence.
 Return ONLY a JSON array, one object per candidate, same order, same number:
-{"n":1,"verdict":"keep|demote","class":"Weak signal|Wild card|Trend|Noise","why":"max 25 words: what the reviewers would say"}`;
+{"n":1,"grade":"edge|emerging|established|noise","class":"Weak signal|Wild card","overstated":false,"why":"max 25 words: what the reviewers would say"}`;
 
 async function ask(apiKey, model, sys, user) {
   const res = await fetch("https://api.anthropic.com/v1/messages", {
@@ -92,12 +101,12 @@ function demote(c, cls, note) {
 // The WILD scan is deliberately domain-agnostic, so for it the physical-space stake test is dropped
 // and the round-3 reviewers judge novelty for a general foresight practitioner instead.
 const wildR2 = (s) => s.replace(/- no_stake:[^\n]*\n/, "");
-const wildR3 = (s) => s.replace("and (b) a retail real-estate executive who runs 1,000+ stores", "and (b) a well-read futurist").replace("enough to change a question they ask about stores or property in the next 3-15 years", "enough to change how they think about the next 3-15 years");
+const wildR3 = (s) => s.replace("and (b) a retail real-estate executive who runs 1,000+ stores", "and (b) a well-read futurist");
 export async function critiquePass(cands, opts = {}) {
   const r2 = opts.wild ? wildR2(R2) : R2, r3 = opts.wild ? wildR3(R3) : R3;
   const pool = cands.filter((c) => c.classification === "Weak signal" || c.classification === "Wild card");
   const log = new Map(pool.map((c) => [c, []]));
-  const stats = { checked: 0, demoted: 0, missing: 0, r1: 0, r2: 0, r3: 0, survived: 0 };
+  const stats = { checked: 0, demoted: 0, missing: 0, r1: 0, r2: 0, r3: 0, survived: 0, edge: 0, emerging: 0, established: 0 };
 
   // ---- R1: known? ----
   stats.missing += await round(pool, R1, opts, (c, r) => {
@@ -107,8 +116,9 @@ export async function critiquePass(cands, opts = {}) {
     c.weakness = vals.filter((v) => v === "no").length;
     c.first_claim = r.first || c.first_claim;
     c._r1 = true;
-    log.get(c).push(`R1 ${yes >= 2 ? "DEMOTE" : "KEEP"} (${yes}/6 known) ${r.why || ""} [${TESTS.map((x, i) => `${x}:${vals[i]}`).join(" ")}]`);
-    if (yes >= 2) { demote(c, "Trend", `R1 demoted — already known: ${r.why || ""}`); stats.r1++; }
+    c._known = yes;
+    log.get(c).push(`R1 ${yes >= 5 ? "DEMOTE" : "KEEP"} (${yes}/6 known) ${r.why || ""} [${TESTS.map((x, i) => `${x}:${vals[i]}`).join(" ")}]`);
+    if (yes >= 5) { demote(c, "Trend", `R1 demoted — widely known (${yes}/6): ${r.why || ""}`); stats.r1++; }
   }, "R1");
   const s1 = pool.filter((c) => c._r1 && !c.critique_demoted);
 
@@ -124,10 +134,17 @@ export async function critiquePass(cands, opts = {}) {
   // ---- R3: practitioner veto ----
   stats.missing += await round(s2, r3, opts, (c, r) => {
     c._r3 = true;
-    const bad = String(r.verdict).toLowerCase() === "demote";
-    log.get(c).push(`R3 ${bad ? "DEMOTE" : "KEEP"} ${r.class ? `(${r.class}) ` : ""}${r.why || ""}`);
-    if (bad) { demote(c, r.class === "Noise" ? "Hype" : "Trend", `R3 vetoed: ${r.why || ""}`); stats.r3++; }
-    else if (r.class === "Weak signal" || r.class === "Wild card") c.classification = r.class;
+    let grade = String(r.grade || "").toLowerCase();
+    if (!["edge", "emerging", "established", "noise"].includes(grade)) grade = "emerging";
+    // R1 known-ness caps how "edge" an item can be: 3-4/6 known can't be an edge.
+    if (grade === "edge" && c._known >= 3) grade = "emerging";
+    if (grade !== "noise" && c._known >= 4) grade = "established";
+    c.grade = grade;
+    log.get(c).push(`R3 ${grade.toUpperCase()}${r.overstated ? " ⚠ headline overstates evidence" : ""} — ${r.why || ""}`);
+    if (grade === "noise") { demote(c, "Hype", `R3 noise: ${r.why || ""}`); stats.r3++; return; }
+    if (grade === "edge") { if (r.class === "Weak signal" || r.class === "Wild card") c.classification = r.class; if (!/^H[23]$/.test(c.horizon || "")) c.horizon = "H2"; stats.edge++; }
+    else if (grade === "emerging") { c.horizon = "H2"; stats.emerging++; }
+    else { c.horizon = "H1"; stats.established++; }
   }, "R3");
 
   for (const c of pool) {
@@ -135,12 +152,13 @@ export async function critiquePass(cands, opts = {}) {
     if (!lines.length) continue;
     const survived = c._r3 && !c.critique_demoted;
     if (survived) stats.survived++;
-    c.critique = `${survived ? "SURVIVED 3/3" : "DEMOTED"} — ` + lines.join(" | ");
+    const label = !survived ? "DEMOTED" : c.grade === "edge" ? "EDGE — survived 3/3" : c.grade === "emerging" ? "EMERGING (H2)" : "ESTABLISHED (H1)";
+    c.critique = `${label} — ` + lines.join(" | ");
     if (c.critique_demoted) stats.demoted++;
     stats.checked++;
-    delete c._r1; delete c._r2; delete c._r3;
+    delete c._r1; delete c._r2; delete c._r3; delete c._known;
   }
   if (stats.missing) console.error(`  critique: ${stats.missing} verdict(s) missing`);
-  console.log(`  critique gauntlet: ${pool.length} in → R1 demoted ${stats.r1}, R2 demoted ${stats.r2}, R3 vetoed ${stats.r3} → ${stats.survived} survived all three`);
+  console.log(`  critique gauntlet: ${pool.length} in → demoted R1 ${stats.r1} / R2 ${stats.r2} / R3 noise ${stats.r3} → kept ${stats.survived}: ${stats.edge} edge, ${stats.emerging} emerging (H2), ${stats.established} established (H1)`);
   return stats;
 }
