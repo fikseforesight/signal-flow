@@ -1,34 +1,52 @@
-// Signal Flow — the critique pass (adversarial demotion gate). Shared by scan.mjs and retriage.mjs.
-// Oct 2026: the first pass is told to widen, and an AI that widens also over-rates its own finds —
-// in a manual audit of 253 kept items, only 27 survived as genuine firsts/weak signals. So every
-// Weak signal / Wild card goes through a second, hostile pass whose only job is to prove the item
-// is already known, using Kristen's six-question demotion bar. It can demote (to Trend), never
-// promote, never delete.
+// Signal Flow — the critique gauntlet (adversarial demotion). Shared by scan.mjs and retriage.mjs.
 //
-// v2 (Oct 26): items are numbered 1..n WITHIN each chunk and mapped back by position, and both
-// nested and flat test layouts are accepted. v1 passed global ids and required a nested "tests"
-// object; the model often renumbered or flattened, so most items silently got no critique.
+// Why: the first pass is told to widen, and an AI that widens over-rates its own finds (a manual
+// audit of 253 kept items found only 27 genuine firsts/weak signals). Kristen, Oct 26 2026: "take a
+// pass at signals 3 times over. Be hypercritical." So every Weak signal / Wild card now has to
+// survive THREE independent hostile rounds. Each round sees only the previous round's survivors.
+//
+//   R1  KNOWN?      Six-test demotion bar. 2+ "yes" = already known → Trend.
+//   R2  SUBSTANCE   Is it an actual change in the world (deployment, law, contract, behaviour,
+//                   price, failure) — not an opinion, forecast, design concept, lab result or
+//                   literature review? Is the source credible? Is the physical-space stake real?
+//   R3  VETO        A sceptical senior foresight practitioner + a retail real-estate executive.
+//                   Would either already know it, shrug, or call it noise? Does the title overstate?
+//
+// It can demote, never promote, never delete. Every verdict and reason is written to Critique.
+// Items are numbered 1..n within each chunk and mapped back by position; flat or nested JSON accepted.
 const TESTS = ["named", "codified", "counted", "mainstream", "multiple", "practitioners"];
-const SYS = `You are the adversarial critique analyst for a strategic-foresight weak-signal library. Default posture: DEMOTION. For each candidate, actively try to prove it has ALREADY cleared the weak-signal bar — i.e. that it is a known, named, counted thing.
 
-Weakness = how LITTLE-KNOWN a change is, not how strange it sounds. Answer six tests for each, using your own knowledge plus the evidence given:
+const R1 = `You are round 1 of 3 in an adversarial critique of a strategic-foresight weak-signal library. Default posture: DEMOTION. Be hypercritical.
+Weakness = how LITTLE-KNOWN a change is, not how strange it sounds. For each numbered candidate answer six tests from your own knowledge plus the evidence:
 named: does the shift already have a coined, widely-used name?
 codified: is it backed by law, standard, code, or formal programme in more than one place?
 counted: is there survey, market or analyst data quantifying it?
-mainstream: has it had mainstream national/international press (not trade press) coverage?
-multiple: are there multiple independent instances (3+), not one?
-practitioners: do practitioners in the field already use a trend name for it?
-Answer each "yes", "no" or "unknown". Use "unknown" honestly when you cannot tell (e.g. after your knowledge cutoff) — unknown is NOT yes.
+mainstream: has it had mainstream national/international press (not trade press)?
+multiple: are there 3+ independent instances?
+practitioners: do practitioners already use a trend name for it?
+Answer "yes", "no" or "unknown" (unknown is NOT yes). Also "first": yes|plausible|no — credibly a world/national/major-market first?
+Return ONLY a JSON array, one object per candidate, same order, same number:
+{"n":1,"named":"","codified":"","counted":"","mainstream":"","multiple":"","practitioners":"","first":"","why":"max 25 words"}`;
 
-Also judge "first": is this credibly a world/national/major-market FIRST? (yes|plausible|no). Flag "mismatch": true if the title claims more than the evidence supports.
-Return ONLY a JSON array with EXACTLY one object per numbered candidate, in the same order, using the SAME number given:
-{"n": <the number given>, "named":"yes|no|unknown", "codified":"", "counted":"", "mainstream":"", "multiple":"", "practitioners":"", "first":"yes|plausible|no", "mismatch": false, "why": "max 30 words: strongest reason it is or is not already known"}`;
+const R2 = `You are round 2 of 3 in an adversarial critique of a weak-signal library for a foresight lead studying how external forces reshape a mass-market retailer's physical stores and real estate. These candidates survived round 1 (not already well known). Now be hypercritical about SUBSTANCE. Demote if ANY of these is true:
+- not_change: it is an opinion, essay, forecast, design concept, student project, lab/simulation result, literature review, survey of intentions, or product announcement with no real-world deployment — rather than something that has actually started happening (a deployment, law, contract, purchase, behaviour, price, failure, closure, first instance).
+- weak_source: the only evidence is a low-credibility venue (preprint server, unindexed or predatory journal, anonymous forum post with no linked evidence, press release), or the summary overstates the source.
+- no_stake: the link to physical space (stores, buildings, sites, logistics, real estate, labour in those places) is strained or invented.
+- retrospective: it reinterprets the past rather than showing something new.
+Return ONLY a JSON array, one object per candidate, same order, same number:
+{"n":1,"verdict":"keep|demote","reason":"not_change|weak_source|no_stake|retrospective|ok","why":"max 25 words"}`;
 
-async function ask(apiKey, model, user) {
+const R3 = `You are round 3 of 3 — the final veto — on a weak-signal library. Two hostile reviewers read each surviving candidate: (a) a sceptical senior strategic-foresight practitioner who has read every trend report, and (b) a retail real-estate executive who runs 1,000+ stores. Be hypercritical. Demote unless BOTH would find it genuinely new AND unsettling enough to change a question they ask about stores or property in the next 3-15 years.
+Demote if: either reviewer would say "we know", "so what", "that's noise", or "that's a one-off curiosity"; the headline claims more than the evidence; or it is a minor variation of a well-known trend. Keep only real edges.
+For kept items say what kind: "Weak signal" (early, little-known, plausible) or "Wild card" (low-probability, high-impact).
+Return ONLY a JSON array, one object per candidate, same order, same number:
+{"n":1,"verdict":"keep|demote","class":"Weak signal|Wild card|Trend|Noise","why":"max 25 words: what the reviewers would say"}`;
+
+async function ask(apiKey, model, sys, user) {
   const res = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
     headers: { "content-type": "application/json", "x-api-key": apiKey, "anthropic-version": "2023-06-01" },
-    body: JSON.stringify({ model, max_tokens: 12000, system: SYS, messages: [{ role: "user", content: user }] }),
+    body: JSON.stringify({ model, max_tokens: 12000, system: sys, messages: [{ role: "user", content: user }] }),
   });
   if (!res.ok) throw new Error(`Anthropic API ${res.status}: ${(await res.text()).slice(0, 200)}`);
   const j = await res.json();
@@ -38,40 +56,86 @@ async function ask(apiKey, model, user) {
   return JSON.parse(m[0]);
 }
 
-export async function critiquePass(cands, { apiKey, model, chunkSize = 20 } = {}) {
-  const pool = cands.filter((c) => c.classification === "Weak signal" || c.classification === "Wild card");
-  let checked = 0, demoted = 0, missing = 0;
-  for (let s = 0; s < pool.length; s += chunkSize) {
-    const chunk = pool.slice(s, s + chunkSize);
-    const user = chunk.map((c, k) => `${k + 1}. ${c.title} — shift: ${c.shift || ""} — evidence: ${c.evidence || ""} — source: ${c.source || ""} (${c.date || ""})`).join("\n");
+// Run one round over items; calls onResult(item, resultObject) for each matched answer.
+async function round(items, sys, opts, onResult, label) {
+  const size = opts.chunkSize || 20;
+  let missing = 0;
+  for (let s = 0; s < items.length; s += size) {
+    const chunk = items.slice(s, s + size);
+    const user = chunk.map((c, k) => `${k + 1}. ${c.title} — shift: ${c.shift || ""} — evidence: ${c.evidence || ""} — source: ${c.source || ""} (${c.date || ""})${c.url ? ` — ${c.url}` : ""}`).join("\n");
     let arr = null;
     for (let attempt = 1; attempt <= 3 && !arr; attempt++) {
-      try { arr = await ask(apiKey, model, user); }
-      catch (e) { console.error(`  critique chunk ${s / chunkSize + 1} attempt ${attempt} failed: ${e.message}`); await new Promise((r) => setTimeout(r, 4000 * attempt)); }
+      try { arr = await ask(opts.apiKey, opts.model, sys, user); }
+      catch (e) { console.error(`  ${label} chunk ${s / size + 1} attempt ${attempt} failed: ${e.message}`); await new Promise((r) => setTimeout(r, 4000 * attempt)); }
     }
     if (!arr) { missing += chunk.length; continue; }
+    const done = new Set();
     arr.forEach((r, pos) => {
       const k = Number(r.n ?? r.id ?? r.number) - 1;
-      const c = chunk[Number.isInteger(k) && k >= 0 && k < chunk.length ? k : pos];
-      if (!c || c.critique) return;
-      const t = r.tests && typeof r.tests === "object" ? r.tests : r;
-      const vals = TESTS.map((x) => String(t[x] ?? "unknown").toLowerCase());
-      if (vals.every((v) => v === "unknown") && !r.tests && !(TESTS[0] in r)) return; // nothing usable
-      const yes = vals.filter((v) => v === "yes").length;
-      const unknown = vals.filter((v) => v === "unknown").length;
-      c.weakness = vals.filter((v) => v === "no").length; // 6 = no trace of it being known; 0 = established
-      c.first_claim = r.first || c.first_claim;
-      c.critique = `${yes >= 3 ? "DEMOTE" : "KEEP"} (${yes}/6 known${unknown ? `, ${unknown} unknown` : ""}) — ${r.why || ""} [${TESTS.map((x, i) => `${x}:${vals[i]}`).join(" ")}]${r.mismatch ? " ⚠ title overstates evidence" : ""}`;
-      if (yes >= 3) {
-        c.original_classification = c.classification;
-        c.classification = "Trend";
-        c.ai_read = `[Critique demoted: ${r.why || "already known"}] ` + (c.ai_read || "");
-        demoted++;
-      }
-      checked++;
+      const idx = Number.isInteger(k) && k >= 0 && k < chunk.length && !done.has(k) ? k : pos;
+      if (idx >= chunk.length || done.has(idx)) return;
+      done.add(idx);
+      onResult(chunk[idx], r);
     });
-    missing += chunk.filter((c) => !c.critique).length;
+    missing += chunk.length - done.size;
   }
-  if (missing) console.error(`  critique: ${missing} item(s) got no usable verdict`);
-  return { checked, demoted, missing };
+  return missing;
+}
+
+function demote(c, cls, note) {
+  if (!c.original_classification) c.original_classification = c.classification;
+  c.classification = cls;               // Trend / Hype — push-to-notion files these as Demoted
+  c.critique_demoted = true;
+  c.ai_read = `[${note}] ` + (c.ai_read || "");
+}
+
+export async function critiquePass(cands, opts = {}) {
+  const pool = cands.filter((c) => c.classification === "Weak signal" || c.classification === "Wild card");
+  const log = new Map(pool.map((c) => [c, []]));
+  const stats = { checked: 0, demoted: 0, missing: 0, r1: 0, r2: 0, r3: 0, survived: 0 };
+
+  // ---- R1: known? ----
+  stats.missing += await round(pool, R1, opts, (c, r) => {
+    const t = r.tests && typeof r.tests === "object" ? r.tests : r;
+    const vals = TESTS.map((x) => String(t[x] ?? "unknown").toLowerCase());
+    const yes = vals.filter((v) => v === "yes").length;
+    c.weakness = vals.filter((v) => v === "no").length;
+    c.first_claim = r.first || c.first_claim;
+    c._r1 = true;
+    log.get(c).push(`R1 ${yes >= 2 ? "DEMOTE" : "KEEP"} (${yes}/6 known) ${r.why || ""} [${TESTS.map((x, i) => `${x}:${vals[i]}`).join(" ")}]`);
+    if (yes >= 2) { demote(c, "Trend", `R1 demoted — already known: ${r.why || ""}`); stats.r1++; }
+  }, "R1");
+  const s1 = pool.filter((c) => c._r1 && !c.critique_demoted);
+
+  // ---- R2: substance, source, stake ----
+  stats.missing += await round(s1, R2, opts, (c, r) => {
+    c._r2 = true;
+    const bad = String(r.verdict).toLowerCase() === "demote";
+    log.get(c).push(`R2 ${bad ? "DEMOTE" : "KEEP"} (${r.reason || "?"}) ${r.why || ""}`);
+    if (bad) { demote(c, r.reason === "weak_source" || r.reason === "not_change" ? "Hype" : "Trend", `R2 demoted — ${r.reason}: ${r.why || ""}`); stats.r2++; }
+  }, "R2");
+  const s2 = s1.filter((c) => c._r2 && !c.critique_demoted);
+
+  // ---- R3: practitioner veto ----
+  stats.missing += await round(s2, R3, opts, (c, r) => {
+    c._r3 = true;
+    const bad = String(r.verdict).toLowerCase() === "demote";
+    log.get(c).push(`R3 ${bad ? "DEMOTE" : "KEEP"} ${r.class ? `(${r.class}) ` : ""}${r.why || ""}`);
+    if (bad) { demote(c, r.class === "Noise" ? "Hype" : "Trend", `R3 vetoed: ${r.why || ""}`); stats.r3++; }
+    else if (r.class === "Weak signal" || r.class === "Wild card") c.classification = r.class;
+  }, "R3");
+
+  for (const c of pool) {
+    const lines = log.get(c);
+    if (!lines.length) continue;
+    const survived = c._r3 && !c.critique_demoted;
+    if (survived) stats.survived++;
+    c.critique = `${survived ? "SURVIVED 3/3" : "DEMOTED"} — ` + lines.join(" | ");
+    if (c.critique_demoted) stats.demoted++;
+    stats.checked++;
+    delete c._r1; delete c._r2; delete c._r3;
+  }
+  if (stats.missing) console.error(`  critique: ${stats.missing} verdict(s) missing`);
+  console.log(`  critique gauntlet: ${pool.length} in → R1 demoted ${stats.r1}, R2 demoted ${stats.r2}, R3 vetoed ${stats.r3} → ${stats.survived} survived all three`);
+  return stats;
 }

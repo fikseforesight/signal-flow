@@ -10,6 +10,7 @@
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { buildProps, buildBody, ensureSchema, notion, normUrl } from "./push-to-notion.mjs";
 import { critiquePass } from "./critique.mjs";
+import { isNonCredibleUrl, isNonCredibleSource, openalexCore } from "./credibility.mjs";
 
 const [mode, feed] = process.argv.slice(2);
 const DB = process.env.NOTION_DATABASE_ID;
@@ -87,7 +88,7 @@ async function apply() {
 // one (e.g. v1 of the pass silently skipped most items). Writes Critique, Weakness, First?; demotes
 // to Trend + Status Demoted where 3+ tests say it's already known. Never touches Core/Context.
 //   node retriage.mjs critique <since YYYY-MM-DD>
-async function critiqueOnly(since) {
+async function critiqueOnly(since, all = false) {
   const cfg = JSON.parse(readFileSync("sources.json", "utf8")).config;
   await ensureSchema();
   const rows = []; let cursor;
@@ -95,20 +96,20 @@ async function critiqueOnly(since) {
     const j = await notion(`/databases/${DB}/query`, "POST", { page_size: 100, ...(cursor ? { start_cursor: cursor } : {}), filter: { and: [
       { property: "Status", select: { equals: "Pending" } },
       { or: [{ property: "Classification", select: { equals: "Weak signal" } }, { property: "Classification", select: { equals: "Wild card" } }] },
-      { property: "Critique", rich_text: { is_empty: true } },
+      ...(all ? [] : [{ property: "Critique", rich_text: { is_empty: true } }]),
       { timestamp: "created_time", created_time: { on_or_after: since } },
     ] } });
-    for (const p of j.results) { const P = p.properties; rows.push({ page_id: p.id, title: txt(P["Signal"]), shift: txt(P["What's changing"]), evidence: txt(P["Evidence"]).slice(0, 400), source: txt(P["Source"]), date: txt(P["Date Published"]), classification: txt(P["Classification"]), ai_read: txt(P["AI Read"]) }); }
+    for (const p of j.results) { const P = p.properties; rows.push({ page_id: p.id, title: txt(P["Signal"]), shift: txt(P["What's changing"]), evidence: txt(P["Evidence"]).slice(0, 400), source: txt(P["Source"]), url: txt(P["Source URL"]), date: txt(P["Date Published"]), classification: txt(P["Classification"]), ai_read: txt(P["AI Read"]).replace(/^\[(R[123]|Critique)[^\]]*\]\s*/g, "") }); }
     cursor = j.has_more ? j.next_cursor : null;
   } while (cursor);
-  console.log(`${rows.length} uncritiqued Pending weak signals / wild cards since ${since}`);
+  console.log(`${rows.length} ${all ? "" : "uncritiqued "}Pending weak signals / wild cards since ${since}`);
   const stats = await critiquePass(rows, { apiKey: process.env.ANTHROPIC_API_KEY, model: cfg.critiqueModel || cfg.model });
   let written = 0, failed = 0;
   for (const c of rows.filter((r) => r.critique)) {
     const props = { "Critique": { rich_text: [{ type: "text", text: { content: c.critique.slice(0, 1990) } }] }, "Weakness": { number: c.weakness } };
     if (["yes", "plausible", "no"].includes(String(c.first_claim).toLowerCase())) props["First?"] = { select: { name: String(c.first_claim).toLowerCase() } };
-    if (c.original_classification) {
-      props["Classification"] = { select: { name: "Trend" } };
+    if (c.classification && c.classification !== c.original_classification) props["Classification"] = { select: { name: c.classification } };
+    if (c.critique_demoted) {
       props["Status"] = { select: { name: "Demoted" } };
       props["AI Read"] = { rich_text: [{ type: "text", text: { content: c.ai_read.slice(0, 1990) } }] };
     }
@@ -116,13 +117,56 @@ async function critiqueOnly(since) {
     catch (e) { failed++; console.error(`  ! ${c.title.slice(0, 50)}: ${e.message}`); }
     await sleep(350);
   }
-  const msg = `Critique-only: ${rows.length} items, ${stats.checked} critiqued, ${stats.demoted} demoted to Trend, ${stats.missing} no verdict; ${written} pages written${failed ? `, ${failed} failed` : ""}.`;
+  const msg = `Critique gauntlet: ${rows.length} items → R1 demoted ${stats.r1}, R2 demoted ${stats.r2}, R3 vetoed ${stats.r3} → ${stats.survived} survived 3/3 (${stats.missing} missing verdicts); ${written} pages written${failed ? `, ${failed} failed` : ""}.`;
   console.log(msg);
   if (process.env.GITHUB_STEP_SUMMARY) writeFileSync(process.env.GITHUB_STEP_SUMMARY, `### ${msg}\n`, { flag: "a" });
   if (failed) process.exitCode = 1;
 }
 
-if (mode === "critique") await critiqueOnly(feed || "2026-10-01");
+// CREDIBILITY MODE: demote Pending items whose only source is a preprint server or a journal outside
+// OpenAlex's CORE set (unindexed / predatory). Reversible: Status → Demoted with a note.
+async function credibility(since) {
+  const rows = []; let cursor;
+  do {
+    const j = await notion(`/databases/${DB}/query`, "POST", { page_size: 100, ...(cursor ? { start_cursor: cursor } : {}), filter: { and: [
+      { property: "Status", select: { equals: "Pending" } },
+      { timestamp: "created_time", created_time: { on_or_after: since } },
+    ] } });
+    for (const p of j.results) { const P = p.properties; rows.push({ page_id: p.id, title: txt(P["Signal"]), url: txt(P["Source URL"]), source: txt(P["Source"]), type: txt(P["Source Type"]), ai_read: txt(P["AI Read"]) }); }
+    cursor = j.has_more ? j.next_cursor : null;
+  } while (cursor);
+  const bad = new Map();
+  for (const r of rows) {
+    if (isNonCredibleUrl(normUrl(r.url)) || isNonCredibleSource(r.source)) bad.set(r.page_id, `preprint / low-credibility host (${r.source || r.url})`);
+  }
+  const dois = rows.filter((r) => !bad.has(r.page_id) && /doi\.org\/10\./i.test(r.url)).map((r) => ({ r, doi: "https://doi.org/" + r.url.split(/doi\.org\//i)[1].toLowerCase() }));
+  const core = await openalexCore([...new Set(dois.map((d) => d.doi))]);
+  for (const { r, doi } of dois) {
+    const v = core.get(doi);
+    if (!v) bad.set(r.page_id, `venue not found in OpenAlex (${r.source})`);
+    else if (!v.core) bad.set(r.page_id, `not a core peer-reviewed journal (${v.venue})`);
+  }
+  let written = 0, failed = 0;
+  for (const r of rows) {
+    const why = bad.get(r.page_id);
+    if (!why) continue;
+    try {
+      await notion(`/pages/${r.page_id}`, "PATCH", { properties: {
+        "Status": { select: { name: "Demoted" } },
+        "AI Read": { rich_text: [{ type: "text", text: { content: (`[Credibility gate 2026-10-26: ${why}] ` + r.ai_read).slice(0, 1990) } }] },
+      } });
+      written++;
+    } catch (e) { failed++; console.error(`  ! ${r.title.slice(0, 50)}: ${e.message}`); }
+    await sleep(350);
+  }
+  const msg = `Credibility gate: ${rows.length} Pending items checked, ${dois.length} DOIs looked up, ${bad.size} demoted (${written} written${failed ? `, ${failed} failed` : ""}).`;
+  console.log(msg);
+  if (process.env.GITHUB_STEP_SUMMARY) writeFileSync(process.env.GITHUB_STEP_SUMMARY, `### ${msg}\n`, { flag: "a" });
+}
+
+if (mode === "credibility") await credibility(feed || "2026-01-01");
+else if (mode === "critique") await critiqueOnly(feed || "2026-10-01");
+else if (mode === "recritique") await critiqueOnly(feed || "2026-10-01", true);
 else if (mode === "fetch") await fetchRaw();
 else if (mode === "apply") await apply();
 else { console.error("usage: node retriage.mjs fetch|apply daily|wild"); process.exit(1); }

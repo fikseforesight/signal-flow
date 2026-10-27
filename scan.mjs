@@ -27,6 +27,7 @@ const DATA = ROOT;
 const API_KEY = process.env.ANTHROPIC_API_KEY;
 // Sources Kristen has ruled out as signal sources (Oct 2026: ArchDaily — project showcases, not change).
 const BLOCKED = (CFG.blockedDomains || []).map((d) => d.toLowerCase().replace(/^www\./, ""));
+import { NONCREDIBLE } from "./credibility.mjs";
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const today = new Date().toISOString().slice(0, 10);
@@ -150,7 +151,10 @@ async function openalex() {
   const out = [];
   const from = new Date(Date.now() - 7 * 864e5).toISOString().slice(0, 10);
   for (const q of SRC.openalexQueries) {
-    const u = `https://api.openalex.org/works?search=${encodeURIComponent(q)}&filter=from_publication_date:${from}&per-page=5&sort=publication_date:desc`;
+    // Credibility gate (Oct 2026, Kristen: "obscure non-credible journals are a no"): only works whose
+    // venue is in OpenAlex's CORE set (established, indexed journals) are pulled. Conference papers,
+    // repositories, preprint servers and unindexed/predatory journals are excluded at the source.
+    const u = `https://api.openalex.org/works?search=${encodeURIComponent(q)}&filter=from_publication_date:${from},primary_location.source.is_core:true&per-page=5&sort=publication_date:desc`;
     const j = await get(u);
         for (const w of j?.results || []) {
                 const authorNames = (w.authorships || []).map((a) => a.author?.display_name).filter(Boolean);
@@ -351,6 +355,7 @@ for (const it of results) {
   if (!k || !it.title || (!RAW_INPUT && seen.has(k)) || inBatch.has(k)) continue;
   if (BLOCKED.some((d) => k.startsWith(d) || k.includes("." + d))) continue; // blocked sources (e.g. ArchDaily)
   if (/\/spons\/|\/sponsored\//.test(k)) continue;                               // paid/sponsored posts are not signals
+  if (NONCREDIBLE.some((d) => k.startsWith(d) || k.includes("." + d))) continue;     // preprint servers / predatory venues
   const ck = claimKey(it.title);
   if (ck && ((!RAW_INPUT && seen.has(ck)) || inBatch.has(ck))) continue;
   inBatch.add(k);
@@ -380,7 +385,7 @@ if (capped.length && API_KEY) {
     if (CFG.critique !== false) {
       console.log("Critique pass…");
       status.critique = await critiquePass(candidates);
-      console.log(`  critique: ${status.critique.checked} checked, ${status.critique.demoted} demoted to Trend`);
+      console.log(`  critique: ${status.critique.checked} checked, ${status.critique.demoted} demoted, ${status.critique.survived} survived 3/3`);
     }
   } catch (err) {
     status.ai = "failed"; status.error = err.message.slice(0, 400);

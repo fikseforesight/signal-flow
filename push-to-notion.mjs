@@ -102,7 +102,7 @@ function buildProps(c, feed) {
   const origins = [...new Set([c.steep, c.steep2].filter((s) => STEEP_VALID.has(s)))].map((n) => ({ name: n }));
   const themes = asArray(c.themes).slice(0, 25).map((n) => ({ name: String(n).slice(0, 90) }));
   const keywords = asArray(c.keywords).slice(0, 25).map((n) => ({ name: String(n).slice(0, 90) }));
-  const isRuleout = c.classification === "Trend" || c.classification === "Hype";
+  const isRuleout = c.classification === "Trend" || c.classification === "Hype" || c.critique_demoted === true;
   const p = {
     "Signal": { title: rt(c.title || "(untitled)") },
     "Signal ID": { rich_text: rt(signalId(c)) },
