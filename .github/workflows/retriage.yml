@@ -15,6 +15,7 @@ on:
           - backlog
           - credibility + recritique
           - critique-missing
+          - archdaily corroboration
       since:
         description: "Credibility / critique: items created on/after (YYYY-MM-DD)"
         default: "2026-10-01"
@@ -46,6 +47,9 @@ jobs:
       - name: Three-round critique (all Pending weak signals / wild cards)
         if: ${{ inputs.task == 'credibility + recritique' }}
         run: node retriage.mjs recritique "${{ inputs.since }}"
+      - name: ArchDaily corroboration (2+ independent credible outlets)
+        if: ${{ inputs.task == 'archdaily corroboration' }}
+        run: node retriage.mjs archdaily
       - name: Critique items that have none
         if: ${{ inputs.task == 'critique-missing' }}
         run: node retriage.mjs critique "${{ inputs.since }}"
